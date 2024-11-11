@@ -1,0 +1,14 @@
+<div class="app-container" *ngIf="collectionStructure$ | async as collectionStructure; else loading">
+    <div class="app-nav" *ngFor="let col of collectionStructure">
+        <div class="app-nav-1">{{col['title']}}</div>
+        <div *ngFor="let item of col['children']">
+            <div class="app-nav-2" [class.highlight]="item.title === hoveredArea"
+                (click)="navigate(item.pid)"
+                (mouseover)="onMenuMouseEnter(item.title)"
+                (mouseout)="onMenuMouseLeave()">
+                {{item['title']}}
+            </div>
+        </div>
+    </div>
+</div>
+

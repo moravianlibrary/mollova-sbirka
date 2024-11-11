@@ -1,0 +1,23 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .app-nav {
+        .app-nav-1 {
+            margin: 5px 0 5px 0;
+            font-weight: bolder;
+        }
+        .app-nav-2 {
+            margin: 0px 0 0px 10px;
+            font-weight: bold;
+            &:hover {
+                background-color: lightgrey;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.highlight {
+    background-color: lightgrey;
+  }

@@ -1,1 +1,116 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'styles/variables';
+@import 'styles/buttons';
+
+
+/* Proměnné */
+$columns: 12;
+$gutter: 16px;
+
+/* Breakpoints */
+$breakpoints: (
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px
+);
+
+/* Barvy */
+:root {
+    --Text-Base: #0A0D10;
+    --Boarder-Light: #EFF2F5;
+    --Spacing-x10: 40px;
+}
+
+/* Typografie */
+@font-face {
+    font-family: 'Source Sans 3';
+    src: url('./assets/fonts/Source_Sans_3/static/SourceSans3-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Grenze';
+    src: url('./assets/fonts/Grenze/Grenze-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* General text styling */
+body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Headings styling */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Grenze', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+/* Grid container */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    gap: $gutter;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Třídy pro jednotlivé sloupce */
+.col-1 { grid-column: span 1; }
+.col-2 { grid-column: span 2; }
+.col-3 { grid-column: span 3; }
+.col-4 { grid-column: span 4; }
+.col-5 { grid-column: span 5; }
+.col-6 { grid-column: span 6; }
+.col-7 { grid-column: span 7; }
+.col-8 { grid-column: span 8; }
+.col-9 { grid-column: span 9; }
+.col-10 { grid-column: span 10; }
+.col-11 { grid-column: span 11; }
+.col-12 { grid-column: span 12; }
+
+
+
+/* Generování tříd pro různá rozlišení */
+@each $breakpoint, $width in $breakpoints {
+    @media (min-width: $width) {
+        .#{$breakpoint}-col-1 { grid-column: span 1; }
+        .#{$breakpoint}-col-2 { grid-column: span 2; }
+        .#{$breakpoint}-col-3 { grid-column: span 3; }
+        .#{$breakpoint}-col-4 { grid-column: span 4; }
+        .#{$breakpoint}-col-5 { grid-column: span 5; }
+        .#{$breakpoint}-col-6 { grid-column: span 6; }
+        .#{$breakpoint}-col-7 { grid-column: span 7; }
+        .#{$breakpoint}-col-8 { grid-column: span 8; }
+        .#{$breakpoint}-col-9 { grid-column: span 9; }
+        .#{$breakpoint}-col-10 { grid-column: span 10; }
+        .#{$breakpoint}-col-11 { grid-column: span 11; }
+        .#{$breakpoint}-col-12 { grid-column: span 12; }
+    }
+}
+  
+/* Specifické layout třídy */
+.layout-three-column {
+    display: grid;
+    grid-template-columns: 2fr 8fr 2fr;
+    gap: $gutter;
+}
+
+.layout-two-column {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+    gap: $gutter;
+}
+  
+@media (max-width: 576px) {
+    .layout-three-column,
+    .layout-two-column {
+        grid-template-columns: 1fr;
+    }
+}
+

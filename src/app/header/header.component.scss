@@ -1,0 +1,58 @@
+@import '../../styles.scss';
+
+.app-container {
+    border-bottom: 1px solid #EFF2F5;
+    background: #FFF;   
+    .app-left {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+        align-self: stretch;
+        cursor: pointer;
+        .app-logo {
+            width: 55px;
+            height: var(--Spacing-x10, 40px);
+            flex-shrink: 0;
+            background: url('../../assets/images/moll-logo.png') rgb(255, 255, 255) 50% / cover no-repeat;
+        }
+        .app-title {
+            line-height: 10px;
+        }
+    }
+    .app-right {
+        display: flex;
+        align-items: center;
+        flex: 1 0 0;
+        .app-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            flex: 1 0 0;
+            .app-nav-item {
+                display: flex;
+                padding: 12px;
+                align-items: flex-start;
+                gap: 12px;
+                color: $color-text-dark;
+                /* Typesettings/md/medium */
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 24px; /* 150% */
+                cursor: pointer;
+                &:hover {
+                    border-bottom: 2px solid #D8B600;
+                }
+            }
+        }
+        .app-lang {
+            display: flex;
+            width: 207px;
+            height: var(--Spacing-x10, 40px);
+            justify-content: flex-end;
+            align-items: center;
+        }
+    }
+}

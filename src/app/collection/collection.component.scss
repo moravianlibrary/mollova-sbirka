@@ -1,0 +1,33 @@
+.app-container {
+    display: flex;
+    width: 100%;
+    .app-menu {
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+    }
+    .app-map {
+        width: 80%;
+
+    }
+}
+
+.interactive-map {
+    width: 100%;
+    height: auto;
+}
+
+.map-area {
+    fill: transparent;
+    stroke: blue;
+    stroke-width: 2;
+    cursor: pointer;
+    transition: fill 0.3s, stroke 0.3s;
+}
+
+.map-area:hover, .map-area.highlight {
+    fill: rgba(0, 0, 255, 0.3); /* Modrá barva s průhledností */
+    stroke: blue;
+}
+  
+  
