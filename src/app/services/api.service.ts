@@ -28,7 +28,7 @@ export class ApiService {
     }
     getCollectionChildren(pid: string): Observable<Object> {
         return this.doGet(
-            `${this.apiUrl}q=*:*&fq=(in_collections.direct:"${pid}")&fl=pid,model,authors,titles.search,title.search,root.title,date.str,title.search_*,collection.desc,collection.desc_*`
+            `${this.apiUrl}q=*:*&fq=(in_collections.direct:"${pid}")&fl=pid,model,authors,titles.search,title.search,root.title,date.str,title.search_*,collection.desc,collection.desc_*&rows=1000`
         );
     }
 

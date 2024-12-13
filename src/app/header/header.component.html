@@ -1,20 +1,26 @@
 <div class="app-container grid-container">
     <div class="app-left col-3">
         <div class="app-logo"></div>
-        <div class="app-title">
-            <h2>Mollova mapová sbírka</h2>
+        <div class="app-title" [routerLink]="['mollova-sbirka']">
+            <h5>{{ 'molls-collection' | translate }}</h5>
         </div>
     </div>
     <div class="app-right col-9">
         <div class="app-nav">
-            <div class="app-nav-item">Hledat</div>
-            <div class="app-nav-item">O sbírce map</div>
-            <div class="app-nav-item">Další sbírky MZK</div>
-            <div class="app-nav-item">Kontakty</div>
+            <div class="app-nav-item" [routerLink]="['search']">{{'search' | translate}}</div>
+            <div class="app-nav-item" [routerLink]="['about']">{{'about' | translate}}</div>
+            <div class="app-nav-item" [routerLink]="['about']">{{'other-collections' | translate}}</div>
+            <div class="app-nav-item" [routerLink]="['about']">{{'contacts' | translate}}</div>
         </div>
         <div class="app-lang">
-            <app-button variant="outline" iconLeft="cze.svg">
+            <app-button variant="outline" (click)="switchLanguage('cs')" [class.app-icon-hide]="currentLang === 'cs'" iconLeft="cs.svg">
                 <span>Čeština</span>
+            </app-button>
+            <app-button variant="outline" (click)="switchLanguage('de')" [class.app-icon-hide]="currentLang === 'de'" iconLeft="de.svg">
+                <span>Deutsch</span>
+            </app-button>
+            <app-button variant="outline" (click)="switchLanguage('en')" [class.app-icon-hide]="currentLang === 'en'" iconLeft="en.svg">
+                <span>English</span>
             </app-button>
         </div>
     </div>

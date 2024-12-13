@@ -1,7 +1,102 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$moll-frontend-primary: mat.define-palette(mat.$indigo-palette);
+$moll-frontend-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$moll-frontend-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$moll-frontend-theme: mat.define-light-theme((
+  color: (
+    primary: $moll-frontend-primary,
+    accent: $moll-frontend-accent,
+    warn: $moll-frontend-warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($moll-frontend-theme);
+
 /* You can add global styles to this file, and also import other style files */
 @import 'styles/variables';
 @import 'styles/buttons';
 
+/* Zajistí, že html a body mají plnou výšku a žádné okraje */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Styles Header */
+h1 {
+    color: var(--Text-Base, #0E0E0C);
+    /* Heading/H1/medium */
+    font-family: Grenze;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 56px; /* 140% */
+    margin: 0;
+}
+h2 {
+    color: var(--Text-Base, #0E0E0C);
+
+    /* Heading/H2/medium */
+    font-family: Grenze;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 44px; /* 137.5% */
+}
+h3 {
+    color: var(--Text-Base, #0E0E0C);
+
+    /* Heading/H3/medium */
+    font-family: Grenze;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 48px; /* 171.429% */
+}
+h4 {
+    color: var(--Text-Base, #0E0E0C);
+
+    /* Heading/H4/medium */
+    font-family: Grenze;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 40px; /* 166.667% */
+}
+h5 {
+    color: var(--Text-Base, #0E0E0C);
+
+    /* Heading/H5/medium */
+    font-family: Grenze;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px; /* 155.556% */
+    margin: 0;
+}
 
 /* Proměnné */
 $columns: 12;
@@ -24,8 +119,8 @@ $breakpoints: (
 
 /* Typografie */
 @font-face {
-    font-family: 'Source Sans 3';
-    src: url('./assets/fonts/Source_Sans_3/static/SourceSans3-Regular.ttf') format('truetype');
+    font-family: 'Source Sans Pro';
+    src: url('./assets/fonts/source-sans-pro/SourceSansPro-Regular.otf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -38,16 +133,10 @@ $breakpoints: (
 
 /* General text styling */
 body {
-    font-family: 'Source Sans 3', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: normal;
     font-style: normal;
-}
-
-/* Headings styling */
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Grenze', sans-serif;
-    font-weight: bold;
-    font-style: normal;
+    overflow: hidden;
 }
 
 
@@ -113,4 +202,23 @@ h1, h2, h3, h4, h5, h6 {
         grid-template-columns: 1fr;
     }
 }
+.text-base {
+   /* Typesettings/md/regular */
+    font-family: "Source Sans Pro";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */ 
+}
+.text-secondary {
+    /* Typesettings/sm/semibold */
+    font-family: "Source Sans Pro";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+}
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

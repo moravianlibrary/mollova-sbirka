@@ -2,7 +2,8 @@
 
 .app-container {
     border-bottom: 1px solid #EFF2F5;
-    background: #FFF;   
+    background: #FFF;
+    padding: 0px var(--Spacing-x6, 24px); 
     .app-left {
         display: flex;
         align-items: center;
@@ -11,32 +12,35 @@
         align-self: stretch;
         cursor: pointer;
         .app-logo {
-            width: 55px;
-            height: var(--Spacing-x10, 40px);
+            width: 20px;
+            height: 20px;
             flex-shrink: 0;
             background: url('../../assets/images/moll-logo.png') rgb(255, 255, 255) 50% / cover no-repeat;
         }
         .app-title {
+            color: $color-text-primary;
             line-height: 10px;
         }
     }
     .app-right {
         display: flex;
+        justify-content: center;
         align-items: center;
+        gap: var(--Spacing-x4, 16px);
         flex: 1 0 0;
         .app-nav {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 8px;
+            gap: var(--Spacing-x4, 16px);
             flex: 1 0 0;
             .app-nav-item {
                 display: flex;
-                padding: 12px;
+                padding: var(--Spacing-x3, 12px);
                 align-items: flex-start;
-                gap: 12px;
-                color: $color-text-dark;
+                gap: var(--Spacing-x3, 12px);
                 /* Typesettings/md/medium */
+                font-family: "Source Sans Pro";
                 font-size: 16px;
                 font-style: normal;
                 font-weight: 500;
@@ -53,6 +57,9 @@
             height: var(--Spacing-x10, 40px);
             justify-content: flex-end;
             align-items: center;
+            .app-icon-hide {
+                display: none;
+            }
         }
     }
 }

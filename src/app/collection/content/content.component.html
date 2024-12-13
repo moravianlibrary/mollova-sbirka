@@ -1,0 +1,31 @@
+<div class="app-container" *ngIf="!loading">
+    <div class="app-content">
+        <div class="app-title">
+            <h1>{{getTitle()}}</h1>
+            <div class="text-base">{{getDescription()}}</div>
+        </div>
+        <div class="app-cards">
+            <div class="app-cards-row">
+                <div class="app-card" *ngFor="let item of children">
+                    <div class="app-card-image"></div>
+                    <div class="app-card-content">
+                        <h5 class="app-card-title" 
+                            [matTooltip]="getChildrenTitle(item)">
+                            {{getChildrenTitle(item)}}
+                        </h5>
+                        <div class="app-card-text">{{getChildrenDescription(item)}}</div>
+                        <div class="app-card-sign">{{'old_signature' | translate}}:</div>
+                        <div class="app-card-link">
+                            <div class="app-card-link-text">Mollův katalog 1</div>
+                            <img class="app-card-link-icon default-icon" src="assets/icons/export.png" width="">
+                            <img class="app-card-link-icon hover-icon" src="assets/icons/export-gold.png" width="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="app-loading" *ngIf="loading">
+    Loading...
+</div>

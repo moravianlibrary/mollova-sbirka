@@ -1,16 +1,29 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, forkJoin, map, Observable, of, Subject, switchMap, throwError } from 'rxjs';
+import { BehaviorSubject, forkJoin, map, mergeMap, Observable, of, Subject, switchMap, tap, throwError } from 'rxjs';
 import { ApiService } from './api.service';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class CollectionService {
     mainCollectionUUID = 'uuid:9b190c71-5a2c-44fa-bc8a-b6c5b056c01a';
     collectionStructure = [];
+    collectionIndex: { [key: string]: string } = {};
 
     private collectionStructureSubject = new BehaviorSubject<any>(null); // Default null
     collectionStructure$ = this.collectionStructureSubject.asObservable(); // Public observable
+    private collectionIndexSubject = new BehaviorSubject<any>(null); // Default null
+    collectionIndex$ = this.collectionIndexSubject.asObservable(); // Public observable
 
-    constructor(private apiService: ApiService) { }
+    private readonly jsonMollStructure = 'assets/docs/moll-structure.json';
+    private readonly jsonMollIndex = 'assets/docs/moll-index.json';
+
+    private contextSource = new BehaviorSubject<any>(null);
+    context$ = this.contextSource.asObservable();
+
+
+    constructor(private apiService: ApiService,
+                private http: HttpClient
+    ) { }
 
     // Observable pro hover události z mapy do menu
     private hoverFromMapSubject = new Subject<string | null>();
@@ -31,67 +44,163 @@ export class CollectionService {
     }
 
     init(params?: any) {
-        if (!this.collectionStructure.length) {
-            this.loadCollectionStructure();
-        }
+        // Init collection
     }
 
     loadCollectionStructure() {
-        this.getCollectionStructure(this.mainCollectionUUID).subscribe((data: any) => {
-            this.collectionStructureSubject.next(data); // Update the subject with new data
-          });
-    }
+        // KOD PRO NACTENI STRUKTURY KOLEKCE PRES API
+        // this.getCollectionStructure(this.mainCollectionUUID).subscribe((data: any) => {
+        //     this.collectionStructureSubject.next(data.collectionStructure); // Update the subject with new data
+        //     this.collectionIndexSubject.next(data.collectionIndex); // Update the subject with new data
+        //     this.collectionStructure = data.collectionStructure; // Update the local variable
+        //     this.collectionIndex = data.collectionIndex;
+        //     // console.log('Collection structure:', this.collectionStructure, this.collectionIndex);
+        //     // this.saveDataAsFile(data.collectionStructure);
+        // });
 
+        // KOD PRO NACTENI STRUKTURY KOLEKCE Z JSON
+        this.getCollectionStructureFromJSON().subscribe((data: any) => {
+            this.collectionStructureSubject.next(data);
+            this.collectionStructure = data;
+            this.getCollectionIndexFromJSON().subscribe((data: any) => {
+                this.collectionIndexSubject.next(data);
+                this.collectionIndex = data;
+            });
+        });
+    }
+    getChildrenByPid(pid: string): Observable<any[]> {
+        return this.getCollectionStructureFromJSON().pipe(
+            map((data: any[]) => {
+                const findChildren = (items: any[], pid: string): any[] | null => {
+                for (const item of items) {
+                    if (item.pid === pid) {
+                    return item.children || [];
+                    }
+                    if (item.children && item.children.length > 0) {
+                    const found = findChildren(item.children, pid);
+                    if (found) {
+                        return found;
+                    }
+                    }
+                }
+                return null;
+                };
+                return findChildren(data, pid) || [];
+            })
+        );
+    }
+    getChildrenByPidWithDetails(pid: string): Observable<any[]> {
+        return this.getCollectionStructureFromJSON().pipe(
+            map((data: any[]) => {
+                const findChildren = (items: any[], pid: string): any[] | null => {
+                    for (const item of items) {
+                        if (item.pid === pid) {
+                            return item.children || [];
+                        }
+                        if (item.children && item.children.length > 0) {
+                            const found = findChildren(item.children, pid);
+                            if (found) {
+                                return found;
+                            }
+                        }
+                    }
+                    return null;
+                };
+                return findChildren(data, pid) || [];
+            }),
+            mergeMap((children: any[]) => {
+                // Pro každé dítě zavolej getCollection(pid)
+                const detailedChildren$ = children.map(child =>
+                this.getCollection(child.pid).pipe(
+                    map((collectionDetails: any) => ({
+                    ...child,
+                    collectionDetails: collectionDetails['response']['docs'][0] || {}
+                    }))
+                )
+                );
+                // Sloučí všechny observables do jednoho
+                console.log('Detailed children:', detailedChildren$);
+                if (detailedChildren$.length === 0) {
+                    return of([]);
+                }
+                return forkJoin(detailedChildren$);
+            })
+        );
+    }
+    
     reload(params: any) {
         // reload collection
     }
 
+    setContext(context: any) {
+        this.contextSource.next(context);
+    }
+    getCollectionStructureFromJSON(): Observable<any> {
+        return this.http.get<any>(this.jsonMollStructure);
+    }
+    getCollectionIndexFromJSON(): Observable<any> {
+        return this.http.get<any>(this.jsonMollIndex);
+    }
     getCollection(pid: string): Observable<Object> {
         return this.apiService.getCollection(pid);
     }
-    getCollectionChildren(pid: string): Observable<Object> {
-        return this.apiService.getCollectionChildren(pid);
+    getCollectionChildren(pid: string): Observable<any[]> {
+        return this.apiService.getCollectionChildren(pid) as Observable<any[]>;
     }
     getCollectionStructure(pid: string): Observable<any> {
-        console.log('getCollectionStructure:', pid);
+        const collectionIndex: { [key: string]: string } = {};
+    
         return this.getCollectionChildren(pid).pipe(
             switchMap((data: any) => {
                 let collectionData = data['response']['docs'];
     
-                // Definice typu pro položku kolekce
                 let collectionStructure$: Observable<any>[] = collectionData.map((item: any) => {
+                    console.log('Item:', item);
                     let collectionItem = {
                         pid: item['pid'],
                         title: item['title.search'] ? item['title.search'] : '',
+                        title_en: item['title.search_eng'] ? item['title.search_eng'][0] : '',
+                        title_de: item['title.search_ger'] ? item['title.search_ger'][0] : '',
                         model: item['model'] || '',
                         children: [] as any[]
                     };
     
-                    // Načtení první úrovně dětí (druhá úroveň stromu)
+                    // Použití tap pro přidání do indexu
                     return this.getCollectionChildren(item['pid']).pipe(
+                        tap(() => {
+                            collectionIndex[collectionItem.pid] = collectionItem.title;
+                        }),
                         switchMap((childrenData: any) => {
                             let children: Observable<any>[] = childrenData['response']['docs'].map((child: any) => {
                                 let childItem = {
                                     pid: child['pid'],
                                     title: child['title.search'] ? child['title.search'] : '',
+                                    title_en: child['title.search_eng'] ? child['title.search_eng'][0] : '',
+                                    title_de: child['title.search_ger'] ? child['title.search_ger'][0] : '',
                                     model: child['model'] || '',
                                     children: [] as any[]
                                 };
     
-                                // Načtení druhé úrovně dětí (třetí úroveň stromu)
                                 return this.getCollectionChildren(child['pid']).pipe(
+                                    tap(() => {
+                                        collectionIndex[childItem.pid] = childItem.title;
+                                    }),
                                     map((grandChildrenData: any) => {
-                                        childItem.children = grandChildrenData['response']['docs'].map((grandChild: any) => ({
-                                            pid: grandChild['pid'],
-                                            title: grandChild['title.search'] ? grandChild['title.search'] : '',
-                                            model: grandChild['model'] || ''
-                                        }));
+                                        childItem.children = grandChildrenData['response']['docs'].map((grandChild: any) => {
+                                            collectionIndex[grandChild['pid']] = grandChild['title.search'] ? grandChild['title.search'] : '';
+                                            return {
+                                                pid: grandChild['pid'],
+                                                title: grandChild['title.search'] ? grandChild['title.search'] : '',
+                                                title_en: grandChild['title.search_eng'] ? grandChild['title.search_eng'][0] : '',
+                                                title_de: grandChild['title.search_ger'] ? grandChild['title.search_ger'][0] : '',
+                                                model: grandChild['model'] || ''
+                                            };
+                                        });
                                         return childItem;
                                     })
                                 );
                             });
     
-                            // Sloučení všech observables pro children na této úrovni
                             return forkJoin(children).pipe(
                                 map((resolvedChildren) => {
                                     collectionItem.children = resolvedChildren;
@@ -102,9 +211,27 @@ export class CollectionService {
                     );
                 });
     
-                // Sloučení všech observables pro hlavní kolekci a její děti
-                return forkJoin(collectionStructure$);
+                return forkJoin(collectionStructure$).pipe(
+                    map((collectionStructure) => ({
+                        collectionStructure,
+                        collectionIndex
+                    }))
+                );
             })
         );
-    }    
+    }
+
+    // Uložení dat do souboru
+    saveDataAsFile(data: any): void {
+        const jsonString = JSON.stringify(data, null, 2);
+        const blob = new Blob([jsonString], { type: 'application/json' });
+        const url = window.URL.createObjectURL(blob);
+    
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'data.json';
+        a.click();
+        window.URL.revokeObjectURL(url);
+    }
+       
 }

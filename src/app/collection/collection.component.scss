@@ -1,33 +1,65 @@
+@import '../../styles.scss';
+
 .app-container {
     display: flex;
-    width: 100%;
+    height: 100%;
+    background: var(--BG-Main-Bright, #F3F3F1);
+    user-select: none;
     .app-menu {
         display: flex;
+        width: 300px;
         flex-direction: column;
-        width: 20%;
+        overflow: auto;
+        padding-left: var(--Spacing-x6, 24px);
+        align-items: flex-start;
+        gap: var(--Spacing-x4, 16px);
+        flex-shrink: 0;
+        background-color: $color-primary;
     }
     .app-map {
-        width: 80%;
-
+        display: flex;
+        justify-content: center;
+        // height: 100%;
+        overflow: hidden;
+        background-color: #ffffff;
+        width: calc(100% - 300px);
+        margin: 20px;
+        padding: 20px;
+    }
+    .app-content {
+        display: flex;
+        // background-color: #ffffff;
+        background: var(--BG-Main-Bright, #F3F3F1);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        width: calc(100% - 300px);
+        // padding: var(--Spacing-x12, 48px);
+        // margin: 20px 20px 20px 20px;
+        overflow: auto;
     }
 }
 
 .interactive-map {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100%;
 }
 
 .map-area {
     fill: transparent;
-    stroke: blue;
-    stroke-width: 2;
+    stroke: $color-gold;
+    stroke-width: 4;
     cursor: pointer;
     transition: fill 0.3s, stroke 0.3s;
+    // fill: rgba(255, 204, 0, 0.20);
+    // stroke-width: 3px;
+    // stroke: var(--Boarder-Tertiary-Default, #38372E);
+    // filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.40));
 }
 
 .map-area:hover, .map-area.highlight {
-    fill: rgba(0, 0, 255, 0.3); /* Modrá barva s průhledností */
-    stroke: blue;
+    fill: $color-gold-transparent ; /* Modrá barva s průhledností */
+    stroke: $color-gold;
 }
   
   

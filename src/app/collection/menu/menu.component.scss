@@ -1,23 +1,128 @@
+@import '../../../styles.scss';
+
 .app-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    .app-nav {
-        .app-nav-1 {
-            margin: 5px 0 5px 0;
-            font-weight: bolder;
-        }
-        .app-nav-2 {
-            margin: 0px 0 0px 10px;
-            font-weight: bold;
-            &:hover {
-                background-color: lightgrey;
-                cursor: pointer;
+    .app-navs {
+        display: flex;
+        width: 302px;
+        padding: var(--Spacing-x4, 16px) 0px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--Spacing-x4, 16px);
+        flex-shrink: 0;
+        .app-nav {
+            display: flex;
+            width: 298px;
+            // padding: var(--Spacing-x4, 16px) 0px;
+            flex-direction: column;
+            align-items: flex-start;
+            .app-nav-1 {
+                margin: 0;
+            }
+            .app-nav-2 {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                align-self: stretch;
+                .app-nav-2-item {
+                    display: flex;
+                    align-items: flex-start;
+                    align-self: stretch;
+                    padding: var(--Spacing-x1, 4px) var(--Spacing-x2, 8px);
+                    align-items: center;
+                    gap: var(--Spacing-x2, 8px);
+                    flex: 1 0 0;
+                    &:hover {
+                        background-color: $color-bg-tertiary;
+                    }
+                    &:hover .app-nav-2-text {
+                        color: $color-gold-link;
+                    }
+                    .app-nav-2-icon {
+                        display: flex;
+                        width: var(--Spacing-x4, 16px);
+                        height: var(--Spacing-x4, 16px);
+                        justify-content: center;
+                        align-items: center;
+                        img {
+                            width: var(--Spacing-x4, 16px);
+                            height: var(--Spacing-x4, 16px);
+                            flex-shrink: 0;
+                        }
+                    }
+                    .app-nav-2-text {
+                        color: var(--Text-Secondary, #38372E);
+
+                        /* Typesettings/sm/regular */
+                        font-family: "Source Sans Pro";
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 20px; /* 142.857% */
+                        &.app-active{
+                            font-weight: 600;
+                        }
+                    }
+                    &.highlight, &:hover {
+                        cursor: pointer;
+                        font-weight: 600;
+                        border-radius: var(--spacing-x-05, 2px);
+                        background: var(--BG-Main-Bright, #F3F3F1);
+                        text-decoration: underline;
+                        color: $color-gold-link;
+                        .app-nav-2-text {
+                            color: $color-gold-link;
+                            background-color: var(--BG-Main-Bright, #F3F3F1);
+                        }
+                    }
+                    &.app-active {
+                        background-color: $color-bg-secondary;
+                        &:hover {
+                            background-color: $color-bg-tertiary;
+                        }
+                    }
+
+                }
+            }
+            .app-nav-3 {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                align-self: stretch;
+                background-color: #F8F8F7;
+                // gap: var(--Spacing-x2, 8px);
+                flex: 1 0 0;
+                .app-nav-3-item {
+                    display: flex;
+                    align-items: flex-start;
+                    align-self: stretch;
+                    flex: 1 0 0;
+                    padding: var(--Spacing-x1, 4px) var(--Spacing-x2, 8px) var(--Spacing-x1, 4px) var(--Spacing-x8, 32px);
+                    &:hover .app-nav-3-text {
+                        color: $color-gold-link;
+                        text-decoration: underline;
+                    }
+                    .app-nav-3-text {
+                        color: var(--Text-Secondary, #38372E);
+                        /* Typesettings/sm/regular */
+                        font-family: "Source Sans Pro";
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 20px; /* 142.857% */
+                        &.app-active {
+                            font-weight: 600;
+                        }
+                    }
+                    &:hover {
+                        background-color: $color-bg-tertiary;
+                        cursor: pointer;
+                    }
+                }
             }
         }
     }
 }
 
 .highlight {
-    background-color: lightgrey;
-  }
+    font-weight: 600;  
+}

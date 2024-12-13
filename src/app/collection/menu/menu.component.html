@@ -1,14 +1,37 @@
 <div class="app-container" *ngIf="collectionStructure$ | async as collectionStructure; else loading">
-    <div class="app-nav" *ngFor="let col of collectionStructure">
-        <div class="app-nav-1">{{col['title']}}</div>
-        <div *ngFor="let item of col['children']">
-            <div class="app-nav-2" [class.highlight]="item.title === hoveredArea"
-                (click)="navigate(item.pid)"
-                (mouseover)="onMenuMouseEnter(item.title)"
-                (mouseout)="onMenuMouseLeave()">
-                {{item['title']}}
+    <div class="app-navs">
+        <div class="app-nav" *ngFor="let col of collectionStructure">
+            <!-- PRVNI UROVEN -->
+            <h5 class="app-nav-1">{{col['title']}}</h5>
+            <!-- DRUHA UROVEN -->
+            <div class="app-nav-2" *ngFor="let item of col['children']">
+                <div class="app-nav-2-item" [class.highlight]="item.title === hoveredArea" [class.app-active]="item.title === openedChild"
+                    (mouseover)="onMenuMouseEnter(item.title)"
+                    (mouseout)="onMenuMouseLeave()"
+                    (click)="handleClick(item)">
+                    <div class="app-nav-2-icon" 
+                        (mouseover)="onIconHover(item.title)" 
+                        (mouseout)="onIconLeave()" 
+                        (click)="openedChild !== item['title'] ? onOpenChild(item['title']) : onCloseChild(item['title']); $event.stopPropagation()">
+                        <img [src]="hoveredIcon === item.title ? './assets/icons/minus-circle.png' : (openedChild === item['title'] ? './assets/icons/minus-circle.png' : './assets/icons/add-circle.png')" 
+                            alt="Icon" />
+                    </div>
+                    <div class="app-nav-2-text" [class.app-active]="item['title'] === activeChild">
+                        {{item['title']}}
+                    </div>
+                </div>
+                <!-- TRETI UROVEN -->
+                <div class="app-nav-3" *ngIf="openedChild === item['title']" >
+                    <div class="app-nav-3-item" *ngFor="let child of item['children']"
+                        (click)="handleClick(child); $event.stopPropagation()">
+                        <div class="app-nav-3-text" [class.app-active]="child['title'] === activeChild">{{child['title']}}</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+<ng-template #loading>
+    <p>Načítám strukturu...</p>
+</ng-template>
 

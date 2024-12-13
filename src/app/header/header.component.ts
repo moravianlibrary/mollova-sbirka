@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  currentLang: string = '';
+
+  constructor(private translate: TranslateService) { 
+    this.currentLang = this.translate.currentLang;
+   }
+
+  switchLanguage(lang: string): void {
+    this.translate.use(lang);
+    this.currentLang = lang;
+  }
 
 }

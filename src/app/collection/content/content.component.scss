@@ -1,0 +1,144 @@
+@import '../../../styles.scss';
+
+.app-container {
+    margin: 24px;
+    background: var(--BG-Main-Bright, #ffffff);
+    .app-content {
+        display: flex;
+        padding: var(--Spacing-x12, 48px);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+        overflow: auto;
+        .app-title {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 24px;
+        }
+        .app-cards {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--Spacing-x8, 32px);
+            align-self: stretch;
+            .app-cards-row {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: flex-start;
+                gap: var(--Spacing-x8, 32px);
+                align-self: stretch;
+                .app-card {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: var(--Spacing-x3, 12px);
+                    flex: 1 0 0;
+                    .app-card-image {
+                        background-color: beige;
+                        height: 120px;
+                        width: 295px;
+                        align-self: stretch;
+                    }
+                    .app-card-content {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        width: 295px;
+                        gap: var(--Spacing-x2, 8px);
+                        align-self: stretch;
+                        .app-card-title {
+                            display: -webkit-box;
+                            display: box; /* Přidáno pro budoucí podporu */
+                            -webkit-box-orient: vertical;
+                            box-orient: vertical; /* Přidáno pro budoucí podporu */
+                            -webkit-line-clamp: 2;
+                            line-clamp: 2; /* Přidáno pro kompatibilitu */
+                            align-self: stretch;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+                        .app-card-text {
+                            display: -webkit-box;
+                            display: box; /* Přidáno pro budoucí podporu */
+                            -webkit-box-orient: vertical;
+                            box-orient: vertical; /* Přidáno pro budoucí podporu */
+                            -webkit-line-clamp: 3;
+                            line-clamp: 3; /* Přidáno pro kompatibilitu */
+                            align-self: stretch;
+                            overflow: hidden;
+                            color: var(--Text-Secondary, #38372E);
+                            text-overflow: ellipsis;
+                        
+                            /* Typesettings/sm/regular */
+                            font-family: "Source Sans Pro";
+                            font-size: 14px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: 20px; /* 142.857% */
+                        }
+                        .app-card-sign {
+                            color: var(--Text-Light, #706E5C);
+                            /* Typesettings/sm/regular */
+                            font-family: "Source Sans Pro";
+                            font-size: 14px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: 20px; /* 142.857% */
+                        }
+                        .app-card-link {
+                            display: flex;
+                            align-items: center;
+                            gap: var(--Spacing-x2, 8px);
+                            cursor: pointer;
+                            .app-card-link-text {
+                                color: var(--Text-Btn-Tertiary-Default, #706E5C);
+
+                                /* Typesettings/sm/regular */
+                                font-family: "Source Sans Pro";
+                                font-size: 14px;
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: 20px; /* 142.857% */
+                                text-decoration-line: underline;
+                                text-decoration-style: solid;
+                                text-decoration-skip-ink: none;
+                                text-decoration-thickness: auto;
+                                text-underline-offset: auto;
+                                text-underline-position: from-font;
+                            }
+                            .app-card-link-icon {
+                                display: flex;
+                                width: 16px;
+                                height: 16px;
+                                justify-content: center;
+                                align-items: center;
+                                &.hover-icon {
+                                    display: none;
+                                }
+                            }                          
+                        }
+                        .app-card-link:hover .app-card-link-text {
+                            color: var(--Text-Link, #7A6600);
+                            text-decoration: underline;
+                        }
+                        .app-card-link:hover .default-icon {
+                            display: none;
+                        }
+                        .app-card-link:hover .hover-icon {
+                            display: flex;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.app-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+}
