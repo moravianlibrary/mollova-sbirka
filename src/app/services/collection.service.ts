@@ -60,12 +60,14 @@ export class CollectionService {
 
         // KOD PRO NACTENI STRUKTURY KOLEKCE Z JSON
         this.getCollectionStructureFromJSON().subscribe((data: any) => {
-            this.collectionStructureSubject.next(data);
-            this.collectionStructure = data;
-            this.getCollectionIndexFromJSON().subscribe((data: any) => {
-                this.collectionIndexSubject.next(data);
-                this.collectionIndex = data;
-            });
+            if (data) {
+                this.collectionStructureSubject.next(data);
+                this.collectionStructure = data;
+                this.getCollectionIndexFromJSON().subscribe((data: any) => {
+                    this.collectionIndexSubject.next(data);
+                    this.collectionIndex = data;
+                });
+            }
         });
     }
     getChildrenByPid(pid: string): Observable<any[]> {
@@ -111,12 +113,12 @@ export class CollectionService {
             mergeMap((children: any[]) => {
                 // Pro každé dítě zavolej getCollection(pid)
                 const detailedChildren$ = children.map(child =>
-                this.getCollection(child.pid).pipe(
-                    map((collectionDetails: any) => ({
-                    ...child,
-                    collectionDetails: collectionDetails['response']['docs'][0] || {}
-                    }))
-                )
+                    this.getCollection(child.pid).pipe(
+                        map((collectionDetails: any) => ({
+                        ...child,
+                        collectionDetails: collectionDetails['response']['docs'][0] || {}
+                        }))
+                    )
                 );
                 // Sloučí všechny observables do jednoho
                 console.log('Detailed children:', detailedChildren$);
@@ -127,6 +129,10 @@ export class CollectionService {
             })
         );
     }
+    getPagesByPid(pid: string): Observable<Object> {
+        return this.apiService.getPages(pid);
+    }
+
     
     reload(params: any) {
         // reload collection

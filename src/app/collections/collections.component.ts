@@ -5,11 +5,11 @@ import { Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-collection',
-  templateUrl: './collection.component.html',
-  styleUrl: './collection.component.scss'
+  selector: 'app-collections',
+  templateUrl: './collections.component.html',
+  styleUrl: './collections.component.scss'
 })
-export class CollectionComponent implements OnInit, OnDestroy {
+export class CollectionsComponent implements OnInit, OnDestroy {
 
   map: boolean = true;
   collectionPid: string | null = null;

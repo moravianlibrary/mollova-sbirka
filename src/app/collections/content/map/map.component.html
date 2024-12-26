@@ -1,0 +1,82 @@
+<div class="app-container">
+    <div class="app-content">
+        <div class="app-part-title">
+            <h2 class="app-title">{{map['title.search']}}</h2>
+            <div class="app-authors">{{map['authors']}}</div>
+        </div>
+        <div class="app-part-map">
+            <div class="app-map">
+                <app-iiif-image-viewer [infoJsonUrl]="'https://api.kramerius.mzk.cz/search/iiif/uuid:1c63d465-f114-4fab-927d-adface8047c8/info.json'"></app-iiif-image-viewer>
+            </div>
+            <div class="app-map-actions">
+                <div class="app-buttons">
+                    <div class="app-button">
+                        <img src="assets/icons/zoom-in.png" alt="zoom in" />
+                    </div>
+                    <div class="app-button">
+                        <img src="assets/icons/zoom-out.png" alt="zoom out" />
+                    </div>
+                </div>
+                <div class="app-button">
+                    <img src="assets/icons/maximize.png" alt="arrow left" />
+                </div>
+                <div class="app-button">
+                    <img src="assets/icons/download.png" alt="arrow right" />
+                </div>
+            </div>
+        </div>
+        <div class="app-part-info">
+            <div class="app-metadata-container">
+                <div class="app-metadata">
+                    <div class="app-metadata-item" *ngIf="map['authors']">
+                        {{ getAuthors() }}
+                    </div>
+                    <div class="app-metadata-item">
+                        {{getPublishersData()}}
+                    </div>
+                    <div class="app-metadata-item">
+                        {{getGeographicNames()}}
+                    </div>
+                    <div class="app-metadata-item">
+                        {{getNewShelfLocator()}}
+                    </div>
+                </div>
+            </div>
+            <div class="app-other-info">
+                <div class="app-text" *ngFor="let title of this.map['titles.search']">{{title}}</div>
+                <div class="app-line"></div>
+                <div class="app-links">
+                    <div class="app-link">
+                        <div class="app-link-text">{{'bibl-rec' | translate}}</div>
+                        <img src="assets/icons/export-gold.png" alt="export" />
+                    </div>
+                    <div class="app-link">
+                        <div class="app-link-text">{{'dk-link' | translate}}</div>
+                        <img src="assets/icons/export-gold.png" alt="export" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="app-bottom-nav">
+        <div class="app-nav-button">
+            <div class="app-text">{{ 'more-info' | translate }}</div>
+            <img class="app-icon" src="assets/icons/arrow-down.png" alt="text" />
+        </div>
+        <div class="app-right-nav">
+            <div class="app-text">{{ 'other-maps' | translate }}</div>
+            <div class="app-pagination">
+                <div class="app-icons">
+                    <div class="app-button">
+                        <img src="assets/icons/arrow-left-inactive.png" alt="arrow left" />
+                    </div>
+                    <div class="app-button">
+                        <img src="assets/icons/arrow-right.png" alt="arrow right" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

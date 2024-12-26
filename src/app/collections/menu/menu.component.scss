@@ -3,15 +3,13 @@
 .app-container {
     .app-navs {
         display: flex;
-        width: 302px;
-        padding: var(--Spacing-x4, 16px) 0px;
+        padding: var(--Spacing-x4, 16px) 0;
         flex-direction: column;
         align-items: flex-start;
         gap: var(--Spacing-x4, 16px);
-        flex-shrink: 0;
         .app-nav {
             display: flex;
-            width: 298px;
+            width: 100%;
             // padding: var(--Spacing-x4, 16px) 0px;
             flex-direction: column;
             align-items: flex-start;
@@ -60,6 +58,7 @@
                         line-height: 20px; /* 142.857% */
                         &.app-active{
                             font-weight: 600;
+                            font-family: "Source Sans Pro Semibold";
                         }
                     }
                     &.highlight, &:hover {
@@ -76,6 +75,7 @@
                     }
                     &.app-active {
                         background-color: $color-bg-secondary;
+                        font-family: "Source Sans Pro Semibold";
                         &:hover {
                             background-color: $color-bg-tertiary;
                         }
@@ -111,6 +111,7 @@
                         line-height: 20px; /* 142.857% */
                         &.app-active {
                             font-weight: 600;
+                            font-family: "Source Sans Pro Semibold";
                         }
                     }
                     &:hover {

@@ -6,8 +6,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ButtonComponent } from './shared/button/button.component';
-import { CollectionComponent } from './collection/collection.component';
-import { MenuComponent } from './collection/menu/menu.component';
+import { CollectionsComponent } from './collections/collections.component';
+import { MenuComponent } from './collections/menu/menu.component';
 
 
 import { ApiService } from './services/api.service';
@@ -17,9 +17,14 @@ import { AboutComponent } from './about/about.component';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { ContentComponent } from './collection/content/content.component';
+import { ContentComponent } from './collections/content/content.component';
 
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { CollectionComponent } from './collections/content/collection/collection.component';
+import { MapComponent } from './collections/content/map/map.component';
+import { IiifImageViewerComponent } from './collections/content/map/iiif-image-viewer/iiif-image-viewer.component';
+
 
 
 // Funkce pro vytvoření překladového loaderu
@@ -33,17 +38,21 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     AppComponent,
     HeaderComponent,
     ButtonComponent,
-    CollectionComponent,
+    CollectionsComponent,
     MenuComponent,
     SearchComponent,
     AboutComponent,
-    ContentComponent
+    ContentComponent,
+    CollectionComponent,
+    MapComponent,
+    IiifImageViewerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     MatTooltipModule,
+    MatProgressSpinnerModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

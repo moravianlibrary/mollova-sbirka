@@ -4,5 +4,14 @@
     "about": "About",
     "contacts": "Contacts",
     "other-collections": "Other Collections",
-    "old_signature": "Old Shelf Locator"
+    "old_signature": "Old Shelf Locator",
+    "more-info": "More Info",
+    "other-maps": "Other maps from the collection ",
+    "author": "Author: ",
+    "authors": "Authors: ",
+    "published": "Published: ",
+    "geo-names": "Geographical location: ",
+    "shelf-locator-new": "New Shelf Locator: ",
+    "bibl-rec": "Bibliographic record in the library catalog",
+    "dk-link": "Link to the Digital Library"
 }

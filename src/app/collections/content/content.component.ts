@@ -15,7 +15,11 @@ export class ContentComponent implements OnInit, OnDestroy {
   loading: boolean = false;
   children: any[] = [];
   collection: any = {};
+  map: any = {};
+  typeOfResource: string = '';
   currentLang: string = '';
+
+  apiThumbUrl = 'https://api.kramerius.mzk.cz/search/api/client/v7.0/items/';
 
   constructor(private collectionService: CollectionService,
               private route: ActivatedRoute,
@@ -52,30 +56,47 @@ export class ContentComponent implements OnInit, OnDestroy {
     this.loading = true;
     this.collectionService.getCollection(pid).subscribe((data: any) => {
       if (data && data['response'] && data['response']['docs'] && data['response']['docs'][0]) {
-        this.collection = data['response']['docs'][0];
-        console.log('Collection:', this.collection);
+        let item = data['response']['docs'][0];
+        // KOLEKCE NEBO MAPA?
+        if (item.model === 'collection') {
+          this.typeOfResource = 'collection';
+          this.collection = data['response']['docs'][0];
+          console.log('COLLECTION:', this.collection);
+          this.collectionService.getChildrenByPidWithDetails(pid).subscribe((children) => {
+            console.log('Children1:', children);
+            this.children = children;
+            console.log('Children2:', children);
+            if (children.length === 0) {
+              // console.error('No children found for PID:', pid);
+              this.collectionService.getCollectionChildren(pid).subscribe((data: any) => {
+                if (data && data['response'] && data['response']['docs']) {
+                  const children = data['response']['docs'];
+                  console.log('Children3:', children);
+                  this.children = children;
+                } else {
+                  console.error('Invalid data format:', data);
+                }
+                this.loading = false;
+              });
+            } else {
+              this.loading = false;
+            }
+          });
+        } else {
+          this.typeOfResource = 'map';
+          this.map = data['response']['docs'][0];
+          console.log('MAP:', this.map);
+          this.loading = false;
+        }
       } else {
         console.error('Invalid data format:', data);
       }
-      this.loading = false;
     });
-    this.collectionService.getChildrenByPidWithDetails(pid).subscribe((children) => {
-      console.log('Children:', children);
-      this.children = children;
-      if (children.length === 0) {
-        // console.error('No children found for PID:', pid);
-        this.collectionService.getCollectionChildren(pid).subscribe((data: any) => {
-          if (data && data['response'] && data['response']['docs']) {
-            const children = data['response']['docs'];
-            console.log('Children:', children);
-            this.children = children;
-          } else {
-            console.error('Invalid data format:', data);
-          }
-          this.loading = false;
-        });
-      }
-    });
+  }
+
+  onCardClick(item: any): void {
+    console.log('Card clicked:', item);
+    this.router.navigate(['/mollova-sbirka', item.pid]);
   }
 
   
@@ -130,4 +151,13 @@ export class ContentComponent implements OnInit, OnDestroy {
       }
     }
   }
+  getChildrenImage(item: any): string {
+    // if (item.model === 'collection') {
+      return `${this.apiThumbUrl}${item.pid}/image/thumb`;
+    // } else {
+      // return item['thumbnail'];
+    // }
+  }
+  // https://api.kramerius.mzk.cz/search/api/client/v7.0/items/uuid:a70963b4-753d-401a-ac98-21040ee6508a/image/thumb
 }
+ 

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CollectionComponent } from './collection/collection.component';
+import { CollectionsComponent } from './collections/collections.component';
 import { SearchComponent } from './search/search.component';
 import { AboutComponent } from './about/about.component';
 
@@ -9,9 +9,9 @@ const routes: Routes = [
   { path: '', redirectTo: 'mollova-sbirka', pathMatch: 'full' },
 
   // Cesty pro 'mollova-sbirka' a její podcesty
-  { path: 'mollova-sbirka', component: CollectionComponent },
-  { path: 'mollova-sbirka/:part', component: CollectionComponent },
-  { path: 'mollova-sbirka/:part/:subpart', component: CollectionComponent },
+  { path: 'mollova-sbirka', component: CollectionsComponent },
+  { path: 'mollova-sbirka/:part', component: CollectionsComponent },
+  { path: 'mollova-sbirka/:part/:subpart', component: CollectionsComponent },
   
   // Další cesty
   { path: 'search', component: SearchComponent },

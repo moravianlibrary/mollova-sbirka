@@ -4,5 +4,14 @@
     "about": "Über uns",
     "contacts": "Kontakte",
     "other-collections": "Andere Sammlungen",
-    "old_signature": "Alte Signatur"
+    "old_signature": "Alte Signatur",
+    "more-info": "Mehr Info",
+    "other-maps": "Andere Karten aus der Sammlung ",
+    "author": "Autor: ",
+    "authors": "Autoren: ",
+    "published": "Veröffentlicht: ",
+    "geo-names": "Geographische Lage: ",
+    "shelf-locator-new": "Neue Signatur: ",
+    "bibl-rec": "Bibliografischer Eintrag im Bibliothekskatalog",
+    "dk-link": "Link zur Digitalen Bibliothek"
 }

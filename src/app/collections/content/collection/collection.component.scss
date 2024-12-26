@@ -1,4 +1,4 @@
-@import '../../../styles.scss';
+@import '../../../../styles.scss';
 
 .app-container {
     margin: 24px;
@@ -34,29 +34,80 @@
                     align-items: flex-start;
                     gap: var(--Spacing-x3, 12px);
                     flex: 1 0 0;
+                    // &:hover .app-card-image {
+                    //     border: 8px solid #d8b600;
+                    //     padding: 0;
+                    //     border-radius: 2px;
+                    // }
                     .app-card-image {
+                        display: flex;
+                        
+                        justify-content: center;
+                        align-items: center;
                         background-color: beige;
                         height: 120px;
-                        width: 295px;
-                        align-self: stretch;
+                        min-width: 250px;
+                        position: relative;
+                        overflow: hidden;
+                        padding: 8px;
+                        border-radius: 2px;
+                        img {
+                            width: 120%; /* Šířka obrázku přizpůsobená nadřazenému divu */
+                            object-fit: cover; /* Zachová poměr stran a skryje přečuhující části */
+                            object-position: center; /* Vycentrování na výšku */
+                        }
+                        &:hover {
+                            border: 8px solid #d8b600;
+                            padding: 0;
+                            border-radius: 2px;
+                        }
                     }
                     .app-card-content {
                         display: flex;
                         flex-direction: column;
                         align-items: flex-start;
-                        width: 295px;
+                        // width: 250px;
                         gap: var(--Spacing-x2, 8px);
                         align-self: stretch;
-                        .app-card-title {
-                            display: -webkit-box;
-                            display: box; /* Přidáno pro budoucí podporu */
-                            -webkit-box-orient: vertical;
-                            box-orient: vertical; /* Přidáno pro budoucí podporu */
-                            -webkit-line-clamp: 2;
-                            line-clamp: 2; /* Přidáno pro kompatibilitu */
+                        .app-card-title-container {
+                            display: flex;
+                            align-items: flex-start;
+                            gap: var(--Spacing-x2, 8px);
                             align-self: stretch;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
+                            cursor: pointer;
+                            &:hover .app-card-title {
+                                text-decoration: underline;
+                                color: $color-gold-link;
+                            }
+                            .app-card-title {
+                                display: -webkit-box;
+                                display: box; /* Přidáno pro budoucí podporu */
+                                flex: 1 0 0;
+                                -webkit-box-orient: vertical;
+                                box-orient: vertical; /* Přidáno pro budoucí podporu */
+                                -webkit-line-clamp: 2;
+                                line-clamp: 2; /* Přidáno pro kompatibilitu */
+                                align-self: stretch;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                            }
+                            .app-card-icon {
+                                display: flex;
+                                width: 24px;
+                                padding: 2px 0px;
+                                align-items: center;
+                                gap: 10px;
+                                &.hover-icon {
+                                    display: none;
+                                }
+                            }
+                        }
+                        .app-card-title-container:hover .default-icon {
+                            display: none;
+                        }
+                        .app-card-title-container:hover .hover-icon {
+                            display: flex;
+                            // width: 16px;
                         }
                         .app-card-text {
                             display: -webkit-box;
@@ -100,7 +151,7 @@
                                 font-style: normal;
                                 font-weight: 400;
                                 line-height: 20px; /* 142.857% */
-                                text-decoration-line: underline;
+                                // text-decoration-line: underline;
                                 text-decoration-style: solid;
                                 text-decoration-skip-ink: none;
                                 text-decoration-thickness: auto;
@@ -127,6 +178,7 @@
                         }
                         .app-card-link:hover .hover-icon {
                             display: flex;
+                            width: 16px;
                         }
                     }
                 }
@@ -142,3 +194,4 @@
     width: 100%;
     z-index: 1000;
 }
+.mat-mdc-progress-spinner { --mdc-circular-progress-active-indicator-color: #d8b600; }

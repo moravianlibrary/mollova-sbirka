@@ -65,6 +65,7 @@ h2 {
     font-style: normal;
     font-weight: 500;
     line-height: 44px; /* 137.5% */
+    margin: 0;
 }
 h3 {
     color: var(--Text-Base, #0E0E0C);
@@ -75,6 +76,7 @@ h3 {
     font-style: normal;
     font-weight: 500;
     line-height: 48px; /* 171.429% */
+    margin: 0;
 }
 h4 {
     color: var(--Text-Base, #0E0E0C);
@@ -85,6 +87,7 @@ h4 {
     font-style: normal;
     font-weight: 500;
     line-height: 40px; /* 166.667% */
+    margin: 0;
 }
 h5 {
     color: var(--Text-Base, #0E0E0C);
@@ -101,6 +104,7 @@ h5 {
 /* Proměnné */
 $columns: 12;
 $gutter: 16px;
+$menu-width: 250px;
 
 /* Breakpoints */
 $breakpoints: (
@@ -121,6 +125,12 @@ $breakpoints: (
 @font-face {
     font-family: 'Source Sans Pro';
     src: url('./assets/fonts/source-sans-pro/SourceSansPro-Regular.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Source Sans Pro Semibold';
+    src: url('./assets/fonts/source-sans-pro/SourceSansPro-Semibold.otf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -212,7 +222,7 @@ body {
 }
 .text-secondary {
     /* Typesettings/sm/semibold */
-    font-family: "Source Sans Pro";
+    font-family: "Source Sans Pro Semibold";
     font-size: 14px;
     font-style: normal;
     font-weight: 400;

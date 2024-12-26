@@ -62,7 +62,7 @@ export class MenuComponent implements OnInit, OnDestroy {
                   this.onOpenChild(child.title);
                   this.activeChild = child.title;
                   break;
-                } else {
+                } else if (child.children) {
                   for (const subChild of child.children) {
                     if (subChild.pid === pid) {
                       this.onOpenChild(child.title);
