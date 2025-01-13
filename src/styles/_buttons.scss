@@ -11,7 +11,7 @@
     text-decoration: none;
     padding: $padding-medium;
     border-radius: $border-radius;
-    border: none;
+    border: 1px solid transparent;
     cursor: pointer;
     outline: none;
   
@@ -41,6 +41,19 @@
     }
   
     /* Varianty tlačítek */
+    &.btn-primary {
+      background-color: $color-btn-primary;
+      color: $color-text-light;
+  
+      &:hover {
+        background-color: $color-btn-primary-hover;
+        box-shadow: 0 6px 8px $color-shadow-hover;
+      }
+      &:active {
+        background-color: $color-btn-primary-pressed;
+      }
+    }
+
     &.btn-secondary {
       background-color: $color-secondary;
       color: $color-text-dark;
@@ -65,7 +78,7 @@
   
     /* Velikosti tlačítek */
     &.btn-small {
-      padding: 8px 16px;
+      padding: 4px 12px;
       font-size: 14px;
     }
   

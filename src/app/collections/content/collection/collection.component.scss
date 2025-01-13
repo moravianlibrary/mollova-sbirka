@@ -1,15 +1,17 @@
 @import '../../../../styles.scss';
 
 .app-container {
+    display: flex;
     margin: 24px;
     background: var(--BG-Main-Bright, #ffffff);
+    height: fit-content;
     .app-content {
         display: flex;
+        // height: 100%;
         padding: var(--Spacing-x12, 48px);
         flex-direction: column;
         align-items: flex-start;
         gap: 32px;
-        overflow: auto;
         .app-title {
             display: flex;
             flex-direction: column;
@@ -34,34 +36,53 @@
                     align-items: flex-start;
                     gap: var(--Spacing-x3, 12px);
                     flex: 1 0 0;
+                    min-width: 250px;
                     // &:hover .app-card-image {
                     //     border: 8px solid #d8b600;
                     //     padding: 0;
                     //     border-radius: 2px;
                     // }
+                
                     .app-card-image {
                         display: flex;
-                        
                         justify-content: center;
                         align-items: center;
                         background-color: beige;
                         height: 120px;
-                        min-width: 250px;
+                        width: calc(100%);
                         position: relative;
                         overflow: hidden;
-                        padding: 8px;
                         border-radius: 2px;
+                        box-sizing: border-box; /* Zahrne všechny okraje a padding do výpočtu velikosti */
+                      
                         img {
-                            width: 120%; /* Šířka obrázku přizpůsobená nadřazenému divu */
-                            object-fit: cover; /* Zachová poměr stran a skryje přečuhující části */
-                            object-position: center; /* Vycentrování na výšku */
+                          width: 100%; /* Obrázek pokryje celý rodičovský prvek */
+                          height: 100%;
+                          object-fit: cover;
+                          object-position: center;
+                        //   transition: transform 0.3s ease; /* Plynulá animace pro zvětšení obrázku */
                         }
-                        &:hover {
-                            border: 8px solid #d8b600;
-                            padding: 0;
-                            border-radius: 2px;
+                      
+                        .app-card-overlay {
+                          position: absolute;
+                          box-sizing: border-box;
+                          top: 0;
+                          left: 0;
+                          width: 100%;
+                          height: 100%;
+                          border: 8px solid transparent; /* Transparentní border pro výchozí stav */
+                          border-radius: 2px;
+                          pointer-events: none; /* Zabrání interakci s překryvem */
+                        //   transition: border-color 0.3s ease; /* Plynulá změna barvy borderu */
                         }
-                    }
+                      
+                        &:hover {                      
+                          .app-card-overlay {
+                            border-color: #d8b600; /* Změna barvy rámečku při hoveru */
+                          }
+                        }
+                      }
+                      
                     .app-card-content {
                         display: flex;
                         flex-direction: column;
@@ -75,6 +96,7 @@
                             gap: var(--Spacing-x2, 8px);
                             align-self: stretch;
                             cursor: pointer;
+                            text-decoration: none;
                             &:hover .app-card-title {
                                 text-decoration: underline;
                                 color: $color-gold-link;

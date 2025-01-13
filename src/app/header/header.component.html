@@ -1,16 +1,16 @@
 <div class="app-container grid-container">
     <div class="app-left col-3">
         <div class="app-logo"></div>
-        <div class="app-title" [routerLink]="['mollova-sbirka']">
+        <div class="app-title" [routerLink]="['mollova-sbirka']" (click)="changeActiveLink('')">
             <h5>{{ 'molls-collection' | translate }}</h5>
         </div>
     </div>
     <div class="app-right col-9">
         <div class="app-nav">
-            <div class="app-nav-item" [routerLink]="['search']">{{'search' | translate}}</div>
-            <div class="app-nav-item" [routerLink]="['about']">{{'about' | translate}}</div>
-            <div class="app-nav-item" [routerLink]="['about']">{{'other-collections' | translate}}</div>
-            <div class="app-nav-item" [routerLink]="['about']">{{'contacts' | translate}}</div>
+            <a class="app-nav-item" [routerLink]="['search']" [class.app-active]="activeLink === 'search'" (click)="changeActiveLink('search')">{{'search' | translate}}</a>
+            <a class="app-nav-item" [routerLink]="['o-sbirce']" [class.app-active]="activeLink === 'about'" (click)="changeActiveLink('about')">{{'about' | translate}}</a>
+            <a class="app-nav-item" [routerLink]="['other']" [class.app-active]="activeLink === 'other'" (click)="changeActiveLink('other')">{{'other-collections' | translate}}</a>
+            <a class="app-nav-item" [routerLink]="['kontakt']" [class.app-active]="activeLink === 'contacts'" (click)="changeActiveLink('contacts')">{{'contacts' | translate}}</a>
         </div>
         <div class="app-lang">
             <app-button variant="outline" (click)="switchLanguage('cs')" [class.app-icon-hide]="currentLang === 'cs'" iconLeft="cs.svg">

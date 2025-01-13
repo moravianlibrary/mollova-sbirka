@@ -1,1 +1,238 @@
-<p>about works!</p>
+<div class="app-about-container">
+    <div class="app-about-menu">
+        <div class="app-menu-items">
+            <div class="app-menu-item" (click)="onMenuClick('history')" 
+                [class.app-active]="activeMenu === 'history'">
+                <div class="app-menu-item-text">{{'history' | translate}}</div>
+            </div>
+            <div class="app-menu-item" (click)="onMenuClick('rukopisne-mapy-a-veduty')"
+                [class.app-active]="activeMenu === 'rukopisne-mapy-a-veduty'">
+                <div class="app-menu-item-text">{{'handwriten-maps' | translate}}</div>
+            </div>
+            <div class="app-menu-item" (click)="onMenuClick('struktura-sbirky')"
+                [class.app-active]="activeMenu === 'struktura-sbirky'">
+                <div class="app-menu-item-text">{{'coll-structure' | translate}}</div>
+            </div>
+            <div class="app-menu-item" (click)="onMenuClick('obsah-sbirky')"
+                [class.app-active]="activeMenu === 'obsah-sbirky'">
+                <div class="app-menu-item-text">{{'coll-content' | translate}}</div>
+            </div>
+            <div class="app-menu-item" (click)="onMenuClick('osud-sbirky')"
+                [class.app-active]="activeMenu === 'osud-sbirky'">
+                <div class="app-menu-item-text">{{'coll-fate' | translate}}</div>
+            </div>
+            <div class="app-menu-item" (click)="onMenuClick('bernard-pavel-moll')"
+                [class.app-active]="activeMenu === 'bernard-pavel-moll'">
+                <div class="app-menu-item-text">{{'moll' | translate}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="app-about-content-container">
+        <div class="app-about-content">
+            <div class="app-items" *ngIf="activeMenu === 'history'">
+                <div class="app-item">
+                    <h1 class="app-header">{{'history' | translate}}</h1>
+                    <div class="app-text" *ngIf="currentLang === 'cs'">
+                        <div>Mollova sbírka je zažitým názvem pro atlas shromážděný ve 40. a 50. letech 18. století německým diplomatem Bernardem Pavlem Mollem. Soubor zahrnuje v souladu s dobovým pojetím atlasu jak grafická vyobrazení měst a krajiny, tak jejich generalizovaná schematická znázornění - mapy. Na objednávku majitele je potom doplněn řadou kresebných znázornění důlních děl a antických památek.</div>
+                        <div>O dílo, které se počátkem 19. století dostalo sbírek Františkova (později Moravského zemského) muzea, po celá desetiletí téměř nikdo neprojevoval zájem. Pozornosti se mu dostalo až v polovině 20. století, kdy byl vypracován první tištěný katalog, na přelomu tisíciletí byla provedena nová rekatalogizace, která dílo zpřístupnila formou elektronické databázi a následně došlo i jeho kompletní digitalizaci.</div>
+                        <div>Svým rozsahem (12 000 kusů) se Mollova sbírka řadí mezi několik málo velkých historických mapových sbírek ve střední Evropě, které se dochovaly v téměř původním stavu až do součanosti. Zcela ojedinělé jsou potom původní mnohasvazkové rukopisné katalogy, vytvořené v době vzniku sbírky. Jejich charakter je nejen evidenční, obsahují i řadu údajů o vzniku a obsahu jednotlivých map - jedná se v mnoha případech o první práce z dějin kartografie pro daná území.</div>
+                    </div>
+                    <div class="app-text" *ngIf="currentLang === 'en'">
+                        <div>The Moll Collection is a commonly used name for the atlas, collected in the 1740s and 1750s by the German diplomat Bernhard Paul Moll. The collection includes, in accordance with the original concept of an atlas, graphical representations of cities and landscapes as well as their generalised schematic drawings – maps. On request of the owner it was also supplemented by a number of drawings representing mines and ancient monuments.</div>
+                        <div>Almost no one had expressed any interest in this work for decades, which became the property of the Francis Museum (now Moravské zemské muzeum) in the early 19th century. It began to receive some attention as late as the mid-20th century, when the first printed catalogue was created. At the turn of the millennium a new cataloguing process took place, which made the work available via an electronic database, complete digitisation having been carried out afterwards.</div>
+                        <div>With its size (12,000 units) the Moll Collection ranks among the few large historical map collections in Central Europe, which have been preserved in its almost original condition until the present. The multiple volume original manuscript catalogues, created at the time the collection was founded, are one of a kind. Their character is not only evidentiary, they also contain data regarding the inception and content of individual maps - it is in many cases, the first work from the history of cartography for given areas.</div>
+                    </div>
+                    <div class="app-text" *ngIf="currentLang === 'de'">
+                        <div>Die Bezeichnung Sammlung Moll hat sich als Name für den Atlas eingebürgert, den der deutsche Diplomat Bernhard Paul Moll. in den 40er und 50er Jahren des 18. Jahrhunderts angelegt hat. Die Sammlung umfasst entsprechend der damaligen Auffassung eines Atlas sowohl grafische Abbildungen von Städten und Landschaften als auch deren generalisierte schematische Darstellungen – Landkarten. Auf Bestellung des Sammlers wurde er mit einer Reihe von Zeichnungen von Bergwerken und antiken Denkmälern ergänzt.</div>
+                        <div>Für das Werk, das Anfang des 19. Jahrhunderts Teil der Sammlungen des Franzensmuseums (später Mährisches Landesmuseum) wurde, äußerte ganze Jahrzehnte lang kaum jemand Interesse. Beachtung fand es erst Mitte des 20. Jahrhunderts, als der erste gedruckte Katalog ausgearbeitet war. Um die Jahrtausendwende wurde eine Rekatalogisierung durchgeführt, die das Werk in der elektronischen Datenbank zugänglich machte, und schlussendlich wurde es komplett digitalisiert.</div>
+                        <div>Mit seinem Umfang (12 000 Blätter) gehört die Sammlung Moll zu den wenigen großen historischen Kartensammlungen in Zentraleuropa, die sich in fast ursprünglichem Zustand bis in die Gegenwart erhalten haben. Völlig einzigartig sind die ursprünglichen mehrbändigen handschriftlichen Kataloge, die zeitgleich mit der Sammlung entstanden. Sie dienen nicht nur als Verzeichnis, sondern beinhalten auch Angaben zu Entstehung und Inhalt der einzelnen Karten – es handelt sich in vielen Fällen um die erste Arbeit aus der Geschichte der Kartografie für die gegebenen Gebiete.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="app-items" *ngIf="activeMenu === 'rukopisne-mapy-a-veduty'">
+                <div class="app-item">
+                    <h1 class="app-header">{{'handwriten-maps' | translate}}</h1>
+                    <div class="app-text-image" *ngIf="currentLang === 'cs'">
+                        <div class="app-ti-item">
+                            <div class="app-text column">
+                                <div>Zájem o historii, zejména o antiku, byl společný intelektuálním vrstvám celého raného novověku a u Bernarda Pavla Molla se projevoval sběratelstvím dějepisných map. Charakteristické byly původními latinskými a řeckými toponymy, často je zdobily portréty starověkých panovníků nebo vyobrazení mincí. Záliba tvůrce sbírky v klasických studiích se odráží i v oddílu kuriozit, kde se zřetelně projevuje ve sběratelské vášni pro epigrafické památky. Mnohé z nich nechal překreslit do Rakouského atlasu a bílých katalogů, kde k nim také připojil obsáhlá pojednání z řad místní odborníků (pro Moravu například psal tyto texty Josef Dismas von Hoffer).</div>
+                                <div>Před nahlédnutím do těchto souborů je nutné připojit několik slov k původu a autorství oněch kreseb. Vznikly totiž na popud samotného Molla, který chtěl snad zaplnit mezeru své kolekce v oblasti, která byla jeho specifickou zálibou. Možná se tu projevovaly také jeho vědecké ambice. Podle původního rukopisného katalogu se mělo jednat o část jinak neznámého Handriss-Archivu císaře Františka Štěpána Lotrinského. Jeho existence je však velmi sporná. Je možné, že se za tímto odkazem skrývala pouze snaha autorů legitimovat své podvržené kresby. Vyloučit existenci panovníkovy sbírky však zatím také nelze. Podobně nebylo uspokojivě objasněno ani autorství těchto kreseb. Signované exempláře obsahují jméno Geyer, o kterém je známo, že byl důstojníkem. S konkrétní osobou se však Geyera dosud ztotožnit nepodařilo, rozdílná úroveň kreseb však napovídá, že se jednalo nejspíše o celou dílnu. Vedle kvalitních plánů městských opevnění především z uherského a částečně i italského prostředí, představují kresby signované Geyerem v převážné většině dílka nevalné úrovně, značně schematicky zpracovaná a, jak bylo prokázáno, z velké části podvržená. Tematicky můžeme roztřídil kresby do čtyř skupin – pevnosti, doly, zámecké a hradní stavby a antické památky, zejména epigrafické. Připojená datace umožňuje vročení souboru do let 1739-1756.</div>
+                            </div>
+                            <a class="app-image column" [routerLink]="'/mollova-sbirka/uuid:a5c1a36c-ad50-494c-8a4d-a7c2a035c349'">
+                                <img src="assets/images/uuid-a5c1a36c-ad50-494c-8a4d-a7c2a035c349.jpg" alt="1">
+                            </a>
+                            </div>
+                        <div class="app-ti-item">
+                            <a class="app-image column" [routerLink]="'/mollova-sbirka/uuid:a6f5bc73-52d9-4503-a7b1-93d07bf3aa3e'">
+                                <img src="assets/images/uuid-a6f5bc73-52d9-4503-a7b1-93d07bf3aa3e.jpg" alt="2">
+                            </a>
+                            <div class="app-text column">
+                                <div>Epigrafická vyobrazení byla zčásti odhalena jako falsa už v první polovině 19. století, přesto se díky jednomu z opisů Mollova katalogu chovanému ve Štýrském Hradci stala předmětem odborné diskuse až do 20. století. Těžko dnes soudit, zda se jednalo úmyslné povrhy autora kreseb, nebo zda místní šlechtici vytvářeli kolem umělých římských památek na svém panství pověst autenticity, jež by jejich statkům dodala punc starobylosti, který by se odleskem mohl dotknout i jejich osoby. Ty pak mohl kreslíř jen reprodukovat. Nejspíše se však jedná o fiktivní obrazy zpracované podle písemných elaborátů zpravodajů, někdy snad doplněných nákresem. Zdá se také, že se autoři místy snažili využít dostupných map pro vykreslení okolní krajiny.</div>
+                            </div>
+                            
+                        </div>
+                        <div class="app-ti-item">
+                            <div class="app-text column">
+                                <div>Bergwerke jsou označením pro podobná vyobrazení dolů a těžebních oblastí. Bizardní důlní prostory plné naivně vyvedených pracujících permoníků vzbudí nejvýše shovívavý úsměv, estetického zážitku se dočká asi jen divák s mimořádně rázovitým vkusem. Jestli nesly kresby jakou informaci, tedy nejspíše jen o skutečném nebo domnělém výskytu rudy v místě. Přesto není možno odsoudit tyto kresby jako nepochopitelnou libůstku podivínského šlechtice z tereziánských dob. Zájem o hornictví a těžbu rud trval po celé 18. století, jen přístup k tématu se proměňoval. Valnou část jeho první poloviny tvořilo ještě barokní vnímání nerostů, v němž se mísilo raně vědecké pojetí chemie, mineralogie a ekonomie s alchymií a okultismem, racionální nebylo stále od iracionálního odlišeno jako v době osvícenství a už vůbec ne ostře odděleno. To je až dílem vědy 19. století. Už od 17. století stály drahé kovy ve středu pozornosti jak hospodářských, tak politických teoretiků. Jednalo se o reakce na dosud nepoznané projevy inflace, záporné hospodářské bilance nebo státního dluhu.</div>
+                                <div>Většina těchto prvních ekonomů soustředila svoji pozornost nejen na zlepšení mince nebo těžbu kovů, ale sama se pokoušela získat tyto přírodniny prostřednictvím alchymie, která byla považována za relevantní vědní obor. Zalíbení v těchto vědách nalézali zejména příslušníci společenských elit. Jednalo se nejčastěji o dvě skupiny, z nichž se rekrutovali vědci a okultisté v jedné osobě – úředníky, obvykle čerstvě nobilitované, a vysokou aristokracii, výjimku netvořili ani panovníci. Tito dříve izolovaní intelektuálové začali v průběhu 18. století vytvářet různá sdružení podobně smýšlejících, vznikaly učené společnosti, zednářské lóže, společnosti pro povznesení zemědělství i umění. </div>
+                                <div>Formovala se osvícenská společnost. Věda přísně oddělená od ostatního světa, jak ji známe z 19. a 1. poloviny 20. století se ale ještě nevytvořila. Elitní kluby šlechticů a vzdělanců představovaly prostor pro diskusi, která tříbila dosud spíše tradované názory, nutila argumentovat, tvořila pro vznik vědy podhoubí. Touha po znalostech o nalezištích nerostu ukazuje na příslušnost objednavatele těchto vyobrazení Bernarda Pavla Molla k elitním vrstvám, na jeho intelektuální orientaci. Zdánlivě naivní kresby takto nahlíženy nabývají zapomenutý smysl.</div>
+                            </div>
+                            <a class="app-image column" [routerLink]="'/mollova-sbirka/uuid:c9bee2b7-2d56-406a-bca5-68a8c588ef58'">
+                                <img src="assets/images/uuid-c9bee2b7-2d56-406a-bca5-68a8c588ef58.jpg" alt="3">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="app-text" *ngIf="currentLang === 'en'"></div>
+                    <div class="app-text" *ngIf="currentLang === 'de'"></div>
+
+                </div>
+            </div>
+            <div class="app-items" *ngIf="activeMenu === 'struktura-sbirky'">
+                <div class="app-item">
+                    <h1 class="app-header">{{'coll-structure' | translate}}</h1>
+                    <div class="app-text-image" *ngIf="currentLang === 'cs'">
+                        <div class="app-ti-item">
+                            <div class="app-text column">
+                                <div>Sbírka tak obrovského rozsahu (katalog Karla Kuchaře uvádí téměř 12 000 map a grafik) musela být nutně dále vnitřně členěna. Jako klíč pro rozdělení souboru posloužila mapa říšských krajů předního německého kartografa a vydavatele map Johanna Christopha Homanna Tabula Geographica Europae Austriacae Generalis.</div>
+                                <div>Bernard Pavel Moll sbírku map a vedut rozčlenil na dva základní atlasy – rozsahem větší Atlas Austriacus a menší Atlas Germanicus. První z nich zahrnuje zobrazení zemí, které podléhaly bezprostředně habsburským vladařům, další potom přináší materiál k suverénním říšským oblastem s vlastními panovníky, nad nimiž byla habsburská svrchovanost odvozována z titulu římských císařů.</div>
+                                <div>Další členění se odvíjí od nižších politických celků, ze kterých byla obě vymezená území složena – říšských krajů. Jednotlivé kraje se potom obvykle dělí na jednotlivé suverénní říšské státy nebo dědičné habsburské země. Rakouský atlas tak obsahuje čtyři základní celky - vlastní rakouské země spolu se zeměmi českými, Burgundský kraj (tedy Spojené nizozemské provincie a Rakouské Nizozemí), mapy Itálie a nakonec mapy Uher, označované také jako Uherský atlas. Atlas Germanicus je rozdělen na kraje Bavorský, Francký, Hornorýnský, Dolnorýnský, Hornosaský, Dolnosaský, Švábský a Vestfálský. V posledním svazku jsou uloženy mapy Švýcarska. </div>
+                                <div>Svazky jsou potom dále rozděleny na díly podle zemí (např. Morava, Dolní Rakousy), oba atlasy dohromady obsahují 68 těchto dílů. V nich jsou obvykle na začátku uloženy celkové mapy území spolu s mapami historickými, následují mapy dílčích oblastí nebo měst, v případě většího počtu map nebo grafik seskupené vždy podle zobrazované lokality. </div>
+                                <div>Zvlášť potom bývají umístěna takzvaná kuriosa – rukopisné plány dolů, antických zřícenin a kamenů se starověkými nápisy. Soubory vedut, zejména z Merianovy, Vischerovy a Valvasorovy dílny, bývají někdy v díle rozptýleny podle názvů měst, jindy jsou zachovány v téměř úplném původním vydavatelském pořadí.</div>
+                            </div>
+                            <a class="app-image column" [routerLink]="'/mollova-sbirka/uuid:a86842a2-6600-4ba4-9954-96a4cb588744'">
+                                <img src="assets/images/uuid-a86842a2-6600-4ba4-9954-96a4cb588744.jpg" alt="3">
+                            </a>
+                        </div>
+                        <div class="app-ti-item">
+                            <a class="app-image column" href="https://www.digitalniknihovna.cz/mzk/view/uuid:b80af0a3-e402-4626-a349-bb845d193576?page=uuid:f3dc225b-41da-4703-995f-4c69baf171b8" target="_blank">
+                                <img src="assets/images/uuid-f3dc225b-41da-4703-995f-4c69baf171b8.jpg" alt="3">
+                            </a>
+                            <div class="app-text column">
+                                <div>Struktura sbírky je zachycena v původních rukopisných katalozích, které se dochovaly až do dnešních dob. Jedná se o obsáhlé mapografické soupisy doplněné jak texty vztahujícími se k zobrazovaným lokalitám, tak někdy i obrazovým doprovodem. Moll připravil 20 rukopisných svazků, podle pergamenových vazeb zvaných bílé katalogy. U některých se dochovaly i duplikáty. </div>
+                                <div>Kromě definitivních bílých katalogů zůstaly i starší katalogy, novodobě vevázané do hnědé vazby, dále koncepty těchto katalogů a přehledy obou atlasů zhotovené Friedrichem Vockelem.</div>
+                                <div>Zvláštní zájem i po Mollově smrti budily díly katalogu zachycující uherské země. Vazby Pavla Bernarda Molla k této oblasti byly, zvláště v posledních letech utváření atlasu, velmi úzké. Jako protestant dal svého syna studovat na známé evangelické lyceum do Bratislavy a zřejmě kontakty, které tam navázal, byly příčinou vytvoření opisu části katalogu týkající se Uher.</div>
+                                <div>Svazek se záhy dostal do rukou předního uherského šlechtice Ference Széchényiho (jehož soukromá bibliotéka se stala základem maďarské národní knihovny nesoucí Széchényiho jméno) a vyvolal v budapešťských intelektuálních kruzích značný ohlas. Patřil totiž k prvním soupisům uherských map a snad se o něm uvažovalo i jako o podkladu pro vydání atlasu Uher. O významu mapografického soupisu pro uherské území svědčí i fakt, že se Mollova sbírka těší zájmu maďarských badatelů dodnes.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="app-text" *ngIf="currentLang === 'en'"></div>
+                    <div class="app-text" *ngIf="currentLang === 'de'"></div>
+                </div>
+            </div>
+            <div class="app-items" *ngIf="activeMenu === 'obsah-sbirky'">
+                <div class="app-item">
+                    <h1 class="app-header">{{'coll-content' | translate}}</h1>
+                    <div class="app-text" *ngIf="currentLang === 'cs'">
+                        <div>Zažitý název Mollova mapová sbírka nevystihuje ideálně charakter souboru, lepší možnosti skýtá jeho uchopení pomocí dobového označení atlas. V atlasech se totiž obvykle prolínaly dva způsoby zobrazování území nebo místa – v detailu realistický pohled na stavbu nebo město, tedy klasická veduta, pro postižení většího území dvourozměrný půdorysný obraz povrchu využívající symbolické znázornění, tedy mapa. Přechod mezi topografickým a kartografickým přístupem nebyl ostrý, příkladem mohou být pohledy na města z ptačí perspektivy, které zachovávaly podobu jednotlivých budov, ale zároveň zřetelně zachycovaly uliční síť, nebo častá doplnění plánů měst o kartuši s vedutou.</div>
+                    </div>
+                    <div class="app-text-image" *ngIf="currentLang === 'cs'">
+                        <h3 class="app-subheader">Grafiky</h3>
+                        <div class="app-ti-item">
+                            <div class="app-text column">
+                                <div>Mirko Riedl, který se vedutami z Mollovy sbírky zevrubněji zabýval, uvádí téměř 7000 položek. Údaj je to sice vzhledem k rozostřené hranici pojmu relativní, přesto ale poměrně zřetelně ukazuje, že mapy v dnešním slova smyslu tvoří jen asi polovinu celého souboru a veduty jsou v k nim kvantitativně rovnocennou položkou.</div>
+                                <div>Brněnský soubor obsažený v Mollových atlasech nabízí reprezentativní průřez evropskou vedutou od poloviny 16. století, kdy vznikly první velké soubory pohledů na města (a první mapové atlasy), až do poloviny 18. století, kdy žil tvůrce sbírky. Prací Georga Brauna Civitates Orbis Terrarum, grafické obdoby soudobého Mercatorova mapového projektu Theatrum Orbis Terrarum, se veduta stala jednou z možných uchopení celého tehdejšího světa. Ještě větší úspěch, než jaký sklidila před lety Münsterova Kosmografie, přinesla Braunovi použitá technologie mědirytu. Přesnost a ostrost, jakou tato technologie nabízela v detailu a jistě i vyšší trvanlivost tiskových desek oproti dřevěným štočkům byly klíčem k úspěchu.</div>
+                            </div>
+                            <a class="app-image column" [routerLink]="'/mollova-sbirka/uuid:c1ecc56b-ca35-414a-8c60-8863a72d1366'">
+                                <img src="assets/images/uuid-c1ecc56b-ca35-414a-8c60-8863a72d1366.jpg" alt="3">
+                            </a>
+                        </div>
+                        <div class="app-ti-item">
+                            <a class="app-image column" [routerLink]="'/mollova-sbirka/uuid:779fb6e4-6d24-48f5-bbbe-81811e17dde0'">
+                                <img src="assets/images/uuid-779fb6e4-6d24-48f5-bbbe-81811e17dde0.jpg" alt="3">
+                            </a>
+                            <div class="app-text column">
+                                <div>Desítky Braunových vyobrazení evropských měst s typickou figurální stafáží páru v krajovém oděvu reprezentují nejstarší vrstvu vedut, které se Mollovi podařilo shromáždit. Počtem jistě největší jsou v Mollových atlasech soubory rytin dílny rodiny Merianů z Frankfurtu nad Mohanem. Rytci a kreslíři tohoto podniku zdokumentovali v mnoha vydáních (zde je na místě povzdechnutí katalogizátorů, kteří nejednou museli rezignovat na přesnější vročení) tvář měst převažující části Evropy</div>
+                                <div>První vydání jednotlivých dílů jejich Topografií spatřila světlo světa ve 30.-60. letech 17. století, tedy v dobách, kdy se kontinentem valila v mnoha vlnách vojska soupeřících armád třicetileté války. Jejich z části leptané pohledy na města doplněné drobnými postavami rolníků, obchodníků, pocestných nebo vojáků sice nedosahují takové síly účinku jako známé Callotovy rytiny, nesou v sobě přesto osobitý půvab a hlavně obrovskou dokumentační a historickou hodnotu.</div>
+                            </div>
+                        </div>
+                        <div class="app-ti-item">
+                            <div class="app-text column">
+                                <div>Vliv Merianových rytin byl tak výrazný, že napodobeniny jeho děl vycházely zejména z dílen Gabriela Bodenehra nebo Pietera van der Aa ještě po většinu 1. poloviny 18. století. Z této doby jsou v Mollově sbírce obsaženy veduty z oficín Josepha Friedricha a Johanna Christiana Leopoldů nebo Jeremiase Wolffa (ryté a kreslené Slezanem Friedrichem Bernardem Wernerem). Klasická pohledová veduta města však už v 1. polovině 18. století výrazně ustupovala vyobrazením paláců a kostelů, zahrad, městských ulic a interiérů. Tyto soubory jsou obsaženy především v dílech Mollovy sbírky věnovaných Římu a Itálii obecně, Vídni a Rakouskému Nizozemí.</div>
+                                <div>Vedle zmiňovaného Wernera, mimo jiné autora souboru pohledů na rakouské kláštery, vynikli z Rakušanů především Salomon Kleiner a Josef Emanuel Fischer z Erlachu, jejichž rytiny diváka postaví před průčelí paláců a chrámů barokní Vídně. Ještě více však zaujmou práce z nizozemského a italského prostředí. Danckertsovy, Allardovy, Valckovy nebo Van Callovy rytiny zámku Het Loo se zahradami nebo pohledy téhož Gerarda Valcka na sídla v Honslaardijku či Soestdijku, se v mnohém vyrovnají známějším rytinám z italského prostředí, kde převažuje techničtější architektonická nádhera. Díla Giovanni Battisty Faldy věnovaná římským zahradám, fontánám a palácům (poslední s Pietrem Ferreiriem) či Wernerovy pohledy do florentského prostředí jsou díky velmi dobrému stavu dochování dodnes vyhledávány historiky umění.</div>
+                            </div>
+                            <a class="app-image column" [routerLink]="'/mollova-sbirka/uuid:0bd8800b-e4da-42d7-9d6d-9e1228619b15'">
+                                <img src="assets/images/uuid-0bd8800b-e4da-42d7-9d6d-9e1228619b15.jpg" alt="3">
+                            </a>
+                        </div>
+                        <h3 class="app-subheader">Mapy</h3>
+                        <div class="app-ti-item">
+                            <div class="app-text column">
+                                <div>Mapa jako druhá stěžejní část Mollova atlasu reprezentuje podobně jako veduta vývoj kartografické tvorby na území po celých 200 let. Nejstarší mapy jsou datovány, shodně jako veduty, do 2. poloviny 16. století, kdy se mapa definitivně posunula ze symbolického zobrazení světa k více či méně reálnému vyjádření prostorových vztahů z krajiny na plochu. Postupem času mizely velryby a mořské obludy z hladin oceánů a zvěř ze zemského povrchu. Mapové pole se zaplnilo symbolickými značkami, obraz byl v 17. století doplněn rámcem s geografickými souřadnicemi a v 18. století souřadnicovou sítí.</div>
+                                <div>Kopečková metoda znázornění terénu byla nahrazena přesnějšími šrafy pro vykreslení svahů. Matematika však prostor mapového listu neovládla zcela. Původně strohé názvové kartuše zdobené zprvu nejvýše maskaronem a jednoduchým geometrickým motivem se od poloviny 17. století obklopily alegorickými mědirytinami. Rohy hojnosti, symboly vojenských úspěchů nebo personifikace zobrazených zemí byly doplněny bohatou heraldickou výzdobou, u grafických měřítek nechyběli puti nebo andílci s kartografickými nástroji. Kartuše s věnováním bývaly obohaceny portrétem dedikanta. Přes vnější proměny těchto umělecky vypravených částí zůstává obsahová hodnota mapových listů často stejná. Táž deska byla nezřídka několikrát přeryta, aby pod novým názvem a datací přinesla zisk svému vydavateli. Zejména od poloviny 17. století se stávají soubory shodných map s rozdílnou mapovou kartuší čím dál tím častějšími.</div>
+                            </div>
+                            <a class="app-image column" [routerLink]="'/mollova-sbirka/uuid:f543607f-7964-4676-a69c-788574a1db39'">
+                                <img src="assets/images/uuid-f543607f-7964-4676-a69c-788574a1db39.jpg" alt="3">
+                            </a>
+                        </div>
+                        <div class="app-ti-item">
+                            <a class="app-image column" [routerLink]="'/mollova-sbirka/uuid:7f3d0af1-6ae0-42ef-9337-3d0ac81a2136'">
+                                <img src="assets/images/uuid-7f3d0af1-6ae0-42ef-9337-3d0ac81a2136.jpg" alt="3">
+                            </a>
+                            <div class="app-text column">
+                                <div>Mapová díla tvoří podobně jako veduty reprezentativní průřez evropskou tvorbou 16.-18. století. Jednotliviny z Orteliova zakladatelského díla doplňují pro 17. století práce zástupu nizozemských kartografů – stačí jen jmenovat amsterodamské rodiny Visscherů, Janssoniů, Schenků, Blaeuů. Mekkou kartografie zůstal Amsterdam i v následujícím věku. Nizozemskou kartografii 18. století zastupují stovky prací firmy Covens & Mortier, rodin Schenků nebo Ottensů. Přes svůj nesporný význam Amsterodam ztrácel svoji monopolní pozici.</div>
+                                <div>Místo na Slunci si vydobila Paříž v čele s rodinami Delislů a Sansonů. Symbolem německé kartografie se stal Norimberk; Johann Baptist Homann a jeho dědici vydávali po celé století atlasy, které byly vzorem pro jejich mnohé konkurenty. V Norimberku pracovali mimo Homannů i dílny Matthäuse Seuttera a Christopha Weigela, významným centrem byl i Augsburg s pracemi Tobiase Conrada Lottera. Z italských kartografů je nezbytné alespoň jmenovat Giovanniho Giacomma De Rossi, jehož oficína sídlila v Římě.</div>
+                            </div>
+                        </div>
+                        <div class="app-ti-item">
+                            <div class="app-text column">
+                                <div>Tematicky lze v Mollově sbírce mimo klasické politické mapy rozlišit několik okruhů. Nejvýznamnější skupinou jsou mapy bojišť a obléhání měst. Už mezi Merianovými pracemi bylo otištěno několik bitev třicetileté války, většina plánů bojišť shromážděných Mollem byla však aktuálnějšího data. Zobrazují zejména války s Turky v celé oblasti vojenské hranice na Balkáně. Severní Itálie a francouzsko-říšská hranice byly dalšími dějišti bojů. Plány zachycují někdy jen strohá postavení armád a směry hlavních útoků, jindy nechybějí dráhy dělostřeleckých nábojů, hořící města nebo postavy vojáků.</div>
+                                <div>Nejen za zmínku, ale i za podrobnější studii, by stála analýza rukopisných map a plánů, které Moll nashromáždil z těchto oblastí. Jistě se z části jedná o pouhé rukopisné kopie existujících tištěných map. Jsou-li ale některé plány originálními díly, která mohl Moll získat během svého vídeňského pobytu od důstojníků, kteří se osobně účastnili bojů, pak by se změnilo i celkové hodnocení významu Mollových atlasů.</div>
+                            </div>
+                            <a class="app-image column" [routerLink]="'/mollova-sbirka/uuid:ec801ae9-4f1a-455e-bf73-5a9b1c26276c'">
+                                <img src="assets/images/uuid-ec801ae9-4f1a-455e-bf73-5a9b1c26276c.jpg" alt="3">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="app-text" *ngIf="currentLang === 'en'"></div>
+                    <div class="app-text" *ngIf="currentLang === 'de'"></div>
+                </div>
+            </div>
+            <div class="app-items" *ngIf="activeMenu === 'osud-sbirky'">
+                <div class="app-item">
+                    <h1 class="app-header">{{'coll-fate' | translate}}</h1>
+                    <div class="app-text" *ngIf="currentLang === 'cs'">
+                        <div>Koncem února 1821 se v jednom vídeňském bytě pokoušeli sluhové vyprostit z hromady nepořádku několik tisíc mapových a grafických listů. Na první pokus se jim to nepodařilo, což na čele jejich chlebodárce, naturalizovaného moravského šlechtice barona Fridricha Zikmunda Vockela, vyvolalo asi nejednu vrásku. Sbírku map po dědečkovi totiž musel z bytu své sestry vystěhovat nejpozději do sv. Jiří, jinak hrozil její prodej do starého papíru.</div>
+                        <div>Vockelův dědeček Bernard Pavel Moll zemřel už před více než čtyřiceti lety a rodině se ani po opakovaných pokusech nepodařilo sbírku prodat. Fridrichovi sourozenci tedy svolili, aby se souborem naložil, jak uzná za vhodné. Prvořadé pro ně bylo vyklizení bytu ještě před plánovaným stěhováním. Vockel, ač se na Moravu přiženil teprve na přelomu století, patřil již léta do činorodé Moravskoslezské vlastenecko-hospodářské společnosti pro povznesení zemědělství, věd a umění, spolku pozdně osvícenských intelektuálů tvořeného převážně zemskou šlechtou, úřednictvem a prvními průmyslníky. Tato společnost stála v roce 1817 u počátků Františkova musea v Brně a osobní příspěvek k jeho rozvoji byl pro moravské patrioty věcí osobní cti. Fridrich Zikmund Vockel se rozhodl věnovat sbírku map a vedut po svém dědovi.</div>
+                        <div>Velkorysý dar potom ležel bez výraznějšího zájmu nejdříve v prostorách augustiniánského kláštera na Starém Brně, poté v budově Františkova musea. Při oddělení knihovny od musea byla sbírka předána Zemské knihovně, protože archiv o ni neprojevil zájem. Paradoxně toto letité opomíjení zajistilo souboru pozici unikátu nejen ve středoevropském prostoru. Dnes představuje jedinečný příklad pozdně barokního a raně osvícenského sběratelství, dochovaný v téměř intaktní podobě. Soubor totiž nebyl během let nijak výrazně rozšiřován, ani z něj nebyly větší skupiny map přemanipulovány jinam (snad s výjimkou map Moravy). Zachoval si tedy svoji původní strukturu tak, jak mu ji vtiskl Bernard Pavel Moll.</div>
+                        <div>Pravděpodobně ještě v první polovině 19. století byl ke sbírce vypracován lístkový katalog, který vycházel z původních rukopisných mapografií, koncem 50. let 20. století byl potom knižně vydán soupis map a vedut obsažených v kolekci. Počátkem 2. tisíciletí byla potom sbírka rekatalogizována a zpřístupněna v online katalogu Moravské zemské knihovny. Následně byla z prostředků programu Europeana Travel zdigitalizována a prostřednictvím tohoto webu zpřístupněna veřejnosti.</div>
+                    </div>
+                    <div class="app-text" *ngIf="currentLang === 'en'">
+                        <div>At the end of February 1821, in one of the Viennese apartments, servants tried to cull thousands of maps and prints from the piles of debris. Their first attempt was a failure, which must have had their employer, the naturalised Moravian nobleman Baron Friedrich Sigmund Vockel, concerned enormously. The collection of maps inherited from his grandfather was to be moved from his sister's apartment prior to St. George's Day, otherwise it would have been sold as waste paper.</div>
+                        <div>Vockel's grandfather, Bernhard Paul Moll, had died more than 40 years earlier and his family had not succeeded, even after repeated attempts, to sell the collection. Fridrich's siblings therefore consented that he could proceed with it as he likes. Paramount for them was removing it from the flat before the planned move. Vockel, although married to Moravia only at the turn of the century, had been a member of an energetic Moravian- Silesian Patriotic and Economic Society for the Advancement of Agriculture, Science and Art, an association of late Enlightenment intellectuals formed predominantly by Moravian nobility, bureaucrats and the first industrialists, for years. This society stood in 1817 at the beginnings of the Francis Museum in Brno, personal contribution to its development being, for Moravian patriots, a matter of personal honour. Frederick Sigismund Vockel decided to donate a collection of maps and vedute inherited from his grandfather.</div>
+                        <div>At first this generous gift then lay without significant interest from anyone at the premises of the Augustinian Monastery in Old Brno, then in the Francis Museum building. When separation of the library from the museum took place, the collection was transferred to the State Library, as the archive didn't display any interest in it. Ironically, this age-old marginalisation ensured the collection a unique position not only in Central Europe. Today it presents an unparalleled example of late Baroque and early Enlightenment collecting, preserved nearly intact. The collection did not significantly expand over the years, nor were larger groups of maps transferred elsewhere (except perhaps some of the maps of Moravia). Therefore, it retains the original structure given to it by Bernhard Paul Moll himself.</div>
+                        <div>Most likely still in the first half of the 19th century, a card catalogue was created for the collection, based on the original manuscript mapography. At the end of the 1950s an inventory of maps and vedute contained in the collection was published in book form. At the beginning of the second Millennium the collection was newly catalogued and made available using the online catalogue of the Moravská zemská knihovna (Moravian State Library). Subsequently, it was digitised and made available to the public via this site thanks to generous funding from the Europeana Travel program.</div>
+                    </div>
+                    <div class="app-text" *ngIf="currentLang === 'de'">
+                        <div>Ende Januar 1821 versuchten in einer Wiener Wohnung Bedienstete den Haufen Unordnung von einigen tausend Grafik- und Kartenblättern loszuwerden. Beim ersten Versuch gelang ihnen das nicht, was auf der Stirn ihres Brotherren, des assimilierten mährischen Adeligen, Baron Friedrich Sigmund Vockel, vermutlich nicht nur eine Falte hervorrief. Die vom Großvater hinterlassene Kartensammlung musste nämlich spätestens zum Heiligen Georg aus der Wohnung seiner Schwester geschafft werden, sonst drohte ihr der Verkauf als Altpapier.</div>
+                        <div>Vockels Großvater Bernhard Paul Moll starb bereits mehr als vierzig Jahre zuvor und es gelang der Familie selbst nach wiederholten Versuchen nicht die Sammlung zu verkaufen. Vockels Geschwister kamen also überein, dass er damit machen sollte, was er für angemessen hielt. An erster Stelle stand für ihn die Ausräumung der Wohnung noch vor dem geplanten Umzug. Vockel gehörte, obwohl er erst um die Jahrhundertwende nach Mähren heiratete, schon seit Jahren zur tatkräftigen Mährisch-Schlesischen Patriotisch-Ökonomischen Gesellschaft zur Beförderung der Landwirtschaft, Wissenschaft und Kunst, einem Bund spätaufklärerischer Intellektueller vorwiegend aus Landadel, Beamtentum und erster Industrieller. Diese Gesellschaft stand den Anfängen des Franzensmuseums in Brünn im Jahre 1817 bei, und ein persönlicher Beitrag zu dessen Entfaltung war für die mährischen Patrioten eine Angelegenheit der persönlichen Ehre. Friedrich Sigmund Vockel entschied, die Kartensammlung seines Großvaters dem Museum zu stiften.</div>
+                        <div>Die großzügige Spende lag zuerst ohne großes Interesse in den Räumen des Augustinerklosters in Alt-Brünn, danach im Gebäude des Franzensmuseums. Bei der Ausgliederung der Bibliothek aus dem Museum wurde die Sammlung der Landesbibliothek übergeben, da vom Archiv kein Interesse an ihr geäußert wurde. Paradoxerweise sicherte dieses jahrelange Versäumnis der Sammlung die Stellung eines Unikats, und das nicht nur im zentraleuropäischen Raum. Heute stellt sie ein einzigartiges Beispiel für die Sammlertätigkeit im Spätbarock und der frühen Aufklärung dar, erhalten in fast völlig intakter Gestalt. Die Kollektion wurde nämlich während der Jahre weder bedeutend erweitert, noch wurden größere Kartensätze aus ihr an einen anderen Ort gebracht (vielleicht mit Ausnahme der Karten von Mähren). Es blieb also ihre ursprüngliche Struktur genau so erhalten, wie sie Bernhard Paul Moll prägte.</div>
+                        <div>Wahrscheinlich bereits in der ersten Hälfte des 19. Jahrhunderts wurde ein Zettelkatalog zur Sammlung erstellt, der von den ursprünglich handschriftlichen Kartenbibliografien ausging, Ende der 50er Jahre des 20. Jahrhunderts wurde dann ein Verzeichnis der in der Kollektion enthaltenen Karten und Veduten in Buchform herausgegeben. Zu Beginn des zweiten Jahrtausends wurde die Sammlung schließlich rekatalogisiert und im Onlinekatalog der Mährischen Landesbibliothek zugänglich gemacht. In der Folge wurde sie mit Mitteln des Programms Europeana Travel digitalisiert, und so ist sie nun der Öffentlichkeit im Internet zugänglich.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="app-items" *ngIf="activeMenu === 'bernard-pavel-moll'">
+                <div class="app-item">
+                    <h1 class="app-header">{{'moll' | translate}}</h1>
+                    <div class="app-text" *ngIf="currentLang === 'cs'">
+                        <div>Sestavovatel sbírky Bernard Pavel Moll se narodil roku 1697 v rodině protestantského faráře nedaleko německého Ansbachu. Stal se kariérním diplomatem, zastupoval některá německá knížata u vídeňského císařského dvora. Nově nabytý šlechtický titul, hodnost vyslance i výhodný sňatek Molla hmotně zabezpečily a mohl tedy část volných prostředků věnovat naplňování svých sběratelských zájmů.</div>
+                        <div>Jako mnoho současníků soustředil svoji pozornost na mapy a grafiku, které patřily, podobně jako dnes, mezi nejvyhledávanější sběratelské artefakty. Proti obrazům měly výhodu v relativní láci a dostupnosti; zejména veduty bývaly součástí velkých číslovaných sérií, které přímo vybízely k vytváření úplných souborů z náhodně zakoupených jednotlivin. Pro grafické listy také nebylo nutné stavět obrazárny – postačila speciálně upravená skříň. Sběratelství se tak stalo dostupným daleko širšímu okruhu zájemců.</div>
+                        <div>Motivace tvůrců sbírek uměleckých předmětů bývala různá. Zvláště v barokní době předměty často sloužily k reprezentaci svého majitele, staly se ukazatelem jeho společenského statutu. Mnohdy však, a takový byl asi i případ Bernarda Pavla Molla, byla sbírka odrazem opravdového odborného zájmu zakladatele sbírky spojeného s fundovanou orientací jak v mapové a grafické tvorbě předcházejících století, tak v případě map i v jejich technických, vojenských a hospodářských souvislostech.</div>
+                        <div>Bernard Pavel Moll zemřel 26. září 1780 v Badenu u Vídně. Bylo mu 83 let.</div>
+                    </div>
+                    <div class="app-text" *ngIf="currentLang === 'en'">
+                        <div>Bernhard Paul Moll, who assembled the collection, was born in 1697 into the family of a German Protestant pastor near Ansbach. He became a career diplomat and represented several German princes at the imperial court in Vienna. The newly acquired title of nobility, the rank of ambassador, along with an advantageous marriage secured Moll economically enabling him to thus use part of his financial resources to fulfil his collector interests.</div>
+                        <div>Like many contemporaries, he focused his attention on maps and graphics which were, like today, the most popular collectible artefacts. Unlike paintings they had the advantage of being relatively inexpensive and available. Vedute in particular were often part of large numbered series which directly encouraged the creation of complete sets of randomly purchased individual pieces. Besides, there was no need to build a gallery for prints – a specially adapted cabinet was enough. Collecting thus became available to a wider range of interested individuals.</div>
+                        <div>The motivation of those who created collections of artefacts was varied. Especially in the Baroque era, things often used to represent their owners and became an indicator of their social status. Often, however, and such was most likely the case with Bernhard Paul Moll, the collection reflected the true scientific interest of its founder associated with sound orientation in the map and graphic production of previous centuries as well as, in the case of maps, in their technical, military, and economic context.</div>
+                        <div>Bernhard Paul Moll died on 26th September 1780 in Baden, near Vienna at the age of 83.</div>
+                    </div>
+                    <div class="app-text" *ngIf="currentLang === 'de'">
+                        <div>Der Sammlungsgründer Bernhard Paul Moll wurde im Jahre 1697 als Kind eines protestantischen Pfarrers unweit vom deutschen Ansbach geboren. Er begann eine erfolgreiche Karriere als Diplomat, vertrat mehrere deutsche Fürsten am Kaiserhof in Wien. Der neu erworbene Adelstitel, der Rang des Gesandten und eine günstige Heirat sicherte Moll materiell ab, und so konnte er einen Teil seiner freien Mittel der Erfüllung seines Sammlerinteresses widmen.</div>
+                        <div>Wie viele Zeitgenossen richtete er seine Aufmerksamkeit auf Karten und Grafiken, die ähnlich wie heute zu den meistgesuchten Sammlerartefakten gehören. Gegenüber Bildern hatten sie den Vorteil relativ billig und erhältlich zu sein; besonders Veduten erschienen meist in großen nummerierten Serien, die direkt dazu aufforderten, vollständige Sätze aus zufällig angekauften Einzelstücken zu bilden. Für grafische Blätter war auch keine Bildergalerie notwendig – es genügte ein speziell zurechtgemachter Schrank. Das Sammeln wurde somit für einen viel breiteren Interessentenkreis zugänglich.</div>
+                        <div>Die Motivation der Sammler von Kunstobjekten war unterschiedlich. Besonders im Barockzeitalter dienten die Objekte oft der Repräsentation ihres Besitzers, sie wurden zum Indikator seines gesellschaftlichen Status. Manchmal jedoch, und so war es vermutlich auch bei Bernhard Paul Moll, spiegelte die Sammlung das wahrhaftige Fachinteresse des Sammlungsgründers wider, zusammen mit einer fundierten Orientierung im kartografischen und grafischen Schaffen der vorigen Jahrhunderte sowie in deren technischen, militärischen und wirtschaftlichen Zusammenhänge.</div>
+                        <div>Bernhard Paul Moll starb am 26. September 1780 in Baden bei Wien. Er war 83 Jahre alt.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

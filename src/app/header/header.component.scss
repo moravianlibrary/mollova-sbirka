@@ -45,7 +45,9 @@
                 font-style: normal;
                 font-weight: 500;
                 cursor: pointer;
-                &:hover {
+                color: var(--Text-Secondary, #38372E);
+                text-decoration: none;
+                &:hover, &.app-active {
                     padding: 12px 12px 10px 12px;
                     border-bottom: 2px solid #D8B600;
                 }

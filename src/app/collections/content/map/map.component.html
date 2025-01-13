@@ -1,14 +1,14 @@
-<div class="app-container">
-    <div class="app-content">
+<div class="app-container" *ngIf="!loading">
+    <div class="app-content" #scrollContainer>
         <div class="app-part-title">
             <h2 class="app-title">{{map['title.search']}}</h2>
             <div class="app-authors">{{map['authors']}}</div>
         </div>
-        <div class="app-part-map">
+        <div class="app-part-map" #mapDiv>
             <div class="app-map">
-                <app-iiif-image-viewer [infoJsonUrl]="'https://api.kramerius.mzk.cz/search/iiif/uuid:1c63d465-f114-4fab-927d-adface8047c8/info.json'"></app-iiif-image-viewer>
+                <app-iiif-image-viewer [infoJsonUrl]="manifestLink"></app-iiif-image-viewer>
             </div>
-            <div class="app-map-actions">
+            <!-- <div class="app-map-actions">
                 <div class="app-buttons">
                     <div class="app-button">
                         <img src="assets/icons/zoom-in.png" alt="zoom in" />
@@ -23,9 +23,9 @@
                 <div class="app-button">
                     <img src="assets/icons/download.png" alt="arrow right" />
                 </div>
-            </div>
+            </div> -->
         </div>
-        <div class="app-part-info">
+        <div class="app-part-info" #infoDiv>
             <div class="app-metadata-container">
                 <div class="app-metadata">
                     <div class="app-metadata-item" *ngIf="map['authors']">
@@ -60,9 +60,9 @@
         </div>
     </div>
     <div class="app-bottom-nav">
-        <div class="app-nav-button">
-            <div class="app-text">{{ 'more-info' | translate }}</div>
-            <img class="app-icon" src="assets/icons/arrow-down.png" alt="text" />
+        <div class="app-nav-button" (click)="scrollTo(showMoreInfo ? 'map' : 'info')">
+            <div class="app-text">{{ showMoreInfo ? 'Zpět na mapu' : 'Více informací' }}</div>
+            <img class="app-icon" [src]="showMoreInfo ? 'assets/icons/arrow-up.png' : 'assets/icons/arrow-down.png'" alt="arrow" />
         </div>
         <div class="app-right-nav">
             <div class="app-text">{{ 'other-maps' | translate }}</div>

@@ -12,6 +12,7 @@ import { MenuComponent } from './collections/menu/menu.component';
 
 import { ApiService } from './services/api.service';
 import { CollectionService } from './services/collection.service';
+import { SearchService } from './services/search.service';
 import { SearchComponent } from './search/search.component';
 import { AboutComponent } from './about/about.component';
 
@@ -24,6 +25,13 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CollectionComponent } from './collections/content/collection/collection.component';
 import { MapComponent } from './collections/content/map/map.component';
 import { IiifImageViewerComponent } from './collections/content/map/iiif-image-viewer/iiif-image-viewer.component';
+import { ContactComponent } from './contact/contact.component';
+import { OtherComponent } from './other/other.component';
+
+import { FormsModule } from '@angular/forms';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { GoogleMapsModule } from "@angular/google-maps";
+
 
 
 
@@ -45,7 +53,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     ContentComponent,
     CollectionComponent,
     MapComponent,
-    IiifImageViewerComponent
+    IiifImageViewerComponent,
+    ContactComponent,
+    OtherComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +63,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     HttpClientModule,
     MatTooltipModule,
     MatProgressSpinnerModule,
+    FormsModule,
+    NgxSliderModule,
+    GoogleMapsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -61,7 +74,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
       },
     }),
   ],
-  providers: [ApiService, CollectionService],
+  providers: [ApiService, CollectionService, SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

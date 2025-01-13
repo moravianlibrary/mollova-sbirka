@@ -1,1 +1,18 @@
-<div id="openseadragon-viewer" style="width: 100%; height: 600px;"></div>
+<div id="openseadragon-viewer" style="width: 100%; height: 100%;"></div>
+
+<div class="app-map-actions">
+    <div class="app-buttons">
+        <div class="app-button" (click)="zoomIn()">
+            <img src="assets/icons/zoom-in.png" alt="zoom in" />
+        </div>
+        <div class="app-button" (click)="zoomOut()">
+            <img src="assets/icons/zoom-out.png" alt="zoom out" />
+        </div>
+    </div>
+    <div class="app-button" (click)="toggleFullScreen()">
+        <img src="assets/icons/maximize.png" alt="arrow left" />
+    </div>
+    <div class="app-button" (click)="downloadImage()">
+        <img src="assets/icons/download.png" alt="arrow right" />
+    </div>
+</div>

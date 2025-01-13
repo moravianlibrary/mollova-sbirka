@@ -1,0 +1,154 @@
+.app-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    .app-parts {
+        display: flex;
+        width: calc((100% / 12) * 10);
+        padding: 48px 0px;
+        justify-content: space-between;
+        .app-part-faq {
+            display: flex;
+            width: 50%;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 33px;
+            .app-faqs {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+                align-self: stretch;
+                .app-faq {
+                    display: flex;
+                    flex-direction: column;
+                    align-self: stretch;
+                    border-radius: var(--spacing-x-05, 2px);
+                    .app-q {
+                        display: flex;
+                        justify-content: space-between;
+                        padding: var(--Spacing-x1, 4px) var(--Spacing-x4, 16px);
+                        align-items: center;
+                        flex: 1 0 0;
+                        cursor: pointer;
+                        color: var(--Text-Secondary, #38372E);
+                        /* Typesettings/md/regular */
+                        font-family: "Source Sans Pro";
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 24px; /* 150% */
+                        gap: 8px;
+                        &.open {
+                            background: var(--BG-Main-Light, #F8F8F7);
+                            color: var(--Text-Secondary, #263340);
+                            /* Typesettings/md/bold */
+                            font-family: "Source Sans Pro Semibold";
+                            font-weight: 700;
+                        }
+                        img {
+                            display: flex;
+                            width: 16px;
+                            height: 16px;
+                            justify-content: center;
+                            align-items: center;                            
+                        }
+                    }
+                    .app-a {
+                        display: flex;
+                        padding: 0px 16px 16px 16px;
+                        margin-bottom: 16px;
+                        align-items: center;
+                        gap: 10px;
+                        align-self: stretch;
+                        background: var(--BG-Main-Light, #F8F8F7);
+                        color: var(--Text-Secondary, #38372E);
+                        /* Typesettings/md/regular */
+                        font-family: "Source Sans Pro";
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 24px; /* 150% */                      
+                    }
+                }
+            }            
+        }
+        .app-part-contact {
+            display: flex;
+            width: 40%;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 40px;
+            .app-address {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+                align-self: stretch;
+                overflow: hidden;
+                img {
+                    height: 220px;
+                }
+                .app-text {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 20px;
+                    align-self: stretch;
+                    .app-lines {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 8px;
+                        align-self: stretch;
+                        .app-line {
+                            display: flex;
+                            align-items: flex-start;
+                            gap: 8px;
+                            align-self: stretch;
+                            color: var(--Text-Base, #0E0E0C);
+                            /* Typesettings/md/regular */
+                            font-family: "Source Sans Pro";
+                            font-size: 16px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: 24px; /* 150% */
+                            img {
+                                width: 24px;
+                                height: 24px;
+                            }
+                            a {
+                                // cursor: pointer;
+                                color: var(--Text-Base, #0E0E0C);
+                                /* Typesettings/md/regular */
+                                font-family: "Source Sans Pro";
+                                font-size: 16px;
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: 24px; /* 150% */
+                                text-decoration-line: underline;
+                                text-decoration-style: solid;
+                                text-decoration-skip-ink: none;
+                                text-decoration-thickness: auto;
+                                text-underline-offset: auto;
+                                text-underline-position: from-font;
+                            }
+                        }
+                    }
+                }
+            }
+            .app-logo {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                img {
+                    // background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+                    width: 124px;
+                    height: 38px;
+                }
+            }
+        } 
+    }
+}

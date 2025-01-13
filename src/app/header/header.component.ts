@@ -8,6 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HeaderComponent {
   currentLang: string = '';
+  activeLink: string = '';
 
   constructor(private translate: TranslateService) { 
     this.currentLang = this.translate.currentLang;
@@ -16,6 +17,9 @@ export class HeaderComponent {
   switchLanguage(lang: string): void {
     this.translate.use(lang);
     this.currentLang = lang;
+  }
+  changeActiveLink(link: string): void {
+    this.activeLink = link;
   }
 
 }

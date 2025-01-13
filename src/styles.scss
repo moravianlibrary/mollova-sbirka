@@ -140,6 +140,12 @@ $breakpoints: (
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'Karla';
+    src: url('./assets/fonts/Karla/static/Karla-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 /* General text styling */
 body {

@@ -1,0 +1,40 @@
+.app-map-actions {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    border-radius: var(--spacing-x-05, 2px);
+    background: rgba(255, 255, 255, 0.80);
+    z-index: 1000;
+    .app-buttons {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .app-button {
+        display: flex;
+        padding: var(--Spacing-x2, 8px);
+        align-items: center;
+        gap: var(--Spacing-x2, 8px);
+        border-radius: var(--spacing-x-05, 2px);
+        background: var(--BG-Main-Primary-Default, #38372E);
+        cursor: pointer;
+        &:hover {
+            background: var(--BG-Main-Primary-Hover, #D8B600);
+        }
+        &:active {
+            background: var(--BG-Main-Primary-Active, #BA9D00);
+        }
+        img {
+            display: flex;
+            width: 16px;
+            height: 16px;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

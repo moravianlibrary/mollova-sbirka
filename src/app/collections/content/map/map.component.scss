@@ -3,16 +3,15 @@
 .app-container {
     display: flex;
     flex-direction: column;
-    height: 94.5vh;
-    width: 100%;
-    padding: var(--Spacing-x12, 48px);
+    // height: 94.5vh;
+    width: calc(100% - 96px);
+    // padding: var(--Spacing-x12, 48px);
     background-color: white;
-
     .app-content {
         height: 100%;
         width: 100%;
         overflow: auto;
-        // padding: var(--Spacing-x12, 48px);
+        padding: var(--Spacing-x12, 48px);
         background: var(--BG-Main-Bright, #ffffff);
         display: flex;
         flex-direction: column;
@@ -44,11 +43,11 @@
             align-items: center;
             gap: 10px;
             align-self: stretch;
-            background: #D5DBE2;
+            background: #F8F8F7;
             position: relative;
             .app-map {
                 flex: 1 0 0;
-                height: 600px;
+                height: 80vh;
             }
             .app-map-actions {
                 position: absolute;
@@ -193,7 +192,7 @@
         // bottom: 0;
         // width: 66%;
         display: flex;
-        // width: 100%;
+        width: 100%;
         padding: 0px var(--Spacing-x12, 48px);
         justify-content: space-between;
         align-items: center;

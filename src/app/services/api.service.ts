@@ -36,8 +36,21 @@ export class ApiService {
             `${this.apiUrl}q=own_parent.pid:"${pid}"&fl=pid,model,page.type,page.number&sort=rels_ext_index.sort asc&rows=4000&start=0`
         );
     }
+    getSearchResults(query: string): Observable<Object> {
+        return this.doGet(
+            `${this.apiUrl}${query}&fl=pid,model,authors,titles.search,title.search,root.title,coords.bbox.corner_ne,coords.bbox.center,coords.bbox.corner_sw,date.str&rows=100`
+        );
+    }
 
     //https://api.kramerius.mzk.cz/search/api/client/v7.0/search?fl=pid,accessibility,model,title.search,licenses,contains_licenses,licenses_of_ancestors,page.type,page.number,page.placement,track.length&q=own_parent.pid:%22uuid:e1db8d4c-f39c-4599-b71a-5e8cd634a8af%22&sort=rels_ext_index.sort%20asc&rows=4000&start=0
     // q=*:*&fq=(in_collections.direct:"uuid:9b190c71-5a2c-44fa-bc8a-b6c5b056c01a")&fl=pid,model,authors,titles.search,title.search,root.title,date.str,title.search_*,collection.desc,%20collection.desc_*
+    
+    
+    // MOLLOVA MAPOVA SBIRKA
+    // https://www.digitalniknihovna.cz/mzk/collection/uuid:9b190c71-5a2c-44fa-bc8a-b6c5b056c01a
+
+    // IN COLLECTIONS a MODEL MAPA NEBO GRAFIKA
+    // https://api.kramerius.mzk.cz/search/api/client/v7.0/search?q=*:*&fq=(in_collections:%22uuid:9b190c71-5a2c-44fa-bc8a-b6c5b056c01a%22)%20AND%20(model:graphic OR model:map)&fl=pid,model,authors,titles.search,title.search,root.title,coords.bbox.corner_ne,coords.bbox.center,coords.bbox.corner_sw,date.str&sort=created%20desc&rows=100&start=0
+
 
 }

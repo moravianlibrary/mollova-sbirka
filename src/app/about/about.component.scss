@@ -1,0 +1,119 @@
+@import '../../styles.scss';
+
+.app-about-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background: var(--BG-Main-Bright, #F3F3F1);
+    user-select: none;
+    overflow: hidden;
+    .app-about-menu {
+        display: flex;
+        width: $menu-width;
+        padding-left: var(--Spacing-x6, 24px);
+        padding-right: var(--Spacing-x6, 24px);
+        align-items: flex-start;
+        gap: var(--Spacing-x4, 16px);
+        flex-shrink: 0;
+        border-right: 1px solid var(--Boarder-Light, #F3F3F1);
+        background: var(--BG-Main-Base, #FFF);
+        .app-menu-items {
+            display: flex;
+            width: 100%;
+            padding: var(--Spacing-x4, 16px) 0px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+            .app-menu-item {
+                cursor: pointer;
+                display: flex;
+                align-items: flex-start;
+                align-self: stretch;
+                .app-menu-item-text {
+                    display: flex;
+                    padding: var(--Spacing-x1, 4px) var(--Spacing-x2, 8px);
+                    align-items: center;
+                    gap: var(--Spacing-x2, 8px);
+                    flex: 1 0 0;
+                    border-radius: var(--spacing-x-05, 2px);
+                    background: var(--BG-Main-Base, #FFF);
+                    color: var(--Text-Secondary, #38372E);
+
+                    /* Typesettings/md/regular */
+                    font-family: "Source Sans Pro";
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 24px; /* 150% */
+                }
+                &:hover, &.app-active {
+                    .app-menu-item-text {
+                        background: var(--BG-Main-Bright, #F3F3F1);
+                    }
+                }
+            }
+        }
+    }
+    .app-about-content-container {
+        padding: var(--Spacing-x6, 24px);
+        height: calc(100% - 48px);
+        overflow: auto;
+        .app-about-content {
+            display: inline-flex;
+            flex-direction: column;
+            gap: var(--Spacing-x4, 16px);
+            padding: 48px 48px 64px 48px;
+            // flex-grow: 1;
+            border-radius: var(--spacing-x-05, 2px);
+            background: #FFF;
+            // overflow: auto;
+            // height: calc(100% - 64px);
+            .app-items {
+                display: flex;
+                // width: 745px;
+                align-items: flex-start;
+                gap: 48px;
+                .app-item {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 24px;
+                    flex: 1 0 0;
+                    color: var(--Text-Base, #0E0E0C);
+                    font-family: "Source Sans Pro";
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 24px; /* 150% */
+                    .app-text {
+                        display: flex;
+                        flex-direction: column;
+                        align-self: stretch;
+                        gap: 24px;
+                    }
+                    .app-text-image {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 48px;
+                        .app-ti-item {
+                            display: flex;
+                            gap: 48px;
+                            .column {
+                                flex: 1;
+                            }
+                            .app-text {
+                                gap: 24px;
+                            }
+                            .app-image {
+                                img {
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

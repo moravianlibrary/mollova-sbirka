@@ -7,18 +7,19 @@
         <div class="app-cards">
             <div class="app-cards-row" *ngIf="children && children.length > 0">
                 <div class="app-card" *ngFor="let item of children">
-                    <div class="app-card-image" (click)="onCardClick(item)">
+                    <a class="app-card-image" [routerLink]="['/mollova-sbirka', item.pid]">
+                        <div class="app-card-overlay"></div>
                         <img [src]="getChildrenImage(item)" alt="Image" />
-                    </div>
+                    </a>
                     <div class="app-card-content">
-                        <div class="app-card-title-container" (click)="onCardClick(item)">
+                        <a class="app-card-title-container" [routerLink]="['/mollova-sbirka', item.pid]">
                             <h5 class="app-card-title" 
                                 [matTooltip]="getChildrenTitle(item)">
                                 {{getChildrenTitle(item)}}
                             </h5>
                             <img class="app-card-icon default-icon" src="assets/icons/arrow.png">
                             <img class="app-card-icon hover-icon" src="assets/icons/arrow-gold.png">
-                        </div>
+                        </a>
                         <div class="app-card-text">{{getChildrenDescription(item)}}</div>
                         <div class="app-card-sign">{{'old_signature' | translate}}:</div>
                         <div class="app-card-link">

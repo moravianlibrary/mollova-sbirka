@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { CollectionsComponent } from './collections/collections.component';
 import { SearchComponent } from './search/search.component';
 import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { OtherComponent } from './other/other.component';
 
 const routes: Routes = [
   // Přesměrování prázdné cesty na 'mollova-sbirka'
@@ -15,7 +17,10 @@ const routes: Routes = [
   
   // Další cesty
   { path: 'search', component: SearchComponent },
-  { path: 'about', component: AboutComponent },
+  { path: 'o-sbirce', component: AboutComponent },
+  { path: 'o-sbirce/:part', component: AboutComponent },
+  { path: 'kontakt', component: ContactComponent },
+  { path: 'other', component: OtherComponent },
   
   // Volitelně: Přesměrování neznámých cest na 'mollova-sbirka'
   { path: '**', redirectTo: 'mollova-sbirka' }
