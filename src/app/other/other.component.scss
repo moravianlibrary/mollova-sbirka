@@ -1,3 +1,5 @@
+@import '../../styles.scss';
+
 .app-other-container {
     display: flex;
     justify-content: center;
@@ -48,6 +50,64 @@
                     background: url('/assets/images/other-1.png') lightgray 0px -64.129px / 100.613% 141.24% no-repeat;
                 }
             }
+        }
+        .app-collections {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 48px;
+            .app-collection {
+                display: flex;
+                align-items: flex-start;
+                gap: 48px;
+                align-self: stretch;
+                .app-col-img {
+                    display: flex;
+                    width: 300px;
+                    height: 300px;
+                    padding-top: 8px;
+                    justify-content: flex-end;
+                    align-items: flex-start;
+                    gap: 10px;
+                    img {
+                        width: 300px;
+                        height: 211px;
+                        // flex-shrink: 0;
+                    }
+                }
+                .app-col-desc {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 24px;
+                    flex: 1 0 0;
+                    .app-text {
+                        display: flex;
+                        flex-direction: column;
+                        align-self: stretch;
+                        color: #000;
+
+                        /* Typesettings/md/regular */
+                        font-family: "Source Sans Pro";
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 24px; /* 150% */
+                        gap: 24px;
+                        p {
+                            margin: 0;
+                        }                    
+                    }                   
+                }
+            }
+        }
+    }
+    a {
+        text-decoration: none;
+        color: #706E5C;
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+            color: $color-gold-link;
         }
     }
 }

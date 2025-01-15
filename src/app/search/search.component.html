@@ -22,7 +22,7 @@
             </div>
         </div>
         <!-- KATEGORIE -->
-        <div class="app-filter-item app-filter-item-category">
+        <!-- <div class="app-filter-item app-filter-item-category">
             <div class="app-text">{{'category' | translate}}</div>
             <div class="app-toggle-group">
                 <div class="app-toggle-item" (click)="itemType = 'map'; search()">
@@ -36,7 +36,7 @@
                     <div class="app-toggle-text">{{'graphics' | translate}}</div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="app-search-middle" *ngIf="!mapHidden">
         <div class="app-map">
@@ -93,11 +93,11 @@
                     <div class="app-navigation">
                         <div class="app-navigation-button" (click)="changePage(currentPage - 1)" [ngClass]="{'disabled': currentPage === 1}">
                             <img *ngIf="currentPage === 1" class="app-navigation-icon" src="assets/icons/arrow-left-grey.png">
-                            <img *ngIf="currentPage > 1" class="app-navigation-icon" src="assets/icons/arrow-left-grey.png">
+                            <img *ngIf="currentPage > 1" class="app-navigation-icon" src="assets/icons/arrow-left-white.png">
                         </div>
-                        <div class="app-navigation-button" (click)="changePage(currentPage + 1)">
+                        <div class="app-navigation-button" (click)="changePage(currentPage + 1)" [ngClass]="{'disabled': currentPage === lastPage}">
                             <img *ngIf="currentPage !== lastPage" class="app-navigation-icon" src="assets/icons/arrow-right-white.png">
-                            <img *ngIf="currentPage === lastPage" class="app-navigation-icon" src="assets/icons/arrow-right-white.png">
+                            <img *ngIf="currentPage === lastPage" class="app-navigation-icon" src="assets/icons/arrow-right-grey.png">
                         </div>
                     </div>
                 </div>
@@ -120,11 +120,11 @@
                     <div class="app-navigation">
                         <div class="app-navigation-button" (click)="changePage(currentPage - 1)" [ngClass]="{'disabled': currentPage === 1}">
                             <img *ngIf="currentPage === 1" class="app-navigation-icon" src="assets/icons/arrow-left-grey.png">
-                            <img *ngIf="currentPage > 1" class="app-navigation-icon" src="assets/icons/arrow-left-grey.png">
+                            <img *ngIf="currentPage > 1" class="app-navigation-icon" src="assets/icons/arrow-left-white.png">
                         </div>
-                        <div class="app-navigation-button" (click)="changePage(currentPage + 1)">
+                        <div class="app-navigation-button" (click)="changePage(currentPage + 1)" [ngClass]="{'disabled': currentPage === lastPage}">
                             <img *ngIf="currentPage !== lastPage" class="app-navigation-icon" src="assets/icons/arrow-right-white.png">
-                            <img *ngIf="currentPage === lastPage" class="app-navigation-icon" src="assets/icons/arrow-right-white.png">
+                            <img *ngIf="currentPage === lastPage" class="app-navigation-icon" src="assets/icons/arrow-right-grey.png">
                         </div>
                     </div>
                 </div>

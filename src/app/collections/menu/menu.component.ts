@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CollectionService } from '../../services/collection.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-menu',
@@ -13,6 +14,8 @@ export class MenuComponent implements OnInit, OnDestroy {
   collectionStructure$ = this.collectionService.collectionStructure$; // Observable for async pipe
   loading: any;
 
+  currentLang: string;
+
   hoveredArea: string | null = null;
   subscription: Subscription = new Subscription();
   openedChild = '';
@@ -21,10 +24,19 @@ export class MenuComponent implements OnInit, OnDestroy {
 
   constructor(private collectionService: CollectionService,
               private route: ActivatedRoute,
-              private router: Router
-  ) { }
+              private router: Router,
+              private translate: TranslateService
+  ) {
+    this.currentLang = this.translate.currentLang;
+   }
 
   ngOnInit() {
+    // Language change subscription
+    const langSub = this.translate.onLangChange.subscribe((event) => {
+      this.currentLang = event.lang;
+    });
+    this.subscription.add(langSub);
+
     // Load collection structure
     if (this.collectionStructure.length === 0) {
       this.collectionService.loadCollectionStructure();
@@ -134,7 +146,7 @@ export class MenuComponent implements OnInit, OnDestroy {
 
   onIconHover(title: string): void {
     this.hoveredIcon = title;
-}
+  }
 
   onIconLeave(): void {
     this.hoveredIcon = null;

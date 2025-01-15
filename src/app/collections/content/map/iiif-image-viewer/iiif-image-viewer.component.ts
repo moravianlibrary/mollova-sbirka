@@ -1,5 +1,6 @@
 
 import { Component, Input, OnInit } from '@angular/core';
+import { _ } from '@ngx-translate/core';
 import OpenSeadragon from 'openseadragon';
 
 @Component({
@@ -44,7 +45,7 @@ export class IiifImageViewerComponent implements OnInit {
     this.viewer.viewport.goHome();
   }
   downloadImage(): void {
-    console.log('Stáhnout obrázek');
+    window.open(this.infoJsonUrl.replace('/info.json', '/full/full/0/default.jpg'), '_blank');
   }
 }
 

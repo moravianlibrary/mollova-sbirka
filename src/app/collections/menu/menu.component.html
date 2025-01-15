@@ -2,7 +2,9 @@
     <div class="app-navs">
         <div class="app-nav" *ngFor="let col of collectionStructure">
             <!-- PRVNI UROVEN -->
-            <h5 class="app-nav-1">{{col['title']}}</h5>
+            <h5 class="app-nav-1" *ngIf="currentLang === 'cs'">{{col['title']}}</h5>
+            <h5 class="app-nav-1" *ngIf="currentLang === 'en'">{{col['title_en']}}</h5>
+            <h5 class="app-nav-1" *ngIf="currentLang === 'de'">{{col['title_de']}}</h5>
             <!-- DRUHA UROVEN -->
             <div class="app-nav-2" *ngFor="let item of col['children']">
                 <div class="app-nav-2-item" [class.highlight]="item.title === hoveredArea" [class.app-active]="item.title === openedChild"
@@ -16,15 +18,17 @@
                         <img [src]="hoveredIcon === item.title ? './assets/icons/minus-circle.png' : (openedChild === item['title'] ? './assets/icons/minus-circle.png' : './assets/icons/add-circle.png')" 
                             alt="Icon" />
                     </div>
-                    <div class="app-nav-2-text" [class.app-active]="item['title'] === activeChild">
-                        {{item['title']}}
-                    </div>
+                    <div class="app-nav-2-text" *ngIf="currentLang === 'cs'" [class.app-active]="item['title'] === activeChild">{{item['title']}}</div>
+                    <div class="app-nav-2-text" *ngIf="currentLang === 'en'" [class.app-active]="item['title'] === activeChild">{{item['title_en']}}</div>
+                    <div class="app-nav-2-text" *ngIf="currentLang === 'de'" [class.app-active]="item['title'] === activeChild">{{item['title_de']}}</div>
                 </div>
                 <!-- TRETI UROVEN -->
                 <div class="app-nav-3" *ngIf="openedChild === item['title']" >
                     <div class="app-nav-3-item" *ngFor="let child of item['children']"
                         (click)="handleClick(child); $event.stopPropagation()">
-                        <div class="app-nav-3-text" [class.app-active]="child['title'] === activeChild">{{child['title']}}</div>
+                        <div class="app-nav-3-text" *ngIf="currentLang === 'cs'" [class.app-active]="child['title'] === activeChild">{{child['title']}}</div>
+                        <div class="app-nav-3-text" *ngIf="currentLang === 'de'" [class.app-active]="child['title'] === activeChild">{{child['title_de']}}</div>
+                        <div class="app-nav-3-text" *ngIf="currentLang === 'en'" [class.app-active]="child['title'] === activeChild">{{child['title_en']}}</div>
                     </div>
                 </div>
             </div>
@@ -32,6 +36,6 @@
     </div>
 </div>
 <ng-template class="app-loading" #loading>
-    <p>Načítám strukturu...</p>
+    <p>{{'loading-structure' | translate}}</p>
 </ng-template>
 

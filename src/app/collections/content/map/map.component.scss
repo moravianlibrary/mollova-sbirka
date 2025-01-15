@@ -159,6 +159,7 @@
                         align-items: center;
                         gap: var(--Spacing-x2, 8px);
                         cursor: pointer;
+                        text-decoration: none;
                         &:hover {
                             .app-link-text {
                                 // color: var(--Text-Link-Hover, #D8B600);

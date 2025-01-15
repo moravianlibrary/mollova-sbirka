@@ -46,14 +46,14 @@
                 <div class="app-text" *ngFor="let title of this.map['titles.search']">{{title}}</div>
                 <div class="app-line"></div>
                 <div class="app-links">
-                    <div class="app-link">
+                    <!-- <a class="app-link" href="" target="_blank">
                         <div class="app-link-text">{{'bibl-rec' | translate}}</div>
                         <img src="assets/icons/export-gold.png" alt="export" />
-                    </div>
-                    <div class="app-link">
+                    </a> -->
+                    <a class="app-link" href="https://www.digitalniknihovna.cz/mzk/uuid/{{map['pid']}}" target="_blank">
                         <div class="app-link-text">{{'dk-link' | translate}}</div>
                         <img src="assets/icons/export-gold.png" alt="export" />
-                    </div>
+                    </a>
                 </div>
             </div>
 
@@ -79,4 +79,7 @@
         </div>
     </div>
 </div>
+
+
+
 

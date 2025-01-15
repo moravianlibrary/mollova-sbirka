@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-collection',
@@ -8,16 +11,30 @@ import { Router } from '@angular/router';
 })
 export class CollectionComponent {
   @Input() collection: any = {};
-  @Input() currentLang: string = '';
   @Input() children: any[] = [];
+  subscription: Subscription = new Subscription();
+
 
   apiThumbUrl = 'https://api.kramerius.mzk.cz/search/api/client/v7.0/items/';
+  currentLang: string;
 
-  constructor(private router: Router) {  }
+  constructor(private router: Router,
+              private translate: TranslateService
+  ) { this.currentLang = this.translate.currentLang; }
 
   ngOnInit(): void {
     console.log('Collection:', this.collection);
+    // Language change subscription
+    const langSub = this.translate.onLangChange.subscribe((event) => {
+      this.currentLang = event.lang;
+    });
+    this.subscription.add(langSub);
   }
+  // ngOnDestroy(): void {
+  //   if (this.subscription) {
+  //     this.subscription.unsubscribe();
+  //   }
+  // }
 
   onCardClick(item: any): void {
     console.log('Card clicked:', item);

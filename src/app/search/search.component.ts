@@ -399,6 +399,7 @@ export class SearchComponent {
   ) {}
 
   ngOnInit() {
+    console.log('lastPage', this.lastPage);
     const paramSub = this.route.queryParams.subscribe(params => {
       console.log('params', params);
       this.searchText = params['searchText'] || '';
@@ -494,14 +495,14 @@ export class SearchComponent {
 
     // filter
     let filter = '&fq=in_collections:"uuid:9b190c71-5a2c-44fa-bc8a-b6c5b056c01a"';
-    if (this.itemType) {
-      filter += `&fq=(model:${this.itemType}) `;
-    }
+    // if (this.itemType) {
+    //   filter += `&fq=(model:${this.itemType}) `;
+    // }
     if (this.minValue && this.maxValue) {
       filter += `&fq=((date_range_start.year:[* TO ${this.maxValue}] AND date_range_end.year:[${this.minValue} TO *]))`;
     }
     if (this.searchText) {
-      filter += `&fq=_query_:"{!edismax qf='titles.search^10 authors.search^2 keywords.search id_isbn shelf_locators' bq='(level:0)^200' bq='(model:page)^0.1' v=${this.searchText}}"`
+      filter += `&fq=_query_:"{!edismax qf='titles.search^10 authors.search^2 keywords.search geographic_names.search id_isbn shelf_locators' bq='(level:0)^200' bq='(model:page)^0.1' v=${this.searchText}}"`
     }
     if (this.currentPage) {
       filter += `&start=${(this.currentPage - 1) * 100}`;

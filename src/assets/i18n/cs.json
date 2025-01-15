@@ -45,5 +45,6 @@
     "relevance": "Relevance",
     "all-results": "Všechny výsledky",
     "loading": "Načítám výsledky...",
+    "loading-structure": "Načítám strukturu sbírky...",
     "no-results": "Zadaným filtrům neodpovídá žádný výsledek."
 }
