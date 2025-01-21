@@ -1,7 +1,7 @@
 {
     "molls-collection": "Mollova sbírka",
     "search": "Hledat",
-    "about": "O sbírce",
+    "about": "O sbírce map",
     "contacts": "Kontakty a dotazy",
     "mzk": "Moravská zemská knihovna v Brně",
     "other-collections": "Další sbírky",
@@ -46,5 +46,6 @@
     "all-results": "Všechny výsledky",
     "loading": "Načítám výsledky...",
     "loading-structure": "Načítám strukturu sbírky...",
-    "no-results": "Zadaným filtrům neodpovídá žádný výsledek."
+    "no-results": "Zadaným filtrům neodpovídá žádný výsledek.",
+    "back-to-map": "Zpět na mapu"
 }

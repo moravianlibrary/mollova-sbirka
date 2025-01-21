@@ -52,7 +52,7 @@
 
 .map-area {
     fill: transparent;
-    stroke: $color-gold;
+    // stroke: #38372E;
     stroke-width: 4;
     cursor: pointer;
     transition: fill 0.3s, stroke 0.3s;
@@ -64,7 +64,8 @@
 
 .map-area:hover, .map-area.highlight {
     fill: $color-gold-transparent ; /* Modrá barva s průhledností */
-    stroke: $color-gold;
+    stroke: #38372E;
+    cursor: pointer;
 }
   
   

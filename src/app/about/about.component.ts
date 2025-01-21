@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -9,10 +9,12 @@ import { Subscription } from 'rxjs';
   styleUrl: './about.component.scss'
 })
 export class AboutComponent {
-  activeMenu = 'history';
+  activeMenu = 'about';
   currentLang: string = '';
 
   private subscriptions: Subscription = new Subscription();
+
+  @ViewChild('scrollContainer') scrollContainer!: ElementRef;
 
   constructor(private translate: TranslateService,
               private route: ActivatedRoute,
@@ -29,7 +31,7 @@ export class AboutComponent {
       console.log('URL:', url);
       if (url.length === 0 || (url.length === 1 && url[0].path === 'o-sbirce')) {
         this.router.navigate(['/o-sbirce']);
-        this.activeMenu = 'history';
+        this.activeMenu = 'about';
       } else {
         this.activeMenu = url[1].path;
       }
@@ -39,10 +41,9 @@ export class AboutComponent {
 
   onMenuClick(item: string) {
     this.activeMenu = item;
-    if (item === 'history') {
-      this.router.navigate(['/o-sbirce']);
-    } else {
-      this.router.navigate(['/o-sbirce', item]);    
+    this.router.navigate(['/o-sbirce', item]);
+    if (this.scrollContainer) {
+      this.scrollContainer.nativeElement.scrollTo({ top: 0, behavior: 'auto' });
     }
   }
 }
