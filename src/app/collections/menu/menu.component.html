@@ -23,9 +23,8 @@
                     <div class="app-nav-2-text" *ngIf="currentLang === 'de'" [class.app-active]="item['title'] === activeChild">{{item['title_de']}}</div>
                 </div>
                 <!-- TRETI UROVEN -->
-                <div class="app-nav-3" *ngIf="openedChild === item['title']" >
-                    <div class="app-nav-3-item" *ngFor="let child of childrenExtended ? item['children'] : item['children'].slice(0, 5)"
-                        (click)="handleClick(child); $event.stopPropagation()">
+                <div class="app-nav-3" *ngIf="openedChild === item['title'] && item['children'] && item['children'].length > 0">    
+                    <div class="app-nav-3-item" *ngFor="let child of childrenExtended ? item['children'] : item['children'].slice(0, 5)" (click)="handleClick(child); $event.stopPropagation()">
                         <div class="app-nav-3-text" *ngIf="currentLang === 'cs'" [class.app-active]="child['title'] === activeChild">{{child['title']}}</div>
                         <div class="app-nav-3-text" *ngIf="currentLang === 'de'" [class.app-active]="child['title'] === activeChild">{{child['title_de']}}</div>
                         <div class="app-nav-3-text" *ngIf="currentLang === 'en'" [class.app-active]="child['title'] === activeChild">{{child['title_en']}}</div>

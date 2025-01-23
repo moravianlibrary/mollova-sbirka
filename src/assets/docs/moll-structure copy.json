@@ -1,0 +1,734 @@
+[
+  {
+    "pid": "uuid:0093e292-c638-4e0e-ae8f-e91a5ab52e5c",
+    "title": "Atlas Austriacus",
+    "title_en": "Atlas Austriacus",
+    "title_de": "Atlas Austriacus",
+    "model": "collection",
+    "code": "atlas-austriacus",
+    "children": [
+      {
+        "pid": "uuid:4a1a72b9-4bb0-401b-846f-ed3a75989321",
+        "title": "Rakouský kraj",
+        "title_en": "The Austrian Circle",
+        "title_de": "Österreichischer Reichskreis",
+        "model": "collection",
+        "code": "rakouske-zeme",
+        "points": "580,443,602,452,600,466,614,468,624,464,637,471,673,468,688,452,708,452,706,473,714,484,746,485,769,471,783,473,800,471,804,456,788,458,777,456,765,456,755,458,753,450,746,438,739,442,741,428,751,431,758,427,758,417,753,397,757,390,766,387,774,381,788,378,803,377,816,373,823,364,832,365,843,364,855,365,864,368,873,370,876,377,884,370,893,372,902,368,913,370,913,381,918,390,922,399,924,406,914,411,909,422,901,435,898,443,905,450,909,462,906,472,910,479,918,487,926,495,929,501,916,501,900,499,902,512,904,520,901,529,896,538,885,536,877,546,876,558,883,566,875,575,867,577,859,583,851,578,843,581,833,579,827,587,820,591,808,591,806,581,811,570,812,564,803,568,798,561,790,560,775,560,765,560,755,565,747,562,743,548,751,534,762,528,761,519,750,516,742,519,738,511,726,515,710,515,702,507,693,512,684,520,669,521,667,528,670,537,672,550,663,546,656,554,656,568,648,575,639,578,628,575,616,579,610,568,608,554,617,524,611,513,610,504,599,507,582,491,584,479,588,471,574,456",
+        "children": [
+          {
+            "pid": "uuid:20fc0557-bf2c-4c54-904a-96453c81b3de",
+            "title": "Dolní Rakousy I",
+            "title_en": "Lower Austria I",
+            "title_de": "Niederösterreich I",
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.I",
+            "code": "I",
+            "catalog_links": ["uuid:d890fdd7-c529-4dca-82ab-705dd9db159c", "uuid:38e98c36-7416-4f70-bf0a-203c48d89d4b"]
+          },
+          {
+            "pid": "uuid:4bdfcf0c-b827-48bd-ae06-452cc2a5345d",
+            "title": "Dolní Rakousy II",
+            "title_en": "Lower Austria II",
+            "title_de": "Niederösterreich II",
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.II",
+            "code": "II"
+          },
+          {
+            "pid": "uuid:2ff6211d-b2cf-4077-9eb0-520798f353bb",
+            "title": "Dolní Rakousy III",
+            "title_en": "Lower Austria III",
+            "title_de": "Niederösterreich III",
+            "model": "collection",
+            "signature": "",
+            "code": ""
+          },
+          {
+            "pid": "uuid:0f8c3220-1060-4dcc-b7ba-24d1b94f1ad1",
+            "title": "Dolní Rakousy IV",
+            "title_en": "Lower Austria IV",
+            "title_de": "Niederösterreich IV",
+            "model": "collection",
+            "signature": "",
+            "code": ""
+          },
+          {
+            "pid": "uuid:285042ce-ca68-4e48-8faa-80fac276d2fc",
+            "title": "Dolní Rakousy V",
+            "title_en": "Lower Austria V",
+            "title_de": "Niederösterreich V",
+            "model": "collection",
+            "signature": "",
+            "code": ""
+          },
+          {
+            "pid": "uuid:48495803-9abf-420a-bdbc-07e8b9a83671",
+            "title": "Dolní Rakousy VI",
+            "title_en": "Lower Austria VI",
+            "title_de": "Niederösterrreich VI",
+            "model": "collection",
+            "signature": "",
+            "code": ""
+          },
+          {
+            "pid": "uuid:83348351-95c1-457b-9934-bccfdb5f17bc",
+            "title": "Vídeň I",
+            "title_en": "Vienna I",
+            "title_de": "Wien I",
+            "model": "collection",
+            "signature": "",
+            "code": ""
+          },
+          {
+            "pid": "uuid:5a8d2ecd-9c52-4acd-8af8-fba7a64e3e9c",
+            "title": "Vídeň II",
+            "title_en": "Vienna II",
+            "title_de": "Wien II",
+            "model": "collection",
+            "signature": "",
+            "code": ""
+          },
+          {
+            "pid": "uuid:129b9efb-ce6a-4a3a-8f01-72abc313de9d",
+            "title": "Horní Rakousy I",
+            "title_en": "Upper Austria I",
+            "title_de": "Oberösterreich I",
+            "model": "collection",
+            "signature": "",
+            "code": ""
+          },
+          {
+            "pid": "uuid:48bc4b35-ed82-4dcc-afb1-953d101d1873",
+            "title": "Horní Rakousy II",
+            "title_en": "Upper Austria II",
+            "title_de": "Oberösterreich II",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:cb7b9b5d-1b89-4ecd-b343-afbaa2d22b63",
+            "title": "Tyrolsko I",
+            "title_en": "Tyrol I",
+            "title_de": "Tirol I",
+            "model": "collection",
+            "signature": "",
+            "code": ""
+          },
+          {
+            "pid": "uuid:c784ebe8-c9ab-4dbd-a0d4-6b639e33adad",
+            "title": "Tyrolsko II",
+            "title_en": "Tyrol II",
+            "title_de": "Tirol II",
+            "model": "collection",
+            "signature": "",
+            "code": ""
+          },
+          {
+            "pid": "uuid:3a38dfea-f949-4620-a68b-230e464c8e2e",
+            "title": "Korutansko I",
+            "title_en": "Carinthia I",
+            "title_de": "Kärnten I",
+            "model": "collection",
+            "signature": "",
+            "code": ""
+          },
+          {
+            "pid": "uuid:a2ad7982-497e-4df2-a306-d96af191b652",
+            "title": "Korutansko II",
+            "title_en": "Carinthia II",
+            "title_de": "Kärnten II",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:6ef1d5f1-dfec-40dd-9c3c-7ef775407891",
+            "title": "Kraňsko I",
+            "title_en": "Carniola I",
+            "title_de": "Krain I",
+            "model": "collection",
+            "signature": "",
+            "code": ""
+          },
+          {
+            "pid": "uuid:8feb3914-ac50-4b2d-a289-385bd0d5eb33",
+            "title": "Kraňsko II",
+            "title_en": "Carniola II",
+            "title_de": "Krain II",
+            "model": "collection",
+            "signature": "",
+            "code": ""
+          },
+          {
+            "pid": "uuid:e47ce588-8f35-4f2b-85d9-1f4d9a21b81b",
+            "title": "Štýrsko I",
+            "title_en": "Styria I",
+            "title_de": "Steiermark I",
+            "model": "collection",
+            "signature": "",
+            "code": ""
+          },
+          {
+            "pid": "uuid:1e1a1b29-033e-4a8c-9568-317260807ae6",
+            "title": "Štýrsko II",
+            "title_en": "Styria II",
+            "title_de": "Steiermark II",
+            "model": "collection",
+            "signature": "",
+            "code": ""
+          },
+          {
+            "pid": "uuid:165c2116-5f02-4615-890e-ceafa783ac3e",
+            "title": "Štýrsko III",
+            "title_en": "Styria III",
+            "title_de": "Steiermark III",
+            "model": "collection",
+            "signature": "",
+            "code": ""
+          }
+        ]
+      },
+      {
+        "pid": "uuid:2913a4c9-deba-4f37-a3dc-9529510b211f",
+        "title": "České země",
+        "title_en": "The Lands of the Bohemian Crown",
+        "title_de": "Böhmische Länder",
+        "model": "collection",
+        "points": "682,286,700,265,706,269,723,255,751,243,769,234,787,225,795,238,811,230,807,204,798,200,794,173,841,156,857,185,871,180,885,186,905,182,928,205,950,227,969,251,981,269,983,294,986,311,995,325,995,339,955,341,949,357,937,364,918,371,894,371,877,378,857,364,840,368,824,368,812,376,788,381,774,384,755,377,754,364,743,357,735,353,723,341,709,332,716,319,709,310,704,295",
+        "children": [
+          {
+            "pid": "uuid:8eaa7114-fe23-4088-8d88-2cc018b04920",
+            "title": "Slezsko",
+            "title_en": "Silesia",
+            "title_de": "Schlesien",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:7fde9e9c-081c-492c-a882-ee6ff7e24bf4",
+            "title": "Morava",
+            "title_en": "Moravia",
+            "title_de": "Mähren",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:fc7d2e7a-8191-460e-843c-52b2cbaa3455",
+            "title": "Čechy II",
+            "title_en": "Bohemia II",
+            "title_de": "Böhmen II",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:805b4292-f26c-44bc-8206-64bfc4609d50",
+            "title": "Čechy I",
+            "title_en": "Bohemia I",
+            "title_de": "Böhmen I",
+            "model": "collection"
+          }
+        ]
+      },
+      {
+        "pid": "uuid:076481e4-a71d-479d-a346-3be3c4ece2bf",
+        "title": "Burgundský kraj",
+        "title_en": "The Burgundian Circle",
+        "title_de": "Burgundischer Reichskreis",
+        "points": "452,36,452,54,464,69,464,102,446,113,452,128,435,147,440,158,428,170,415,160,406,164,394,179,382,203,390,224,404,228,408,238,427,258,419,270,432,277,425,299,415,319,396,326,383,302,351,289,313,298,269,290,230,273,232,241,243,213,264,196,291,188,302,174,321,155,321,140,338,117,348,83,359,64,383,49,417,40",
+        "model": "collection",
+        "children": [
+          {
+            "pid": "uuid:7631ed41-0b41-4c8d-b02b-285eef9a0eb7",
+            "title": "Spojené nizozemské provincie II",
+            "title_en": "Republic of the United Netherlands II",
+            "title_de": "Vereinigte Provinzen II",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:2836408d-7bd6-4bc8-85ec-ea0e11923df9",
+            "title": "Spojené nizozemské provincie III",
+            "title_en": "Republic of the United Netherlands III",
+            "title_de": "Vereinigte Provinzen III",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:2925850a-30d2-4e81-96cd-c4a2f0ff648f",
+            "title": "Rakouské Nizozemí I",
+            "title_en": "Austrian Netherlands I",
+            "title_de": "Österreichische Niederlande I",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:0119b4f0-4b35-4a71-b218-ba6a441cd02b",
+            "title": "Rakouské Nizozemí IV",
+            "title_en": "Austrian Netherlands IV",
+            "title_de": "Österreichische Niederlande IV",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:5127d48d-0051-465e-b567-d8a7ac3e78f3",
+            "title": "Rakouské Nizozemí II",
+            "title_en": "Austrian Netherlands II",
+            "title_de": "Österreichische Niederlande II",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:b099f9ab-e790-4463-99a5-78b6e791e465",
+            "title": "Spojené nizozemské provincie I",
+            "title_en": "Republic of the United Netherlands I",
+            "title_de": "Vereinigte Provinzen I",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:f6d5528e-3ab9-4522-b9d8-7599c0efe346",
+            "title": "Rakouské Nizozemí III",
+            "title_en": "Austrian Netherlands III",
+            "title_de": "Österreichische Niederlande III",
+            "model": "collection"
+          }
+        ]
+      },
+      {
+        "pid": "uuid:532b1648-70b7-4142-af75-50d628fc08ce",
+        "title": "Itálie",
+        "title_en": "Italy",
+        "title_de": "Italien",
+        "points": "423,737,421,713,415,704,421,693,429,683,421,673,429,673,437,676,433,654,423,646,424,632,411,624,408,614,399,609,394,595,374,597,363,590,367,569,366,557,382,540,394,550,429,553,428,569,433,575,458,577,469,581,488,564,496,568,489,577,493,585,515,591,525,585,533,590,535,566,546,556,554,556,553,565,559,574,608,556,608,569,615,577,628,574,640,578,655,570,656,554,663,546,672,552,670,536,668,529,669,520,682,519,693,513,701,508,709,515,738,511,742,519,750,517,761,519,762,528,753,530,742,548,743,561,738,568,729,562,720,566,722,573,722,583,726,595,735,603,742,615,739,626,727,638,731,648,733,666,731,680,742,677,753,679,773,685,786,691,811,699,836,705,845,728,864,737,867,749,871,762,883,773,902,783,914,794,926,799,941,802,953,798,945,777,958,766,971,769,974,795,979,806,977,815,962,823,965,834,977,843,999,847,1010,855,1023,855,1044,867,1071,887,1097,909,1097,924,1095,937,1088,944,1069,928,1065,912,1051,907,1035,904,1026,893,1020,881,1003,887,992,909,994,928,992,942,1003,952,1016,953,1038,975,1036,983,1031,995,1040,1007,1038,1019,1028,1017,1014,998,1006,1014,1004,1027,1007,1042,1000,1059,995,1079,989,1089,981,1097,971,1092,962,1093,953,1096,959,1112,949,1129,939,1140,929,1140,930,1152,942,1153,947,1146,955,1160,941,1170,945,1182,942,1197,941,1214,951,1232,906,1242,900,1230,888,1231,889,1216,873,1213,857,1206,849,1206,840,1194,828,1198,802,1194,775,1193,766,1181,757,1165,739,1170,714,1161,718,1149,741,1146,762,1145,767,1126,775,1132,771,1115,783,1095,788,1101,804,1097,816,1104,824,1095,832,1105,847,1085,849,1097,881,1088,890,1073,905,1077,924,1072,930,1056,951,1060,955,1092,961,1069,979,1055,971,1038,983,1028,991,1014,989,1003,971,999,966,975,957,961,946,941,937,940,921,944,902,925,908,909,900,897,886,907,873,907,885,892,885,879,865,875,863,850,845,851,822,851,784,839,745,838,718,842,708,846,677,831,686,817,701,813,690,806,682,798,668,790,665,777,655,779,651,794,653,802,647,814,633,817,602,798,607,834,604,856,602,872,599,893,599,907,603,920,612,912,627,920,636,938,629,952,615,956,623,964,631,971,620,977,629,987,617,994,631,1005,608,1011,624,1015,627,1024,610,1030,619,1031,621,1042,620,1062,610,1063,598,1063,588,1062,590,1073,592,1081,584,1089,574,1091,564,1081,561,1069,555,1076,537,1063,525,1032,533,1014,538,1002,549,1001,539,989,550,982,547,971,541,981,527,977,531,962,539,944,555,945,566,934,572,915,586,907,591,916,595,897,584,891,571,888,554,876,555,856,555,842,562,820,575,807,588,787,600,782,607,791,616,805,633,806,641,789,644,775,644,764,628,754,619,748,628,737,616,721,596,707,574,693,541,691,521,695,508,707,501,712,485,711,470,719,456,728,439,738",
+        "model": "collection",
+        "children": [
+          {
+            "pid": "uuid:f2067468-42b6-479e-b6e7-a160dd6f45ee",
+            "title": "Obecné mapy území Itálie",
+            "title_en": "General Italian Territory Maps",
+            "title_de": "Allgemeine Gebietskarten von Italien",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:49492feb-1693-4b70-9c72-06d23f1cf26d",
+            "title": "Církevní stát I",
+            "title_en": "Papal States I",
+            "title_de": "Kirchenstaat I",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:74984508-f228-42cc-9d09-9fb290fe8c86",
+            "title": "Sardinské království",
+            "title_en": "Kingdom of Sardinia",
+            "title_de": "Königreich Sardinien",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:01ea579a-66e9-4bdb-8437-d70062985501",
+            "title": "Milánsko",
+            "title_en": "Duchy of Milan",
+            "title_de": "Mailänder Staat",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:8d340be4-0378-4628-94c3-e680674a737e",
+            "title": "Benátská republika",
+            "title_en": "Republic of Venice",
+            "title_de": "Republik Venedig",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:0d6ccdfe-b042-4b19-b3ef-8f5e56213349",
+            "title": "Modena, Parma, Janov",
+            "title_en": "Modena, Parma, Genoa",
+            "title_de": "Modena, Parma und Genua",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:52b3a033-3488-4cf8-8f2e-6a3f744a8dc8",
+            "title": "Toskánsko",
+            "title_en": "Toscany",
+            "title_de": "Toskana",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:dad39480-b846-4f56-ac6a-2ac112fe6383",
+            "title": "Neapolsko-sicilské království",
+            "title_en": "Kingdom of Naples and Sicily",
+            "title_de": "Königreich beider Sizilien",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:6fda4784-2c4a-46f9-a4a7-abbc7ce176b1",
+            "title": "Církevní stát III",
+            "title_en": "Papal States III",
+            "title_de": "Kirchenstaat III",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:8a582361-3e39-4b96-92d6-3a61df2ba3b8",
+            "title": "Církevní stát II",
+            "title_en": "Papal States II",
+            "title_de": "Kirchenstaat II",
+            "model": "collection"
+          }
+        ]
+      },
+      {
+        "pid": "uuid:0635db10-2e87-4193-bcbb-33448a0e6b26",
+        "title": "Uhry",
+        "title_en": "Hungary",
+        "title_de": "Ungarn",
+        "model": "collection",
+        "points": "996,335,1016,351,1040,352,1060,358,1091,350,1125,358,1159,368,1183,368,1203,373,1222,388,1224,407,1263,421,1272,392,1280,371,1296,360,1321,360,1349,373,1383,383,1422,395,1446,417,1466,419,1466,619,1420,638,1367,641,1321,629,1260,633,1222,646,1195,648,1170,658,1122,671,1068,678,1063,734,1028,723,1014,709,987,711,979,724,969,720,1000,693,990,685,963,671,934,656,890,636,849,626,820,620,830,592,835,581,880,566,876,551,908,524,902,503,928,502,912,479,910,450,905,434,906,424,928,401,917,373,947,358,955,335",
+        "children": [
+          {
+            "pid": "uuid:4e0f62aa-4afc-4ad0-a22d-6130a259f64a",
+            "title": "Obecné mapy Uher",
+            "title_en": "General maps of Hungary",
+            "title_de": "Allgemeine Karten von Ungarn",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:5ceb9e19-5f2a-4d84-a963-c8dc5a9467e0",
+            "title": "Chorvatsko, Dalmácie, Slavonie",
+            "title_en": "Croatia, Dalmatia and Slavonia",
+            "title_de": "Kroatien, Dalmatien und Slawonien",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:97c33e8f-ca72-4ffe-b8bb-afe1baa2af76",
+            "title": "Horní a Dolní Uhry",
+            "title_en": "Upper and Lower Hungary",
+            "title_de": "Ober- und Niederungarn",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:d3c886a3-2650-401d-80cc-24cc1be89a2b",
+            "title": "Temešvárský Banát, Sedmihradsko",
+            "title_en": "Banat of Temeswar, Transylvania",
+            "title_de": "Temescher Banat, Siebenbürgen",
+            "model": "collection"
+          }
+        ]
+      },
+      {
+        "pid": "uuid:c3ed2f16-ff6a-4db0-b85b-15cac043e430",
+        "title": "Varia",
+        "title_en": "Varia",
+        "title_de": "Varia",
+        "model": "collection"
+      }
+    ]
+  },
+  {
+    "pid": "uuid:a70963b4-753d-401a-ac98-21040ee6508a",
+    "title": "Atlas Germanicus",
+    "title_en": "Atlas Germanicus",
+    "title_de": "Atlas Germanicus",
+    "model": "collection",
+    "children": [
+      {
+        "pid": "uuid:4de3423f-79f6-43d5-a22f-61cd087390ba",
+        "title": "Celkové mapy říšského území",
+        "title_en": "General Maps of the Holy Roman Empire",
+        "title_de": "Gesamtkarte des Reichsgebiets",
+        "model": "collection",
+        "children": [
+          {
+            "pid": "uuid:403a4843-40a9-46ed-8201-a52f8c7cae10",
+            "title": "Obecné mapy Německa",
+            "title_en": "General Maps of Germany",
+            "title_de": "Allgemeine Karten von Deutschland",
+            "model": "collection"
+          }
+        ]
+      },
+      {
+        "pid": "uuid:c08b98ad-6943-4ee3-9709-e2f2630cfd54",
+        "title": "Bavorský kraj",
+        "title_en": "The Bavarian Circle",
+        "title_de": "Bayerischer Reichskreis",
+        "model": "collection",
+        "points": "684,317,689,291,708,298,710,306,713,319,709,331,722,339,733,356,751,364,757,380,771,381,754,391,754,415,753,424,745,425,751,453,773,460,803,456,804,466,769,470,747,481,727,482,713,478,709,453,693,450,677,462,625,464,640,436,635,425,633,397,628,381,629,372,633,363,648,367,674,360,677,334",
+        "children": [
+          {
+            "pid": "uuid:4e1268f6-393b-4b6c-815e-345111a5cbf1",
+            "title": "Bavorská světská knížectví a území stavů",
+            "title_en": "Secular Principalities and Territories of Imperial Estates",
+            "title_de": "Bayerische Weltliche Fürstentümer und Besitzungen der Stände",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:51ca2e20-000f-4a8f-ae11-5b0b67f37a74",
+            "title": "Obecné mapy Bavorska, území duchovních knížat",
+            "title_en": "General maps, Ecclesiastic Principalities",
+            "title_de": "Allgemeine Karten von Bayern, Besitzungen geistlicher Fürsten",
+            "model": "collection"
+          }
+        ]
+      },
+      {
+        "pid": "uuid:3735506f-cdec-48ee-b65c-e38221f780cb",
+        "title": "Francký kraj",
+        "title_en": "The Franconian Circle",
+        "title_de": "Fränkischer Reichskreis",
+        "points": "614,237,641,245,651,258,645,269,676,261,684,277,682,283,689,290,682,317,688,324,677,331,674,339,673,347,664,348,674,355,672,364,655,368,645,368,639,362,631,363,615,360,599,362,583,356,567,356,558,358,553,350,554,338,563,339,568,323,567,315,561,309,563,298,570,286,568,277,599,256,604,260,610,250,606,241",
+        "model": "collection",
+        "children": [
+          {
+            "pid": "uuid:c24334e1-4f9a-461e-8197-c2f96dd175ff",
+            "title": "Francká světská knížectví a území stavů",
+            "title_en": "Secular Principalities and Territories of Imperial Estates",
+            "title_de": "Fränkische Weltliche Fürstentümer und Besitzungen der Stände",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:d9d13537-e036-41f1-b4d6-110b6ed61f5a",
+            "title": "Obecné mapy Frank, území duchovních knížat",
+            "title_en": "General maps, Ecclesiastic Principalities",
+            "title_de": "Allgemeine Karten von Franken, Besitzungen geistlicher Fürsten",
+            "model": "collection"
+          }
+        ]
+      },
+      {
+        "pid": "uuid:408eba8b-6bc5-4220-aad7-a221226435c5",
+        "title": "Hornorýnský kraj",
+        "title_en": "The Upper Rhenish Circle",
+        "title_de": "Oberrheinischer Reichskreis",
+        "points": "554,301,549,313,546,324,554,341,562,340,568,323,567,315,561,308,563,297,570,288,568,277,582,266,598,256,604,258,610,251,606,243,612,238,607,217,616,206,592,206,587,193,564,211,555,201,543,203,542,219,527,217,519,230,496,232,485,247,502,255,497,271,498,287,519,283,519,292,502,299,509,307,519,316,533,313,542,303",
+        "model": "collection",
+        "children": [
+          {
+            "pid": "uuid:9e62cdf2-cdab-49b4-814f-957fd4d2657a",
+            "title": "Hornorýnský kraj III",
+            "title_en": "The Upper Rhenish Circle III",
+            "title_de": "Oberrheinischer Reichskreis III",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:f832a7cb-f3ac-4180-9a87-4f14e1903484",
+            "title": "Hornorýnský kraj I",
+            "title_en": "The Upper Rhenish Circle I",
+            "title_de": "Oberrheinischer Reichskreis I",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:9a951095-5dbb-42a7-a1cd-84c666d484a3",
+            "title": "Hornorýnský kraj II",
+            "title_en": "The Upper Rhenish Circle II",
+            "title_de": "Oberrheinischer Reichskreis II",
+            "model": "collection"
+          }
+        ]
+      },
+      {
+        "pid": "uuid:134f4cd5-ab6d-43c2-bd44-6de16c88b404",
+        "title": "Dolnorýnský kraj",
+        "title_en": "The Lower Rhenish Circle",
+        "title_de": "Niederrheinischer Reichskreis",
+        "points": "413,193,431,201,445,219,457,245,485,248,502,256,496,275,497,287,518,285,518,293,501,298,509,309,519,317,534,314,542,303,553,303,547,314,546,323,554,339,553,350,533,358,530,366,521,371,515,363,510,355,497,354,489,362,480,371,472,379,453,387,451,371,452,351,451,340,437,336,428,336,416,319,427,298,433,275,420,268,427,258,436,250,444,245,436,228,423,212",
+        "model": "collection",
+        "children": [
+          {
+            "pid": "uuid:d7fe3ece-58ee-48e4-bb61-aad0dcfe0729",
+            "title": "Dolnorýnský kraj II",
+            "title_en": "The Lower Rhenish Circle II",
+            "title_de": "Niederrheinische Reichskreis II",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:959c3cad-e4a5-4bed-829c-52223374f15f",
+            "title": "Dolnorýnský kraj I",
+            "title_en": "The Lower Rhenish Circle I",
+            "title_de": "Niederrheinischer Reichskreis I",
+            "model": "collection"
+          }
+        ]
+      },
+      {
+        "pid": "uuid:3d231a23-e3f8-4409-b186-788d5c08ae9d",
+        "title": "Hornosaský kraj",
+        "title_en": "The Upper Saxon Circle",
+        "title_de": "Obersächsischer Reichskreis",
+        "points": "950,30,942,40,933,65,912,68,894,64,886,87,872,95,869,111,844,118,835,138,837,156,798,170,799,187,798,199,808,205,812,226,794,233,784,224,775,236,766,233,730,250,710,268,701,262,685,278,677,262,647,270,652,260,643,246,611,237,607,217,616,207,606,205,621,180,635,158,669,150,688,150,690,134,729,127,716,114,706,94,678,74,701,52,738,66,759,64,770,48,769,32,863,32",
+        "model": "collection",
+        "children": [
+          {
+            "pid": "uuid:eaf09bb0-9344-4676-a699-800d9ae6f162",
+            "title": "Hornosaský kraj II",
+            "title_en": "The Upper Saxon Circle II",
+            "title_de": "Obersächsischer Reichskreis II",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:0968b012-e11c-4005-89f4-a986fd34f273",
+            "title": "Hornosaský kraj I",
+            "title_en": "The Upper Saxon Circle I",
+            "title_de": "Obersächsischer Reichskreis I",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:b1dcfd86-1423-4e4d-af69-187f6a663bbb",
+            "title": "Hornosaský kraj III",
+            "title_en": "The Upper Saxon Circle III",
+            "title_de": "Obersächsischer Reichskreis III",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:bee14840-7bae-44ed-8494-c0a0101f5029",
+            "title": "Hornosaský kraj V",
+            "title_en": "The Upper Saxon Circle V",
+            "title_de": "Obersächsischer Reichskreis V",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:9cf1bf7d-f0c4-4b54-acff-f32b2661195c",
+            "title": "Hornosaský kraj IV",
+            "title_en": "The Upper Saxon Circle IV",
+            "title_de": "Obersächsischer Reichskreis IV",
+            "model": "collection"
+          }
+        ]
+      },
+      {
+        "pid": "uuid:04bad41e-347a-46d3-b434-a8ee39ebc16b",
+        "title": "Dolnosaský kraj",
+        "title_en": "The Lower Saxon Circle",
+        "title_de": "Niedersächsischer Reichskreis",
+        "points": "767,32,771,48,761,56,754,64,737,61,720,57,701,49,678,70,689,83,708,97,720,117,726,126,692,132,688,147,648,152,637,155,611,208,592,207,574,156,576,144,586,150,588,136,575,131,572,121,559,115,563,101,570,87,584,74,579,61,564,61,555,68,558,85,526,79,517,61,511,33",
+        "model": "collection",
+        "children": [
+          {
+            "pid": "uuid:e7562f84-4862-426f-8030-d4c1cb521f7d",
+            "title": "Dolnosaský kraj I",
+            "title_en": "The Lower Saxon Circle I",
+            "title_de": "Niedersächsischer Reichskreis I",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:e8ca7c88-41ce-44c7-b14f-6f20b8e36855",
+            "title": "Dolnosaský kraj II",
+            "title_en": "The Lower Saxon Circle II",
+            "title_de": "Niedersächsischer Reichskreis II",
+            "model": "collection"
+          }
+        ]
+      },
+      {
+        "pid": "uuid:0a9b7f6b-4903-4772-b6e8-50ec4d4522bb",
+        "title": "Švábský kraj",
+        "title_en": "The Swabian Circle",
+        "title_de": "Schwäbischer Reichskreis",
+        "points": "631,364,631,373,629,389,635,395,635,405,635,417,635,430,636,442,624,464,615,470,600,467,602,451,594,448,580,443,574,455,561,454,546,451,530,454,519,459,506,459,494,455,494,463,477,460,474,450,485,442,478,435,469,438,465,446,451,451,445,440,447,427,456,413,453,387,472,377,497,353,510,354,521,372,530,365,533,356,551,350,558,357,583,356,599,361,615,360",
+        "model": "collection",
+        "children": [
+          {
+            "pid": "uuid:06d438d2-e8f7-4e42-bbc5-eb67e06edb69",
+            "title": "Švábský kraj II",
+            "title_en": "The Swabian Circle II",
+            "title_de": "Schwäbischer Reichskreis II",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:ef79adde-9f0c-404d-9c0c-e27f79af1023",
+            "title": "Švábský kraj I",
+            "title_en": "The Swabian Circle I",
+            "title_de": "Schwäbischer Reichskreis I",
+            "model": "collection"
+          }
+        ]
+      },
+      {
+        "pid": "uuid:1fc514c5-bbeb-4f09-92fc-9e8a1803edcc",
+        "title": "Vestfálský kraj",
+        "title_en": "The Westphalian Circle",
+        "title_de": "Westfälischer Reichskreis",
+        "points": "502,36,511,33,515,56,525,78,559,82,557,72,568,61,583,62,586,73,572,82,562,113,574,130,588,134,587,144,576,144,575,152,588,192,564,211,555,201,543,204,542,220,527,217,518,230,496,233,485,248,458,248,451,228,433,204,412,192,423,213,436,230,443,246,429,253,419,253,408,241,403,228,388,224,380,208,392,189,396,175,415,162,429,175,440,160,437,148,448,140,456,130,448,115,464,106,464,90,464,72,458,60,452,45,468,37,485,33",
+        "model": "collection",
+        "children": [
+          {
+            "pid": "uuid:5d04a3d2-b072-4779-93c0-6144d227b65c",
+            "title": "Vestfálský kraj I",
+            "title_en": "The Westphalian Circle I",
+            "title_de": "Westfälischer Reichskreis I",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:c859575e-7bc1-4d26-85f1-739dd441683b",
+            "title": "Vestfálský kraj II",
+            "title_en": "The Westphalian Circle II",
+            "title_de": "Westfälischer Reichskreis II",
+            "model": "collection"
+          }
+        ]
+      },
+      {
+        "pid": "uuid:ecba8429-7558-4d22-8177-6ae248318e16",
+        "title": "Švýcarsko",
+        "title_en": "The Old Swiss Confederacy",
+        "title_de": "Schweiz",
+        "points": "451,452,447,466,435,474,420,486,408,505,396,511,386,524,383,542,395,550,407,550,420,551,429,554,429,570,435,576,458,577,470,583,481,571,488,564,496,568,490,577,493,585,505,588,515,592,525,585,533,591,534,577,535,567,545,556,554,556,554,567,559,573,578,568,595,562,608,556,611,543,617,526,611,514,610,506,598,507,590,499,583,491,583,479,588,473,582,466,572,456,545,452,530,454,519,458,508,458,493,454,494,462,476,458,474,449,485,442,478,433,469,437,465,445",
+        "model": "collection",
+        "children": [
+          {
+            "pid": "uuid:38b670d0-eea3-4efb-90c1-d03418b510a5",
+            "title": "Švýcarsko I",
+            "title_en": "The Old Swiss Confederacy I",
+            "title_de": "Schweiz I",
+            "model": "collection"
+          },
+          {
+            "pid": "uuid:0c13ffa9-da37-476c-97a3-886677434da9",
+            "title": "Švýcarsko II",
+            "title_en": "The Old Swiss Confederacy II",
+            "title_de": "Schweiz II",
+            "model": "collection"
+          }
+        ]
+      },
+
+      {
+        "pid": "uuid:56bf5c9d-a7c2-4e05-8585-ca4914249f5c",
+        "title": "Vodstvo Německa",
+        "title_en": "Waters of Germany",
+        "title_de": "Gewässer Deutschlands",
+        "model": "collection"
+      }
+    ]
+  },
+  {
+    "pid": "uuid:5bdf1da4-472a-4128-a458-4f8ce33c7887",
+    "title": "Mapografické katalogy",
+    "title_en": "Map Inventory Catalogues",
+    "title_de": "Die kartenbibliografischen Kataloge",
+    "model": "collection",
+    "children": [
+      {
+        "pid": "uuid:52591536-4912-405f-9b98-5daa947b240d",
+        "title": "Vockelovy přehledy",
+        "title_en": "Vockel's Overviews",
+        "title_de": "Vockels Übersichten",
+        "model": "collection"
+      },
+      {
+        "pid": "uuid:79fac658-fdf1-4bd5-8924-c6b20868d3a1",
+        "title": "Starší Mollovy katalogy",
+        "title_en": "Older Moll's Catalogues",
+        "title_de": "Die älteren Kataloge Molls",
+        "model": "collection"
+      },
+      {
+        "pid": "uuid:855db083-db50-4c68-9126-f2607bd830a6",
+        "title": "Duplikáty bílých katalogů",
+        "title_en": "Duplicates of White Catalogues",
+        "title_de": "Duplikate der weißen Kataloge",
+        "model": "collection"
+      },
+      {
+        "pid": "uuid:91845198-e998-471a-b6d7-5c94688ef5b7",
+        "title": "Podklady pro mapografie",
+        "title_en": "Data for Map Inventories",
+        "title_de": "Grundlagen für die Kartenbibliografien",
+        "model": "collection"
+      },
+      {
+        "pid": "uuid:277344ae-eb01-4507-b4f4-82da2e08f545",
+        "title": "Bílé katalogy",
+        "title_en": "White Catalogues",
+        "title_de": "Die weißen Kataloge",
+        "model": "collection"
+      }
+    ]
+  }
+]
