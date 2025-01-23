@@ -24,17 +24,13 @@ export class CollectionComponent {
 
   ngOnInit(): void {
     console.log('Collection:', this.collection);
+    console.log('Children:', this.children);
     // Language change subscription
     const langSub = this.translate.onLangChange.subscribe((event) => {
       this.currentLang = event.lang;
     });
     this.subscription.add(langSub);
   }
-  // ngOnDestroy(): void {
-  //   if (this.subscription) {
-  //     this.subscription.unsubscribe();
-  //   }
-  // }
 
   onCardClick(item: any): void {
     console.log('Card clicked:', item);

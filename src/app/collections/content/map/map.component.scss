@@ -25,6 +25,12 @@
             gap: 8px;
             .app-title {
                 align-self: stretch;
+                display: -webkit-box;
+                -webkit-line-clamp: 2; /* Přesně dva řádky */
+                line-clamp: 2; /* Přesně dva řádky */
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis; /* Přidá "..." na konec textu */
             }
             .app-authors {
                 align-self: stretch;

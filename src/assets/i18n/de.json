@@ -8,6 +8,7 @@
     "other-coll-mzk": "Andere Sammlungen der MZK",
     "find-more": "Weitere Sammlungen in der Digitalen Bibliothek finden",
     "old_signature": "Alte Signatur",
+    "new_signature": "Neue Signatur",
     "more-info": "Mehr Info",
     "other-maps": "Andere Karten aus der Sammlung ",
     "author": "Autor: ",
@@ -47,5 +48,6 @@
     "loading": "Ergebnisse werden geladen...",
     "loading-structure": "Sammlungsstruktur wird geladen …",
     "no-results": "Keine Ergebnisse entsprechen den angegebenen Filtern.",
-    "back-to-map": "Zurück zur Karte"
+    "back-to-map": "Zurück zur Karte",
+    "other": "Andere"
 }

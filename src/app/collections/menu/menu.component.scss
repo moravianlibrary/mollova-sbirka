@@ -96,7 +96,7 @@
                     align-items: flex-start;
                     align-self: stretch;
                     flex: 1 0 0;
-                    padding: var(--Spacing-x1, 4px) var(--Spacing-x2, 8px) var(--Spacing-x1, 4px) var(--Spacing-x8, 32px);
+                    padding: 4px 8px 4px 32px;
                     &:hover .app-nav-3-text {
                         color: $color-gold-link;
                         text-decoration: underline;
@@ -118,7 +118,28 @@
                         background-color: $color-bg-tertiary;
                         cursor: pointer;
                     }
+                    .app-nav-3-icon {
+                        display: flex;
+                        width: var(--Spacing-x4, 16px);
+                        height: var(--Spacing-x4, 16px);
+                        justify-content: center;
+                        align-items: center;
+                        img {
+                            width: var(--Spacing-x4, 16px);
+                            height: var(--Spacing-x4, 16px);
+                            flex-shrink: 0;
+                        }
+                    }
+                    &.app-extend {
+                        padding: 0 0 0 8px;
+                        align-items: center;
+                    }
+                    .app-extend-text {
+                        padding: 4px 8px 4px 8px;
+                        text-decoration: underline;
+                    }
                 }
+
             }
         }
     }

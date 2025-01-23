@@ -64,15 +64,18 @@ export class ContentComponent implements OnInit, OnDestroy {
           console.log('COLLECTION:', this.collection);
           this.collectionService.getChildrenByPidWithDetails(pid).subscribe((children) => {
             console.log('Children1:', children);
-            this.children = children;
-            console.log('Children2:', children);
+            this.children = children.sort((a: any, b: any) => {
+              return a['title'].localeCompare(b['title']);
+            });
             if (children.length === 0) {
               // console.error('No children found for PID:', pid);
               this.collectionService.getCollectionChildren(pid).subscribe((data: any) => {
                 if (data && data['response'] && data['response']['docs']) {
                   const children = data['response']['docs'];
-                  console.log('Children3:', children);
-                  this.children = children;
+                  console.log('Children2:', children);
+                  this.children = children.sort((a: any, b: any) => {
+                    return a['shelf_locators'][0].localeCompare(b['shelf_locators'][0]);
+                  });
                 } else {
                   console.error('Invalid data format:', data);
                 }

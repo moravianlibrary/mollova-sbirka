@@ -22,6 +22,7 @@
                         </a>
                         <div class="app-card-text">{{getChildrenDescription(item)}}</div>
                         <div class="app-card-sign">{{'old_signature' | translate}}:</div>
+                        <div *ngIf="item?.shelf_locators?.[0]" class="app-card-sign">{{'new_signature' | translate}}: {{item.shelf_locators[0]}}</div>
                         <!-- <div class="app-card-link">
                             <div class="app-card-link-text">Mollův katalog 1</div>
                             <img class="app-card-link-icon default-icon" src="assets/icons/export.png" width="">

@@ -28,7 +28,7 @@ export class ApiService {
     }
     getCollectionChildren(pid: string): Observable<Object> {
         return this.doGet(
-            `${this.apiUrl}q=*:*&fq=(in_collections.direct:"${pid}")&fl=pid,model,authors,titles.search,title.search,root.title,date.str,title.search_*,collection.desc,collection.desc_*&rows=1000`
+            `${this.apiUrl}q=*:*&fq=(in_collections.direct:"${pid}")&fl=pid,model,authors,titles.search,title.search,root.title,date.str,title.search_*,collection.desc,collection.desc_*,shelf_locators&rows=1000`
         );
     }
     getPages(pid: string): Observable<Object> {

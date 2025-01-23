@@ -5,6 +5,7 @@
     "title_en": "Atlas Austriacus",
     "title_de": "Atlas Austriacus",
     "model": "collection",
+    "code": "atlas-austriacus",
     "children": [
       {
         "pid": "uuid:4a1a72b9-4bb0-401b-846f-ed3a75989321",
@@ -12,84 +13,98 @@
         "title_en": "The Austrian Circle",
         "title_de": "Österreichischer Reichskreis",
         "model": "collection",
+        "code": "rakouske-zeme",
         "points": "580,443,602,452,600,466,614,468,624,464,637,471,673,468,688,452,708,452,706,473,714,484,746,485,769,471,783,473,800,471,804,456,788,458,777,456,765,456,755,458,753,450,746,438,739,442,741,428,751,431,758,427,758,417,753,397,757,390,766,387,774,381,788,378,803,377,816,373,823,364,832,365,843,364,855,365,864,368,873,370,876,377,884,370,893,372,902,368,913,370,913,381,918,390,922,399,924,406,914,411,909,422,901,435,898,443,905,450,909,462,906,472,910,479,918,487,926,495,929,501,916,501,900,499,902,512,904,520,901,529,896,538,885,536,877,546,876,558,883,566,875,575,867,577,859,583,851,578,843,581,833,579,827,587,820,591,808,591,806,581,811,570,812,564,803,568,798,561,790,560,775,560,765,560,755,565,747,562,743,548,751,534,762,528,761,519,750,516,742,519,738,511,726,515,710,515,702,507,693,512,684,520,669,521,667,528,670,537,672,550,663,546,656,554,656,568,648,575,639,578,628,575,616,579,610,568,608,554,617,524,611,513,610,504,599,507,582,491,584,479,588,471,574,456",
         "children": [
-          {
-            "pid": "uuid:c784ebe8-c9ab-4dbd-a0d4-6b639e33adad",
-            "title": "Tyrolsko II",
-            "title_en": "Tyrol II",
-            "title_de": "Tirol II",
-            "model": "collection"
-          },
-          {
-            "pid": "uuid:cb7b9b5d-1b89-4ecd-b343-afbaa2d22b63",
-            "title": "Tyrolsko I",
-            "title_en": "Tyrol I",
-            "title_de": "Tirol I",
-            "model": "collection"
-          },
-          {
-            "pid": "uuid:165c2116-5f02-4615-890e-ceafa783ac3e",
-            "title": "Štýrsko III",
-            "title_en": "Styria III",
-            "title_de": "Steiermark III",
-            "model": "collection"
-          },
-          {
-            "pid": "uuid:1e1a1b29-033e-4a8c-9568-317260807ae6",
-            "title": "Štýrsko II",
-            "title_en": "Styria II",
-            "title_de": "Steiermark II",
-            "model": "collection"
-          },
           {
             "pid": "uuid:20fc0557-bf2c-4c54-904a-96453c81b3de",
             "title": "Dolní Rakousy I",
             "title_en": "Lower Austria I",
             "title_de": "Niederösterreich I",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.I",
+            "code": "I",
+            "catalog_links": ["uuid:d890fdd7-c529-4dca-82ab-705dd9db159c", "uuid:38e98c36-7416-4f70-bf0a-203c48d89d4b"]
           },
           {
             "pid": "uuid:4bdfcf0c-b827-48bd-ae06-452cc2a5345d",
             "title": "Dolní Rakousy II",
             "title_en": "Lower Austria II",
             "title_de": "Niederösterreich II",
-            "model": "collection"
-          },
-          {
-            "pid": "uuid:48495803-9abf-420a-bdbc-07e8b9a83671",
-            "title": "Dolní Rakousy VI",
-            "title_en": "Lower Austria VI",
-            "title_de": "Niederösterrreich VI",
-            "model": "collection"
-          },
-          {
-            "pid": "uuid:0f8c3220-1060-4dcc-b7ba-24d1b94f1ad1",
-            "title": "Dolní Rakousy IV",
-            "title_en": "Lower Austria IV",
-            "title_de": "Niederösterreich IV",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.II",
+            "code": "II",
+            "catalog_links": []
           },
           {
             "pid": "uuid:2ff6211d-b2cf-4077-9eb0-520798f353bb",
             "title": "Dolní Rakousy III",
             "title_en": "Lower Austria III",
             "title_de": "Niederösterreich III",
-            "model": "collection"
+            "model": "collection",
+            "signature": "",
+            "code": "",
+            "catalog_links": []
           },
           {
-            "pid": "uuid:83348351-95c1-457b-9934-bccfdb5f17bc",
-            "title": "Vídeň I",
-            "title_en": "Vienna I",
-            "title_de": "Wien I",
-            "model": "collection"
+            "pid": "uuid:0f8c3220-1060-4dcc-b7ba-24d1b94f1ad1",
+            "title": "Dolní Rakousy IV",
+            "title_en": "Lower Austria IV",
+            "title_de": "Niederösterreich IV",
+            "model": "collection",
+            "signature": "",
+            "code": "",
+            "catalog_links": []
           },
           {
             "pid": "uuid:285042ce-ca68-4e48-8faa-80fac276d2fc",
             "title": "Dolní Rakousy V",
             "title_en": "Lower Austria V",
             "title_de": "Niederösterreich V",
-            "model": "collection"
+            "model": "collection",
+            "signature": "",
+            "code": "",
+            "catalog_links": []
+          },
+          {
+            "pid": "uuid:48495803-9abf-420a-bdbc-07e8b9a83671",
+            "title": "Dolní Rakousy VI",
+            "title_en": "Lower Austria VI",
+            "title_de": "Niederösterrreich VI",
+            "model": "collection",
+            "signature": "",
+            "code": "",
+            "catalog_links": []
+          },
+          {
+            "pid": "uuid:83348351-95c1-457b-9934-bccfdb5f17bc",
+            "title": "Vídeň I",
+            "title_en": "Vienna I",
+            "title_de": "Wien I",
+            "model": "collection",
+            "signature": "",
+            "code": "",
+            "catalog_links": []
+          },
+          {
+            "pid": "uuid:5a8d2ecd-9c52-4acd-8af8-fba7a64e3e9c",
+            "title": "Vídeň II",
+            "title_en": "Vienna II",
+            "title_de": "Wien II",
+            "model": "collection",
+            "signature": "",
+            "code": "",
+            "catalog_links": []
+          },
+          {
+            "pid": "uuid:129b9efb-ce6a-4a3a-8f01-72abc313de9d",
+            "title": "Horní Rakousy I",
+            "title_en": "Upper Austria I",
+            "title_de": "Oberösterreich I",
+            "model": "collection",
+            "signature": "",
+            "code": "",
+            "catalog_links": []
           },
           {
             "pid": "uuid:48bc4b35-ed82-4dcc-afb1-953d101d1873",
@@ -99,25 +114,31 @@
             "model": "collection"
           },
           {
-            "pid": "uuid:5a8d2ecd-9c52-4acd-8af8-fba7a64e3e9c",
-            "title": "Vídeň II",
-            "title_en": "Vienna II",
-            "title_de": "Wien II",
-            "model": "collection"
+            "pid": "uuid:cb7b9b5d-1b89-4ecd-b343-afbaa2d22b63",
+            "title": "Tyrolsko I",
+            "title_en": "Tyrol I",
+            "title_de": "Tirol I",
+            "model": "collection",
+            "signature": "",
+            "code": ""
           },
           {
-            "pid": "uuid:129b9efb-ce6a-4a3a-8f01-72abc313de9d",
-            "title": "Horní Rakousy I",
-            "title_en": "Upper Austria I",
-            "title_de": "Oberösterreich I",
-            "model": "collection"
+            "pid": "uuid:c784ebe8-c9ab-4dbd-a0d4-6b639e33adad",
+            "title": "Tyrolsko II",
+            "title_en": "Tyrol II",
+            "title_de": "Tirol II",
+            "model": "collection",
+            "signature": "",
+            "code": ""
           },
           {
-            "pid": "uuid:8feb3914-ac50-4b2d-a289-385bd0d5eb33",
-            "title": "Kraňsko II",
-            "title_en": "Carniola II",
-            "title_de": "Krain II",
-            "model": "collection"
+            "pid": "uuid:3a38dfea-f949-4620-a68b-230e464c8e2e",
+            "title": "Korutansko I",
+            "title_en": "Carinthia I",
+            "title_de": "Kärnten I",
+            "model": "collection",
+            "signature": "",
+            "code": ""
           },
           {
             "pid": "uuid:a2ad7982-497e-4df2-a306-d96af191b652",
@@ -127,25 +148,49 @@
             "model": "collection"
           },
           {
-            "pid": "uuid:3a38dfea-f949-4620-a68b-230e464c8e2e",
-            "title": "Korutansko I",
-            "title_en": "Carinthia I",
-            "title_de": "Kärnten I",
-            "model": "collection"
-          },
-          {
             "pid": "uuid:6ef1d5f1-dfec-40dd-9c3c-7ef775407891",
             "title": "Kraňsko I",
             "title_en": "Carniola I",
             "title_de": "Krain I",
-            "model": "collection"
+            "model": "collection",
+            "signature": "",
+            "code": ""
+          },
+          {
+            "pid": "uuid:8feb3914-ac50-4b2d-a289-385bd0d5eb33",
+            "title": "Kraňsko II",
+            "title_en": "Carniola II",
+            "title_de": "Krain II",
+            "model": "collection",
+            "signature": "",
+            "code": ""
           },
           {
             "pid": "uuid:e47ce588-8f35-4f2b-85d9-1f4d9a21b81b",
             "title": "Štýrsko I",
             "title_en": "Styria I",
             "title_de": "Steiermark I",
-            "model": "collection"
+            "model": "collection",
+            "signature": "",
+            "code": ""
+          },
+          {
+            "pid": "uuid:1e1a1b29-033e-4a8c-9568-317260807ae6",
+            "title": "Štýrsko II",
+            "title_en": "Styria II",
+            "title_de": "Steiermark II",
+            "model": "collection",
+            "signature": "",
+            "code": ""
+          },
+          {
+            "pid": "uuid:165c2116-5f02-4615-890e-ceafa783ac3e",
+            "title": "Štýrsko III",
+            "title_en": "Styria III",
+            "title_de": "Steiermark III",
+            "model": "collection",
+            "signature": "",
+            "code": ""
           }
         ]
       },

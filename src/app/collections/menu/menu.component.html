@@ -24,11 +24,20 @@
                 </div>
                 <!-- TRETI UROVEN -->
                 <div class="app-nav-3" *ngIf="openedChild === item['title']" >
-                    <div class="app-nav-3-item" *ngFor="let child of item['children']"
+                    <div class="app-nav-3-item" *ngFor="let child of childrenExtended ? item['children'] : item['children'].slice(0, 5)"
                         (click)="handleClick(child); $event.stopPropagation()">
                         <div class="app-nav-3-text" *ngIf="currentLang === 'cs'" [class.app-active]="child['title'] === activeChild">{{child['title']}}</div>
                         <div class="app-nav-3-text" *ngIf="currentLang === 'de'" [class.app-active]="child['title'] === activeChild">{{child['title_de']}}</div>
                         <div class="app-nav-3-text" *ngIf="currentLang === 'en'" [class.app-active]="child['title'] === activeChild">{{child['title_en']}}</div>
+                    </div>
+                    <div class="app-nav-3-item app-extend" *ngIf="item.children.length > 5 && !childrenExtended" (click)="extendChildren()">    
+                        <div class="app-nav-3-icon" 
+                        (mouseover)="onIconHover(item.title)" 
+                        (mouseout)="onIconLeave()" 
+                        (click)="extendChildren()">
+                            <img [src]="'assets/icons/arrow-down-small-black.png'" alt="Icon" />
+                        </div>
+                        <div class="app-nav-3-text app-extend-text">{{'other' | translate}} ({{item.children.length - 5}})</div>
                     </div>
                 </div>
             </div>

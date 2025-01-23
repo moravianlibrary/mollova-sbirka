@@ -1,29 +1,13 @@
 <div class="app-container" *ngIf="!loading">
     <div class="app-content" #scrollContainer>
         <div class="app-part-title">
-            <h2 class="app-title">{{map['title.search']}}</h2>
+            <h2 class="app-title">{{map['title.search'].split(':')[0]}}</h2>
             <div class="app-authors">{{map['authors']}}</div>
         </div>
         <div class="app-part-map" #mapDiv>
             <div class="app-map">
                 <app-iiif-image-viewer [infoJsonUrl]="manifestLink"></app-iiif-image-viewer>
             </div>
-            <!-- <div class="app-map-actions">
-                <div class="app-buttons">
-                    <div class="app-button">
-                        <img src="assets/icons/zoom-in.png" alt="zoom in" />
-                    </div>
-                    <div class="app-button">
-                        <img src="assets/icons/zoom-out.png" alt="zoom out" />
-                    </div>
-                </div>
-                <div class="app-button">
-                    <img src="assets/icons/maximize.png" alt="arrow left" />
-                </div>
-                <div class="app-button">
-                    <img src="assets/icons/download.png" alt="arrow right" />
-                </div>
-            </div> -->
         </div>
         <div class="app-part-info" #infoDiv>
             <div class="app-metadata-container">
@@ -61,7 +45,8 @@
     </div>
     <div class="app-bottom-nav">
         <div class="app-nav-button" (click)="scrollTo(showMoreInfo ? 'map' : 'info')">
-            <div class="app-text">{{ showMoreInfo ? 'back-to-map' : 'more-info' | translate }}</div>
+            <div class="app-text" *ngIf="showMoreInfo">{{ 'back-to-map' | translate }}</div>
+            <div class="app-text" *ngIf="!showMoreInfo">{{ 'more-info' | translate }}</div>
             <img class="app-icon" [src]="showMoreInfo ? 'assets/icons/arrow-up.png' : 'assets/icons/arrow-down.png'" alt="arrow" />
         </div>
         <div class="app-right-nav">

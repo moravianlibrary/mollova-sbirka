@@ -8,6 +8,7 @@
     "other-coll-mzk": "Other Collections of the Moravian Library",
     "find-more": "Find more collections in the Digital Library",
     "old_signature": "Old Shelf Locator",
+    "new_signature": "New Shelf Locator",
     "more-info": "More Info",
     "other-maps": "Other maps from the collection ",
     "author": "Author: ",
@@ -47,5 +48,6 @@
     "loading": "Loading results...",
     "loading-structure": "Loading collection structure...",
     "no-results": "No results match the filters you entered.",
-    "back-to-map": "Back to map"
+    "back-to-map": "Back to map",
+    "other": "Other"
 }

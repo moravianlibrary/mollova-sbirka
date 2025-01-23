@@ -22,6 +22,8 @@ export class MenuComponent implements OnInit, OnDestroy {
   activeChild = '';
   hoveredIcon: string | null = null;
 
+  childrenExtended: boolean = false;
+
   constructor(private collectionService: CollectionService,
               private route: ActivatedRoute,
               private router: Router,
@@ -114,6 +116,7 @@ export class MenuComponent implements OnInit, OnDestroy {
     } else {
       this.openedChild = item.title;
     }
+    this.childrenExtended = false;
     this.navigate(item.pid);
   }
   handleSubClick(openItem: any, child: any): void {
@@ -150,6 +153,11 @@ export class MenuComponent implements OnInit, OnDestroy {
 
   onIconLeave(): void {
     this.hoveredIcon = null;
+  }
+
+  extendChildren() {
+    console.log('extendChildren', this.childrenExtended);
+    this.childrenExtended = !this.childrenExtended;
   }
 
 }

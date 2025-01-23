@@ -7,7 +7,8 @@
     "other-collections": "Další sbírky",
     "other-coll-mzk": "Další sbírky MZK",
     "find-more": "Najít další sbírky v digitální knihovně MZK",
-    "old_signature": "Stará signatura",
+    "old_signature": "Původní signatura",
+    "new_signature": "Nová signatura",
     "more-info": "Více informací",
     "other-maps": "Další mapy ze sbírky ",
     "author": "Autor: ",
@@ -47,5 +48,6 @@
     "loading": "Načítám výsledky...",
     "loading-structure": "Načítám strukturu sbírky...",
     "no-results": "Zadaným filtrům neodpovídá žádný výsledek.",
-    "back-to-map": "Zpět na mapu"
+    "back-to-map": "Zpět na mapu",
+    "other": "Další"
 }
