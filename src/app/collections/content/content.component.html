@@ -3,7 +3,7 @@
         <app-collection [collection]="collection" [children]="children" [lang]="currentLang"></app-collection>
     </div>
     <div *ngIf="typeOfResource === 'map'">
-        <app-map [map]="map" [parentCollection]="collection" [siblings]="children"></app-map>
+        <app-map [map]="map" [parentCollection]="collection" [siblings]="siblings"></app-map>
     </div>
 </div>
 <div class="app-loading" *ngIf="loading">

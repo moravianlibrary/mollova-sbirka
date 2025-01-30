@@ -17,9 +17,11 @@ export class CollectionService {
     private readonly jsonMollStructure = 'assets/docs/moll-structure.json';
     private readonly jsonMollIndex = 'assets/docs/moll-index.json';
 
+    private siblingsSubject = new BehaviorSubject<any[]>([]);
+    siblings$ = this.siblingsSubject.asObservable();
+
     private contextSource = new BehaviorSubject<any>(null);
     context$ = this.contextSource.asObservable();
-
 
     constructor(private apiService: ApiService,
                 private http: HttpClient
@@ -151,7 +153,24 @@ export class CollectionService {
         return this.apiService.getCollection(pid);
     }
     getCollectionChildren(pid: string): Observable<any[]> {
-        return this.apiService.getCollectionChildren(pid) as Observable<any[]>;
+        return this.apiService.getCollectionChildren(pid).pipe(
+            tap((data: any) => {
+                if (data && data['response'] && data['response']['docs']) {
+                    const siblings = data['response']['docs'];
+                    // const siblings = data['response']['docs'].filter((item: any) => item['model'] !== 'manuscript');
+                    console.log('Siblings:', siblings);
+                    const sortedSiblings = siblings.sort((a: any, b: any) =>
+                        a['shelf_locators'][0].localeCompare(b['shelf_locators'][0])
+                    );
+                    // Nastavení siblings do BehaviorSubject
+                    this.setSiblings(sortedSiblings);
+                }
+            }),
+            map((data: any) => {
+                return data['response']['docs'] || [];
+                // return data['response']['docs'].filter((item: any) => item['model'] !== 'manuscript') || [];
+            })
+        );
     }
     getCollectionStructure(pid: string): Observable<any> {
         const collectionIndex: { [key: string]: string } = {};
@@ -225,6 +244,14 @@ export class CollectionService {
                 );
             })
         );
+    }
+
+    setSiblings(siblings: any[]): void {
+        this.siblingsSubject.next(siblings);
+    }
+    
+    clearSiblings(): void {
+        this.siblingsSubject.next([]);
     }
 
     // Uložení dat do souboru

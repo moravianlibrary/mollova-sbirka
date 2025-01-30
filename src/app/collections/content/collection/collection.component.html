@@ -8,7 +8,7 @@
             <div class="app-cards-row" *ngIf="children && children.length > 0">
                 <div class="app-card" *ngFor="let item of children">
                     <!-- IF NOT MANUSCRIPT -->
-                    <div class="app-card" *ngIf="item['model'] !== 'manuscript'">
+                    <div class="app-card-item" *ngIf="item['model'] !== 'manuscript'">
                         <a class="app-card-image" [routerLink]="['/mollova-sbirka', item.pid]">
                             <div class="app-card-overlay"></div>
                             <img [src]="getChildrenImage(item)" alt="Image" />
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <!-- IF MANUSCRIPT -->
-                    <div class="app-card" *ngIf="item['model'] === 'manuscript'">
+                    <div class="app-card-item" *ngIf="item['model'] === 'manuscript'">
                         <a class="app-card-image" [href]="'https://digitalniknihovna.cz/mzk/uuid/' + item.pid" target="_blank">
                             <div class="app-card-overlay"></div>
                             <img [src]="getChildrenImage(item)" alt="Image" />

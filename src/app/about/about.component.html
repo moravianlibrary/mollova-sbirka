@@ -32,10 +32,25 @@
             <div class="app-items" *ngIf="activeMenu === 'about'">
                 <div class="app-item">
                     <h1 class="app-header">{{'molls-collection' | translate}}</h1>
-                    <div class="app-text" *ngIf="currentLang === 'cs'">
-                        <div>Samostatná webová prezentace byla pro Mollovu sbírku zvolena zejména pro její unikátní kompaktní charakter, který poměrně věrně odráží skladbu souboru navrženou přímo Bernardem Pavlem Mollem v polovině 18. století a názorně dokládá charakter sběratelství v této době. V běžném online katalogu knihovny by tato struktura zcela zanikla. Díky digitalizaci celého souboru včetně rukopisných katalogů bude v budoucnu umožněno propojení původních Mollových záznamů k mapám s jednotlivými díly.</div>
-                        <div>Ambicí webu není pouze nabídnout službu pro úzký kruh odborníků, ale oslovit i laické zájemce o kartografickou tvorbu minulých staletí. Především s ohledem na tyto návštěvníky bude web nabízet virtuální výstavy map a vedut doplněné populárními texty.</div>
-                        <div>I technicky méně zruční uživatelé si zde budou moci vyzkoušet jednoduché kartografické aplikace. Mohou se například pokusit pomocí jednoduchého programu přiložit starou mapu na současná kartografická díla a porovnat proměny zobrazovaného území během posledních staletí.</div>
+                    <div class="app-text-image" *ngIf="currentLang === 'cs'">
+                        <div class="app-ti-item">
+                            <div class="app-text column">
+                                <div>Samostatná webová prezentace byla pro Mollovu sbírku zvolena zejména pro její unikátní kompaktní charakter, který poměrně věrně odráží skladbu souboru navrženou přímo Bernardem Pavlem Mollem v polovině 18. století a názorně dokládá charakter sběratelství v této době. V běžném online katalogu knihovny by tato struktura zcela zanikla. Díky digitalizaci celého souboru včetně rukopisných katalogů bude v budoucnu umožněno propojení původních Mollových záznamů k mapám s jednotlivými díly.</div>
+                                <div>Ambicí webu není pouze nabídnout službu pro úzký kruh odborníků, ale oslovit i laické zájemce o kartografickou tvorbu minulých staletí. Především s ohledem na tyto návštěvníky bude web nabízet virtuální výstavy map a vedut doplněné populárními texty.</div>
+                                <div>I technicky méně zruční uživatelé si zde budou moci vyzkoušet jednoduché kartografické aplikace. Mohou se například pokusit pomocí jednoduchého programu přiložit starou mapu na současná kartografická díla a porovnat proměny zobrazovaného území během posledních staletí.</div>
+                                <div class="app-text-logo-wrapper">
+                                    <div class="app-text-logo">
+                                        <div class="app-text">{{'supported-by' | translate}}</div>
+                                        <div class="app-logo">
+                                            <img src="assets/images/logo-mzk2.png" alt="logo">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="app-image column" [routerLink]="'/mollova-sbirka/uuid:a5c1a36c-ad50-494c-8a4d-a7c2a035c349'">
+                                <img src="assets/images/about-map.png" alt="1">
+                            </a>
+                        </div>
                     </div>
                     <div class="app-text" *ngIf="currentLang === 'en'">
                         <div>The choice to create a separate web-site for the Moll collection is due primarily to its unique and compact nature, which quite accurately reflects the composition of the collection designed by Bernhard Paul Moll himself in the mid-18th century and illustrates the nature of collecting at that time. In the current online library catalogue, this structure would have completely disappeared. Thanks to the digitisation of the entire file, including the manuscript catalogues, users may link Moll's original records with the maps and their individual parts in the future.</div>
@@ -81,7 +96,7 @@
                             <a class="app-image column" [routerLink]="'/mollova-sbirka/uuid:a5c1a36c-ad50-494c-8a4d-a7c2a035c349'">
                                 <img src="assets/images/uuid-a5c1a36c-ad50-494c-8a4d-a7c2a035c349.jpg" alt="1">
                             </a>
-                            </div>
+                        </div>
                         <div class="app-ti-item">
                             <a class="app-image column" [routerLink]="'/mollova-sbirka/uuid:a6f5bc73-52d9-4503-a7b1-93d07bf3aa3e'">
                                 <img src="assets/images/uuid-a6f5bc73-52d9-4503-a7b1-93d07bf3aa3e.jpg" alt="2">

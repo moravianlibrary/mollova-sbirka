@@ -16,6 +16,7 @@ export class ContentComponent implements OnInit, OnDestroy {
   children: any[] = [];
   collection: any = {};
   map: any = {};
+  siblings: any[] = [];
   typeOfResource: string = '';
   currentLang: string = '';
 
@@ -40,6 +41,12 @@ export class ContentComponent implements OnInit, OnDestroy {
       this.loadCollection(context);
     });
     this.subscription.add(contextSub);
+    
+    // Předplatné na siblings$
+    const siblingsSub = this.collectionService.siblings$.subscribe((siblings) => {
+      this.siblings = siblings;
+  });
+  this.subscription.add(siblingsSub);
   }
 
   ngOnDestroy(): void {
@@ -70,8 +77,8 @@ export class ContentComponent implements OnInit, OnDestroy {
             if (children.length === 0) {
               // console.error('No children found for PID:', pid);
               this.collectionService.getCollectionChildren(pid).subscribe((data: any) => {
-                if (data && data['response'] && data['response']['docs']) {
-                  const children = data['response']['docs'];
+                if (data) {
+                  const children = data;
                   console.log('Children2:', children);
                   this.children = children.sort((a: any, b: any) => {
                     return a['shelf_locators'][0].localeCompare(b['shelf_locators'][0]);
@@ -89,12 +96,21 @@ export class ContentComponent implements OnInit, OnDestroy {
           this.typeOfResource = 'map';
           this.map = data['response']['docs'][0];
           console.log('MAP:', this.map);
-          this.loading = false;
+          let directCollectionPid = this.getProperPid(this.map['in_collections.direct']);
+          this.collectionService.getCollectionChildren(directCollectionPid).subscribe(() => {
+            this.loading = false;
+          });
+      
         }
       } else {
         console.error('Invalid data format:', data);
       }
     });
+  }
+
+  checkMollsCollectionInPid(pid: any): boolean {
+
+    return false;
   }
 
   onCardClick(item: any): void {
@@ -162,5 +178,18 @@ export class ContentComponent implements OnInit, OnDestroy {
     // }
   }
   // https://api.kramerius.mzk.cz/search/api/client/v7.0/items/uuid:a70963b4-753d-401a-ac98-21040ee6508a/image/thumb
+
+  getProperPid(pids: string[]): string {
+    if (pids && pids.length === 1) {
+      return pids[0];
+    } else if (pids && pids.length > 1) {
+      for (let pid of pids) {
+        if (this.collectionService.collectionIndex[pid]) {
+          return pid;
+        }
+      }
+    }
+    return '';
+  }
 }
  

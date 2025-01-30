@@ -40,7 +40,34 @@
                     </a>
                 </div>
             </div>
+        </div>
+        <div class="app-part-siblings" #siblingsDiv>
+            <h3 class="app-siblings-title">{{'other-maps' | translate}}</h3>
+            <div class="app-siblings-row">
+                <div class="app-card" *ngFor="let item of filteredSiblings">
+                    <div class="app-card" *ngIf="item['model'] !== 'manuscript'">
+                        <a class="app-card-image" [routerLink]="['/mollova-sbirka', item.pid]">
+                            <div class="app-card-overlay"></div>
+                            <img [src]="getChildrenImage(item)" alt="Image" />
+                        </a>
+                        <div class="app-card-content">
+                            <a class="app-card-title-container" 
+                                [routerLink]="['/mollova-sbirka', item.pid]">
+                                <h5 class="app-card-title" 
+                                    [matTooltip]="getChildrenTitle(item)">
+                                    {{getChildrenTitle(item)}}
+                                </h5>
+                                <img class="app-card-icon default-icon" src="assets/icons/arrow.png">
+                                <img class="app-card-icon hover-icon" src="assets/icons/arrow-gold.png">
+                            </a>
+                            <div class="app-card-text">{{getChildrenDescription(item)}}</div>
+                            <div class="app-card-sign">{{'old_signature' | translate}}:</div>
+                            <div *ngIf="item?.shelf_locators?.[0]" class="app-card-sign">{{'new_signature' | translate}}: {{item.shelf_locators[0]}}</div>
+                        </div>
+                    </div>
 
+                </div>
+            </div>
         </div>
     </div>
     <div class="app-bottom-nav">
@@ -50,14 +77,16 @@
             <img class="app-icon" [src]="showMoreInfo ? 'assets/icons/arrow-up.png' : 'assets/icons/arrow-down.png'" alt="arrow" />
         </div>
         <div class="app-right-nav">
-            <div class="app-text">{{ 'other-maps' | translate }}</div>
+            <div class="app-text">{{ 'other-map' | translate }}</div>
             <div class="app-pagination">
                 <div class="app-icons">
-                    <div class="app-button">
-                        <img src="assets/icons/arrow-left-inactive.png" alt="arrow left" />
+                    <div class="app-button" [class.active-button]="prevArrowActive" (click)="onPrevMap()">
+                        <img *ngIf="!prevArrowActive" src="assets/icons/arrow-left-inactive.png" alt="arrow left" />
+                        <img *ngIf="prevArrowActive" src="assets/icons/arrow-left.png" alt="arrow left" />
                     </div>
-                    <div class="app-button">
-                        <img src="assets/icons/arrow-right.png" alt="arrow right" />
+                    <div class="app-button" [class.active-button]="nextArrowActive" (click)="onNextMap()">
+                        <img *ngIf="!nextArrowActive" src="assets/icons/arrow-right-inactive.png" alt="arrow right" />
+                        <img *ngIf="nextArrowActive" src="assets/icons/arrow-right.png" alt="arrow right" />
                     </div>
                 </div>
             </div>

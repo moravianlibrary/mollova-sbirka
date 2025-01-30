@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { CollectionService } from './services/collection.service';
 
 
 @Component({
@@ -9,7 +10,9 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent {
   title = 'Mollova mapová sbírka';
-  constructor(private translate: TranslateService) {
+  constructor(private translate: TranslateService,
+              private collectionService: CollectionService
+  ) {
     // Nastavení výchozího jazyka
     this.translate.setDefaultLang('en');
 

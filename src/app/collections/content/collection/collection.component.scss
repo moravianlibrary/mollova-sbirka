@@ -1,7 +1,8 @@
 @import '../../../../styles.scss';
 
 .app-container {
-    display: flex;
+    // display: flex;
+    width: 100%;
     margin: 24px;
     background: var(--BG-Main-Bright, #ffffff);
     height: fit-content;
@@ -25,18 +26,22 @@
             gap: var(--Spacing-x8, 32px);
             align-self: stretch;
             .app-cards-row {
-                display: flex;
-                flex-wrap: wrap;
-                align-items: flex-start;
+                // display: flex;
+                // flex-wrap: wrap;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Dynamické sloupce */
+                // align-items: flex-start;
                 gap: var(--Spacing-x8, 32px);
+                justify-content: start;
                 align-self: stretch;
                 .app-card {
                     display: flex;
                     flex-direction: column;
-                    align-items: flex-start;
+                    // align-items: flex-start;
                     gap: var(--Spacing-x3, 12px);
                     flex: 1 0 0;
                     min-width: 250px;
+                    max-width: 350px;
                     .app-card-image {
                         display: flex;
                         justify-content: center;
@@ -211,3 +216,4 @@
     z-index: 1000;
 }
 .mat-mdc-progress-spinner { --mdc-circular-progress-active-indicator-color: #d8b600; }
+

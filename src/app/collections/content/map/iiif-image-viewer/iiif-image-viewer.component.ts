@@ -2,6 +2,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { _ } from '@ngx-translate/core';
 import OpenSeadragon from 'openseadragon';
+import { CollectionService } from '../../../../services/collection.service';
 
 @Component({
   selector: 'app-iiif-image-viewer',
@@ -13,7 +14,7 @@ export class IiifImageViewerComponent implements OnInit {
 
   private viewer!: OpenSeadragon.Viewer;
 
-  constructor() {}
+  constructor( private collectionService: CollectionService) {}
 
   ngOnInit(): void {
     console.log('URL:', this.infoJsonUrl);

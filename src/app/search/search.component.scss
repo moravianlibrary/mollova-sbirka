@@ -200,15 +200,20 @@
                     flex-direction: column;
                     gap: 16px;
                     &.app-hidden-map {
-                        flex-direction: row;
-                        flex-wrap: wrap;
-                        gap: 24px;
+                        display: grid;
+                        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Dynamické sloupce */
+                        // flex-direction: row;
+                        // flex-wrap: wrap;
+                        gap: 32px;
+                        justify-content: start;
+                        align-self: stretch;
                     }
                     .app-result-card {
                         display: flex;
                         height: 136px;
                         min-width: 300px;
-                        width: calc(100% / 3 - 16px);
+                        // max-width: 450px;
+                        // width: calc(100% / 3 - 16px);
                         align-items: flex-start;
                         align-self: stretch;
                         border-radius: var(--spacing-x-05, 2px);
