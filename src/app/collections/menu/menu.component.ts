@@ -69,7 +69,6 @@ export class MenuComponent implements OnInit, OnDestroy {
         // this.subscription.add(collectionIndexSub);
         const collectionStructureSub = this.collectionService.collectionStructure$.subscribe((collectionStructure) => {
           if (collectionStructure) {
-            console.log('Collection structure:', collectionStructure);
             for (const item of collectionStructure) {
               for (const child of item.children) {
                 if (child.pid === pid) {
@@ -84,6 +83,27 @@ export class MenuComponent implements OnInit, OnDestroy {
                       break;
                     }
                   }
+                } else {
+                  this.collectionService.getParentPid(pid).subscribe((parentPid) => {
+                    console.log('Parent PID:', parentPid);
+                    for (const item of collectionStructure) {
+                      for (const child of item.children) {
+                        if (child.pid === parentPid) {
+                          this.onOpenChild(child.title);
+                          this.activeChild = child.title;
+                          break;
+                        } else if (child.children) {
+                          for (const subChild of child.children) {
+                            if (subChild.pid === parentPid) {
+                              this.onOpenChild(child.title);
+                              this.activeChild = subChild.title;
+                              break;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  });
                 }
               }
             }
@@ -119,6 +139,7 @@ export class MenuComponent implements OnInit, OnDestroy {
     this.childrenExtended = false;
     this.navigate(item.pid);
   }
+
   handleSubClick(openItem: any, child: any): void {
     console.log('handleSubClick', openItem, child);
     this.openedChild = openItem;

@@ -36,6 +36,8 @@ export class ContentComponent implements OnInit, OnDestroy {
 
     this.loading = true;
     this.children = [];
+
+    // Předplatné na context$
     const contextSub = this.collectionService.context$.subscribe(context => {
       this.pid = context;
       this.loadCollection(context);
@@ -45,8 +47,8 @@ export class ContentComponent implements OnInit, OnDestroy {
     // Předplatné na siblings$
     const siblingsSub = this.collectionService.siblings$.subscribe((siblings) => {
       this.siblings = siblings;
-  });
-  this.subscription.add(siblingsSub);
+    });
+    this.subscription.add(siblingsSub);
   }
 
   ngOnDestroy(): void {
@@ -96,7 +98,7 @@ export class ContentComponent implements OnInit, OnDestroy {
           this.typeOfResource = 'map';
           this.map = data['response']['docs'][0];
           console.log('MAP:', this.map);
-          let directCollectionPid = this.getProperPid(this.map['in_collections.direct']);
+          let directCollectionPid = this.collectionService.getProperPid(this.map['in_collections.direct']);
           this.collectionService.getCollectionChildren(directCollectionPid).subscribe(() => {
             this.loading = false;
           });
@@ -109,7 +111,6 @@ export class ContentComponent implements OnInit, OnDestroy {
   }
 
   checkMollsCollectionInPid(pid: any): boolean {
-
     return false;
   }
 
@@ -117,8 +118,6 @@ export class ContentComponent implements OnInit, OnDestroy {
     console.log('Card clicked:', item);
     this.router.navigate(['/mollova-sbirka', item.pid]);
   }
-
-  
 
   getTitle(): string {
     if (this.currentLang === 'en') {
@@ -171,25 +170,10 @@ export class ContentComponent implements OnInit, OnDestroy {
     }
   }
   getChildrenImage(item: any): string {
-    // if (item.model === 'collection') {
-      return `${this.apiThumbUrl}${item.pid}/image/thumb`;
-    // } else {
-      // return item['thumbnail'];
-    // }
+      // https://api.kramerius.mzk.cz/search/api/client/v7.0/items/uuid:a70963b4-753d-401a-ac98-21040ee6508a/image/thumb
+    return `${this.apiThumbUrl}${item.pid}/image/thumb`;
   }
-  // https://api.kramerius.mzk.cz/search/api/client/v7.0/items/uuid:a70963b4-753d-401a-ac98-21040ee6508a/image/thumb
 
-  getProperPid(pids: string[]): string {
-    if (pids && pids.length === 1) {
-      return pids[0];
-    } else if (pids && pids.length > 1) {
-      for (let pid of pids) {
-        if (this.collectionService.collectionIndex[pid]) {
-          return pid;
-        }
-      }
-    }
-    return '';
-  }
+  
 }
  

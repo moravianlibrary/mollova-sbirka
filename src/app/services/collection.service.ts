@@ -249,9 +249,31 @@ export class CollectionService {
     setSiblings(siblings: any[]): void {
         this.siblingsSubject.next(siblings);
     }
+
+    getParentPid(pid: string): Observable<any> {
+        return this.getCollection(pid).pipe(
+            map((data: any) => {
+                let pids = data['response']['docs'][0]['in_collections.direct'];
+                return this.getProperPid(pids);
+            })
+        );
+    }
     
     clearSiblings(): void {
         this.siblingsSubject.next([]);
+    }
+
+    getProperPid(pids: string[]): string {
+        if (pids && pids.length === 1) {
+          return pids[0];
+        } else if (pids && pids.length > 1) {
+          for (let pid of pids) {
+            if (this.collectionIndex[pid]) {
+              return pid;
+            }
+          }
+        }
+        return '';
     }
 
     // Uložení dat do souboru

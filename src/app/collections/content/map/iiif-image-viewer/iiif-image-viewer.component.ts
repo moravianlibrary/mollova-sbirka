@@ -14,6 +14,8 @@ export class IiifImageViewerComponent implements OnInit {
 
   private viewer!: OpenSeadragon.Viewer;
 
+  isFullScreen:boolean = false;
+
   constructor( private collectionService: CollectionService) {}
 
   ngOnInit(): void {
@@ -35,6 +37,10 @@ export class IiifImageViewerComponent implements OnInit {
         showFullPageControl: false // Skryje tlačítko "fullscreen"
       });
     }
+
+    document.addEventListener("fullscreenchange", () => {
+      this.isFullScreen = !!document.fullscreenElement;
+    });
   }
   zoomIn(): void {
     this.viewer.viewport.zoomBy(2);
@@ -42,9 +48,20 @@ export class IiifImageViewerComponent implements OnInit {
   zoomOut(): void {
     this.viewer.viewport.zoomBy(0.5);
   }
-  toggleFullScreen(): void {
-    this.viewer.viewport.goHome();
+toggleFullScreen(): void {
+  this.viewer.viewport.goHome();
+  const viewerElement = document.getElementById('openseadragon-viewer');
+
+  if (viewerElement) {
+    if (!document.fullscreenElement) {
+      viewerElement.requestFullscreen().catch(err => console.error("Fullscreen error:", err));
+    } else {
+      document.exitFullscreen();
+    }
+  } else {
+    console.error('Element #openseadragon-viewer nebyl nalezen!');
   }
+}
   downloadImage(): void {
     window.open(this.infoJsonUrl.replace('/info.json', '/full/full/0/default.jpg'), '_blank');
   }
