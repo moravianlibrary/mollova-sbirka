@@ -88,11 +88,11 @@ export class CollectionComponent {
     }
   }
   getChildrenImage(item: any): string {
-    // if (item.model === 'collection') {
+    if (item.model !== 'manuscript') {
       return `${this.apiThumbUrl}${item.pid}/image/thumb`;
-    // } else {
-      // return item['thumbnail'];
-    // }
+    } else {
+      return `${this.apiThumbUrl}${item.thumb_pid[0]}/image/thumb`;
+    }
   }
   // https://api.kramerius.mzk.cz/search/api/client/v7.0/items/uuid:a70963b4-753d-401a-ac98-21040ee6508a/image/thumb
 

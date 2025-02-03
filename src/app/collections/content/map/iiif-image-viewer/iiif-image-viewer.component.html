@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="app-button" (click)="toggleFullScreen()">
-            <img src="assets/icons/maximize.png" alt="fullscreen" />
+            <img [src]="isFullScreen? 'assets/icons/minimize.png' : 'assets/icons/maximize.png'" alt="fullscreen" />
         </div>
         <div class="app-button" (click)="downloadImage()">
             <img src="assets/icons/download.png" alt="arrow right" />

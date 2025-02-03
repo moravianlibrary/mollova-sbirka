@@ -14,7 +14,7 @@ export class CollectionService {
     private collectionIndexSubject = new BehaviorSubject<any>(null); // Default null
     collectionIndex$ = this.collectionIndexSubject.asObservable(); // Public observable
 
-    private readonly jsonMollStructure = 'assets/docs/moll-structure.json';
+    private readonly jsonMollStructure = 'assets/docs/moll-structure-edit.json';
     private readonly jsonMollIndex = 'assets/docs/moll-index.json';
 
     private siblingsSubject = new BehaviorSubject<any[]>([]);
@@ -99,7 +99,7 @@ export class CollectionService {
                 const findChildren = (items: any[], pid: string): any[] | null => {
                     for (const item of items) {
                         if (item.pid === pid) {
-                            return item.children || [];
+                            return item.children || item.children_catalogs || [];
                         }
                         if (item.children && item.children.length > 0) {
                             const found = findChildren(item.children, pid);

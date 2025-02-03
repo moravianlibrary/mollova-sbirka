@@ -24,12 +24,19 @@
                                 <img class="app-card-icon hover-icon" src="assets/icons/arrow-gold.png">
                             </a>
                             <div class="app-card-text">{{getChildrenDescription(item)}}</div>
-                            <div class="app-card-sign">{{'old_signature' | translate}}:</div>
-                            <div *ngIf="item?.shelf_locators?.[0]" class="app-card-sign">{{'new_signature' | translate}}: {{item.shelf_locators[0]}}</div>
+                            <div class="app-card-sign" *ngIf="item.signature">{{'old_signature' | translate}}: {{item.signature}}</div>
+                            <div class="app-card-sign" *ngIf="item?.shelf_locators?.[0]">{{'new_signature' | translate}}: {{item.shelf_locators[0]}}</div>
+                            <div class="app-card-catalog" *ngIf="item?.catalog_links?.length > 0">
+                                <a class="app-card-link" *ngFor="let item of item?.catalog_links; let i = index" href="https://www.digitalniknihovna.cz/mzk/uuid/{{item}}" target="_blank">
+                                    <div class="app-card-link-text">{{'molls-catalog' | translate}} {{i+1}}</div>
+                                    <img class="app-card-link-icon default-icon" src="assets/icons/export.png" alt="export"/>
+                                    <img class="app-card-link-icon hover-icon" src="assets/icons/export-gold.png" alt="export"/>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <!-- IF MANUSCRIPT -->
-                    <div class="app-card-item" *ngIf="item['model'] === 'manuscript'">
+                    <div class="app-card-item app-card-manuscript" *ngIf="item['model'] === 'manuscript'">
                         <a class="app-card-image" [href]="'https://digitalniknihovna.cz/mzk/uuid/' + item.pid" target="_blank">
                             <div class="app-card-overlay"></div>
                             <img [src]="getChildrenImage(item)" alt="Image" />
@@ -46,7 +53,7 @@
                                 <img class="app-card-icon hover-icon" src="assets/icons/arrow-gold.png">
                             </a>
                             <div class="app-card-text">{{getChildrenDescription(item)}}</div>
-                            <div class="app-card-sign">{{'old_signature' | translate}}:</div>
+                            <div class="app-card-sign">{{'signature' | translate}}: {{item.signature}}</div>
                             <div *ngIf="item?.shelf_locators?.[0]" class="app-card-sign">{{'new_signature' | translate}}: {{item.shelf_locators[0]}}</div>
                         </div>
                     </div>

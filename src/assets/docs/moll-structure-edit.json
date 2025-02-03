@@ -24,7 +24,10 @@
             "model": "collection",
             "signature": "Moll-0090.900,AA.T.I",
             "code": "I",
-            "catalog_links": ["uuid:d890fdd7-c529-4dca-82ab-705dd9db159c", "uuid:38e98c36-7416-4f70-bf0a-203c48d89d4b"]
+            "catalog_links": [
+              "uuid:d890fdd7-c529-4dca-82ab-705dd9db159c",
+              "uuid:38e98c36-7416-4f70-bf0a-203c48d89d4b"
+            ]
           },
           {
             "pid": "uuid:4bdfcf0c-b827-48bd-ae06-452cc2a5345d",
@@ -33,7 +36,11 @@
             "title_de": "Niederösterreich II",
             "model": "collection",
             "signature": "Moll-0090.900,AA.T.II",
-            "code": "II"
+            "code": "II",
+            "catalog_links": [
+              "uuid:10477471-6aaa-4d0c-93a5-0d057b4098b7",
+              "uuid:c634df0a-f7d5-40e4-b3b4-a099800270e6"
+            ]
           },
           {
             "pid": "uuid:2ff6211d-b2cf-4077-9eb0-520798f353bb",
@@ -41,8 +48,12 @@
             "title_en": "Lower Austria III",
             "title_de": "Niederösterreich III",
             "model": "collection",
-            "signature": "",
-            "code": ""
+            "signature": "Moll-0090.900,AA.T.III",
+            "code": "III",
+            "catalog_links": [
+              "uuid:afe3c674-6b9e-4844-be0d-543824b5d002",
+              "uuid:58ce9296-cf34-40e5-996e-469aa119054b"
+            ]
           },
           {
             "pid": "uuid:0f8c3220-1060-4dcc-b7ba-24d1b94f1ad1",
@@ -50,8 +61,11 @@
             "title_en": "Lower Austria IV",
             "title_de": "Niederösterreich IV",
             "model": "collection",
-            "signature": "",
-            "code": ""
+            "signature": "Moll-0090.900,AA.T.IV",
+            "code": "IV",
+            "catalog_links": [
+              "uuid:6a0b9a19-297c-4698-b0f7-4fbbbedeb423"
+            ]
           },
           {
             "pid": "uuid:285042ce-ca68-4e48-8faa-80fac276d2fc",
@@ -59,8 +73,12 @@
             "title_en": "Lower Austria V",
             "title_de": "Niederösterreich V",
             "model": "collection",
-            "signature": "",
-            "code": ""
+            "signature": "Moll-0090.900,AA.T.V",
+            "code": "V",
+            "catalog_links": [
+              "uuid:7573c7e9-4942-48c4-978d-9dc4d44316d4",
+              "uuid:af492dae-f316-487f-9f55-e50b2083a043"
+            ]
           },
           {
             "pid": "uuid:48495803-9abf-420a-bdbc-07e8b9a83671",
@@ -68,8 +86,11 @@
             "title_en": "Lower Austria VI",
             "title_de": "Niederösterrreich VI",
             "model": "collection",
-            "signature": "",
-            "code": ""
+            "signature": "Moll-0090.900,AA.T.VI",
+            "code": "VI",
+            "catalog_links": [
+              "uuid:3fe1a836-c2fa-4fa0-ab32-f4e2b9ec4b1b"
+            ]
           },
           {
             "pid": "uuid:83348351-95c1-457b-9934-bccfdb5f17bc",
@@ -77,8 +98,11 @@
             "title_en": "Vienna I",
             "title_de": "Wien I",
             "model": "collection",
-            "signature": "",
-            "code": ""
+            "signature": "oll-0090.900,AA.T.VII",
+            "code": "VII",
+            "catalog_links": [
+              "uuid:4a77f0b0-b6cc-4c3a-be72-bb5c575877e7"
+            ]
           },
           {
             "pid": "uuid:5a8d2ecd-9c52-4acd-8af8-fba7a64e3e9c",
@@ -86,8 +110,11 @@
             "title_en": "Vienna II",
             "title_de": "Wien II",
             "model": "collection",
-            "signature": "",
-            "code": ""
+            "signature": "Moll-0090.900,AA.T.VIII",
+            "code": "VIII",
+            "catalog_links": [
+              "uuid:1c4ce7b3-2f2e-4695-8f2b-7c08b304fa28"
+            ]
           },
           {
             "pid": "uuid:129b9efb-ce6a-4a3a-8f01-72abc313de9d",
@@ -95,15 +122,25 @@
             "title_en": "Upper Austria I",
             "title_de": "Oberösterreich I",
             "model": "collection",
-            "signature": "",
-            "code": ""
+            "signature": "Moll-0090.900,AA.T.IX",
+            "code": "IX",
+            "catalog_links": [
+              "uuid:c9f74599-3722-4b6e-a81f-b7126c8ab92f",
+              "uuid:5c033499-aa7a-4d65-8860-66d8266d8254"
+            ]
           },
           {
             "pid": "uuid:48bc4b35-ed82-4dcc-afb1-953d101d1873",
             "title": "Horní Rakousy II",
             "title_en": "Upper Austria II",
             "title_de": "Oberösterreich II",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.X",
+            "code": "X",
+            "catalog_links": [
+              "uuid:a119ac30-3f69-44a5-ba7e-26e6d4b821d3",
+              "uuid:c1fcbbfe-0d65-4b96-a31d-c568c9ba82fa"
+            ]
           },
           {
             "pid": "uuid:cb7b9b5d-1b89-4ecd-b343-afbaa2d22b63",
@@ -111,8 +148,12 @@
             "title_en": "Tyrol I",
             "title_de": "Tirol I",
             "model": "collection",
-            "signature": "",
-            "code": ""
+            "signature": "Moll-0090.900,AA.T.XI",
+            "code": "XI",
+            "catalog_links": [
+              "uuid:aff6870c-639a-4c21-baae-29b618cf8e0c",
+              "uuid:d73f070c-52c2-4c5a-a69c-2b46d05704de"
+            ]
           },
           {
             "pid": "uuid:c784ebe8-c9ab-4dbd-a0d4-6b639e33adad",
@@ -120,8 +161,12 @@
             "title_en": "Tyrol II",
             "title_de": "Tirol II",
             "model": "collection",
-            "signature": "",
-            "code": ""
+            "signature": "Moll-0090.900,AA.T.XII",
+            "code": "XII",
+            "catalog_links": [
+              "uuid:92ca959e-cad2-41e3-b7b5-a00c588112d9",
+              "uuid:3b76d994-d90a-48f3-849b-0af4c1805ebb"
+            ]
           },
           {
             "pid": "uuid:3a38dfea-f949-4620-a68b-230e464c8e2e",
@@ -129,15 +174,23 @@
             "title_en": "Carinthia I",
             "title_de": "Kärnten I",
             "model": "collection",
-            "signature": "",
-            "code": ""
+            "signature": "Moll-0090.900,AA.T.XIII",
+            "code": "XIII",
+            "catalog_links": [
+              "uuid:5f8a5822-e21a-4e12-bdee-cfee6263b38d"
+            ]
           },
           {
             "pid": "uuid:a2ad7982-497e-4df2-a306-d96af191b652",
             "title": "Korutansko II",
             "title_en": "Carinthia II",
             "title_de": "Kärnten II",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.XIV",
+            "code": "XIV",
+            "catalog_links": [
+              "uuid:378893b8-278c-4243-b898-79e7d1b31154"
+            ]
           },
           {
             "pid": "uuid:6ef1d5f1-dfec-40dd-9c3c-7ef775407891",
@@ -145,8 +198,12 @@
             "title_en": "Carniola I",
             "title_de": "Krain I",
             "model": "collection",
-            "signature": "",
-            "code": ""
+            "signature": "Moll-0090.900,AA.T.XV",
+            "code": "XV",
+            "catalog_links": [
+              "uuid:02d3be48-da02-4f71-ba4a-79efdcf16a09",
+              "uuid:0f55af51-e3f6-40d4-9f4d-9a1b5fefff43"
+            ]
           },
           {
             "pid": "uuid:8feb3914-ac50-4b2d-a289-385bd0d5eb33",
@@ -154,8 +211,12 @@
             "title_en": "Carniola II",
             "title_de": "Krain II",
             "model": "collection",
-            "signature": "",
-            "code": ""
+            "signature": "Moll-0090.900,AA.T.XVI",
+            "code": "XVI",
+            "catalog_links": [
+              "uuid:b65e1dfd-37a8-4119-896f-6d91c8ac0c91",
+              "uuid:742e0c3e-ef90-4fab-ab9d-ba5cf7626f11"
+            ]
           },
           {
             "pid": "uuid:e47ce588-8f35-4f2b-85d9-1f4d9a21b81b",
@@ -163,8 +224,12 @@
             "title_en": "Styria I",
             "title_de": "Steiermark I",
             "model": "collection",
-            "signature": "",
-            "code": ""
+            "signature": "Moll-0090.900,AA.T.XVII",
+            "code": "XVII",
+            "catalog_links": [
+              "uuid:e509e295-1d7d-41a6-8186-13d3d7da568e",
+              "uuid:d0041c00-e17f-4d8a-9ee4-a8bee7a375c5"
+            ]
           },
           {
             "pid": "uuid:1e1a1b29-033e-4a8c-9568-317260807ae6",
@@ -172,8 +237,12 @@
             "title_en": "Styria II",
             "title_de": "Steiermark II",
             "model": "collection",
-            "signature": "",
-            "code": ""
+            "signature": "Moll-0090.900,AA.T.XVIII",
+            "code": "XVIII",
+            "catalog_links": [
+              "uuid:fc7bc3cb-9054-467a-b56e-abef2500d8ef",
+              "uuid:ef5b1b72-5a3b-40b5-b20c-f19a5dfcf8cc"
+            ]
           },
           {
             "pid": "uuid:165c2116-5f02-4615-890e-ceafa783ac3e",
@@ -181,8 +250,12 @@
             "title_en": "Styria III",
             "title_de": "Steiermark III",
             "model": "collection",
-            "signature": "",
-            "code": ""
+            "signature": "Moll-0090.900,AA.T.XIX",
+            "code": "XIX",
+            "catalog_links": [
+              "uuid:955ea413-ae93-4ef8-8289-be60fb5458ae",
+              "uuid:30dffefd-27fe-40df-99b9-2e0d82b770a8"
+            ]
           }
         ]
       },
@@ -195,32 +268,52 @@
         "points": "682,286,700,265,706,269,723,255,751,243,769,234,787,225,795,238,811,230,807,204,798,200,794,173,841,156,857,185,871,180,885,186,905,182,928,205,950,227,969,251,981,269,983,294,986,311,995,325,995,339,955,341,949,357,937,364,918,371,894,371,877,378,857,364,840,368,824,368,812,376,788,381,774,384,755,377,754,364,743,357,735,353,723,341,709,332,716,319,709,310,704,295",
         "children": [
           {
-            "pid": "uuid:8eaa7114-fe23-4088-8d88-2cc018b04920",
-            "title": "Slezsko",
-            "title_en": "Silesia",
-            "title_de": "Schlesien",
-            "model": "collection"
-          },
-          {
-            "pid": "uuid:7fde9e9c-081c-492c-a882-ee6ff7e24bf4",
-            "title": "Morava",
-            "title_en": "Moravia",
-            "title_de": "Mähren",
-            "model": "collection"
+            "pid": "uuid:805b4292-f26c-44bc-8206-64bfc4609d50",
+            "title": "Čechy I",
+            "title_en": "Bohemia I",
+            "title_de": "Böhmen I",
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.XX",
+            "code": "XX",
+            "catalog_links": [
+              "uuid:762d9e9f-f4c9-4133-b3e1-bd27ae36b9af"
+            ]
           },
           {
             "pid": "uuid:fc7d2e7a-8191-460e-843c-52b2cbaa3455",
             "title": "Čechy II",
             "title_en": "Bohemia II",
             "title_de": "Böhmen II",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.XXI",
+            "code": "XXI",
+            "catalog_links": [
+              "uuid:cc6d8c77-18b3-44a1-b18a-82ebeeec0746"
+            ]
           },
           {
-            "pid": "uuid:805b4292-f26c-44bc-8206-64bfc4609d50",
-            "title": "Čechy I",
-            "title_en": "Bohemia I",
-            "title_de": "Böhmen I",
-            "model": "collection"
+            "pid": "uuid:7fde9e9c-081c-492c-a882-ee6ff7e24bf4",
+            "title": "Morava",
+            "title_en": "Moravia",
+            "title_de": "Mähren",
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.XXII",
+            "code": "XXII",
+            "catalog_links": [
+              "uuid:25184205-f778-46c0-be1e-36eef30c994c"
+            ]
+          },
+          {
+            "pid": "uuid:8eaa7114-fe23-4088-8d88-2cc018b04920",
+            "title": "Slezsko",
+            "title_en": "Silesia",
+            "title_de": "Schlesien",
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.XXIII",
+            "code": "XXIII",
+            "catalog_links": [
+              "uuid:d695d105-f7bf-4cfe-9648-218c4c9578d9"
+            ]
           }
         ]
       },
@@ -233,53 +326,88 @@
         "model": "collection",
         "children": [
           {
-            "pid": "uuid:7631ed41-0b41-4c8d-b02b-285eef9a0eb7",
-            "title": "Spojené nizozemské provincie II",
-            "title_en": "Republic of the United Netherlands II",
-            "title_de": "Vereinigte Provinzen II",
-            "model": "collection"
-          },
-          {
-            "pid": "uuid:2836408d-7bd6-4bc8-85ec-ea0e11923df9",
-            "title": "Spojené nizozemské provincie III",
-            "title_en": "Republic of the United Netherlands III",
-            "title_de": "Vereinigte Provinzen III",
-            "model": "collection"
-          },
-          {
             "pid": "uuid:2925850a-30d2-4e81-96cd-c4a2f0ff648f",
             "title": "Rakouské Nizozemí I",
             "title_en": "Austrian Netherlands I",
             "title_de": "Österreichische Niederlande I",
-            "model": "collection"
-          },
-          {
-            "pid": "uuid:0119b4f0-4b35-4a71-b218-ba6a441cd02b",
-            "title": "Rakouské Nizozemí IV",
-            "title_en": "Austrian Netherlands IV",
-            "title_de": "Österreichische Niederlande IV",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.XXIV",
+            "code": "XXIV",
+            "catalog_links": [
+              "uuid:d9e9d0e4-42ee-4013-b4bf-27d3bebbf15f"
+            ]
           },
           {
             "pid": "uuid:5127d48d-0051-465e-b567-d8a7ac3e78f3",
             "title": "Rakouské Nizozemí II",
             "title_en": "Austrian Netherlands II",
             "title_de": "Österreichische Niederlande II",
-            "model": "collection"
-          },
-          {
-            "pid": "uuid:b099f9ab-e790-4463-99a5-78b6e791e465",
-            "title": "Spojené nizozemské provincie I",
-            "title_en": "Republic of the United Netherlands I",
-            "title_de": "Vereinigte Provinzen I",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.XXV",
+            "code": "XXV",
+            "catalog_links": [
+              "uuid:9bc641d8-2702-4ad1-916a-c70adb105303"
+            ]
           },
           {
             "pid": "uuid:f6d5528e-3ab9-4522-b9d8-7599c0efe346",
             "title": "Rakouské Nizozemí III",
             "title_en": "Austrian Netherlands III",
             "title_de": "Österreichische Niederlande III",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.XXVI",
+            "code": "XXVI",
+            "catalog_links": [
+              "uuid:958097f8-ec44-411e-aebd-0f52f9eec71e"
+            ]
+          },
+          {
+            "pid": "uuid:0119b4f0-4b35-4a71-b218-ba6a441cd02b",
+            "title": "Rakouské Nizozemí IV",
+            "title_en": "Austrian Netherlands IV",
+            "title_de": "Österreichische Niederlande IV",
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.XXVII",
+            "code": "XXVII",
+            "catalog_links": [
+              "uuid:8e4b1d62-bb6a-4ee4-8858-cca82ea86877"
+            ]
+          },
+          {
+            "pid": "uuid:b099f9ab-e790-4463-99a5-78b6e791e465",
+            "title": "Spojené nizozemské provincie I",
+            "title_en": "Republic of the United Netherlands I",
+            "title_de": "Vereinigte Provinzen I",
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.XXVIII",
+            "code": "XXVIII",
+            "catalog_links": [
+              "uuid:1f2e0735-074c-4947-9480-0f37c27012e8"
+            ]
+          },
+          {
+            "pid": "uuid:7631ed41-0b41-4c8d-b02b-285eef9a0eb7",
+            "title": "Spojené nizozemské provincie II",
+            "title_en": "Republic of the United Netherlands II",
+            "title_de": "Vereinigte Provinzen II",
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.XXIX",
+            "code": "XXIX",
+            "catalog_links": [
+              "uuid:458bcfa9-9c6e-438b-8f74-beb3813cbc0f"
+            ]
+          },
+          {
+            "pid": "uuid:2836408d-7bd6-4bc8-85ec-ea0e11923df9",
+            "title": "Spojené nizozemské provincie III",
+            "title_en": "Republic of the United Netherlands III",
+            "title_de": "Vereinigte Provinzen III",
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.XXX",
+            "code": "XXX",
+            "catalog_links": [
+              "uuid:dac9654c-514b-4a41-86f3-c6353233c4dd"
+            ]
           }
         ]
       },
@@ -296,70 +424,120 @@
             "title": "Obecné mapy území Itálie",
             "title_en": "General Italian Territory Maps",
             "title_de": "Allgemeine Gebietskarten von Italien",
-            "model": "collection"
-          },
-          {
-            "pid": "uuid:49492feb-1693-4b70-9c72-06d23f1cf26d",
-            "title": "Církevní stát I",
-            "title_en": "Papal States I",
-            "title_de": "Kirchenstaat I",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.XXXI",
+            "code": "XXXI",
+            "catalog_links": [
+              "uuid:4d173639-48a2-494b-846a-23237f4eb81e"
+            ]
           },
           {
             "pid": "uuid:74984508-f228-42cc-9d09-9fb290fe8c86",
             "title": "Sardinské království",
             "title_en": "Kingdom of Sardinia",
             "title_de": "Königreich Sardinien",
-            "model": "collection"
-          },
-          {
-            "pid": "uuid:01ea579a-66e9-4bdb-8437-d70062985501",
-            "title": "Milánsko",
-            "title_en": "Duchy of Milan",
-            "title_de": "Mailänder Staat",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.XXXII",
+            "code": "XXXII",
+            "catalog_links": [
+              "uuid:f2f3fc61-7451-437e-83aa-41133fbf4b57"
+            ]
           },
           {
             "pid": "uuid:8d340be4-0378-4628-94c3-e680674a737e",
             "title": "Benátská republika",
             "title_en": "Republic of Venice",
             "title_de": "Republik Venedig",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.XXXIII",
+            "code": "XXXIII",
+            "catalog_links": [
+              "uuid:d5de2f7d-40df-4265-86d3-4d80ed74c1aa"
+            ]
+          },
+          {
+            "pid": "uuid:01ea579a-66e9-4bdb-8437-d70062985501",
+            "title": "Milánsko",
+            "title_en": "Duchy of Milan",
+            "title_de": "Mailänder Staat",
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.XXXIV",
+            "code": "XXXIV",
+            "catalog_links": [
+              "uuid:3599058f-50c1-4424-b1c7-115a7e9feab7"
+            ]
           },
           {
             "pid": "uuid:0d6ccdfe-b042-4b19-b3ef-8f5e56213349",
             "title": "Modena, Parma, Janov",
             "title_en": "Modena, Parma, Genoa",
             "title_de": "Modena, Parma und Genua",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.XXXV",
+            "code": "XXXV",
+            "catalog_links": [
+              "uuid:283e8a44-2f7f-409e-86a2-6f4242142ca1"
+            ]
           },
           {
-            "pid": "uuid:52b3a033-3488-4cf8-8f2e-6a3f744a8dc8",
-            "title": "Toskánsko",
-            "title_en": "Toscany",
-            "title_de": "Toskana",
-            "model": "collection"
-          },
-          {
-            "pid": "uuid:dad39480-b846-4f56-ac6a-2ac112fe6383",
-            "title": "Neapolsko-sicilské království",
-            "title_en": "Kingdom of Naples and Sicily",
-            "title_de": "Königreich beider Sizilien",
-            "model": "collection"
-          },
-          {
-            "pid": "uuid:6fda4784-2c4a-46f9-a4a7-abbc7ce176b1",
-            "title": "Církevní stát III",
-            "title_en": "Papal States III",
-            "title_de": "Kirchenstaat III",
-            "model": "collection"
+            "pid": "uuid:49492feb-1693-4b70-9c72-06d23f1cf26d",
+            "title": "Církevní stát I",
+            "title_en": "Papal States I",
+            "title_de": "Kirchenstaat I",
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.XXXVI",
+            "code": "XXXVI",
+            "catalog_links": [
+              "uuid:2f7f11a1-5d1f-453f-b88a-a8cbe0ba0cf7"
+            ]
           },
           {
             "pid": "uuid:8a582361-3e39-4b96-92d6-3a61df2ba3b8",
             "title": "Církevní stát II",
             "title_en": "Papal States II",
             "title_de": "Kirchenstaat II",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.XXXVII",
+            "code": "XXXVII",
+            "catalog_links": [
+              "uuid:64790452-0ac0-442c-a8fc-4752234db5f"
+            ]
+          },
+          {
+            "pid": "uuid:6fda4784-2c4a-46f9-a4a7-abbc7ce176b1",
+            "title": "Církevní stát III",
+            "title_en": "Papal States III",
+            "title_de": "Kirchenstaat III",
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.XXXVIII",
+            "code": "XXXVIII",
+            "catalog_links": [
+              "uuid:003607de-a5e2-4de7-b1ca-412b5d14f93d"
+            ]
+          },
+          {
+            "pid": "uuid:52b3a033-3488-4cf8-8f2e-6a3f744a8dc8",
+            "title": "Toskánsko",
+            "title_en": "Toscany",
+            "title_de": "Toskana",
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.XXXIX",
+            "code": "XXXIX",
+            "catalog_links": [
+              "uuid:3cbb6f55-99cb-450a-8c64-c3b9b5acc8dc"
+            ]
+          },
+          {
+            "pid": "uuid:dad39480-b846-4f56-ac6a-2ac112fe6383",
+            "title": "Neapolsko-sicilské království",
+            "title_en": "Kingdom of Naples and Sicily",
+            "title_de": "Königreich beider Sizilien",
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.XL",
+            "code": "XL",
+            "catalog_links": [
+              "uuid:b081f2d6-942d-4e0e-9cec-60cbe957dc7b"
+            ]
           }
         ]
       },
@@ -376,28 +554,48 @@
             "title": "Obecné mapy Uher",
             "title_en": "General maps of Hungary",
             "title_de": "Allgemeine Karten von Ungarn",
-            "model": "collection"
-          },
-          {
-            "pid": "uuid:5ceb9e19-5f2a-4d84-a963-c8dc5a9467e0",
-            "title": "Chorvatsko, Dalmácie, Slavonie",
-            "title_en": "Croatia, Dalmatia and Slavonia",
-            "title_de": "Kroatien, Dalmatien und Slawonien",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.XLI",
+            "code": "XLI",
+            "catalog_links": [
+              "uuid:ef6c63a6-43c8-41f3-81cb-7198aec075ee"
+            ]
           },
           {
             "pid": "uuid:97c33e8f-ca72-4ffe-b8bb-afe1baa2af76",
             "title": "Horní a Dolní Uhry",
             "title_en": "Upper and Lower Hungary",
             "title_de": "Ober- und Niederungarn",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.XLII",
+            "code": "XLII",
+            "catalog_links": [
+              "uuid:2544b317-0e7f-4501-a8f0-c2104b5a49db"
+            ]
+          },
+          {
+            "pid": "uuid:5ceb9e19-5f2a-4d84-a963-c8dc5a9467e0",
+            "title": "Chorvatsko, Dalmácie, Slavonie",
+            "title_en": "Croatia, Dalmatia and Slavonia",
+            "title_de": "Kroatien, Dalmatien und Slawonien",
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.XLIII",
+            "code": "XLIII",
+            "catalog_links": [
+              "uuid:f5272ced-8566-4a43-b2e7-1b0701e4102e"
+            ]
           },
           {
             "pid": "uuid:d3c886a3-2650-401d-80cc-24cc1be89a2b",
             "title": "Temešvárský Banát, Sedmihradsko",
             "title_en": "Banat of Temeswar, Transylvania",
             "title_de": "Temescher Banat, Siebenbürgen",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AA.T.XLIV",
+            "code": "XLIV",
+            "catalog_links": [
+              "uuid:b8d94794-7668-45ed-baf0-feb3bba85c4d"
+            ]
           }
         ]
       },
@@ -406,7 +604,9 @@
         "title": "Varia",
         "title_en": "Varia",
         "title_de": "Varia",
-        "model": "collection"
+        "model": "collection",
+        "signature": "Moll-0090.900,AA.T.XLV",
+        "code": "XLV"
       }
     ]
   },
@@ -429,7 +629,13 @@
             "title": "Obecné mapy Německa",
             "title_en": "General Maps of Germany",
             "title_de": "Allgemeine Karten von Deutschland",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AG.T.I",
+            "code": "I",
+            "catalog_links": [
+              "uuid:78eaaf1e-03ab-40f9-b50e-37511555790d",
+              "uuid:2c21f575-901f-4782-bf2d-36216dcb041b"
+            ]
           }
         ]
       },
@@ -442,18 +648,30 @@
         "points": "684,317,689,291,708,298,710,306,713,319,709,331,722,339,733,356,751,364,757,380,771,381,754,391,754,415,753,424,745,425,751,453,773,460,803,456,804,466,769,470,747,481,727,482,713,478,709,453,693,450,677,462,625,464,640,436,635,425,633,397,628,381,629,372,633,363,648,367,674,360,677,334",
         "children": [
           {
-            "pid": "uuid:4e1268f6-393b-4b6c-815e-345111a5cbf1",
-            "title": "Bavorská světská knížectví a území stavů",
-            "title_en": "Secular Principalities and Territories of Imperial Estates",
-            "title_de": "Bayerische Weltliche Fürstentümer und Besitzungen der Stände",
-            "model": "collection"
-          },
-          {
             "pid": "uuid:51ca2e20-000f-4a8f-ae11-5b0b67f37a74",
             "title": "Obecné mapy Bavorska, území duchovních knížat",
             "title_en": "General maps, Ecclesiastic Principalities",
             "title_de": "Allgemeine Karten von Bayern, Besitzungen geistlicher Fürsten",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AG.T.II",
+            "code": "II",
+            "catalog_links": [
+              "uuid:d7b8d904-1f7f-43b6-9f4f-45883db5528c",
+              "uuid:4f261b1e-2a70-4442-9dd2-ca5ea0686339"
+            ]
+          },
+          {
+            "pid": "uuid:4e1268f6-393b-4b6c-815e-345111a5cbf1",
+            "title": "Bavorská světská knížectví a území stavů",
+            "title_en": "Secular Principalities and Territories of Imperial Estates",
+            "title_de": "Bayerische Weltliche Fürstentümer und Besitzungen der Stände",
+            "model": "collection",
+            "signature": "Moll-0090.900,AG.T.III",
+            "code": "III",
+            "catalog_links": [
+              "uuid:5205cf8b-9eb5-49f8-bd51-d49622fe5713",
+              "uuid:8320c1be-c5f5-4d03-b6a9-196bd5f0dfe1"
+            ]
           }
         ]
       },
@@ -466,18 +684,30 @@
         "model": "collection",
         "children": [
           {
-            "pid": "uuid:c24334e1-4f9a-461e-8197-c2f96dd175ff",
-            "title": "Francká světská knížectví a území stavů",
-            "title_en": "Secular Principalities and Territories of Imperial Estates",
-            "title_de": "Fränkische Weltliche Fürstentümer und Besitzungen der Stände",
-            "model": "collection"
-          },
-          {
             "pid": "uuid:d9d13537-e036-41f1-b4d6-110b6ed61f5a",
             "title": "Obecné mapy Frank, území duchovních knížat",
             "title_en": "General maps, Ecclesiastic Principalities",
             "title_de": "Allgemeine Karten von Franken, Besitzungen geistlicher Fürsten",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AG.T.IV",
+            "code": "IV",
+            "catalog_links": [
+              "uuid:cd3ae1d1-787b-4a54-9ed6-e2925d64777b",
+              "uuid:4ecbe8bb-a25e-4fe5-9b6b-057f5952edc9"
+            ]
+          },
+          {
+            "pid": "uuid:c24334e1-4f9a-461e-8197-c2f96dd175ff",
+            "title": "Francká světská knížectví a území stavů",
+            "title_en": "Secular Principalities and Territories of Imperial Estates",
+            "title_de": "Fränkische Weltliche Fürstentümer und Besitzungen der Stände",
+            "model": "collection",
+            "signature": "Moll-0090.900,AG.T.V",
+            "code": "V",
+            "catalog_links": [
+              "uuid:7ea41092-b0cb-4413-bd34-1b33d76cb799",
+              "uuid:0d968425-5d3f-4d1c-9869-61a51d81db01"
+            ]
           }
         ]
       },
@@ -490,25 +720,43 @@
         "model": "collection",
         "children": [
           {
-            "pid": "uuid:9e62cdf2-cdab-49b4-814f-957fd4d2657a",
-            "title": "Hornorýnský kraj III",
-            "title_en": "The Upper Rhenish Circle III",
-            "title_de": "Oberrheinischer Reichskreis III",
-            "model": "collection"
-          },
-          {
             "pid": "uuid:f832a7cb-f3ac-4180-9a87-4f14e1903484",
             "title": "Hornorýnský kraj I",
             "title_en": "The Upper Rhenish Circle I",
             "title_de": "Oberrheinischer Reichskreis I",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AG.T.VI",
+            "code": "VI",
+            "catalog_links": [
+              "uuid:6dfcac77-abf8-41e1-acc9-dc75c410e8e5",
+              "uuid:b7d9f456-6bb1-4d71-af8e-6eb61a8f86d9"
+            ]
           },
           {
             "pid": "uuid:9a951095-5dbb-42a7-a1cd-84c666d484a3",
             "title": "Hornorýnský kraj II",
             "title_en": "The Upper Rhenish Circle II",
             "title_de": "Oberrheinischer Reichskreis II",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AG.T.VII",
+            "code": "VII",
+            "catalog_links": [
+              "uuid:7deb0ea9-e4d1-44b4-8d91-22672538bac6",
+              "uuid:9e007f8d-3783-4b0d-a97b-7923674ba849"
+            ]
+          },
+          {
+            "pid": "uuid:9e62cdf2-cdab-49b4-814f-957fd4d2657a",
+            "title": "Hornorýnský kraj III",
+            "title_en": "The Upper Rhenish Circle III",
+            "title_de": "Oberrheinischer Reichskreis III",
+            "model": "collection",
+            "signature": "Moll-0090.900,AG.T.VIII",
+            "code": "VIII",
+            "catalog_links": [
+              "uuid:f7e2a220-e464-42c0-9312-d9473ccbec01",
+              "uuid:46185fa1-4feb-4ac2-9625-dc058957e4dd"
+            ]
           }
         ]
       },
@@ -521,18 +769,30 @@
         "model": "collection",
         "children": [
           {
-            "pid": "uuid:d7fe3ece-58ee-48e4-bb61-aad0dcfe0729",
-            "title": "Dolnorýnský kraj II",
-            "title_en": "The Lower Rhenish Circle II",
-            "title_de": "Niederrheinische Reichskreis II",
-            "model": "collection"
-          },
-          {
             "pid": "uuid:959c3cad-e4a5-4bed-829c-52223374f15f",
             "title": "Dolnorýnský kraj I",
             "title_en": "The Lower Rhenish Circle I",
             "title_de": "Niederrheinischer Reichskreis I",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AG.T.IX",
+            "code": "IX",
+            "catalog_links": [
+              "uuid:11700b03-0ba8-434f-bc96-8545494cdc5a",
+              "uuid:d125651a-186e-4c22-8124-36c3bb36963d"
+            ]
+          },
+          {
+            "pid": "uuid:d7fe3ece-58ee-48e4-bb61-aad0dcfe0729",
+            "title": "Dolnorýnský kraj II",
+            "title_en": "The Lower Rhenish Circle II",
+            "title_de": "Niederrheinische Reichskreis II",
+            "model": "collection",
+            "signature": "Moll-0090.900,AG.T.X",
+            "code": "X",
+            "catalog_links": [
+              "uuid:97e51cc3-1c27-46c4-82c7-e7d69e7b2c4b",
+              "uuid:9d6ed593-2181-4fb4-aff3-aeb54aae1472"
+            ]
           }
         ]
       },
@@ -545,39 +805,65 @@
         "model": "collection",
         "children": [
           {
-            "pid": "uuid:eaf09bb0-9344-4676-a699-800d9ae6f162",
-            "title": "Hornosaský kraj II",
-            "title_en": "The Upper Saxon Circle II",
-            "title_de": "Obersächsischer Reichskreis II",
-            "model": "collection"
-          },
-          {
             "pid": "uuid:0968b012-e11c-4005-89f4-a986fd34f273",
             "title": "Hornosaský kraj I",
             "title_en": "The Upper Saxon Circle I",
             "title_de": "Obersächsischer Reichskreis I",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AG.T.XI",
+            "code": "XI",
+            "catalog_links": [
+              "uuid:616437ec-c551-4d3f-a45f-bfecd8ae1b10",
+              "uuid:90dd9f9b-6402-40c4-b483-031ded8501a3"
+            ]
+          },
+          {
+            "pid": "uuid:eaf09bb0-9344-4676-a699-800d9ae6f162",
+            "title": "Hornosaský kraj II",
+            "title_en": "The Upper Saxon Circle II",
+            "title_de": "Obersächsischer Reichskreis II",
+            "model": "collection",
+            "signature": "Moll-0090.900,AG.T.XII",
+            "code": "XII",
+            "catalog_links": [
+              "uuid:4a7914f6-2b45-4eca-8956-9aa3b3854d9b"
+            ]
           },
           {
             "pid": "uuid:b1dcfd86-1423-4e4d-af69-187f6a663bbb",
             "title": "Hornosaský kraj III",
             "title_en": "The Upper Saxon Circle III",
             "title_de": "Obersächsischer Reichskreis III",
-            "model": "collection"
-          },
-          {
-            "pid": "uuid:bee14840-7bae-44ed-8494-c0a0101f5029",
-            "title": "Hornosaský kraj V",
-            "title_en": "The Upper Saxon Circle V",
-            "title_de": "Obersächsischer Reichskreis V",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AG.T.XIII",
+            "code": "XIII",
+            "catalog_links": [
+              "uuid:07b37681-2600-4aaa-adf5-a791c750a277"
+            ]
           },
           {
             "pid": "uuid:9cf1bf7d-f0c4-4b54-acff-f32b2661195c",
             "title": "Hornosaský kraj IV",
             "title_en": "The Upper Saxon Circle IV",
             "title_de": "Obersächsischer Reichskreis IV",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AG.T.XIV",
+            "code": "XIV",
+            "catalog_links": [
+              "uuid:78808658-e169-4d5b-8d08-4047a90c3be1"
+            ]
+          },
+          {
+            "pid": "uuid:bee14840-7bae-44ed-8494-c0a0101f5029",
+            "title": "Hornosaský kraj V",
+            "title_en": "The Upper Saxon Circle V",
+            "title_de": "Obersächsischer Reichskreis V",
+            "model": "collection",
+            "signature": "Moll-0090.900,AG.T.XV",
+            "code": "XV",
+            "catalog_links": [
+              "uuid:65a4a4d7-dff6-44f4-bb19-9bdca06cd513"
+            ]
           }
         ]
       },
@@ -594,14 +880,24 @@
             "title": "Dolnosaský kraj I",
             "title_en": "The Lower Saxon Circle I",
             "title_de": "Niedersächsischer Reichskreis I",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AG.T.XVI",
+            "code": "XVI",
+            "catalog_links": [
+              "uuid:5f24dc43-0cbd-4d34-ae03-c19e81a37e16"
+            ]
           },
           {
             "pid": "uuid:e8ca7c88-41ce-44c7-b14f-6f20b8e36855",
             "title": "Dolnosaský kraj II",
             "title_en": "The Lower Saxon Circle II",
             "title_de": "Niedersächsischer Reichskreis II",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AG.T.XVII",
+            "code": "XVII",
+            "catalog_links": [
+              "uuid:3cfe49f1-0f61-422c-acb5-52df4f5de2a2"
+            ]
           }
         ]
       },
@@ -614,18 +910,28 @@
         "model": "collection",
         "children": [
           {
-            "pid": "uuid:06d438d2-e8f7-4e42-bbc5-eb67e06edb69",
-            "title": "Švábský kraj II",
-            "title_en": "The Swabian Circle II",
-            "title_de": "Schwäbischer Reichskreis II",
-            "model": "collection"
-          },
-          {
             "pid": "uuid:ef79adde-9f0c-404d-9c0c-e27f79af1023",
             "title": "Švábský kraj I",
             "title_en": "The Swabian Circle I",
             "title_de": "Schwäbischer Reichskreis I",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AG.T.XVIII",
+            "code": "XVIII",
+            "catalog_links": [
+              "uuid:61e5e047-a356-439e-b72d-2fd107588cbe"
+            ]
+          },
+          {
+            "pid": "uuid:06d438d2-e8f7-4e42-bbc5-eb67e06edb69",
+            "title": "Švábský kraj II",
+            "title_en": "The Swabian Circle II",
+            "title_de": "Schwäbischer Reichskreis II",
+            "model": "collection",
+            "signature": "Moll-0090.900,AG.T.XIX",
+            "code": "XIX",
+            "catalog_links": [
+              "uuid:e663ff8b-d8ec-4460-9e86-8e9d484f2ab1"
+            ]
           }
         ]
       },
@@ -642,14 +948,26 @@
             "title": "Vestfálský kraj I",
             "title_en": "The Westphalian Circle I",
             "title_de": "Westfälischer Reichskreis I",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AG.T.XX",
+            "code": "XX",
+            "catalog_links": [
+              "uuid:a9ce89fa-a147-42a1-81bf-5ec3e88f6713",
+              "uuid:e032d018-4f0c-409d-a5c0-fbb35cf4a7dd"
+            ]
           },
           {
             "pid": "uuid:c859575e-7bc1-4d26-85f1-739dd441683b",
             "title": "Vestfálský kraj II",
             "title_en": "The Westphalian Circle II",
             "title_de": "Westfälischer Reichskreis II",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AG.T.XXI",
+            "code": "XXI",
+            "catalog_links": [
+              "uuid:b4218c14-96bc-4ea9-8ca1-0d8e3601da9f",
+              "uuid:2c6de06f-5c56-44df-8f54-0beca215f26f"
+            ]
           }
         ]
       },
@@ -666,24 +984,43 @@
             "title": "Švýcarsko I",
             "title_en": "The Old Swiss Confederacy I",
             "title_de": "Schweiz I",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AG.T.XXII",
+            "code": "XXII",
+            "catalog_links": [
+              "uuid:1ec4c186-8968-4234-8172-b9d679911b5b",
+              "uuid:d1765362-d806-42cc-b959-472e8eb16c9f"
+            ]
           },
           {
             "pid": "uuid:0c13ffa9-da37-476c-97a3-886677434da9",
             "title": "Švýcarsko II",
             "title_en": "The Old Swiss Confederacy II",
             "title_de": "Schweiz II",
-            "model": "collection"
+            "model": "collection",
+            "signature": "Moll-0090.900,AG.T.XXIII",
+            "code": "XXIII",
+            "catalog_links": [
+              "uuid:0f6b998c-c802-466f-a60e-882537892dd9",
+              "uuid:a16ac4aa-a8e1-421f-9daa-8983d8b2fd68"
+            ]
           }
         ]
       },
-
       {
         "pid": "uuid:56bf5c9d-a7c2-4e05-8585-ca4914249f5c",
         "title": "Vodstvo Německa",
         "title_en": "Waters of Germany",
         "title_de": "Gewässer Deutschlands",
-        "model": "collection"
+        "model": "collection",
+        "signature": "Moll-0090.900,AG.T.XXIV",
+        "code": "XXIV",
+        "catalog_links": [
+          "uuid:06444594-9ba9-4779-a1db-06a22f0a214b",
+          "uuid:103e8ed8-7e3a-4ed6-a204-0ecfbf85da5b",
+          "uuid:107cf283-5374-459b-be10-c3189c22c12c",
+          "uuid:5390f932-bae7-4d3d-bab1-c425e6432728"
+        ]
       }
     ]
   },
@@ -699,7 +1036,36 @@
         "title": "Vockelovy přehledy",
         "title_en": "Vockel's Overviews",
         "title_de": "Vockels Übersichten",
-        "model": "collection"
+        "model": "collection",
+        "children_catalogs": [
+          {
+            "pid": "uuid:2371cef9-da31-440a-b4fe-da1340b744cd",
+            "title": "Uibersicht des Atlaßes von den Oesterreichischen Erbländern",
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,40",
+            "thumb_pid": ["uuid:e03ddfc7-b447-49ad-b05f-ec6ed31c2202"]
+          },
+          {
+            "pid": "uuid:c781cb96-7eee-4bb2-bdd1-6ba225b970e2",
+            "title": "Verzeichniß des abgehenden Landkarten",
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,41",
+            "thumb_pid": [
+              "uuid:1d6a406f-f113-4238-9f2c-db226651259d",
+              "uuid:ffff2e7f-d128-4c04-8982-679fcfcf2bca"
+            ]
+          },
+          {
+            "pid": "uuid:19647927-f34c-47bd-a1c6-fc3bd303f305",
+            "title": "Uibersicht des Atlaßes von Deutschland",
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,42",
+            "thumb_pid": [
+              "uuid:ece37827-153b-4e9d-bbfc-bd802825633f",
+              "uuid:59d9c10c-e367-4f74-b8b2-650067e679d8"
+            ]
+          }
+        ]
       },
       {
         "pid": "uuid:79fac658-fdf1-4bd5-8924-c6b20868d3a1",
