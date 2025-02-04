@@ -439,6 +439,9 @@ export class SearchComponent {
           
         }
         this.loading = false;
+        setTimeout(() => {
+          document.querySelector('.app-results')?.classList.add('loaded');
+        }, 50); // Krátké zpoždění, aby animace správně fungovala
       });
     });
     this.subscriptions.add(paramSub);

@@ -219,19 +219,39 @@
                     display: flex;
                     flex-direction: row;
                     .app-card-image {
-                        height: 120px;
-                        width: 50px;
+                        display: flex;
+                        justify-content: center; /* Zarovná obrázek na střed horizontálně */
+                        align-items: flex-start; /* Zarovná obrázek k horní části */
+                        width: 100px; /* Nastavte požadovanou šířku */
+                        height: 150px; /* Výška, kterou chcete zobrazit */
+                        overflow: hidden; /* Skryje spodní část obrázku */
                         img {
-                            width: 100%;
-                            height: 100%;
-                            object-fit: cover;
-                            object-position: center;
+                            width: 100%; /* Přizpůsobení šířky */
+                            height: auto; /* Zachování poměru stran */
                         }
                         &:hover {                      
                             .app-card-overlay {
                               display: none;
                             }
                           }
+                    }
+                    .app-card-parts {
+                        display: flex;
+                        
+                        /* Typesettings/sm/regular */
+                        font-family: "Source Sans Pro";
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 20px; /* 142.857% */
+                        gap: 5px;
+                        .app-part {
+                            display: flex;
+                        }
+                        a {
+                            color: var(--Text-Link, #7A6600);
+                            text-decoration: underline;
+                        }
                     }
                 }
             }

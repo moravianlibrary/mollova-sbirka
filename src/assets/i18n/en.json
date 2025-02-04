@@ -52,5 +52,6 @@
     "back-to-map": "Back to map",
     "other": "Other",
     "molls-catalog": "Moll's Catalog",
-    "signature": "Shelf Locator"
+    "signature": "Shelf Locator",
+    "sysno_link": "Link to the library catalog"
 }

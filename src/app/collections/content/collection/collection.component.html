@@ -39,27 +39,34 @@
                     <div class="app-card-item app-card-manuscript" *ngIf="item['model'] === 'manuscript'">
                         <a class="app-card-image" [href]="'https://digitalniknihovna.cz/mzk/uuid/' + item.pid" target="_blank">
                             <div class="app-card-overlay"></div>
-                            <img [src]="getChildrenImage(item)" alt="Image" />
+                            <img [src]="item.thumb_pid.length > 0 ? getChildrenImage(item) : 'assets/icons/map.png' " />
                         </a>
                         <div class="app-card-content">
                             <a class="app-card-title-container" 
                                 [href]="'https://digitalniknihovna.cz/mzk/uuid/' + item.pid"
                                 target="_blank">
-                                <h5 class="app-card-title" 
-                                    [matTooltip]="getChildrenTitle(item)">
+                                <h5 class="app-card-title" >
                                     {{getChildrenTitle(item)}}
                                 </h5>
                                 <img class="app-card-icon default-icon" src="assets/icons/arrow.png">
                                 <img class="app-card-icon hover-icon" src="assets/icons/arrow-gold.png">
                             </a>
+                            <div class="app-card-parts" *ngIf="item?.parts?.length > 0">
+                                <div class="app-part" *ngFor=" let part of item?.parts; let i = index">
+                                    <a  class="app-card-link" [href]="'https://digitalniknihovna.cz/mzk/uuid/' + part.pid">{{part.name}}</a>
+                                    <span *ngIf="i+1 < item.parts.length">, </span>
+                                </div>
+                                
+                            </div>
                             <div class="app-card-text">{{getChildrenDescription(item)}}</div>
                             <div class="app-card-sign">{{'signature' | translate}}: {{item.signature}}</div>
                             <div *ngIf="item?.shelf_locators?.[0]" class="app-card-sign">{{'new_signature' | translate}}: {{item.shelf_locators[0]}}</div>
+                            <a *ngIf="item?.sysno" class="app-card-sign" href="https://vufind.mzk.cz/Record/mzk.MZK03-{{item.sysno}}" target="_blank">{{'sysno_link' | translate}}</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="app-children-loading" *ngIf="!children || children.length === 0">
+            <div class="app-children-loading" *ngIf="!children">
                 <mat-spinner></mat-spinner>
             </div>
         </div>

@@ -164,6 +164,15 @@
         background: #FFF;
         &.app-search-right-full {
             width: calc(100% - 300px);
+            .app-results-wrapper {
+                .app-results {
+                    opacity: 0;
+                    transition: opacity 0.5s ease-in-out;
+                }
+                .app-results.loaded {
+                    opacity: 1;
+                }  
+            }
         }
         .app-results-wrapper {
             display: flex;

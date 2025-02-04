@@ -99,7 +99,13 @@ export class CollectionService {
                 const findChildren = (items: any[], pid: string): any[] | null => {
                     for (const item of items) {
                         if (item.pid === pid) {
-                            return item.children || item.children_catalogs || [];
+                            if (item.children) {
+                                return item.children.filter((child: any) => child.model !== 'manuscript');
+                            }
+                            if (item.children_catalogs) {
+                                return item.children_catalogs || [];
+                            }
+                            // return item.children || item.children_catalogs || [];
                         }
                         if (item.children && item.children.length > 0) {
                             const found = findChildren(item.children, pid);
@@ -156,8 +162,8 @@ export class CollectionService {
         return this.apiService.getCollectionChildren(pid).pipe(
             tap((data: any) => {
                 if (data && data['response'] && data['response']['docs']) {
-                    const siblings = data['response']['docs'];
-                    // const siblings = data['response']['docs'].filter((item: any) => item['model'] !== 'manuscript');
+                    // const siblings = data['response']['docs'];
+                    const siblings = data['response']['docs'].filter((item: any) => item['model'] !== 'manuscript');
                     console.log('Siblings:', siblings);
                     const sortedSiblings = siblings.sort((a: any, b: any) =>
                         a['shelf_locators'][0].localeCompare(b['shelf_locators'][0])
@@ -167,8 +173,8 @@ export class CollectionService {
                 }
             }),
             map((data: any) => {
-                return data['response']['docs'] || [];
-                // return data['response']['docs'].filter((item: any) => item['model'] !== 'manuscript') || [];
+                // return data['response']['docs'] || [];
+                return data['response']['docs'].filter((item: any) => item['model'] !== 'manuscript') || [];
             })
         );
     }

@@ -10,7 +10,12 @@ import { CollectionService } from '../../../../services/collection.service';
   styleUrls: ['./iiif-image-viewer.component.scss']
 })
 export class IiifImageViewerComponent implements OnInit {
-  @Input() infoJsonUrl!: string; // URL na IIIF info.json
+  @Input() pages!: any[]; // Stranky
+
+  pagePid: string = '';
+  manifestLink: string = '';
+  actualPage: number;
+  loadingImage: boolean = true;
 
   private viewer!: OpenSeadragon.Viewer;
 
@@ -19,11 +24,14 @@ export class IiifImageViewerComponent implements OnInit {
   constructor( private collectionService: CollectionService) {}
 
   ngOnInit(): void {
-    console.log('URL:', this.infoJsonUrl);
-    if (this.infoJsonUrl) {
+    this.pagePid = this.pages[0]['pid'];
+    this.actualPage = 1;
+    this.manifestLink = 'https://api.kramerius.mzk.cz/search/iiif/' + this.pagePid + '/info.json';
+    console.log('URL:', this.manifestLink, 'PAGES:', this.pages);
+    if (this.manifestLink) {
       this.viewer = OpenSeadragon({
         id: 'openseadragon-viewer',
-        tileSources: this.infoJsonUrl, // Pouze URL na IIIF Image API
+        tileSources: this.manifestLink, // Pouze URL na IIIF Image API
         prefixUrl: 'https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.2/images/',
         showNavigator: false, // Zobrazit mini mapu
         navigatorPosition: 'BOTTOM_RIGHT', // Pozice navigátoru
@@ -36,6 +44,7 @@ export class IiifImageViewerComponent implements OnInit {
         showHomeControl: false, // Skryje tlačítko "reset"
         showFullPageControl: false // Skryje tlačítko "fullscreen"
       });
+      this.loadingImage = false;
     }
 
     document.addEventListener("fullscreenchange", () => {
@@ -48,22 +57,48 @@ export class IiifImageViewerComponent implements OnInit {
   zoomOut(): void {
     this.viewer.viewport.zoomBy(0.5);
   }
-toggleFullScreen(): void {
-  this.viewer.viewport.goHome();
-  const viewerElement = document.getElementById('openseadragon-viewer');
-
-  if (viewerElement) {
-    if (!document.fullscreenElement) {
-      viewerElement.requestFullscreen().catch(err => console.error("Fullscreen error:", err));
+  prevPage(): void {
+    this.loadingImage = true;
+    if (this.actualPage > 1) {
+      this.viewer.close();
+      this.actualPage--;
+      this.pagePid = this.pages[this.actualPage - 1]['pid'];
+      this.manifestLink = 'https://api.kramerius.mzk.cz/search/iiif/' + this.pagePid + '/info.json';
+      this.viewer.open(this.manifestLink);
+      this.loadingImage = false;
     } else {
-      document.exitFullscreen();
+      this.loadingImage = false;
     }
-  } else {
-    console.error('Element #openseadragon-viewer nebyl nalezen!');
   }
-}
+  nextPage(): void {
+    this.loadingImage = true;
+    if (this.actualPage < this.pages.length) {
+      this.viewer.close();
+      this.actualPage++;
+      this.pagePid = this.pages[this.actualPage - 1]['pid'];
+      this.manifestLink = 'https://api.kramerius.mzk.cz/search/iiif/' + this.pagePid + '/info.json';
+      this.viewer.open(this.manifestLink);
+      this.loadingImage = false;
+    } else {
+      this.loadingImage = false;
+    }
+  }
+  toggleFullScreen(): void {
+    this.viewer.viewport.goHome();
+    const viewerElement = document.getElementById('openseadragon-viewer');
+
+    if (viewerElement) {
+      if (!document.fullscreenElement) {
+        viewerElement.requestFullscreen().catch(err => console.error("Fullscreen error:", err));
+      } else {
+        document.exitFullscreen();
+      }
+    } else {
+      console.error('Element #openseadragon-viewer nebyl nalezen!');
+    }
+  }
   downloadImage(): void {
-    window.open(this.infoJsonUrl.replace('/info.json', '/full/full/0/default.jpg'), '_blank');
+    window.open(this.manifestLink.replace('/info.json', '/full/full/0/default.jpg'), '_blank');
   }
 }
 

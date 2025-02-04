@@ -1032,6 +1032,375 @@
     "model": "collection",
     "children": [
       {
+        "pid": "uuid:277344ae-eb01-4507-b4f4-82da2e08f545",
+        "title": "Bílé katalogy",
+        "title_en": "White Catalogues",
+        "title_de": "Die weißen Kataloge",
+        "model": "collection",
+        "children_catalogs": [
+          {
+            "pid": "uuid:b80af0a3-e402-4626-a349-bb845d193576",
+            "title": "Atlantis Austriaci Vol. I. Tom. I.",
+            "parts": [
+              {
+                "name": "Dolní Rakousy I",
+                "pid": "uuid:f3dc225b-41da-4703-995f-4c69baf171b8"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,1",
+            "thumb_pid": ["uuid:6c868e9e-f0f4-457f-9662-be448f6f7d95"],
+            "sysno": "001066601"
+          },
+          {
+            "pid": "uuid:dd9a7ef8-f7a3-432b-a47e-7082cf17f62e",
+            "title": "Atlantis Austriaci Vol. II. Tom. II.",
+            "parts": [
+              {
+                "name": "Dolní Rakousy II",
+                "pid": "uuid:47c5d8c7-6f72-4ce2-84a3-bbe3c5e280d6"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,2",
+            "thumb_pid": ["uuid:1c524951-5521-43ca-bd23-ba4f6dd4d56e"],
+            "sysno": "001066602"
+          },
+          {
+            "pid": "uuid:79dccdbc-80d7-434f-9047-7b984d01f059",
+            "title": "Atlantis Austriaci Vol. III, Tom. III",
+            "parts": [
+              {
+                "name": "Dolní Rakousy III",
+                "pid": "uuid:afe3c674-6b9e-4844-be0d-543824b5d002"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,3",
+            "thumb_pid": ["uuid:cd1232ef-60b2-4654-9bd7-011d7e9144bf"],
+            "sysno": "001066603"
+          },
+          {
+            "pid": "uuid:3aac268a-4922-407f-a6c9-32ea81d8eaf4",
+            "title": "Atlantis Austriaci Vol. IV. Tom. IV.",
+            "parts": [
+              {
+                "name": "Dolní Rakousy IV",
+                "pid": "uuid:6a0b9a19-297c-4698-b0f7-4fbbbedeb423"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,4",
+            "thumb_pid": ["uuid:67fd9956-5ca0-478f-984a-ebc2c51ae237"],
+            "sysno": "001066605"
+          },
+          {
+            "pid": "uuid:49873ebd-c33c-4670-aa9d-74e5aa8cfcc2",
+            "title": "Atlantis Austriaci Vol. V. Tom. V.",
+            "parts": [
+              {
+                "name": "Dolní Rakousy V",
+                "pid": "uuid:4cd3ccee-9023-4bbf-8523-3672462ce869"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,5",
+            "thumb_pid": ["uuid:cce5de66-1fda-4955-8bc9-fde539f9fd51"],
+            "sysno": "001066606"
+          },
+          {
+            "pid": "uuid:762d9e9f-f4c9-4133-b3e1-bd27ae36b9af",
+            "title": "Atlantis Austriaci Vol. VI, Tom. VI-VIII",
+            "parts": [
+              {
+                "name": "Dolní Rakousy VI",
+                "pid": "uuid:a899dc79-2345-4a4a-be9c-e0a5b44bbd68"
+              },
+              {
+                "name": "Vídeň I",
+                "pid": "uuid:4f239416-6946-49a0-a702-279b2c0a32de"
+              },
+              {
+                "name": "Vídeň II",
+                "pid": "uuid:939db72c-fae6-4381-93be-cb801079f093"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,6",
+            "thumb_pid": ["uuid:f5b3c7b4-ff34-4dbf-b1f7-cff0e8d4772c"],
+            "sysno": "001066607"
+          },
+          {
+            "pid": "uuid:d143fb2d-e098-4282-b6a9-cca504158cb8",
+            "title": "Atlantis Austriaci Vol. VII, Tom. IX-X",
+            "parts": [
+              {
+                "name": "Horní Rakousy I",
+                "pid": "uuid:c9f74599-3722-4b6e-a81f-b7126c8ab92f"
+              },
+              {
+                "name": "Horní Rakousy II",
+                "pid": "uuid:a119ac30-3f69-44a5-ba7e-26e6d4b821d3"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,7",
+            "thumb_pid": ["uuid:48f74af7-7d54-4a08-9dc5-a636a1d51bb9"],
+            "sysno": "001066608"
+          },
+          {
+            "pid": "uuid:d0be1838-6afb-45cd-b342-24972b9ae404",
+            "title": "Atlantis Austriaci Vol. VIII, Tom. XI-XII",
+            "parts": [
+              {
+                "name": "Tyrolsko I",
+                "pid": "uuid:aff6870c-639a-4c21-baae-29b618cf8e0c"
+              },
+              {
+                "name": "Tyrolsko II",
+                "pid": "uuid:d0e7b998-708b-4149-a281-e5a23ef8d5d6"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,8",
+            "thumb_pid": ["uuid:9734ae2a-8028-481c-9d89-49665193a9ec"],
+            "sysno": "001066609"
+          },
+          {
+            "pid": "uuid:0bf9cbc1-431b-4651-adf4-c1b9ce94ad4c",
+            "title": "Atlantis Austriaci Vol. IX, Tom. XIII-XIV",
+            "parts": [
+              {
+                "name": "Korutansko I",
+                "pid": "uuid:5f8a5822-e21a-4e12-bdee-cfee6263b38d"
+              },
+              {
+                "name": "Korutansko II",
+                "pid": "uuid:378893b8-278c-4243-b898-79e7d1b31154"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,9",
+            "thumb_pid": ["uuid:7c4027bc-2f6c-4939-86d6-c2f8d3de9daa"],
+            "sysno": "001066610"
+          },
+          {
+            "pid": "uuid:4a10b08b-1568-44eb-b279-2c8cae028f2e",
+            "title": "Atlantis Austriaci Vol. X, Tom. XV-XVI",
+            "parts": [
+              {
+                "name": "",
+                "pid": ""
+              },
+              {
+                "name": "",
+                "pid": ""
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,10",
+            "thumb_pid": ["uuid:80e595f0-194b-4dd3-af25-0f3aa517bb3d"],
+            "sysno": "001066611"
+          },
+          {
+            "pid": "uuid:7ff257c5-4094-4440-9e53-8efd04a1be4a",
+            "title": "Atlantis Austriaci Vol. XI, Tom. XVII-XVIII",
+            "parts": [
+              {
+                "name": "",
+                "pid": ""
+              },
+              {
+                "name": "",
+                "pid": ""
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,11",
+            "thumb_pid": ["uuid:bb01b783-2516-4d4b-95a6-fe2fd1d7cc06"],
+            "sysno": "001066612"
+          },
+          {
+            "pid": "uuid:c9ef0a06-b4d4-4b67-a25c-32dbb7a21c6b",
+            "title": "Atlantis Austriaci Vol. XII, Tom. XIX",
+            "parts": [
+              {
+                "name": "",
+                "pid": ""
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,12",
+            "thumb_pid": ["uuid:93bddc33-2d95-4658-ad88-40599e73acd1"],
+            "sysno": "001066613"
+          },
+          {
+            "pid": "uuid:b0f566eb-a060-489f-9c86-8f20b7787661",
+            "title": "Atlantis Austriaci Vol. XIII, Tom. XX-XXIII",
+            "parts": [
+              {
+                "name": "",
+                "pid": ""
+              },
+              {
+                "name": "",
+                "pid": ""
+              },
+              {
+                "name": "",
+                "pid": ""
+              },
+              {
+                "name": "",
+                "pid": ""
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,13",
+            "thumb_pid": ["uuid:287a871c-e726-4421-8bba-feed537db020"],
+            "sysno": "001066614"
+          },
+          {
+            "pid": "uuid:9c288760-7deb-438e-82b5-d0f0104f0aad",
+            "title": "Atlantis Austriaci Vol. XIV, Tom. XXIV-XXX",
+            "parts": [
+              {
+                "name": "",
+                "pid": ""
+              },
+              {
+                "name": "",
+                "pid": ""
+              },
+              {
+                "name": "",
+                "pid": ""
+              },
+              {
+                "name": "",
+                "pid": ""
+              },
+              {
+                "name": "",
+                "pid": ""
+              },
+              {
+                "name": "",
+                "pid": ""
+              },
+              {
+                "name": "",
+                "pid": ""
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,14",
+            "thumb_pid": ["uuid:c823012c-124b-4637-9abe-1f12756b3187"],
+            "sysno": "001066615"
+          },
+          {
+            "pid": "uuid:56994e1c-b718-4f32-95a3-6d412a965032",
+            "title": "Atlantis Austriaci Vol. XV, Tom. XXXI-XL",
+            "parts": [
+              {
+                "name": "",
+                "pid": ""
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,15",
+            "thumb_pid": ["uuid:8f283a8a-9c89-421b-8e26-7218e1d1de32"],
+            "sysno": "001066623"
+          },
+          {
+            "pid": "uuid:ce38521f-3229-42d3-acca-9dc4fe475a4d",
+            "title": "Atlantis Austriaci Vol. XVI, Tom. XLI-XLIV",
+            "parts": [
+              {
+                "name": "",
+                "pid": ""
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,16",
+            "thumb_pid": ["uuid:acabbb4a-9f48-432b-85b8-5ff76892497a"],
+            "sysno": "001066624"
+          },
+          {
+            "pid": "uuid:6b01c4cb-1835-4ef8-a4a8-c0712e3a2af5",
+            "title": "Atlantis Germanici Vol. I, Tom. I-V",
+            "parts": [
+              {
+                "name": "",
+                "pid": ""
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,17",
+            "thumb_pid": ["uuid:dbc4e254-0f7a-40b7-89e8-b0d5aceffdaf"],
+            "sysno": "001066626"
+          },
+          {
+            "pid": "uuid:465548dc-d5e4-4384-8136-6cd4598996ab",
+            "title": "Atlantis Germanici Vol. II, Tom. VI-X",
+            "parts": [
+              {
+                "name": "",
+                "pid": ""
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,18",
+            "thumb_pid": ["uuid:bfced076-f20f-4b78-854f-d5195a7e5ce7"],
+            "sysno": "001066627"
+          },
+          {
+            "pid": "uuid:80bf7221-012f-4599-a9ad-a687a685066b",
+            "title": "Atlantis Germanici Vol. III, Tom. XI-XVII",
+            "parts": [
+              {
+                "name": "",
+                "pid": ""
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,19",
+            "thumb_pid": ["uuid:6e168710-f4af-4781-9375-a0d5569094c2"],
+            "sysno": "001066628"
+          },
+          {
+            "pid": "uuid:ee9d5824-abf9-4d62-8b61-3293683cbf6c",
+            "title": "Atlantis Germanici Vol. IV, Tom. XVIII-XXIV",
+            "parts": [
+              {
+                "name": "",
+                "pid": ""
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,20",
+            "thumb_pid": ["uuid:c4ef9c19-d678-488a-a430-bfb7266b5762"],
+            "sysno": "001066629"
+          }
+        ]
+      },
+      {
+        "pid": "uuid:855db083-db50-4c68-9126-f2607bd830a6",
+        "title": "Duplikáty bílých katalogů",
+        "title_en": "Duplicates of White Catalogues",
+        "title_de": "Duplikate der weißen Kataloge",
+        "model": "collection",
+        "children_catalogs": []
+      },
+      {
+        "pid": "uuid:79fac658-fdf1-4bd5-8924-c6b20868d3a1",
+        "title": "Starší Mollovy katalogy",
+        "title_en": "Older Moll's Catalogues",
+        "title_de": "Die älteren Kataloge Molls",
+        "model": "collection",
+        "children_catalogs": []
+      },
+      {
         "pid": "uuid:52591536-4912-405f-9b98-5daa947b240d",
         "title": "Vockelovy přehledy",
         "title_en": "Vockel's Overviews",
@@ -1068,32 +1437,12 @@
         ]
       },
       {
-        "pid": "uuid:79fac658-fdf1-4bd5-8924-c6b20868d3a1",
-        "title": "Starší Mollovy katalogy",
-        "title_en": "Older Moll's Catalogues",
-        "title_de": "Die älteren Kataloge Molls",
-        "model": "collection"
-      },
-      {
-        "pid": "uuid:855db083-db50-4c68-9126-f2607bd830a6",
-        "title": "Duplikáty bílých katalogů",
-        "title_en": "Duplicates of White Catalogues",
-        "title_de": "Duplikate der weißen Kataloge",
-        "model": "collection"
-      },
-      {
         "pid": "uuid:91845198-e998-471a-b6d7-5c94688ef5b7",
         "title": "Podklady pro mapografie",
         "title_en": "Data for Map Inventories",
         "title_de": "Grundlagen für die Kartenbibliografien",
-        "model": "collection"
-      },
-      {
-        "pid": "uuid:277344ae-eb01-4507-b4f4-82da2e08f545",
-        "title": "Bílé katalogy",
-        "title_en": "White Catalogues",
-        "title_de": "Die weißen Kataloge",
-        "model": "collection"
+        "model": "collection",
+        "children_catalogs": []
       }
     ]
   }

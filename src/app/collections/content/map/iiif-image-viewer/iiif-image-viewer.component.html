@@ -1,5 +1,14 @@
 <div id="openseadragon-viewer" style="width: 100%; height: 100%;">
     <div class="app-map-actions">
+        <div class="app-buttons" *ngIf="pages.length > 1">
+            <div class="app-button" (click)="prevPage()">
+                <img src="assets/icons/arrow-left-white.png" alt="zoom in" />
+            </div>
+            <div class="app-text">{{actualPage}}/{{pages.length}}</div>
+            <div class="app-button" (click)="nextPage()">
+                <img src="assets/icons/arrow-right-white.png" alt="zoom out" />
+            </div>
+        </div>
         <div class="app-buttons">
             <div class="app-button" (click)="zoomIn()">
                 <img src="assets/icons/zoom-in.png" alt="zoom in" />
@@ -16,5 +25,9 @@
         </div>
     </div>
 </div>
+<div class="app-loading" *ngIf="loadingImage">
+    <mat-spinner></mat-spinner>
+</div>
+
 
 

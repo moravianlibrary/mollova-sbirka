@@ -25,6 +25,7 @@ export class MapComponent implements AfterViewInit {
   nextMap: any = {};
   prevMap: any = {};
   acutalIndex: number = 0;
+  pages: any[] = [];
 
   @ViewChild('infoDiv', { static: false }) infoDiv!: ElementRef; // Reference na app-part-info
   @ViewChild('mapDiv', { static: false }) mapDiv!: ElementRef; // Reference na app-part-map
@@ -49,7 +50,8 @@ export class MapComponent implements AfterViewInit {
     this.subscription.add(langSub);
     console.log('Map:', this.map, this.parentCollection, this.siblings);
     this.collectionService.getPagesByPid(this.map['pid']).subscribe((data: any) => {
-      console.log('Pages:', data['response']['docs'][0]);
+      console.log('Pages:', data['response']['docs']);
+      this.pages = data['response']['docs'];
       this.pagePid = data['response']['docs'][0]['pid'];
       this.manifestLink = 'https://api.kramerius.mzk.cz/search/iiif/' + this.pagePid + '/info.json';
       console.log(this.manifestLink);
@@ -224,6 +226,14 @@ export class MapComponent implements AfterViewInit {
     // } else {
       // return item['thumbnail'];
     // }
+  }
+  getParentTitle(): string {
+    if (this.currentLang === 'en') {
+      return this.parentCollection['title.search_eng'];
+    } else if (this.currentLang === 'de') {
+      return this.parentCollection['title.search_ger'];
+    }
+    return this.parentCollection['title.search_cze'];
   }
 
 }
