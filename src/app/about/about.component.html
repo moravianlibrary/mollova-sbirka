@@ -41,26 +41,74 @@
                                 <div class="app-text-logo-wrapper">
                                     <div class="app-text-logo">
                                         <div class="app-text">{{'supported-by' | translate}}</div>
-                                        <div class="app-logo">
+                                        <div class="app-logo-mzk">
                                             <img src="assets/images/logo-mzk2.png" alt="logo">
+                                        </div>
+                                    </div>
+                                    <div class="app-text-logo">
+                                        <div class="app-text">{{'created-by' | translate}}</div>
+                                        <div class="app-logo-trinera">
+                                            <img src="assets/images/logo-trinera.png" alt="logo">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <a class="app-image column" [routerLink]="'/mollova-sbirka/uuid:a5c1a36c-ad50-494c-8a4d-a7c2a035c349'">
-                                <img src="assets/images/about-map.png" alt="1">
+                                <img src="assets/images/mapa_orig.jpg" alt="1">
                             </a>
                         </div>
                     </div>
-                    <div class="app-text" *ngIf="currentLang === 'en'">
-                        <div>The choice to create a separate web-site for the Moll collection is due primarily to its unique and compact nature, which quite accurately reflects the composition of the collection designed by Bernhard Paul Moll himself in the mid-18th century and illustrates the nature of collecting at that time. In the current online library catalogue, this structure would have completely disappeared. Thanks to the digitisation of the entire file, including the manuscript catalogues, users may link Moll's original records with the maps and their individual parts in the future.</div>
-                        <div>The ambition of the site is not only to offer a service to a narrow circle of specialists, but to appeal to all people interested in cartographic production of the past centuries. Especially with regard to these visitors, the site will offer virtual exhibitions of landscape paintings and maps, accompanied by popular texts.</div>
-                        <div>Even less technically skilled users will be able to try simple cartographic applications. One can, using a simple program, attach an old map to a current cartographic work and compare the changes of a particular displayed area over the past centuries.</div>
+                    <div class="app-text-image" *ngIf="currentLang === 'en'">
+                        <div class="app-ti-item">
+                            <div class="app-text column">
+                                <div>The choice to create a separate web-site for the Moll collection is due primarily to its unique and compact nature, which quite accurately reflects the composition of the collection designed by Bernhard Paul Moll himself in the mid-18th century and illustrates the nature of collecting at that time. In the current online library catalogue, this structure would have completely disappeared. Thanks to the digitisation of the entire file, including the manuscript catalogues, users may link Moll's original records with the maps and their individual parts in the future.</div>
+                                <div>The ambition of the site is not only to offer a service to a narrow circle of specialists, but to appeal to all people interested in cartographic production of the past centuries. Especially with regard to these visitors, the site will offer virtual exhibitions of landscape paintings and maps, accompanied by popular texts.</div>
+                                <div>Even less technically skilled users will be able to try simple cartographic applications. One can, using a simple program, attach an old map to a current cartographic work and compare the changes of a particular displayed area over the past centuries.</div>
+                                <div class="app-text-logo-wrapper">
+                                    <div class="app-text-logo">
+                                        <div class="app-text">{{'supported-by' | translate}}</div>
+                                        <div class="app-logo-mzk">
+                                            <img src="assets/images/logo-mzk2.png" alt="logo">
+                                        </div>
+                                    </div>
+                                    <div class="app-text-logo">
+                                        <div class="app-text">{{'created-by' | translate}}</div>
+                                        <div class="app-logo-trinera">
+                                            <img src="assets/images/logo-trinera.png" alt="logo">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="app-image column" [routerLink]="'/mollova-sbirka/uuid:a5c1a36c-ad50-494c-8a4d-a7c2a035c349'">
+                                <img src="assets/images/mapa_orig.jpg" alt="1">
+                            </a>
+                        </div>
                     </div>
-                    <div class="app-text" *ngIf="currentLang === 'de'">
-                        <div>Die Präsentation der Sammlung Moll auf einer eigenen Webseite wurde vor allem auf Grund ihres einzigartigen kompakten Charakters gewählt, der die von Bernhard Paul Moll selbst Mitte des 18. Jahrhunderts vorgeschlagene Anordnung verhältnismäßig treu widerspiegelt und die Sammlertätigkeit zu dieser Zeit anschaulich dokumentiert. Im gewöhnlichen Onlinekatalog der Bibliothek würde diese Struktur völlig untergehen. Dank der vollständigen Digitalisierung der Sammlung, einschließlich der handschriftlichen Kataloge, wird in Zukunft eine Verknüpfung zwischen den ursprünglichen Aufzeichnungen Molls und den Karten mit den einzelnen Werken möglich sein.</div>
-                        <div>Ziel dieser Webseite ist es nicht nur Dienste für den engen Kreis von Experten anzubieten, sondern auch Laien anzusprechen, die sich für die Kartografie der vergangenen Jahrhunderte interessieren. Speziell für diese Besucher bietet die Webseite eine virtuelle Ausstellung der Karten und Veduten, ergänzt mit kurzen Texten.</div>
-                        <div>Auch technisch weniger versierte Benutzer können hier einfache kartografische Anwendungen ausprobieren. So können sie zum Beispiel mit Hilfe eines einfachen Programms, versuchen, eine alte Karte auf ein zeitgenössisches kartografisches Werk zu legen, und die Veränderungen während der letzten Jahrhunderte in dem angezeigten Gebiet zu vergleichen.</div>
+                    <div class="app-text-image" *ngIf="currentLang === 'de'">
+                        <div class="app-ti-item">
+                            <div class="app-text column">
+                                <div>Die Präsentation der Sammlung Moll auf einer eigenen Webseite wurde vor allem auf Grund ihres einzigartigen kompakten Charakters gewählt, der die von Bernhard Paul Moll selbst Mitte des 18. Jahrhunderts vorgeschlagene Anordnung verhältnismäßig treu widerspiegelt und die Sammlertätigkeit zu dieser Zeit anschaulich dokumentiert. Im gewöhnlichen Onlinekatalog der Bibliothek würde diese Struktur völlig untergehen. Dank der vollständigen Digitalisierung der Sammlung, einschließlich der handschriftlichen Kataloge, wird in Zukunft eine Verknüpfung zwischen den ursprünglichen Aufzeichnungen Molls und den Karten mit den einzelnen Werken möglich sein.</div>
+                                <div>Ziel dieser Webseite ist es nicht nur Dienste für den engen Kreis von Experten anzubieten, sondern auch Laien anzusprechen, die sich für die Kartografie der vergangenen Jahrhunderte interessieren. Speziell für diese Besucher bietet die Webseite eine virtuelle Ausstellung der Karten und Veduten, ergänzt mit kurzen Texten.</div>
+                                <div>Auch technisch weniger versierte Benutzer können hier einfache kartografische Anwendungen ausprobieren. So können sie zum Beispiel mit Hilfe eines einfachen Programms, versuchen, eine alte Karte auf ein zeitgenössisches kartografisches Werk zu legen, und die Veränderungen während der letzten Jahrhunderte in dem angezeigten Gebiet zu vergleichen.</div>
+                                <div class="app-text-logo-wrapper">
+                                    <div class="app-text-logo">
+                                        <div class="app-text">{{'supported-by' | translate}}</div>
+                                        <div class="app-logo-mzk">
+                                            <img src="assets/images/logo-mzk2.png" alt="logo">
+                                        </div>
+                                    </div>
+                                    <div class="app-text-logo">
+                                        <div class="app-text">{{'created-by' | translate}}</div>
+                                        <div class="app-logo-trinera">
+                                            <img src="assets/images/logo-trinera.png" alt="logo">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="app-image column" [routerLink]="'/mollova-sbirka/uuid:a5c1a36c-ad50-494c-8a4d-a7c2a035c349'">
+                                <img src="assets/images/mapa_orig.jpg" alt="1">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

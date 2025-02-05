@@ -7,10 +7,10 @@
     </div>
     <div class="app-right col-9">
         <div class="app-nav">
-            <a class="app-nav-item" [routerLink]="['search']" [class.app-active]="activeLink === 'search'" (click)="changeActiveLink('search')">{{'search' | translate}}</a>
-            <a class="app-nav-item" [routerLink]="['o-sbirce']" [class.app-active]="activeLink === 'about'" (click)="changeActiveLink('about')">{{'about' | translate}}</a>
-            <a class="app-nav-item" [routerLink]="['other']" [class.app-active]="activeLink === 'other'" (click)="changeActiveLink('other')">{{'other-collections' | translate}}</a>
-            <a class="app-nav-item" [routerLink]="['kontakt']" [class.app-active]="activeLink === 'contacts'" (click)="changeActiveLink('contacts')">{{'contacts' | translate}}</a>
+            <a class="app-nav-item" [routerLink]="['hledat']" [class.app-active]="activeLink === 'hledat'">{{'search' | translate}}</a>
+            <a class="app-nav-item" [routerLink]="['o-sbirce']" [class.app-active]="activeLink === 'o-sbirce'">{{'about' | translate}}</a>
+            <a class="app-nav-item" [routerLink]="['dalsi-sbirky']" [class.app-active]="activeLink === 'dalsi-sbirky'">{{'other-collections' | translate}}</a>
+            <a class="app-nav-item" [routerLink]="['kontakt']" [class.app-active]="activeLink === 'kontakt'">{{'contacts' | translate}}</a>
         </div>
         <div class="app-lang">
             <app-button variant="outline" (click)="switchLanguage('cs')" [class.app-icon-hide]="currentLang === 'cs'" iconLeft="cs.svg">

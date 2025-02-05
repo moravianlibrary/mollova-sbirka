@@ -1,7 +1,7 @@
 {
     "molls-collection": "Mollova sbírka",
     "search": "Hledat",
-    "about": "O sbírce map",
+    "about": "O sbírce",
     "contacts": "Kontakty a dotazy",
     "mzk": "Moravská zemská knihovna v Brně",
     "other-collections": "Další sbírky",
@@ -53,5 +53,7 @@
     "other": "Další",
     "molls-catalog": "Mollův katalog",
     "signature": "Signatura",
-    "sysno_link": "Odkaz do knihovního katalogu"
+    "sysno_link": "Odkaz do knihovního katalogu",
+    "created-by": "Pro MZK vytvořila",
+    "supported-by": "Spravuje"
 }

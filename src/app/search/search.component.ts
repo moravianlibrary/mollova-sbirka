@@ -437,6 +437,10 @@ export class SearchComponent {
             this.displayedFirstPages = this.pages;
           }
           
+        } else {
+          this.pages = [];
+          this.displayedFirstPages = [];
+          this.displayedLastPages = [];
         }
         this.loading = false;
         setTimeout(() => {

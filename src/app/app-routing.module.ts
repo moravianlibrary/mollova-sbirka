@@ -16,11 +16,11 @@ const routes: Routes = [
   { path: 'mollova-sbirka/:part/:subpart', component: CollectionsComponent },
   
   // Další cesty
-  { path: 'search', component: SearchComponent },
+  { path: 'hledat', component: SearchComponent },
   { path: 'o-sbirce', component: AboutComponent },
   { path: 'o-sbirce/:part', component: AboutComponent },
   { path: 'kontakt', component: ContactComponent },
-  { path: 'other', component: OtherComponent },
+  { path: 'dalsi-sbirky', component: OtherComponent },
   
   // Volitelně: Přesměrování neznámých cest na 'mollova-sbirka'
   { path: '**', redirectTo: 'mollova-sbirka' }

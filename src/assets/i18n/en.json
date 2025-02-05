@@ -53,5 +53,7 @@
     "other": "Other",
     "molls-catalog": "Moll's Catalog",
     "signature": "Shelf Locator",
-    "sysno_link": "Link to the library catalog"
+    "sysno_link": "Link to the library catalog",
+    "created-by": "Created for MZK by",
+    "supported-by": "Managed by"
 }

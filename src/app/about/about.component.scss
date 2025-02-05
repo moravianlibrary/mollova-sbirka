@@ -117,3 +117,38 @@
         }
     }
 }
+.app-text-logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    .app-text-logo {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        .app-text {
+            display: flex;
+            justify-content: center;
+            color: var(--Text-Light, #706E5C);
+            /* Typesettings/sm/regular */
+            font-family: "Source Sans Pro";
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px; /* 142.857% */
+        }
+        .app-logo-mzk {
+            display: flex;
+            img {
+                width: 124px;
+                height: 38px;
+            }
+        }
+        .app-logo-trinera {
+            display: flex;
+            img {
+                width: 121px;
+                height: 22px;
+            }
+        }     
+    }
+}

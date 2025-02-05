@@ -154,7 +154,7 @@
     }
     .app-search-right {
         display: flex;
-        width: 300px;
+        width: 320px;
         padding: 24px 24px 0 24px;
         flex-direction: column;
         align-items: flex-start;
@@ -208,6 +208,10 @@
                     display: flex;
                     flex-direction: column;
                     gap: 16px;
+                    margin: 0 -12px 0 0;
+                    box-sizing: border-box;
+                    padding: 0 12px 0 0;
+                    width: 100%;
                     &.app-hidden-map {
                         display: grid;
                         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Dynamické sloupce */
@@ -466,3 +470,12 @@
     //   background: orange;
     // }
 }
+.app-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+}
+.mat-mdc-progress-spinner { --mdc-circular-progress-active-indicator-color: #d8b600; }

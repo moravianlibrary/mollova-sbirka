@@ -53,5 +53,7 @@
     "other": "Andere",
     "molls-catalog": "Moll Katalog",
     "signature": "Signatur",
-    "sysno_link": "Link zum Bibliothekskatalog"
+    "sysno_link": "Link zum Bibliothekskatalog",
+    "created-by": "Erstellt für MZK von",
+    "supported-by": "Verwaltet von"
 }
