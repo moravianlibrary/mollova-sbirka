@@ -10,9 +10,9 @@ export class SearchService {
 
     constructor(private apiService: ApiService) { }
 
-    search(query: string) {
+    search(query: string, sort: string) {
         this.loading = true;
-        this.apiService.getSearchResults(query).subscribe((data: any) => {
+        this.apiService.getSearchResults(query, sort).subscribe((data: any) => {
             this.resultsSubject.next(data);
             // console.log('Search results:', this.results$);
             this.loading = false;

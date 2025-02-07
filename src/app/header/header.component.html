@@ -1,11 +1,11 @@
-<div class="app-container grid-container">
-    <div class="app-left col-3">
+<div class="app-container">
+    <div class="app-left">
         <div class="app-logo"></div>
         <div class="app-title" [routerLink]="['mollova-sbirka']" (click)="changeActiveLink('')">
             <h5>{{ 'molls-collection' | translate }}</h5>
         </div>
     </div>
-    <div class="app-right col-9">
+    <div class="app-right">
         <div class="app-nav">
             <a class="app-nav-item" [routerLink]="['hledat']" [class.app-active]="activeLink === 'hledat'">{{'search' | translate}}</a>
             <a class="app-nav-item" [routerLink]="['o-sbirce']" [class.app-active]="activeLink === 'o-sbirce'">{{'about' | translate}}</a>
@@ -13,15 +13,35 @@
             <a class="app-nav-item" [routerLink]="['kontakt']" [class.app-active]="activeLink === 'kontakt'">{{'contacts' | translate}}</a>
         </div>
         <div class="app-lang">
-            <app-button variant="outline" (click)="switchLanguage('cs')" [class.app-icon-hide]="currentLang === 'cs'" iconLeft="cs.svg">
+            <app-button variant="outline" size="small" (click)="switchLanguage('cs')" [class.app-icon-hide]="currentLang === 'cs'" iconLeft="cs.svg">
                 <span>Čeština</span>
             </app-button>
-            <app-button variant="outline" (click)="switchLanguage('de')" [class.app-icon-hide]="currentLang === 'de'" iconLeft="de.svg">
+            <app-button variant="outline" size="small" (click)="switchLanguage('de')" [class.app-icon-hide]="currentLang === 'de'" iconLeft="de.svg">
                 <span>Deutsch</span>
             </app-button>
-            <app-button variant="outline" (click)="switchLanguage('en')" [class.app-icon-hide]="currentLang === 'en'" iconLeft="en.svg">
+            <app-button variant="outline" size="small" (click)="switchLanguage('en')" [class.app-icon-hide]="currentLang === 'en'" iconLeft="en.svg">
                 <span>English</span>
             </app-button>
+        </div>
+        <div class="app-hamburger" (click)="toggleMenu()">
+           <img class="app-icon" src="assets/icons/menu.png" alt="menu" />
+        </div>
+        <div class="app-ham-nav" [class.app-expanded]="menuExpanded">
+            <div class="app-ham-lang">
+                <app-button variant="outline" size="small" (click)="switchLanguage('cs'); menuExpanded = !menuExpanded" [class.app-icon-hide]="currentLang === 'cs'" iconLeft="cs.svg">
+                    <span>Čeština</span>
+                </app-button>
+                <app-button variant="outline" size="small" (click)="switchLanguage('de'); menuExpanded = !menuExpanded" [class.app-icon-hide]="currentLang === 'de'" iconLeft="de.svg">
+                    <span>Deutsch</span>
+                </app-button>
+                <app-button variant="outline" size="small" (click)="switchLanguage('en'); menuExpanded = !menuExpanded" [class.app-icon-hide]="currentLang === 'en'" iconLeft="en.svg">
+                    <span>English</span>
+                </app-button>
+            </div>
+            <a class="app-ham-nav-item" [routerLink]="['hledat']" (click)="menuExpanded = !menuExpanded" [class.app-active]="activeLink === 'hledat'">{{'search' | translate}}</a>
+            <a class="app-ham-nav-item" [routerLink]="['o-sbirce']" (click)="menuExpanded = !menuExpanded" [class.app-active]="activeLink === 'o-sbirce'">{{'about' | translate}}</a>
+            <a class="app-ham-nav-item" [routerLink]="['dalsi-sbirky']" (click)="menuExpanded = !menuExpanded" [class.app-active]="activeLink === 'dalsi-sbirky'">{{'other-collections' | translate}}</a>
+            <a class="app-ham-nav-item" [routerLink]="['kontakt']" (click)="menuExpanded = !menuExpanded" [class.app-active]="activeLink === 'kontakt'">{{'contacts' | translate}}</a>
         </div>
     </div>
 </div>

@@ -1,18 +1,14 @@
-<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_170_2715)">
-<g clip-path="url(#clip1_170_2715)">
-<path d="M-22 -14.5H38V8H-22V-14.5Z" fill="white"/>
-<path d="M-22 8H38V30.5H-22V8Z" fill="#D7141A"/>
-<path d="M9 8L-22 -22V38L9 8Z" fill="#11457E"/>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="cz Czech Republic" clip-path="url(#clip0_2839_38130)">
+<g id="Group 1">
+<path id="Vector" d="M-18 -10.5H42V12H-18V-10.5Z" fill="white"/>
+<path id="Vector_2" d="M-18 12H42V34.5H-18V12Z" fill="#D7141A"/>
+<path id="Vector_3" d="M13 12L-18 -18V42L13 12Z" fill="#11457E"/>
 </g>
 </g>
-<path d="M0.5 4C0.5 2.067 2.067 0.5 4 0.5H12C13.933 0.5 15.5 2.067 15.5 4V12C15.5 13.933 13.933 15.5 12 15.5H4C2.067 15.5 0.5 13.933 0.5 12V4Z" stroke="#DFE5EC"/>
 <defs>
-<clipPath id="clip0_170_2715">
-<path d="M0 4C0 1.79086 1.79086 0 4 0H12C14.2091 0 16 1.79086 16 4V12C16 14.2091 14.2091 16 12 16H4C1.79086 16 0 14.2091 0 12V4Z" fill="white"/>
-</clipPath>
-<clipPath id="clip1_170_2715">
-<rect width="60" height="45" fill="white" transform="translate(-22 -14.5)"/>
+<clipPath id="clip0_2839_38130">
+<rect width="60" height="45" fill="white" transform="translate(-18 -10.5)"/>
 </clipPath>
 </defs>
 </svg>

@@ -9,10 +9,11 @@ import { Subscription } from 'rxjs';
   styleUrl: './about.component.scss'
 })
 export class AboutComponent {
-  activeMenu = 'about';
+  activeMenu = '';
   currentLang: string = '';
 
   private subscriptions: Subscription = new Subscription();
+  menuVisible = false;
 
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;
 
@@ -24,16 +25,19 @@ export class AboutComponent {
   }
 
   ngOnInit() {
+    console.log('AboutComponent ngOnInit', this.activeMenu);
     this.translate.onLangChange.subscribe((event) => {
       this.currentLang = event.lang;
     });
     const urlSub = this.route.url.subscribe((url) => {
       console.log('URL:', url);
       if (url.length === 0 || (url.length === 1 && url[0].path === 'o-sbirce')) {
-        this.router.navigate(['/o-sbirce']);
-        this.activeMenu = 'about';
+        // this.router.navigate(['/o-sbirce', 'o-sbirce']);
+        this.activeMenu = 'o-sbirce';
+        this.menuVisible = true;
       } else {
         this.activeMenu = url[1].path;
+        this.menuVisible = false;
       }
     });
     this.subscriptions.add(urlSub);
@@ -41,9 +45,14 @@ export class AboutComponent {
 
   onMenuClick(item: string) {
     this.activeMenu = item;
+    this.menuVisible = false;
     this.router.navigate(['/o-sbirce', item]);
     if (this.scrollContainer) {
       this.scrollContainer.nativeElement.scrollTo({ top: 0, behavior: 'auto' });
     }
+  }
+  onBackClick() {
+    this.menuVisible = true;
+    this.router.navigate(['/o-sbirce']);
   }
 }

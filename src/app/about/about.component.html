@@ -1,8 +1,12 @@
 <div class="app-about-container">
-    <div class="app-about-menu">
+    <div class="app-about-menu" [class.app-visible]="menuVisible">
         <div class="app-menu-items">
-            <div class="app-menu-item" (click)="onMenuClick('history')" 
-                [class.app-active]="activeMenu === 'history'">
+            <div class="app-menu-item" (click)="onMenuClick('o-sbirce')" 
+                [class.app-active]="activeMenu === 'o-sbirce'">
+                <div class="app-menu-item-text">{{'molls-collection' | translate}}</div>
+            </div>
+            <div class="app-menu-item" (click)="onMenuClick('historie')" 
+                [class.app-active]="activeMenu === 'historie'">
                 <div class="app-menu-item-text">{{'history' | translate}}</div>
             </div>
             <div class="app-menu-item" (click)="onMenuClick('rukopisne-mapy-a-veduty')"
@@ -27,9 +31,12 @@
             </div>
         </div>
     </div>
-    <div class="app-about-content-container" #scrollContainer>
+    <div class="app-about-content-container" #scrollContainer  [class.app-visible]="menuVisible">
         <div class="app-about-content">
-            <div class="app-items" *ngIf="activeMenu === 'about'">
+            <div class="app-icon-back">
+                <img src="assets/icons/back.png" alt="back" (click)="onBackClick()">
+            </div>
+            <div class="app-items" *ngIf="activeMenu === 'o-sbirce'">
                 <div class="app-item">
                     <h1 class="app-header">{{'molls-collection' | translate}}</h1>
                     <div class="app-text-image" *ngIf="currentLang === 'cs'">
@@ -112,7 +119,7 @@
                     </div>
                 </div>
             </div>
-            <div class="app-items" *ngIf="activeMenu === 'history'">
+            <div class="app-items" *ngIf="activeMenu === 'historie'">
                 <div class="app-item">
                     <h1 class="app-header">{{'history' | translate}}</h1>
                     <div class="app-text" *ngIf="currentLang === 'cs'">

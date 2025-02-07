@@ -19,6 +19,8 @@ export class CollectionsComponent implements OnInit, OnDestroy {
 
   mapAreas2: any = [];
 
+  menuVisible = false;
+
   private subscriptions: Subscription = new Subscription();
 
   constructor(private collectionService: CollectionService,
@@ -32,10 +34,12 @@ export class CollectionsComponent implements OnInit, OnDestroy {
       console.log('URL:', url);
       if (url.length === 0 || (url.length === 1 && url[0].path === 'mollova-sbirka')) {
         this.router.navigate(['/mollova-sbirka']);
+        this.menuVisible = true;
         this.map = true;
       } else {
         this.collectionPid = url[1].path;
         this.collectionService.setContext(this.collectionPid);
+        this.menuVisible = false;
         this.map = false;
       }
     });
@@ -76,6 +80,7 @@ export class CollectionsComponent implements OnInit, OnDestroy {
       console.log('Navigate to:', this.collectionService.collectionIndex);
       let url = Object.keys(this.collectionService.collectionIndex).find(pid => this.collectionService.collectionIndex[pid] === title);
       console.log('url:', url);
+      this.menuVisible = false;
       this.router.navigate(['/mollova-sbirka', url]);
     }
   }

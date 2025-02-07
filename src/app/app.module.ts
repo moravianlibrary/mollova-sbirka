@@ -21,6 +21,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ContentComponent } from './collections/content/content.component';
 
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatMenuModule } from '@angular/material/menu';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CollectionComponent } from './collections/content/collection/collection.component';
 import { MapComponent } from './collections/content/map/map.component';
@@ -62,6 +64,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     AppRoutingModule,
     HttpClientModule,
     MatTooltipModule,
+    MatMenuModule,
+    BrowserAnimationsModule,
     MatProgressSpinnerModule,
     FormsModule,
     NgxSliderModule,

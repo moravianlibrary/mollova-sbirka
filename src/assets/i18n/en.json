@@ -55,5 +55,8 @@
     "signature": "Shelf Locator",
     "sysno_link": "Link to the library catalog",
     "created-by": "Created for MZK by",
-    "supported-by": "Managed by"
+    "supported-by": "Managed by",
+    "alphabet": "Alphabetically",
+    "newest": "Newest",
+    "oldest": "Oldest"
 }

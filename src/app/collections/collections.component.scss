@@ -8,7 +8,6 @@
     // user-select: none;
     .app-menu {
         display: flex;
-        // width: 300px;
         width: $menu-width;
         flex-direction: column;
         overflow: auto;
@@ -66,6 +65,47 @@
     fill: $color-gold-transparent ; /* Modrá barva s průhledností */
     stroke: #38372E;
     cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+    .app-container {
+        .app-menu {
+           width: 200px;
+        }
+        .app-map {
+            width: calc(100% - 200px);
+            margin: 0;
+            padding: 0;
+        }
+    }
+    .map-area {
+        stroke-width: 4;
+        stroke: #38372E;
+        fill: rgba(255, 204, 0, 0.20);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .app-container {
+        .app-menu {
+           display: none;
+           width: 100%;
+           box-sizing: border-box;
+           &.app-visible {
+               display: flex;
+           }
+        }
+        .app-map {
+            display: none;
+        }
+        .app-content {
+            display: none;
+            width: 100%;
+            &.app-visible {
+                display: flex;
+            }
+        }
+    }
 }
   
   

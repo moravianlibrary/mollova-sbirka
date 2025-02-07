@@ -23,6 +23,9 @@ export class SearchComponent {
   itemType: string = 'map';
   results: any;
   mapHidden: boolean = false;
+  selectedSort: string = 'relevance';
+  sortedResults: any;
+  sortQuery: string = '';
 
   // PAGINATION
   pages: any[] = [];
@@ -31,6 +34,7 @@ export class SearchComponent {
   currentPage: number;
   lastPage: number;
   count: number;
+  searchVisible: boolean = true;
 
   private subscriptions: Subscription = new Subscription();
 
@@ -415,9 +419,11 @@ export class SearchComponent {
       this.currentPage = parseInt(params['page']) || 1;
   
       // Načtení dat po aktualizaci parametrů
-      this.searchService.search(this.buildQuery());
+      this.searchService.search(this.buildQuery(), this.sortQuery);
       this.searchService.results$.subscribe((data: any) => {
         this.results = data['response']['docs'];
+        this.sortedResults = this.results;
+        console.log('results', this.results);
         this.count = data['response']['numFound'];
         if (this.count > 100) {
           this.pages = Array.from({length: Math.ceil(this.count / 100)}, (_, i) => i + 1);
@@ -436,11 +442,9 @@ export class SearchComponent {
           } else {
             this.displayedFirstPages = this.pages;
           }
-          
         } else {
-          this.pages = [];
-          this.displayedFirstPages = [];
-          this.displayedLastPages = [];
+          this.pages = Array.from({length: Math.ceil(this.count / 100)}, (_, i) => i + 1);
+          this.currentPage = 1;
         }
         this.loading = false;
         setTimeout(() => {
@@ -490,7 +494,7 @@ export class SearchComponent {
 
   search() {
     this.updateUrlParams();
-    this.searchService.search(this.buildQuery());
+    this.searchService.search(this.buildQuery(), this.sortQuery);
   }
 
   buildQuery() {
@@ -589,6 +593,22 @@ export class SearchComponent {
   showMap() {
     this.mapHidden = false;
   }
-
+  toggleSearchVisibility() {
+    this.searchVisible = !this.searchVisible;
+  }
+  sortBy(sort: string) {
+    console.log('sort', sort);
+    this.selectedSort = sort;
+    if (sort === 'relevance') {
+      this.sortQuery = '';
+    } else if (sort === 'alphabet') {
+      this.sortQuery = '&sort=title.sort asc';
+    } else if (sort === 'newest') {
+      this.sortQuery = '&sort=date.max desc, date.min desc';
+    } else if (sort === 'oldest') {
+      this.sortQuery = '&sort=date.min asc, date.max asc';
+    }
+    this.search();
+  }
 
 }

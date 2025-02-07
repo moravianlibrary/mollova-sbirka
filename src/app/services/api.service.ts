@@ -36,9 +36,9 @@ export class ApiService {
             `${this.apiUrl}q=own_parent.pid:"${pid}"&fl=pid,model,page.type,page.number&sort=rels_ext_index.sort asc&rows=4000&start=0`
         );
     }
-    getSearchResults(query: string): Observable<Object> {
+    getSearchResults(query: string, sort: string): Observable<Object> {
         return this.doGet(
-            `${this.apiUrl}${query}&fl=pid,model,authors,titles.search,title.search,root.title,coords.bbox.corner_ne,coords.bbox.center,coords.bbox.corner_sw,date.str&rows=100`
+            `${this.apiUrl}${query}&fl=pid,model,authors,titles.search,title.search,root.title,coords.bbox.corner_ne,coords.bbox.center,coords.bbox.corner_sw,date.str,date_range_end.year,date_range_start.year&rows=100${sort}`
         );
     }
 

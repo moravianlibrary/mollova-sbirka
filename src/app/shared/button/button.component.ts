@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { MatMenu } from '@angular/material/menu';
 
 @Component({
   selector: 'app-button',
@@ -11,4 +12,5 @@ export class ButtonComponent {
   @Input() iconLeft?: string; // Název ikonky pro levý ikon
   @Input() iconRight?: string; // Název ikonky pro pravý ikon
   @Input() disabled: boolean = false;
+  @Input() matMenuTriggerFor: MatMenu;
 }

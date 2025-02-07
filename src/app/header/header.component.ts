@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
   currentLang: string = '';
   activeLink: string = '';
+  menuExpanded = false;
 
   constructor(private translate: TranslateService,
               private router: Router
@@ -30,5 +31,10 @@ export class HeaderComponent {
   changeActiveLink(link: string): void {
     this.activeLink = link;
   }
+
+  toggleMenu(): void {
+    this.menuExpanded = !this.menuExpanded;
+  }
+
 
 }

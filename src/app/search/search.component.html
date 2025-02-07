@@ -1,30 +1,24 @@
 <div class="app-search-container" *ngIf="!loading">
   <div class="app-search-left">
+    <div class="app-expand-icon" (click)="toggleSearchVisibility()">
+      <img [src]="searchVisible ? 'assets/icons/arrow-down-small-black.png' : 'assets/icons/arrow-up-small-black.png'" alt="arrow"/>
+    </div>
     <!-- VYHLEDAVANI -->
-    <div class="app-filter-item">
+    <div class="app-search-hidden" *ngIf="!searchVisible">
+      <div class="app-hidden-text">{{ "search" | translate }}</div>
+    </div>
+    <div class="app-filter-item" *ngIf="searchVisible">
       <div class="app-text">{{ "search" | translate }}</div>
       <div class="app-search">
-        <input
-          type="text"
-          class="app-search-input"
+        <input type="text" class="app-search-input"
           [(ngModel)]="searchText"
-          (keyup.enter)="search()"
-        />
-        <img
-          class="app-search-icon"
-          src="assets/icons/search-normal.png"
-          (click)="search()"
-        />
-        <img
-          *ngIf="searchText && searchText.length > 0"
-          class="app-close-icon"
-          src="assets/icons/close-circle.png"
-          (click)="clearSearch()"
-        />
+          (keyup.enter)="search()"/>
+        <img class="app-search-icon" src="assets/icons/search-normal.png" (click)="search()"/>
+        <img *ngIf="searchText && searchText.length > 0" class="app-close-icon" src="assets/icons/close-circle.png" (click)="clearSearch()"/>
       </div>
     </div>
     <!-- TIMELINE -->
-    <div class="app-filter-item">
+    <div class="app-filter-item" *ngIf="searchVisible">
       <div class="app-text">{{ "timeline" | translate }}</div>
       <div class="app-slider">
         <ngx-slider
@@ -88,45 +82,20 @@
       </google-map>
     </div>
     <div class="app-footer">
-      <app-button
-        variant="primary"
-        iconLeft="map-slash.png"
-        (click)="hideMap()"
-      >
-        {{ "map-hide" | translate }}
-      </app-button>
+      <app-button variant="primary" iconLeft="map-slash.png" (click)="hideMap()">{{ "map-hide" | translate }}</app-button>
     </div>
   </div>
-  <div
-    class="app-search-right"
-    [ngClass]="{ 'app-search-right-full': mapHidden }"
-  >
+  <div class="app-search-right" [ngClass]="{ 'app-search-right-full': mapHidden }">
     <div class="app-results-wrapper">
       <div class="app-results-header">
-        <app-button
-          variant="primary"
-          size="small"
-          iconRight="arrow-down-small.png"
-        >
-          {{ "relevance" | translate }}
-        </app-button>
-        <div class="app-results-count">
-          {{ "all-results" | translate }}<b> ({{ count }})</b>
-        </div>
+        <app-button variant="primary" size="small" iconRight="arrow-down-small.png" [matMenuTriggerFor]="menu">{{ selectedSort | translate }}</app-button>
+        <div class="app-results-count">{{ "all-results" | translate }}<b> ({{ count }})</b></div>
       </div>
       <div class="app-results">
-        <div
-          class="app-result-cards"
-          [ngClass]="{ 'app-hidden-map': mapHidden }"
-          *ngIf="!searchService.loading"
-        >
-          <a
-            class="app-result-card"
-            *ngFor="let map of results"
-            [routerLink]="['/mollova-sbirka', map.pid]"
+        <div class="app-result-cards" [ngClass]="{ 'app-hidden-map': mapHidden }" *ngIf="!searchService.loading">
+          <a class="app-result-card" *ngFor="let map of sortedResults" [routerLink]="['/mollova-sbirka', map.pid]"
             (mouseenter)="highlightMap(map)"
-            (mouseleave)="unhighlightMap(map)"
-          >
+            (mouseleave)="unhighlightMap(map)">
             <div class="app-result-text">
               <div class="app-title" [matTooltip]="map['title.search']">
                 {{ map["title.search"] }}
@@ -135,12 +104,7 @@
               <div class="app-author">{{ map["authors"] }}</div>
             </div>
             <div class="app-result-image">
-              <img
-                [src]="getImageUrl(map['pid'])"
-                alt="map-image"
-                width="100"
-                height="100"
-              />
+              <img [src]="getImageUrl(map['pid'])" alt="map-image" width="100" height="100"/>
             </div>
             <div class="app-card-overlay"></div>
           </a>
@@ -148,12 +112,7 @@
         <div class="app-paginator" *ngIf="pages.length > 1 && !mapHidden">
           <div class="app-pages">
             <div class="app-page-items">
-              <div
-                class="app-page"
-                *ngFor="let page of displayedFirstPages"
-                [ngClass]="{ 'app-active': page === currentPage }"
-                (click)="changePage(page)"
-              >
+              <div class="app-page" *ngFor="let page of displayedFirstPages" [ngClass]="{ 'app-active': page === currentPage }" (click)="changePage(page)">
                 {{ page }}
               </div>
             </div>
@@ -163,28 +122,15 @@
                 class="app-page"
                 *ngFor="let page of displayedLastPages"
                 [ngClass]="{ 'app-active': page === currentPage }"
-                (click)="changePage(page)"
-              >
+                (click)="changePage(page)">
                 {{ page }}
               </div>
             </div>
           </div>
           <div class="app-navigation">
-            <div
-              class="app-navigation-button"
-              (click)="changePage(currentPage - 1)"
-              [ngClass]="{ disabled: currentPage === 1 }"
-            >
-              <img
-                *ngIf="currentPage === 1"
-                class="app-navigation-icon"
-                src="assets/icons/arrow-left-grey.png"
-              />
-              <img
-                *ngIf="currentPage > 1"
-                class="app-navigation-icon"
-                src="assets/icons/arrow-left-white.png"
-              />
+            <div class="app-navigation-button" (click)="changePage(currentPage - 1)" [ngClass]="{ disabled: currentPage === 1 }">
+              <img *ngIf="currentPage === 1" class="app-navigation-icon" src="assets/icons/arrow-left-grey.png"/>
+              <img *ngIf="currentPage > 1" class="app-navigation-icon" src="assets/icons/arrow-left-white.png"/>
             </div>
             <div
               class="app-navigation-button"
@@ -237,41 +183,18 @@
             </div>
           </div>
           <div class="app-navigation">
-            <div
-              class="app-navigation-button"
-              (click)="changePage(currentPage - 1)"
-              [ngClass]="{ disabled: currentPage === 1 }"
-            >
-              <img
-                *ngIf="currentPage === 1"
-                class="app-navigation-icon"
-                src="assets/icons/arrow-left-grey.png"
-              />
-              <img
-                *ngIf="currentPage > 1"
-                class="app-navigation-icon"
-                src="assets/icons/arrow-left-white.png"
-              />
+            <div class="app-navigation-button" (click)="changePage(currentPage - 1)" [ngClass]="{ disabled: currentPage === 1 }">
+              <img *ngIf="currentPage === 1" class="app-navigation-icon" src="assets/icons/arrow-left-grey.png"/>
+              <img *ngIf="currentPage > 1" class="app-navigation-icon" src="assets/icons/arrow-left-white.png"/>
             </div>
-            <div
-              class="app-navigation-button"
-              (click)="changePage(currentPage + 1)"
-              [ngClass]="{ disabled: currentPage === lastPage }"
-            >
-              <img
-                *ngIf="currentPage !== lastPage"
-                class="app-navigation-icon"
-                src="assets/icons/arrow-right-white.png"
-              />
-              <img
-                *ngIf="currentPage === lastPage"
-                class="app-navigation-icon"
-                src="assets/icons/arrow-right-grey.png"
-              />
+            <div class="app-navigation-button" (click)="changePage(currentPage + 1)" [ngClass]="{ disabled: currentPage === lastPage }">
+              <img *ngIf="currentPage !== lastPage" class="app-navigation-icon" src="assets/icons/arrow-right-white.png"/>
+              <img *ngIf="currentPage === lastPage" class="app-navigation-icon" src="assets/icons/arrow-right-grey.png"/>
             </div>
           </div>
         </div>
       </div>
+
       <div class="app-loader" *ngIf="searchService.loading">
         {{ "loading" | translate }}
       </div>
@@ -281,3 +204,10 @@
 <div class="app-loading" *ngIf="loading">
   <mat-spinner></mat-spinner>
 </div>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item *ngIf="selectedSort !== 'relevance'" (click)="sortBy('relevance')">{{'relevance' | translate}}</button>
+  <button mat-menu-item *ngIf="selectedSort !== 'alphabet'" (click)="sortBy('alphabet')">{{'alphabet' | translate}}</button>
+  <button mat-menu-item *ngIf="selectedSort !== 'oldest'" (click)="sortBy('oldest')">{{'oldest' | translate}}</button>
+  <button mat-menu-item *ngIf="selectedSort !== 'newest'" (click)="sortBy('newest')">{{'newest' | translate}}</button>
+</mat-menu>

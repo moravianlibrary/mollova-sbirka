@@ -1,11 +1,13 @@
 @import '../../styles.scss';
 
 .app-container {
+    display: flex;
     border-bottom: 1px solid #EFF2F5;
     background: #FFF;
     padding: 0px var(--Spacing-x6, 24px); 
     .app-left {
         display: flex;
+        width: 25%;
         align-items: center;
         gap: 8px;
         flex-shrink: 0;
@@ -24,6 +26,7 @@
     }
     .app-right {
         display: flex;
+        width: 75%;
         justify-content: center;
         align-items: center;
         gap: var(--Spacing-x4, 16px);
@@ -69,5 +72,96 @@
             //     }
             // }
         }
+        .app-hamburger {
+            display: none;
+            cursor: pointer;
+            .app-icon {
+                display: flex;
+                width: 24px;
+                height: 24px;
+            }
+        }
+        .app-ham-nav {
+            display: none;
+            position: absolute;
+            top: 44px;
+            right: 0;
+            background: #FFF;
+            border: 1px solid #EFF2F5;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            padding: 8px;
+            flex-direction: column;
+            z-index: 100;
+            .app-ham-lang {
+                // display: flex;
+                // justify-content: center;
+                .app-icon-hide {
+                    display: none;
+                }
+            }
+            .app-ham-nav-item {
+                display: flex;
+                justify-content: center;
+                padding: 12px 16px;
+                align-items: center;
+                gap: var(--Spacing-x4, 16px);
+                /* Typesettings/md/medium */
+                font-family: "Source Sans Pro";
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                cursor: pointer;
+                color: var(--Text-Secondary, #38372E);
+                text-decoration: none;
+                &:hover, &.app-active {
+                    background: var(--BG-Main-Light, #F8F8F7);
+                }
+            }
+        }
     }
+}
+@media screen and (max-width: 1100px) {
+    .app-container {
+        .app-right {
+            .app-lang {
+                display: none;
+            }
+            .app-hamburger {
+                display: flex;
+            }
+            .app-ham-nav {
+                display: none;
+                .app-ham-nav-item {
+                    display: none;
+                }
+                &.app-expanded {
+                    display: flex;
+                }
+            }
+        }
+    }
+    
+}
+@media screen and (max-width: 800px) {
+    .app-container {
+        height: 44px;
+        .app-left {
+            width: 75%;
+        }
+        .app-right {
+            justify-content: flex-end;
+            .app-nav {
+                display: none;
+            }
+            .app-ham-nav {
+                .app-ham-nav-item {
+                    display: flex;
+                }
+                &.app-expanded {
+                    display: flex;
+                }
+            }
+        }
+    }
+    
 }

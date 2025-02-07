@@ -55,5 +55,8 @@
     "signature": "Signatura",
     "sysno_link": "Odkaz do knihovního katalogu",
     "created-by": "Pro MZK vytvořila",
-    "supported-by": "Spravuje"
+    "supported-by": "Spravuje",
+    "alphabet": "Abecedně",
+    "newest": "Nejnovější",
+    "oldest": "Nejstarší"
 }

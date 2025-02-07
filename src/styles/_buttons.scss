@@ -11,7 +11,7 @@
     text-decoration: none;
     padding: $padding-medium;
     border-radius: $border-radius;
-    border: 1px solid transparent;
+    // border: 1px solid transparent;
     cursor: pointer;
     outline: none;
   
@@ -33,21 +33,32 @@
   
     /* Default umístění ikon před textem */
     .btn-icon-left {
-      margin-right: 8px; /* Mezery mezi ikonou a textem */
+      display: flex;
+      margin-right: 8px; /* Mezery mezi textem a ikonou */
+      align-items: center;
+      gap: var(--Spacing-x3, 12px);
+      border-radius: 4px;
+      
     }
   
     .btn-icon-right {
+      display: flex;
       margin-left: 8px; /* Mezery mezi textem a ikonou */
+      align-items: center;
+      gap: var(--Spacing-x3, 12px);
+      border-radius: 4px;
     }
   
     /* Varianty tlačítek */
     &.btn-primary {
       background-color: $color-btn-primary;
       color: $color-text-light;
+      border: 1px solid $color-btn-primary;
   
       &:hover {
         background-color: $color-btn-primary-hover;
         box-shadow: 0 6px 8px $color-shadow-hover;
+        border: 1px solid $color-btn-primary-hover;
       }
       &:active {
         background-color: $color-btn-primary-pressed;
@@ -67,12 +78,21 @@
     &.btn-outline {
       background-color: transparent;
       color: $color-text-dark;
-      border: $border-width $border-style $color-primary;
+      border: 1px solid #ffffff;
   
       &:hover {
         background-color: $color-primary;
         color: $color-text-dark;
+        border-radius: var(--spacing-x-05, 2px);
+        border-color: var(--Boarder-Tertiary-Hover, #BA9D00);
+        .btn-icon-left,.btn-icon-right {
+          border-radius: var(--spacing-x-05, 2px);
+          border-color: var(--Boarder-Tertiary-Hover, #BA9D00);
+        }
         // box-shadow: 0 6px 8px $color-shadow-hover;
+      }
+      .btn-icon-left,.btn-icon-right {
+        border: 1px solid var(--Boarder-Bright, #E8E8E3);
       }
     }
   

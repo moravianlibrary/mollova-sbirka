@@ -49,21 +49,15 @@
             <div class="app-card-content">
               <a class="app-card-title-container" [routerLink]="['/mollova-sbirka', item.pid]">
                 <h5 class="app-card-title" [matTooltip]="getChildrenTitle(item)">{{ getChildrenTitle(item) }}</h5>
-                <img
-                  class="app-card-icon default-icon"
-                  src="assets/icons/arrow.png"
-                />
-                <img
-                  class="app-card-icon hover-icon"
-                  src="assets/icons/arrow-gold.png"
-                />
+                <img class="app-card-icon default-icon" src="assets/icons/arrow.png"/>
+                <img class="app-card-icon hover-icon" src="assets/icons/arrow-gold.png"/>
               </a>
               <div class="app-card-text">
                 {{ getChildrenDescription(item) }}
               </div>
-              <div class="app-card-sign">
+              <!-- <div class="app-card-sign">
                 {{ "old_signature" | translate }}:
-              </div>
+              </div> -->
               <div *ngIf="item?.shelf_locators?.[0]" class="app-card-sign">
                 {{ "new_signature" | translate }}: {{ item.shelf_locators[0] }}
               </div>
@@ -74,25 +68,10 @@
     </div>
   </div>
   <div class="app-bottom-nav">
-    <div
-      class="app-nav-button"
-      (click)="scrollTo(showMoreInfo ? 'map' : 'info')"
-    >
-      <div class="app-text" *ngIf="showMoreInfo">
-        {{ "back-to-map" | translate }}
-      </div>
-      <div class="app-text" *ngIf="!showMoreInfo">
-        {{ "more-info" | translate }}
-      </div>
-      <img
-        class="app-icon"
-        [src]="
-          showMoreInfo
-            ? 'assets/icons/arrow-up.png'
-            : 'assets/icons/arrow-down.png'
-        "
-        alt="arrow"
-      />
+    <div class="app-nav-button" (click)="scrollTo(showMoreInfo ? 'map' : 'info')">
+      <div class="app-text" *ngIf="showMoreInfo">{{ "back-to-map" | translate }}</div>
+      <div class="app-text" *ngIf="!showMoreInfo">{{ "more-info" | translate }}</div>
+      <img class="app-icon" [src]="showMoreInfo ? 'assets/icons/arrow-up.png' : 'assets/icons/arrow-down.png'" alt="arrow"/>
     </div>
     <div class="app-right-nav">
       <div class="app-text">{{ "other-map" | translate }} {{getParentTitle()}}</div>

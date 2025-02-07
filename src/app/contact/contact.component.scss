@@ -176,3 +176,37 @@
         }
     }
 }
+
+@media screen and (max-width: 1100px) {
+    .app-container {
+        .app-parts {
+            flex-direction: column;
+            gap: 20px;
+            .app-part-faq {
+                width: 100%;
+            }
+            .app-part-contact {
+                width: 100%;
+            }
+        }
+        .app-footer {
+            padding: 0px 0 48px 0;
+        }
+    }    
+}
+
+@media screen and (max-width: 700px) {
+    .app-container {
+        .app-parts {
+            width: 90%;
+            box-sizing: border-box;
+            padding: 28px 0;
+        }
+        .app-footer {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 28px;
+            justify-content: center;
+        }
+    }    
+}
