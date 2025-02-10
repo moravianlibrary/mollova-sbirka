@@ -67,45 +67,61 @@ export class MenuComponent implements OnInit, OnDestroy {
         //   }
         // });
         // this.subscription.add(collectionIndexSub);
+        console.log('PID:', pid);
         const collectionStructureSub = this.collectionService.collectionStructure$.subscribe((collectionStructure) => {
           if (collectionStructure) {
+            let found = false;
+
             for (const item of collectionStructure) {
               for (const child of item.children) {
                 if (child.pid === pid) {
+                  console.log('Open child:', child.title);
                   this.onOpenChild(child.title);
                   this.activeChild = child.title;
+                  found = true;
                   break;
-                } else if (child.children) {
+                }
+                if (child.children) {
                   for (const subChild of child.children) {
                     if (subChild.pid === pid) {
+                      console.log('Open subchild:', subChild.title);
                       this.onOpenChild(child.title);
                       this.activeChild = subChild.title;
+                      found = true;
                       break;
                     }
                   }
-                } else {
-                  this.collectionService.getParentPid(pid).subscribe((parentPid) => {
-                    console.log('Parent PID:', parentPid);
-                    for (const item of collectionStructure) {
-                      for (const child of item.children) {
-                        if (child.pid === parentPid) {
+                }
+                if (found) {
+                  break;
+                }
+              }
+              if (found) {
+                break;
+              }
+            }
+
+            if (!found) {
+              this.collectionService.getParentPid(pid).subscribe((parentPid) => {
+                console.log('Parent PID:', parentPid);
+                for (const item of collectionStructure) {
+                  for (const child of item.children) {
+                    if (child.pid === parentPid) {
+                      this.onOpenChild(child.title);
+                      this.activeChild = child.title;
+                      break;
+                    } else if (child.children) {
+                      for (const subChild of child.children) {
+                        if (subChild.pid === parentPid) {
                           this.onOpenChild(child.title);
-                          this.activeChild = child.title;
+                          this.activeChild = subChild.title;
                           break;
-                        } else if (child.children) {
-                          for (const subChild of child.children) {
-                            if (subChild.pid === parentPid) {
-                              this.onOpenChild(child.title);
-                              this.activeChild = subChild.title;
-                              break;
-                            }
-                          }
                         }
                       }
                     }
-                  });
+                  }
                 }
-              }
+              });
             }
           } else {
             console.warn('Collection structure is not available.');

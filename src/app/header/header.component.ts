@@ -20,7 +20,9 @@ export class HeaderComponent {
     this.currentLang = this.translate.currentLang;
     this.router.events.subscribe((val) => {
       console.log('Router:', this.router.url.split('/')[1]);
-      this.activeLink = this.router.url.split('/')[1];
+      if (this.router.url.split('/')[1] !== 'mollova-sbirka') {
+        this.activeLink = this.router.url.split('/')[1];
+      }
     });
   }
 
