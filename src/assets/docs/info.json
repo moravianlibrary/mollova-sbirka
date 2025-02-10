@@ -1,0 +1,70 @@
+{
+    "extraQualities": [
+        "color",
+        "gray",
+        "bitonal"
+    ],
+    "profile": "level2",
+    "type": "ImageService3",
+    "extraFeatures": [
+        "regionByPct",
+        "sizeByForcedWh",
+        "sizeByWh",
+        "sizeAboveFull",
+        "sizeUpscaling",
+        "rotationBy90s",
+        "mirroring"
+    ],
+    "@context": "http://iiif.io/api/image/3/context.json",
+    "tiles": [
+        {
+            "scaleFactors": [
+                1,
+                2,
+                4,
+                8,
+                16,
+                32,
+                64
+            ],
+            "width": 256,
+            "height": 256
+        }
+    ],
+    "protocol": "http://iiif.io/api/image",
+    "sizes": [
+        {
+            "width": 129,
+            "height": 94
+        },
+        {
+            "width": 258,
+            "height": 188
+        },
+        {
+            "width": 517,
+            "height": 377
+        },
+        {
+            "width": 1034,
+            "height": 755
+        },
+        {
+            "width": 2068,
+            "height": 1510
+        },
+        {
+            "width": 4137,
+            "height": 3021
+        }
+    ],
+    "maxHeight": 4294967295,
+    "width": 8274,
+    "extraFormats": [
+        "webp"
+    ],
+    "id": "http://imageserver.mzk.cz/mzk03/001/048/728/2619269794",
+    "@id": "https://api.kramerius.mzk.cz/search/iiif/uuid:380089de-ca87-4fe6-935c-9f41b56e4757",
+    "height": 6042,
+    "maxWidth": 4294967295
+}

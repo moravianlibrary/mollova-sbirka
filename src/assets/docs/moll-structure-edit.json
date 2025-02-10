@@ -1189,12 +1189,12 @@
             "title": "Atlantis Austriaci Vol. X, Tom. XV-XVI",
             "parts": [
               {
-                "name": "",
-                "pid": ""
+                "name": "Kraňsko I",
+                "pid": "uuid:02d3be48-da02-4f71-ba4a-79efdcf16a09"
               },
               {
-                "name": "",
-                "pid": ""
+                "name": "Kraňsko II",
+                "pid": "uuid:b65e1dfd-37a8-4119-896f-6d91c8ac0c91"
               }
             ],
             "model": "manuscript",
@@ -1207,12 +1207,12 @@
             "title": "Atlantis Austriaci Vol. XI, Tom. XVII-XVIII",
             "parts": [
               {
-                "name": "",
-                "pid": ""
+                "name": "Štýrsko I",
+                "pid": "uuid:e509e295-1d7d-41a6-8186-13d3d7da568e"
               },
               {
-                "name": "",
-                "pid": ""
+                "name": "Štýrsko II",
+                "pid": "uuid:fc7bc3cb-9054-467a-b56e-abef2500d8ef"
               }
             ],
             "model": "manuscript",
@@ -1225,8 +1225,8 @@
             "title": "Atlantis Austriaci Vol. XII, Tom. XIX",
             "parts": [
               {
-                "name": "",
-                "pid": ""
+                "name": "Štýrsko III",
+                "pid": "uuid:955ea413-ae93-4ef8-8289-be60fb5458ae"
               }
             ],
             "model": "manuscript",
@@ -1239,20 +1239,20 @@
             "title": "Atlantis Austriaci Vol. XIII, Tom. XX-XXIII",
             "parts": [
               {
-                "name": "",
-                "pid": ""
+                "name": "Čechy I",
+                "pid": "uuid:0b1f606f-c8c1-4db6-be96-844292e716b2"
               },
               {
-                "name": "",
-                "pid": ""
+                "name": "Čechy II",
+                "pid": "uuid:cc6d8c77-18b3-44a1-b18a-82ebeeec0746"
               },
               {
-                "name": "",
-                "pid": ""
+                "name": "Moravo",
+                "pid": "uuid:25184205-f778-46c0-be1e-36eef30c994c"
               },
               {
-                "name": "",
-                "pid": ""
+                "name": "Slezsko",
+                "pid": "uuid:d695d105-f7bf-4cfe-9648-218c4c9578d9"
               }
             ],
             "model": "manuscript",
@@ -1265,32 +1265,32 @@
             "title": "Atlantis Austriaci Vol. XIV, Tom. XXIV-XXX",
             "parts": [
               {
-                "name": "",
-                "pid": ""
+                "name": "Rakouské Nizozemí I",
+                "pid": "uuid:d9e9d0e4-42ee-4013-b4bf-27d3bebbf15f"
               },
               {
-                "name": "",
-                "pid": ""
+                "name": "Rakouské Nizozemí II",
+                "pid": "uuid:9bc641d8-2702-4ad1-916a-c70adb105303"
               },
               {
-                "name": "",
-                "pid": ""
+                "name": "Rakouské Nizozemí III",
+                "pid": "uuid:958097f8-ec44-411e-aebd-0f52f9eec71e"
               },
               {
-                "name": "",
-                "pid": ""
+                "name": "Rakouské Nizozemí IV",
+                "pid": "uuid:8e4b1d62-bb6a-4ee4-8858-cca82ea86877"
               },
               {
-                "name": "",
-                "pid": ""
+                "name": "Spojené nizozemské provincie I",
+                "pid": "uuid:1f2e0735-074c-4947-9480-0f37c27012e8"
               },
               {
-                "name": "",
-                "pid": ""
+                "name": "Spojené nizozemské provincie II",
+                "pid": "uuid:458bcfa9-9c6e-438b-8f74-beb3813cbc0f"
               },
               {
-                "name": "",
-                "pid": ""
+                "name": "Spojené nizozemské provincie III",
+                "pid": "uuid:dac9654c-514b-4a41-86f3-c6353233c4dd"
               }
             ],
             "model": "manuscript",
@@ -1303,8 +1303,44 @@
             "title": "Atlantis Austriaci Vol. XV, Tom. XXXI-XL",
             "parts": [
               {
-                "name": "",
-                "pid": ""
+                "name": "Obecné mapy Itálie",
+                "pid": "uuid:4d173639-48a2-494b-846a-23237f4eb81e"
+              },
+              {
+                "name": "Sardinské království",
+                "pid": "uuid:f2f3fc61-7451-437e-83aa-41133fbf4b57"
+              },
+              {
+                "name": "Benátská republika",
+                "pid": "uuid:d5de2f7d-40df-4265-86d3-4d80ed74c1aa"
+              },
+              {
+                "name": "Milánsko",
+                "pid": "uuid:3599058f-50c1-4424-b1c7-115a7e9feab7"
+              },
+              {
+                "name": "Modena, Parma a Janov",
+                "pid": "uuid:283e8a44-2f7f-409e-86a2-6f4242142ca1"
+              },
+              {
+                "name": "Církevní stát I",
+                "pid": "uuid:2f7f11a1-5d1f-453f-b88a-a8cbe0ba0cf7"
+              },
+              {
+                "name": "Církevní stát II",
+                "pid": "uuid:64790452-0ac0-442c-a8fc-4752234db5f8"
+              },
+              {
+                "name": "Církevní stát III",
+                "pid": "uuid:003607de-a5e2-4de7-b1ca-412b5d14f93d"
+              },
+              {
+                "name": "Toskánsko",
+                "pid": "uuid:3cbb6f55-99cb-450a-8c64-c3b9b5acc8dc"
+              },
+              {
+                "name": "Neapolsko-sicilské království",
+                "pid": "uuid:b081f2d6-942d-4e0e-9cec-60cbe957dc7b"
               }
             ],
             "model": "manuscript",
@@ -1317,8 +1353,20 @@
             "title": "Atlantis Austriaci Vol. XVI, Tom. XLI-XLIV",
             "parts": [
               {
-                "name": "",
-                "pid": ""
+                "name": "Obecné mapy Uher",
+                "pid": "uuid:ef6c63a6-43c8-41f3-81cb-7198aec075ee"
+              },
+              {
+                "name": "Horní a Dolní Uhry",
+                "pid": "uuid:2544b317-0e7f-4501-a8f0-c2104b5a49db"
+              },
+              {
+                "name": "Chorvatsko, Dalmácie a Slavonie",
+                "pid": "uuid:f5272ced-8566-4a43-b2e7-1b0701e4102e"
+              },
+              {
+                "name": "Temešvárský Banát a Sedmihradsko",
+                "pid": "uuid:b8d94794-7668-45ed-baf0-feb3bba85c4d"
               }
             ],
             "model": "manuscript",
@@ -1331,8 +1379,24 @@
             "title": "Atlantis Germanici Vol. I, Tom. I-V",
             "parts": [
               {
-                "name": "",
-                "pid": ""
+                "name": "Obecné mapy Německé říše",
+                "pid": "uuid:78eaaf1e-03ab-40f9-b50e-37511555790d"
+              },
+              {
+                "name": "Bavorský kraj I",
+                "pid": "uuid:d7b8d904-1f7f-43b6-9f4f-45883db5528c"
+              },
+              {
+                "name": "Bavorský kraj II",
+                "pid": "uuid:5205cf8b-9eb5-49f8-bd51-d49622fe5713"
+              },
+              {
+                "name": "Francký kraj I",
+                "pid": "uuid:cd3ae1d1-787b-4a54-9ed6-e2925d64777b"
+              },
+              {
+                "name": "Francký kraj II",
+                "pid": "uuid:7ea41092-b0cb-4413-bd34-1b33d76cb799"
               }
             ],
             "model": "manuscript",
@@ -1345,8 +1409,24 @@
             "title": "Atlantis Germanici Vol. II, Tom. VI-X",
             "parts": [
               {
-                "name": "",
-                "pid": ""
+                "name": "Hornorýnský kraj I",
+                "pid": "uuid:6dfcac77-abf8-41e1-acc9-dc75c410e8e5"
+              },
+              {
+                "name": "Hornorýnský kraj II",
+                "pid": "uuid:7deb0ea9-e4d1-44b4-8d91-22672538bac6"
+              },
+              {
+                "name": "Hornorýnský kraj III",
+                "pid": "uuid:f7e2a220-e464-42c0-9312-d9473ccbec01"
+              },
+              {
+                "name": "Dolnorýnský kraj I",
+                "pid": "uuid:11700b03-0ba8-434f-bc96-8545494cdc5a"
+              },
+              {
+                "name": "Dolnorýnský kraj II",
+                "pid": "uuid:97e51cc3-1c27-46c4-82c7-e7d69e7b2c4b"
               }
             ],
             "model": "manuscript",
@@ -1359,8 +1439,32 @@
             "title": "Atlantis Germanici Vol. III, Tom. XI-XVII",
             "parts": [
               {
-                "name": "",
-                "pid": ""
+                "name": "Hornosaský kraj I",
+                "pid": "uuid:616437ec-c551-4d3f-a45f-bfecd8ae1b10"
+              },
+              {
+                "name": "Hornosaský kraj II",
+                "pid": "uuid:4a7914f6-2b45-4eca-8956-9aa3b3854d9b"
+              },
+              {
+                "name": "Hornosaský kraj III",
+                "pid": "uuid:07b37681-2600-4aaa-adf5-a791c750a277"
+              },
+              {
+                "name": "Hornosaský kraj IV",
+                "pid": "uuid:78808658-e169-4d5b-8d08-4047a90c3be1"
+              },
+              {
+                "name": "Hornosaský kraj V",
+                "pid": "uuid:65a4a4d7-dff6-44f4-bb19-9bdca06cd513"
+              },
+              {
+                "name": "Dolnosaský kraj I",
+                "pid": "uuid:5f24dc43-0cbd-4d34-ae03-c19e81a37e16"
+              },
+              {
+                "name": "Dolnosaský kraj II",
+                "pid": "uuid:3cfe49f1-0f61-422c-acb5-52df4f5de2a2"
               }
             ],
             "model": "manuscript",
@@ -1373,8 +1477,32 @@
             "title": "Atlantis Germanici Vol. IV, Tom. XVIII-XXIV",
             "parts": [
               {
-                "name": "",
-                "pid": ""
+                "name": "Švábský kraj I",
+                "pid": "uuid:1da34e59-5cb1-45a5-b011-9ba4f37953b7"
+              },
+              {
+                "name": "Švábský kraj II",
+                "pid": "uuid:72038f17-56c9-45f2-88aa-18ca7f9a406c"
+              },
+              {
+                "name": "Vestfálský kraj I",
+                "pid": "uuid:a9ce89fa-a147-42a1-81bf-5ec3e88f6713"
+              },
+              {
+                "name": "Vestfálský kraj II",
+                "pid": "uuid:b4218c14-96bc-4ea9-8ca1-0d8e3601da9f"
+              },
+              {
+                "name": "Švýcarsko I",
+                "pid": "uuid:1ec4c186-8968-4234-8172-b9d679911b5b"
+              },
+              {
+                "name": "Švýcarsko II",
+                "pid": "uuid:0f6b998c-c802-466f-a60e-882537892dd9"
+              },
+              {
+                "name": "Vodstvo Německa",
+                "pid": "uuid:06444594-9ba9-4779-a1db-06a22f0a214b"
               }
             ],
             "model": "manuscript",
@@ -1390,7 +1518,40 @@
         "title_en": "Duplicates of White Catalogues",
         "title_de": "Duplikate der weißen Kataloge",
         "model": "collection",
-        "children_catalogs": []
+        "children_catalogs": [
+          {
+            "pid": "uuid:1678684d-fba9-48fb-9b20-c79aff7ceb59",
+            "title": "Atlas Germanicus Geo-Hydro-Choro-Topo-Ichnographicus",
+            "parts": [
+              {
+                "name": "Vodstvo Německa",
+                "pid": "uuid:cafa1315-bf28-493b-a65d-11985cd1acba"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,21",
+            "thumb_pid": [
+              "uuid:d772aa44-b87e-49c3-b481-86df1a166bcc"
+            ],
+            "sysno": "001066630"
+          },
+          {
+            "pid": "uuid:8aff1e7b-4a68-47f5-a98d-6ed9a2faf28a",
+            "title": "Atlas Austriacus Vol. I, Tom. I",
+            "parts": [
+              {
+                "name": "Dolní Rakousy I",
+                "pid": "uuid:c3d757e6-14d5-44ef-ab2a-203b8285e467"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,22",
+            "thumb_pid": [
+              "uuid:2c93ceae-85bb-40bb-812b-600d98e52eb4"
+            ],
+            "sysno": "001066761"
+          }
+        ]
       },
       {
         "pid": "uuid:79fac658-fdf1-4bd5-8924-c6b20868d3a1",
@@ -1398,7 +1559,352 @@
         "title_en": "Older Moll's Catalogues",
         "title_de": "Die älteren Kataloge Molls",
         "model": "collection",
-        "children_catalogs": []
+        "children_catalogs": [
+          {
+            "pid": "uuid:ad4a276f-94cb-489b-a6aa-ec84b62f683c",
+            "title": "Atlantis Austriaci Tom. II",
+            "parts": [
+              {
+                "name": "Dolní Rakousy II",
+                "pid": "uuid:c634df0a-f7d5-40e4-b3b4-a099800270e6"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,23",
+            "thumb_pid": [
+              "uuid:5ce7c871-a291-4aee-b34d-79f609fd1cff"
+            ],
+            "sysno": "001066762"
+          },
+          {
+            "pid": "uuid:d698af91-de38-48ef-8e7f-0c2e74038346",
+            "title": "Atlantis Austriaci Tom. III-IV",
+            "parts": [
+              {
+                "name": "Dolní Rakousy III",
+                "pid": "uuid:58ce9296-cf34-40e5-996e-469aa119054b"
+              },
+              {
+                "name": "Dolní Rakousy IV",
+                "pid": "uuid:1be20dee-8f10-487a-809e-acc5ac1c3e44"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,24",
+            "thumb_pid": [
+              "uuid:a92e1017-74fd-4f2e-b117-80c21aec6fed"
+            ],
+            "sysno": "001066763"
+          },
+          {
+            "pid": "uuid:393e42ba-c5b0-4f8b-a9e5-95a70d80981c",
+            "title": "Atlantis Austriaci Tom. V",
+            "parts": [
+              {
+                "name": "Dolní Rakousy V",
+                "pid": "uuid:7ec9cc15-e878-4c43-abf4-2a15789f7d93"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Signatura: Moll-RKP-0090.900,25",
+            "thumb_pid": [
+              "uuid:d200db6b-1fea-42e6-99e5-d334bde26b9b"
+            ],
+            "sysno": "001066766"
+          },
+          {
+            "pid": "uuid:e972812f-8b6e-4d2e-b293-59ad2e58b42f",
+            "title": "Atlantis Austriaci Tom. VI",
+            "parts": [
+              {
+                "name": "Dolní Rakousy VI",
+                "pid": "uuid:07e63ade-1d13-4c7c-8c6b-b5f316f36ccc"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Signatura: Moll-RKP-0090.900,26",
+            "thumb_pid": [
+              "uuid:0c39930f-0f98-4a3c-a166-08cd24510a02"
+            ],
+            "sysno": "001066768"
+          },
+          {
+            "pid": "uuid:187bc124-5a59-426c-8c2d-a478740a8288",
+            "title": "Atlantis Austriaci Tom. VII",
+            "parts": [
+              {
+                "name": "Vídeň I",
+                "pid": "uuid:4a77f0b0-b6cc-4c3a-be72-bb5c575877e7"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,27",
+            "thumb_pid": [
+              "uuid:dbcca749-c7eb-481e-85a8-3e80f6186db0"
+            ],
+            "sysno": "001066769"
+          },
+          {
+            "pid": "uuid:c689957e-146c-42f8-967c-6be2f9eb42a4",
+            "title": "Atlantis Austriaci Tom. VIII",
+            "parts": [
+              {
+                "name": "Vídeň II",
+                "pid": "uuid:1c4ce7b3-2f2e-4695-8f2b-7c08b304fa28"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,28",
+            "thumb_pid": [
+              "uuid:b971c4ce-0387-47f3-b657-086ab4372e65"
+            ],
+            "sysno": "001066770"
+          },
+          {
+            "pid": "uuid:fa002e74-9fcb-40a8-8aa1-a8dfba951012",
+            "title": "Atlantis Austriaci Tom. IX-X",
+            "parts": [
+              {
+                "name": "Horní Rakousy I",
+                "pid": "uuid:5c033499-aa7a-4d65-8860-66d8266d8254"
+              },
+              {
+                "name": "Horní Rakousy II",
+                "pid": "uuid:c1fcbbfe-0d65-4b96-a31d-c568c9ba82fa"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,29",
+            "thumb_pid": [
+              "uuid:828241e4-1178-4c47-95e8-cd9012e93191"
+            ],
+            "sysno": "001066772"
+          },
+          {
+            "pid": "uuid:38e1f006-0521-46c3-8df9-9a0587eaa8a3",
+            "title": "Atlantis Austriaci Tom. XI-XII",
+            "parts": [
+              {
+                "name": "Tyrolsko I",
+                "pid": "uuid:d73f070c-52c2-4c5a-a69c-2b46d05704de"
+              },
+              {
+                "name": "Tyrolsko II",
+                "pid": "uuid:3b76d994-d90a-48f3-849b-0af4c1805ebb"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,30",
+            "thumb_pid": [
+              "uuid:9775c869-9b07-4950-a6ed-565e272c9b2f"
+            ],
+            "sysno": "001066774"
+          },
+          {
+            "pid": "uuid:0f55af51-e3f6-40d4-9f4d-9a1b5fefff43",
+            "title": "Atlantis Austriaci Tom. XV",
+            "parts": [
+              {
+                "name": "Kraňsko I",
+                "pid": "uuid:676845d6-2622-4538-9f8c-b5f54ebfeb52"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,31",
+            "thumb_pid": [
+              "uuid:7f3185a4-cd0d-4235-bc07-2ec5bfb1c7aa"
+            ],
+            "sysno": "001066775"
+          },
+          {
+            "pid": "uuid:742e0c3e-ef90-4fab-ab9d-ba5cf7626f11",
+            "title": "Atlantis Austriaci Tom. XVI",
+            "parts": [
+              {
+                "name": "Kraňsko II",
+                "pid": "uuid:87e84b6c-fd4e-4e12-a6e5-13f72d514266"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,32",
+            "thumb_pid": [
+              "uuid:60f54c4e-43f5-4464-b40a-d39fb2e7a484"
+            ],
+            "sysno": "001066776"
+          },
+          {
+            "pid": "uuid:d0041c00-e17f-4d8a-9ee4-a8bee7a375c5",
+            "title": "Atlantis Austriaci Tom. XVII",
+            "parts": [
+              {
+                "name": "Štýrsko I",
+                "pid": "uuid:5a22ba75-60ac-49d6-998f-aa4d9592bf8d"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Signatura: Moll-RKP-0090.900,35",
+            "thumb_pid": [
+              "uuid:26b63d42-4900-402e-899c-32f6d2199c85"
+            ],
+            "sysno": "001066779"
+          },
+          {
+            "pid": "uuid:ef5b1b72-5a3b-40b5-b20c-f19a5dfcf8cc",
+            "title": "Atlantis Austriaci Tom. XIIX",
+            "parts": [
+              {
+                "name": "Štýrsko II",
+                "pid": "uuid:13608396-8ea6-4bf1-8caf-1db8688b2d7e"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,34",
+            "thumb_pid": [
+              "uuid:22862625-87e3-4dd9-8301-f395a2cff08f"
+            ],
+            "sysno": "001066778"
+          },
+          {
+            "pid": "uuid:30dffefd-27fe-40df-99b9-2e0d82b770a8",
+            "title": "Atlantis Austriaci Tom. XIX",
+            "parts": [
+              {
+                "name": "Štýrsko III",
+                "pid": "uuid:a9c893e0-47fd-4136-9b89-5893e8ba6fa8"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,33",
+            "thumb_pid": [
+              "uuid:9ba47bad-7332-40fc-bcb6-b2f2e50eff69"
+            ],
+            "sysno": "001066777"
+          },
+          {
+            "pid": "uuid:71e0dd63-1f0e-4d48-9e42-40765e3fd15e",
+            "title": "Atlantis Germanici Tom. I-V",
+            "parts": [
+              {
+                "name": "Vodstvo Německa",
+                "pid": "uuid:107cf283-5374-459b-be10-c3189c22c12c"
+              },
+              {
+                "name": "Obecné mapy Německé říše",
+                "pid": "uuid:2c21f575-901f-4782-bf2d-36216dcb041b"
+              },
+              {
+                "name": "Bavorský kraj I",
+                "pid": "uuid:4f261b1e-2a70-4442-9dd2-ca5ea0686339"
+              },
+              {
+                "name": "Bavorský kraj II",
+                "pid": "uuid:8320c1be-c5f5-4d03-b6a9-196bd5f0dfe1"
+              },
+              {
+                "name": "Francký kraj I",
+                "pid": "uuid:4ecbe8bb-a25e-4fe5-9b6b-057f5952edc9"
+              },
+              {
+                "name": "Francký kraj II",
+                "pid": "uuid:0d968425-5d3f-4d1c-9869-61a51d81db01"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,36",
+            "thumb_pid": [
+              "uuid:f065cc94-8a0d-4308-a42c-7bea583fa5ce"
+            ],
+            "sysno": "001066780"
+          },
+          {
+            "pid": "uuid:f7cb48f4-3c97-42e6-a09a-2ef69200a183",
+            "title": "Atlantis Germanici Tom. VI-X",
+            "parts": [
+              {
+                "name": "Hornorýnský kraj I",
+                "pid": "uuid:b7d9f456-6bb1-4d71-af8e-6eb61a8f86d9"
+              },
+              {
+                "name": "Hornorýnský kraj II",
+                "pid": "uuid:9e007f8d-3783-4b0d-a97b-7923674ba849"
+              },
+              {
+                "name": "Hornorýnský kraj III",
+                "pid": "uuid:46185fa1-4feb-4ac2-9625-dc058957e4dd"
+              },
+              {
+                "name": "Dolnorýnský kraj I",
+                "pid": "uuid:d125651a-186e-4c22-8124-36c3bb36963d"
+              },
+              {
+                "name": "Dolnorýnský kraj II",
+                "pid": "uuid:9d6ed593-2181-4fb4-aff3-aeb54aae1472"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,37",
+            "thumb_pid": [
+              "uuid:7d176378-c13b-4f73-919b-78bc040092b0"
+            ],
+            "sysno": "001066781"
+          },
+          {
+            "pid": "uuid:90dd9f9b-6402-40c4-b483-031ded8501a3",
+            "title": "Atlantis Germanici Tom. XI",
+            "parts": [
+              {
+                "name": "Hornosaský kraj I",
+                "pid": "uuid:90dd9f9b-6402-40c4-b483-031ded8501a3"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,38",
+            "thumb_pid": [
+              "uuid:2c19f664-3d76-467d-adc4-16ba25070368"
+            ],
+            "sysno": "001066782"
+          },
+          {
+            "pid": "uuid:9442e4f5-8141-433e-8dad-53adc9c42593",
+            "title": "Atlantis Germanici Tom. XVIII-XXIV",
+            "parts": [
+              {
+                "name": "Švábský kraj I",
+                "pid": "uuid:61e5e047-a356-439e-b72d-2fd107588cbe"
+              },
+              {
+                "name": "Švábský kraj II",
+                "pid": "uuid:e663ff8b-d8ec-4460-9e86-8e9d484f2ab1"
+              },
+              {
+                "name": "Vestfálský kraj I",
+                "pid": "uuid:e032d018-4f0c-409d-a5c0-fbb35cf4a7dd"
+              },
+              {
+                "name": "Vestfálský kraj II",
+                "pid": "uuid:2c6de06f-5c56-44df-8f54-0beca215f26f"
+              },
+              {
+                "name": "Švýcarsko I",
+                "pid": "uuid:d1765362-d806-42cc-b959-472e8eb16c9f"
+              },
+              {
+                "name": "Švýcarsko II",
+                "pid": "uuid:a16ac4aa-a8e1-421f-9daa-8983d8b2fd68"
+              },
+              {
+                "name": "Vodstvo Německa",
+                "pid": "uuid:5390f932-bae7-4d3d-bab1-c425e6432728"
+              }
+            ],
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900,39",
+            "thumb_pid": [
+              "uuid:2d1f3ae4-7b1c-4916-b26c-ff578b74aa00"
+            ],
+            "sysno": "001066783"
+          }
+        ]
       },
       {
         "pid": "uuid:52591536-4912-405f-9b98-5daa947b240d",
@@ -1412,7 +1918,8 @@
             "title": "Uibersicht des Atlaßes von den Oesterreichischen Erbländern",
             "model": "manuscript",
             "signature": "Moll-RKP-0090.900,40",
-            "thumb_pid": ["uuid:e03ddfc7-b447-49ad-b05f-ec6ed31c2202"]
+            "thumb_pid": ["uuid:e03ddfc7-b447-49ad-b05f-ec6ed31c2202"],
+            "sysno": "001066786"
           },
           {
             "pid": "uuid:c781cb96-7eee-4bb2-bdd1-6ba225b970e2",
@@ -1422,7 +1929,8 @@
             "thumb_pid": [
               "uuid:1d6a406f-f113-4238-9f2c-db226651259d",
               "uuid:ffff2e7f-d128-4c04-8982-679fcfcf2bca"
-            ]
+            ],
+            "sysno": "001066787"
           },
           {
             "pid": "uuid:19647927-f34c-47bd-a1c6-fc3bd303f305",
@@ -1432,7 +1940,8 @@
             "thumb_pid": [
               "uuid:ece37827-153b-4e9d-bbfc-bd802825633f",
               "uuid:59d9c10c-e367-4f74-b8b2-650067e679d8"
-            ]
+            ],
+            "sysno": "001066788"
           }
         ]
       },
@@ -1442,7 +1951,58 @@
         "title_en": "Data for Map Inventories",
         "title_de": "Grundlagen für die Kartenbibliografien",
         "model": "collection",
-        "children_catalogs": []
+        "children_catalogs": [
+          {
+            "pid": "uuid:3b38e4e9-4feb-4b0a-98ff-a064faaaa5c8",
+            "title": "Auszug Auß denen Cameral Prothocollen, von dem Silber Bergwercken Ehrenberg, Seltz, so ihren Ersten",
+            "model": "manuscript",
+            "signature": "RKP2-0047.948,1",
+            "thumb_pid": [
+              "uuid:3161830d-fce8-4a24-8cc7-5df70205b194"
+            ],
+            "sysno": "001065176"
+          },
+          {
+            "pid": "uuid:9d1ce5b4-c2c8-43f4-99ed-94b0b057fc1c",
+            "title": "[Carniola T. II.]",
+            "model": "manuscript",
+            "signature": "RKP2-0047.948,2",
+            "thumb_pid": [
+              "uuid:b6b06b2e-5984-48c7-9477-fd9be465dcdf"
+            ],
+            "sysno": "001065177"
+          },
+          {
+            "pid": "uuid:a774c00a-9db1-4903-81a4-45dd1159e328",
+            "title": "[Carinthia. T. III.]",
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900",
+            "thumb_pid": [
+              "uuid:ffb5411e-d861-4164-b094-3294e9627e0f"
+            ],
+            "sysno": "001065178"
+          },
+          {
+            "pid": "uuid:2264c7aa-d615-4be5-9e9c-071b908d3083",
+            "title": "[Tyrol. T. IV]",
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900",
+            "thumb_pid": [
+              "uuid:4ac18aa3-2700-410e-893e-ea85825d574b"
+            ],
+            "sysno": "001065179"
+          },
+          {
+            "pid": "uuid:f8748238-086f-4c79-97f0-f0c75bf1d66d",
+            "title": "[Styria. T. V.]",
+            "model": "manuscript",
+            "signature": "Moll-RKP-0090.900",
+            "thumb_pid": [
+              "uuid:3f9a5efb-6648-4dc2-a63b-49caf77cd8c7"
+            ],
+            "sysno": "001065180"
+          }
+        ]
       }
     ]
   }

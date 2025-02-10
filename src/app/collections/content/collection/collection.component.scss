@@ -218,16 +218,23 @@
                 .app-card-manuscript {
                     display: flex;
                     flex-direction: row;
+                    // padding: 20px;
+                    // &:hover {
+                    //     background-color: #f8f8f8;
+                    // }
                     .app-card-image {
                         display: flex;
+                        flex-shrink: 0;
                         justify-content: center; /* Zarovná obrázek na střed horizontálně */
                         align-items: flex-start; /* Zarovná obrázek k horní části */
-                        width: 100px; /* Nastavte požadovanou šířku */
+                        width: 80px; /* Nastavte požadovanou šířku */
                         height: 150px; /* Výška, kterou chcete zobrazit */
                         overflow: hidden; /* Skryje spodní část obrázku */
+                        background-color:transparent;
                         img {
                             width: 100%; /* Přizpůsobení šířky */
-                            height: auto; /* Zachování poměru stran */
+                            // height: auto; /* Zachování poměru stran */
+                            object-fit: contain;
                         }
                         &:hover {                      
                             .app-card-overlay {
@@ -237,7 +244,7 @@
                     }
                     .app-card-parts {
                         display: flex;
-                        
+                        flex-wrap: wrap;
                         /* Typesettings/sm/regular */
                         font-family: "Source Sans Pro";
                         font-size: 14px;

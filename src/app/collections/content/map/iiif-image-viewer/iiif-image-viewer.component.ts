@@ -27,11 +27,17 @@ export class IiifImageViewerComponent implements OnInit {
     this.pagePid = this.pages[0]['pid'];
     this.actualPage = 1;
     this.manifestLink = 'https://api.kramerius.mzk.cz/search/iiif/' + this.pagePid + '/info.json';
+    // this.manifestLink = 'http://localhost:4200/assets/docs/info.json';
     console.log('URL:', this.manifestLink, 'PAGES:', this.pages);
     if (this.manifestLink) {
       this.viewer = OpenSeadragon({
         id: 'openseadragon-viewer',
-        tileSources: this.manifestLink, // Pouze URL na IIIF Image API
+        // tileSources: {
+        //   getTileUrl: (level: number, x: number, y: number) => {
+        //     return 'https://api.kramerius.mzk.cz/search/iiif/' + this.pagePid;
+        //   }
+        // },
+        tileSources: this.manifestLink,
         prefixUrl: 'https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.2/images/',
         showNavigator: false, // Zobrazit mini mapu
         navigatorPosition: 'BOTTOM_RIGHT', // Pozice navigátoru
@@ -42,7 +48,7 @@ export class IiifImageViewerComponent implements OnInit {
         constrainDuringPan: true, // Omezení při posunu
         showZoomControl: false, // Skryje tlačítka zoomování
         showHomeControl: false, // Skryje tlačítko "reset"
-        showFullPageControl: false // Skryje tlačítko "fullscreen"
+        showFullPageControl: false // Skryje tlačítko "fullscreen",
       });
       this.loadingImage = false;
     }
