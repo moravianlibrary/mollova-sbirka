@@ -3,7 +3,8 @@ import { Options } from '@angular-slider/ngx-slider';
 import { SearchService } from '../services/search.service';
 import { GoogleMap } from '@angular/google-maps';
 import { Router, ActivatedRoute } from '@angular/router';
-import { first, Subscription } from 'rxjs';
+import { first, Subject, Subscription } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 
 @Component({
@@ -26,6 +27,9 @@ export class SearchComponent {
   selectedSort: string = 'relevance';
   sortedResults: any;
   sortQuery: string = '';
+  svgIcon: any;
+
+  markerSize: boolean;
 
   // PAGINATION
   pages: any[] = [];
@@ -382,10 +386,10 @@ export class SearchComponent {
     strokeOpacity: 1
   };
   optionsMap: google.maps.MapOptions = {
-    styles: this.stylesArray,
+    // styles: this.stylesArray,
     center: { lat: 50.195060, lng: 12.606837 },
+    mapId: 'ddc5e4cd685923d9',
     zoom: 4,
-    mapTypeId: 'terrain',
     zoomControl: true,
     scrollwheel: true,
     mapTypeControl: false,
@@ -395,8 +399,14 @@ export class SearchComponent {
     maxZoom: 15,
     minZoom: 2
   };
+  markerOptions: google.maps.marker.AdvancedMarkerElementOptions = {
+
+  };
+
 
   @ViewChild('googleMap') googleMap: GoogleMap;
+
+  private mapIdleSubject = new Subject<void>();
 
   constructor(public searchService: SearchService,
     private router: Router,
@@ -422,9 +432,7 @@ export class SearchComponent {
       // Načtení dat po aktualizaci parametrů
       this.searchService.search(this.buildQuery(), this.sortQuery);
       this.searchService.results$.subscribe((data: any) => {
-        this.results = data['response']['docs'];
-        this.sortedResults = this.results;
-        console.log('results', this.results);
+        this.sortedResults = data['response']['docs'];
         this.count = data['response']['numFound'];
         if (this.count > 100) {
           this.pages = Array.from({length: Math.ceil(this.count / 100)}, (_, i) => i + 1);
@@ -453,7 +461,19 @@ export class SearchComponent {
         }, 50); // Krátké zpoždění, aby animace správně fungovala
       });
     });
+
+    this.mapIdleSubject.pipe(debounceTime(500)).subscribe(() => {
+      this.search();
+  });
     this.subscriptions.add(paramSub);
+
+    this.svgIcon = document.createElement('div');
+    this.svgIcon.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <path d="M24.0071 3C30.8016 3.00494 37.7235 7.3152 39.5524 16.0072C41.6736 26.0862 35.8259 34.4574 31.0331 39.4086L24.7394 46.2088C24.3442 46.6358 23.6693 46.6366 23.2731 46.2104L16.9512 39.4103L16.9495 39.4086C12.174 34.4579 6.32646 26.0664 8.44765 15.9874C10.2859 7.29546 17.2125 2.99506 24.0071 3Z" fill="#A08700"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M14 19C14 13.4772 18.4772 9 24 9C29.5228 9 34 13.4772 34 19C34 24.5228 29.5228 29 24 29C18.4772 29 14 24.5228 14 19Z" fill="white"/>
+      </svg>
+      `;
 
     // if (this.googleMap) {
     //   console.log('map', this.googleMap, this.north, this.south, this.east, this.west);
@@ -555,34 +575,60 @@ export class SearchComponent {
   }
   highlightMap(item: any) {
     this.focusedItem = item;
-    if (this.focusedItem['coords.bbox.corner_ne'] === this.focusedItem['coords.bbox.corner_sw']) {
-      this.focusedItem.lat = parseFloat(this.focusedItem['coords.bbox.center'].split(',')[0]);
-      this.focusedItem.lng = parseFloat(this.focusedItem['coords.bbox.center'].split(',')[1]);
-    }
+    let zoom = this.googleMap.getZoom() || 4;
+    // BOD
+    this.focusedItem.lat = parseFloat(this.focusedItem['coords.bbox.corner_ne'].split(',')[0]);
+    this.focusedItem.lng = parseFloat(this.focusedItem['coords.bbox.corner_ne'].split(',')[1]);
+    // POLYGON
     this.focusedItem.north = parseFloat(this.focusedItem['coords.bbox.corner_ne'].split(',')[0]);
     this.focusedItem.east = parseFloat(this.focusedItem['coords.bbox.corner_ne'].split(',')[1]);
     this.focusedItem.south = parseFloat(this.focusedItem['coords.bbox.corner_sw'].split(',')[0]);
     this.focusedItem.west = parseFloat(this.focusedItem['coords.bbox.corner_sw'].split(',')[1]);
+    
+    let constant = (this.focusedItem.north - this.focusedItem.south) * zoom;
+    console.log('focused', this.focusedItem.north - this.focusedItem.south, this.googleMap.getZoom(), constant);
+
+    if (
+      (this.focusedItem['coords.bbox.corner_ne'] === this.focusedItem['coords.bbox.corner_sw'])) {
+      this.markerSize = true;
+      // BOD
+      this.focusedItem.lat = parseFloat(this.focusedItem['coords.bbox.corner_ne'].split(',')[0]);
+      this.focusedItem.lng = parseFloat(this.focusedItem['coords.bbox.corner_ne'].split(',')[1]);
+    } else if ((this.focusedItem.north - this.focusedItem.south) * zoom < 0.16) {
+      this.focusedItem.lat = (this.focusedItem.north + this.focusedItem.south) / 2;
+      this.focusedItem.lng = (this.focusedItem.east + this.focusedItem.west) / 2;
+      this.markerSize = true;
+    } else {
+      this.markerSize = false;
+    }
   }
   unhighlightMap(map: any) {
     this.focusedItem = null;
     // console.log('leave', map);
   }
   getItemBounds() {
+    // console.log('bounds', this.focusedItem.north - this.focusedItem.south, this.focusedItem.east - this.focusedItem.west);
+    this.markerSize = false;
     return new google.maps.LatLngBounds(
       new google.maps.LatLng(this.focusedItem.north, this.focusedItem.west),
-      new google.maps.LatLng(this.focusedItem.south, this.focusedItem.east));
+      new google.maps.LatLng(this.focusedItem.south, this.focusedItem.east)
+    );
   }
+  getItemPosition() {
+    return new google.maps.LatLng(this.focusedItem.lat, this.focusedItem.lng);
+  }
+
   onMapIdle() {
+    this.currentPage = 1;
     const bounds = this.googleMap.getBounds();
     if (bounds) {
       this.north = bounds.getNorthEast().lat();
       this.south = bounds.getSouthWest().lat();
       this.east = bounds.getNorthEast().lng();
       this.west = bounds.getSouthWest().lng();
-      console.log('map idle', bounds);
+      console.log('map idle zoom', this.googleMap.getZoom(), bounds);
     }
-    this.search();
+    this.mapIdleSubject.next();
   }
 
   // paginator

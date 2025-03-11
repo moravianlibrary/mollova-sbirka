@@ -12,11 +12,19 @@ export class SearchService {
 
     search(query: string, sort: string) {
         this.loading = true;
-        this.apiService.getSearchResults(query, sort).subscribe((data: any) => {
-            this.resultsSubject.next(data);
-            // console.log('Search results:', this.results$);
-            this.loading = false;
+        console.log('Hledám:', query, sort);
+        this.apiService.getSearchResults(query, sort).subscribe({
+            next: (data: any) => {
+                this.resultsSubject.next(data);
+                // console.log('Přijatá data z API:', data);
+                this.loading = false;
+            },
+            error: (error) => {
+                console.error('Chyba při načítání dat:', error);
+                this.loading = false; // Ať se stránka ne zasekne
+            }
         });
+        
     }
 }
 

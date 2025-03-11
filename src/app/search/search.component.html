@@ -74,11 +74,18 @@
         (idle)="onMapIdle()"
       >
         <map-rectangle
-          *ngIf="focusedItem"
+          *ngIf="focusedItem && !markerSize"
           [bounds]="getItemBounds()"
           [options]="boxOptions"
         >
         </map-rectangle>
+        <map-advanced-marker 
+          *ngIf="focusedItem && markerSize"
+          [position]="getItemPosition()"
+          [options]="markerOptions"
+          [content]="svgIcon"
+        >
+        </map-advanced-marker>
       </google-map>
     </div>
     <div class="app-footer">
@@ -109,7 +116,7 @@
             <div class="app-card-overlay"></div>
           </a>
         </div>
-        <div class="app-paginator" *ngIf="pages.length > 1 && results.length > 0 && !mapHidden" [ngClass]="{ 'app-loading-results': searchService.loading }">
+        <div class="app-paginator" *ngIf="pages.length > 1 && sortedResults.length > 0 && !mapHidden" [ngClass]="{ 'app-loading-results': searchService.loading }">
           <div class="app-pages">
             <div class="app-page-items">
               <div class="app-page" *ngFor="let page of displayedFirstPages" [ngClass]="{ 'app-active': page === currentPage }" (click)="changePage(page)">
@@ -150,7 +157,7 @@
             </div>
           </div>
         </div>
-        <div class="app-no-results" *ngIf="results.length === 0">
+        <div class="app-no-results" *ngIf="sortedResults.length === 0">
           {{ "no-results" | translate }}
         </div>
       </div>
