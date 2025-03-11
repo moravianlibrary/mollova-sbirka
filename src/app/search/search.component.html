@@ -97,7 +97,7 @@
             (mouseenter)="highlightMap(map)"
             (mouseleave)="unhighlightMap(map)">
             <div class="app-result-text">
-              <div class="app-title" [matTooltip]="map['title.search']">
+              <div class="app-title">
                 {{ map["title.search"] }}
               </div>
               <div class="app-year">{{ map["date.str"] }}</div>
@@ -109,7 +109,7 @@
             <div class="app-card-overlay"></div>
           </a>
         </div>
-        <div class="app-paginator" *ngIf="pages.length > 1 && !mapHidden" [ngClass]="{ 'app-loading-results': searchService.loading }">
+        <div class="app-paginator" *ngIf="pages.length > 1 && results.length > 0 && !mapHidden" [ngClass]="{ 'app-loading-results': searchService.loading }">
           <div class="app-pages">
             <div class="app-page-items">
               <div class="app-page" *ngFor="let page of displayedFirstPages" [ngClass]="{ 'app-active': page === currentPage }" (click)="changePage(page)">

@@ -496,6 +496,9 @@ export class SearchComponent {
   search() {
     this.updateUrlParams();
     this.searchService.search(this.buildQuery(), this.sortQuery);
+    setTimeout(() => {
+      document.querySelector('.app-results')?.scrollTo({ top: 0 });
+    }, 400);
   }
 
   buildQuery() {
