@@ -391,6 +391,7 @@ export class SearchComponent {
     mapTypeControl: false,
     streetViewControl: false,
     disableDoubleClickZoom: false,
+    fullscreenControl: false,
     maxZoom: 15,
     minZoom: 2
   };

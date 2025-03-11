@@ -148,3 +148,19 @@
 .highlight {
     font-weight: 600;  
 }
+
+@media screen and (max-width: 600px) {
+    .app-container {
+        .app-navs {
+            .app-nav {
+                .app-nav-2 {
+                    .app-nav-2-item {
+                        .app-nav-2-icon {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

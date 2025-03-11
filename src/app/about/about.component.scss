@@ -131,7 +131,7 @@
     .app-text-logo {
         display: flex;
         align-items: center;
-        gap: 16px;
+        gap: 8px;
         .app-text {
             display: flex;
             justify-content: center;
@@ -145,6 +145,7 @@
         }
         .app-logo-mzk {
             display: flex;
+            margin: 0 0 0 8px;
             img {
                 width: 124px;
                 height: 38px;
@@ -153,8 +154,7 @@
         .app-logo-trinera {
             display: flex;
             img {
-                width: 121px;
-                height: 22px;
+                height: 48px;
             }
         }     
     }

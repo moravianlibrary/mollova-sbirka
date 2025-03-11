@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 
 @Injectable()
 export class SearchService {
-    loading = false;
+    loading: boolean = false;
     resultsSubject = new Subject<any>();
     results$ = this.resultsSubject.asObservable();
 
