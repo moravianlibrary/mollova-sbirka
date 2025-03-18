@@ -235,6 +235,10 @@ body {
     line-height: 20px; /* 142.857% */
 }
 
+.app-button, .app-nav-button {
+    user-select: none;
+}
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

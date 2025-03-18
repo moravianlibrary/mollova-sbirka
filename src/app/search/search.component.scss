@@ -227,13 +227,18 @@
                 align-self: stretch;
                 height: 100%;
                 overflow: auto;
+                scrollbar-width: none; /* Skryje scrollbar */
+                -ms-overflow-style: none; /* Skryje scrollbar */
+                &::-webkit-scrollbar {
+                    display: none; /* Skryje scrollbar */
+                }
                 .app-result-cards {
                     display: flex;
                     flex-direction: column;
                     gap: 16px;
                     margin: 0 -12px 0 0;
                     box-sizing: border-box;
-                    padding: 0 12px 0 0;
+                    // padding: 0 12px 0 0;
                     width: 100%;
                     &.app-hidden-map {
                         display: grid;
@@ -365,13 +370,22 @@
             width: calc(100% - 300px);
             // flex-direction: column-reverse;
             .app-results-wrapper {
+                flex: 1;
                 .app-results {
                     opacity: 0;
                     transition: opacity 0.5s ease-in-out;
+                    // .app-results-footer {
+                    //     padding: 12px 0;
+                    // }
                 }
                 .app-results.loaded {
                     opacity: 1;
-                }  
+                }
+                .app-results-footer {
+                    &.app-results-footer-full {
+                        padding: 0 0 12px 0;
+                    }   
+                }
                 &.app-results-loading {
                     flex: 1;
                     justify-content: space-between;
@@ -495,7 +509,6 @@ mat-menu {
                 align-items: center;
                 gap: var(--Spacing-x3, 12px);
                 border-radius: var(--spacing-x-05, 2px);
-                display: flex;
                 background: var(--BG-Main-Primary-Default, #38372E);
                 cursor: pointer;
                 img {
@@ -506,6 +519,7 @@ mat-menu {
                     border-radius: var(--spacing-x-05, 2px);
                     border: 1px solid var(--Boarder-Tertiary-Disable, #D1D0C7);
                     background: none;
+                    cursor: auto;
                 }
             }
         }

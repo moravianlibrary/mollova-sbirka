@@ -12,6 +12,7 @@
       <div class="app-search">
         <input type="text" class="app-search-input"
           [(ngModel)]="searchText"
+          placeholder="{{ 'search-placeholder' | translate }}"
           (keyup.enter)="search()"/>
         <img class="app-search-icon" src="assets/icons/search-normal.png" (click)="search()"/>
         <img *ngIf="searchText && searchText.length > 0" class="app-close-icon" src="assets/icons/close-circle.png" (click)="clearSearch()"/>
@@ -161,7 +162,7 @@
           {{ "no-results" | translate }}
         </div>
       </div>
-      <div class="app-results-footer" *ngIf="mapHidden">
+      <div class="app-results-footer" *ngIf="mapHidden" [ngClass]="{ 'app-results-footer-full': pages.length === 0 }">
         <app-button variant="primary" iconLeft="map.png" (click)="showMap()">
           {{ "map-show" | translate }}
         </app-button>

@@ -633,6 +633,9 @@ export class SearchComponent {
 
   // paginator
   changePage(page: number) {
+    if (page < 1 || page > this.lastPage) {
+      return;
+    }
     this.currentPage = page;
     this.search();
   }

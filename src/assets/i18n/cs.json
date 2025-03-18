@@ -58,5 +58,6 @@
     "supported-by": "Spravuje",
     "alphabet": "Abecedně",
     "newest": "Nejnovější",
-    "oldest": "Nejstarší"
+    "oldest": "Nejstarší",
+    "search-placeholder": "Autor, název, místo..."
 }

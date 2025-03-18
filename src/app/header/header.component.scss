@@ -9,19 +9,25 @@
         display: flex;
         width: 25%;
         align-items: center;
-        gap: 8px;
         flex-shrink: 0;
         align-self: stretch;
-        cursor: pointer;
-        .app-logo {
-            width: 20px;
-            height: 20px;
-            flex-shrink: 0;
-            background: url('../../assets/images/moll-logo.png') rgb(255, 255, 255) 50% / cover no-repeat;
-        }
-        .app-title {
-            color: $color-text-primary;
-            line-height: 10px;
+        .app-title-link {
+            display: flex;
+            gap: 8px;
+            text-decoration: none;
+            align-items: center;
+            padding: 5px 5px 5px 0px;
+            .app-logo {
+                width: 20px;
+                height: 20px;
+                flex-shrink: 0;
+                background: url('../../assets/images/moll-logo.png') rgb(255, 255, 255) 50% / cover no-repeat;
+            }
+            .app-title {
+                color: $color-text-primary;
+                line-height: 10px;
+                user-select: none;
+            }
         }
     }
     .app-right {

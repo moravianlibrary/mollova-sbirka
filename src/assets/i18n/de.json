@@ -58,5 +58,6 @@
     "supported-by": "Verwaltet von",
     "alphabet": "Alphabetisch",
     "newest": "Neueste",
-    "oldest": "Älteste"
+    "oldest": "Älteste",
+    "search-placeholder": "Autor, Titel, Ort..."
 }

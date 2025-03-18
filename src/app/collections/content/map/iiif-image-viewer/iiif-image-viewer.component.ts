@@ -58,10 +58,14 @@ export class IiifImageViewerComponent implements OnInit {
     });
   }
   zoomIn(): void {
-    this.viewer.viewport.zoomBy(2);
+    if (this.viewer.viewport.getZoom() < 10) {
+      this.viewer.viewport.zoomBy(2);
+    }
   }
   zoomOut(): void {
-    this.viewer.viewport.zoomBy(0.5);
+    if (this.viewer.viewport.getZoom() > 0.5) {
+      this.viewer.viewport.zoomBy(0.5);
+    }
   }
   prevPage(): void {
     this.loadingImage = true;

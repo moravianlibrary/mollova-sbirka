@@ -1,9 +1,11 @@
 <div class="app-container">
     <div class="app-left">
-        <div class="app-logo"></div>
-        <div class="app-title" [routerLink]="['mollova-sbirka']" (click)="changeActiveLink('')">
-            <h5>{{ 'molls-collection' | translate }}</h5>
-        </div>
+        <a class="app-title-link" [routerLink]="['mollova-sbirka']" (click)="changeActiveLink('')">
+            <div class="app-logo"></div>
+            <div class="app-title">
+                <h5>{{ 'molls-collection' | translate }}</h5>
+            </div>
+        </a>
     </div>
     <div class="app-right">
         <div class="app-nav">

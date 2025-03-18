@@ -15,7 +15,7 @@ export class ContactComponent {
       {
         q: this.translate.instant('faq-1'),
         a: this.translate.instant('faq-1-a'),
-        isOpen: true
+        isOpen: false
       },
       {
         q: this.translate.instant('faq-2'),
