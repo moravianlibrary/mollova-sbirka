@@ -21,7 +21,9 @@ export class MapComponent implements AfterViewInit {
   pagePid: string = '';
   manifestLink: string = '';
   nextArrowActive: boolean = false;
+  nextArrowHover: boolean = false;
   prevArrowActive: boolean = false;
+  prevArrowHover: boolean = false;
   nextMap: any = {};
   prevMap: any = {};
   acutalIndex: number = 0;
@@ -234,6 +236,19 @@ export class MapComponent implements AfterViewInit {
       return this.parentCollection['title.search_ger'];
     }
     return this.parentCollection['title.search_cze'];
+  }
+
+  onPrevArrowHover(): void {
+    this.prevArrowHover = true;
+  }
+  onPrevArrowLeave(): void {
+    this.prevArrowHover = false;
+  }
+  onNextArrowHover(): void {
+    this.nextArrowHover = true;
+  }
+  onNextArrowLeave(): void {
+    this.nextArrowHover = false;
   }
 
 }

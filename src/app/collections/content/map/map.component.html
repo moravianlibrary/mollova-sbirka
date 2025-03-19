@@ -77,37 +77,13 @@
       <div class="app-text">{{ "other-map" | translate }} {{getParentTitle()}}</div>
       <div class="app-pagination">
         <div class="app-icons">
-          <div
-            class="app-button"
-            [class.active-button]="prevArrowActive"
-            (click)="onPrevMap()"
-          >
-            <img
-              *ngIf="!prevArrowActive"
-              src="assets/icons/arrow-left-inactive.png"
-              alt="arrow left"
-            />
-            <img
-              *ngIf="prevArrowActive"
-              src="assets/icons/arrow-left.png"
-              alt="arrow left"
-            />
+          <div class="app-button" [class.active-button]="prevArrowActive" (click)="onPrevMap()" (mouseover)="onPrevArrowHover()" (mouseout)="onPrevArrowLeave()">
+            <img *ngIf="!prevArrowActive" src="assets/icons/arrow-left-inactive.png" alt="arrow left" />
+            <img *ngIf="prevArrowActive" [src]="prevArrowHover ? 'assets/icons/arrow-left.png' : 'assets/icons/arrow-left.png'" alt="arrow left"/>
           </div>
-          <div
-            class="app-button"
-            [class.active-button]="nextArrowActive"
-            (click)="onNextMap()"
-          >
-            <img
-              *ngIf="!nextArrowActive"
-              src="assets/icons/arrow-right-inactive.png"
-              alt="arrow right"
-            />
-            <img
-              *ngIf="nextArrowActive"
-              src="assets/icons/arrow-right.png"
-              alt="arrow right"
-            />
+          <div class="app-button" [class.active-button]="nextArrowActive" (click)="onNextMap()" (mouseover)="onNextArrowHover()" (mouseout)="onNextArrowLeave()">
+            <img *ngIf="!nextArrowActive" src="assets/icons/arrow-right-inactive.png" alt="arrow right"/>
+            <img *ngIf="nextArrowActive" src="assets/icons/arrow-right.png" [src]="nextArrowHover ? 'assets/icons/arrow-right.png' : 'assets/icons/arrow-right.png'" alt="arrow right"/>
           </div>
         </div>
       </div>

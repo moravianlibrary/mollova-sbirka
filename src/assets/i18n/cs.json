@@ -59,5 +59,6 @@
     "alphabet": "Abecedně",
     "newest": "Nejnovější",
     "oldest": "Nejstarší",
-    "search-placeholder": "Autor, název, místo..."
+    "search-placeholder": "Autor, název, místo...",
+    "of": "z"
 }

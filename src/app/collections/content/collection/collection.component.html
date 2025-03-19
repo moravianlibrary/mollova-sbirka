@@ -55,8 +55,8 @@
                                 <h5 class="app-card-title" >
                                     {{getChildrenTitle(item)}}
                                 </h5>
-                                <img class="app-card-icon default-icon" src="assets/icons/arrow.png">
-                                <img class="app-card-icon hover-icon" src="assets/icons/arrow-gold.png">
+                                <!-- <img class="app-card-icon default-icon" src="assets/icons/arrow.png">
+                                <img class="app-card-icon hover-icon" src="assets/icons/arrow-gold.png"> -->
                             </a>
                             <div class="app-card-parts" *ngIf="item?.parts?.length > 0">
                                 <div class="app-part" *ngFor=" let part of item?.parts; let i = index">
@@ -68,8 +68,8 @@
                             <div class="app-card-text">{{getChildrenDescription(item)}}</div>
                             <div class="app-card-sign">{{'signature' | translate}}: {{item.signature}}</div>
                             <div *ngIf="item?.shelf_locators?.[0]" class="app-card-sign">{{'new_signature' | translate}}: {{item.shelf_locators[0]}}</div>
-                            <a *ngIf="item?.sysno" class="app-card-sign" href="https://vufind.mzk.cz/Record/mzk.MZK03-{{item.sysno}}" target="_blank">{{'sysno_link' | translate}}</a>
-                        </div>
+                            <!-- <a *ngIf="item?.sysno" class="app-card-sign" href="https://vufind.mzk.cz/Record/mzk.MZK03-{{item.sysno}}" target="_blank">{{'sysno_link' | translate}}</a>
+                        </div> -->
                     </div>
                 </div>
             </div>

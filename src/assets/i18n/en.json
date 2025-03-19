@@ -59,5 +59,6 @@
     "alphabet": "Alphabetically",
     "newest": "Newest",
     "oldest": "Oldest",
-    "search-placeholder": "Author, title, place..."
+    "search-placeholder": "Author, title, place...",
+    "of": "of"
 }

@@ -9,6 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class ContactComponent {
 
   faqs: { q: string; a: string; isOpen: boolean }[] = [];
+  hoveredIcon: string | null = null;
 
   constructor(private translate: TranslateService) {
     this.faqs = [
@@ -52,6 +53,13 @@ export class ContactComponent {
       }
     }
     this.faqs[index].isOpen = !this.faqs[index].isOpen;
+  }
+  onIconHover(title: string): void {
+    this.hoveredIcon = title;
+    console.log('Hovered icon:', title);
+  }
+  onIconLeave(): void {
+    this.hoveredIcon = null;
   }
 
 }

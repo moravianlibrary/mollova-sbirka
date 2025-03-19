@@ -453,6 +453,9 @@
                         }   
                         &.active-button {
                             border: 1px solid var(--Boarder-Tertiary-Default, #38372E);
+                            &:hover {
+                                border: 1px solid var(--Boarder-Tertiary-Default, #A08700);
+                            }
                         }               
                     }
                 }          

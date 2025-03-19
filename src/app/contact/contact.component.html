@@ -4,9 +4,10 @@
             <h1 class="app-title">{{'faq' | translate}}</h1>
             <div class="app-faqs">
                 <div class="app-faq" *ngFor="let faq of faqs; let i = index">
-                    <div class="app-q" [class.open]="faq.isOpen" (click)="toggleFaq(i)">
+                    <div class="app-q" [class.open]="faq.isOpen" (click)="toggleFaq(i)" (mouseover)="onIconHover(faq.q)" (mouseout)="onIconLeave()">
                         {{faq.q | translate}}
-                        <img [src]="faq.isOpen ? 'assets/icons/minus-circle-grey.png' : 'assets/icons/add-circle.png'" alt="faq" />
+                        <img *ngIf="hoveredIcon !== faq.q" [src]="faq.isOpen ? 'assets/icons/minus-circle-grey.png' : 'assets/icons/add-circle.png'" alt="faq" />
+                        <img *ngIf="hoveredIcon === faq.q" [src]="faq.isOpen ? 'assets/icons/minus-circle.png' : 'assets/icons/add-gold-circle.png'" alt="faq" />
                     </div>
                     <div class="app-a" *ngIf="faq.isOpen">{{faq.a | translate}}</div>
                 </div>
@@ -20,7 +21,8 @@
                     <div class="app-lines">
                         <div class="app-line">
                             <img src="assets/icons/building-4.png" alt="address" />
-                            <a href="https://mapy.cz/s/nacebobaka" target="_blank">Kounicova 65a, 601 87 Brno</a>
+                            <!-- <a href="https://mapy.cz/s/nacebobaka" target="_blank">Kounicova 65a, 601 87 Brno</a> -->
+                            <a href="https://maps.app.goo.gl/hDF944VuPLXRATtW9" target="_blank">Kounicova 65a, 601 87 Brno</a>
                         </div>
                         <div class="app-line">
                             <img src="assets/icons/sms.png" alt="address" />

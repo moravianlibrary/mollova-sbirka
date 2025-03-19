@@ -97,7 +97,7 @@
     <div class="app-results-wrapper" [ngClass]="{ 'app-results-loading': searchService.loading}">
       <div class="app-results-header">
         <app-button variant="primary" size="small" iconRight="arrow-down-small.png" [matMenuTriggerFor]="menu">{{ selectedSort | translate }}</app-button>
-        <div class="app-results-count">{{ "all-results" | translate }}<b> ({{ count }})</b></div>
+        <div class="app-results-count">{{from}} - {{to}} {{ 'of' | translate }} {{ count }}</div>
       </div>
       <div class="app-results">
         <div class="app-result-cards" [ngClass]="{ 'app-hidden-map': mapHidden }" *ngIf="!searchService.loading">
@@ -140,21 +140,9 @@
               <img *ngIf="currentPage === 1" class="app-navigation-icon" src="assets/icons/arrow-left-grey.png"/>
               <img *ngIf="currentPage > 1" class="app-navigation-icon" src="assets/icons/arrow-left-white.png"/>
             </div>
-            <div
-              class="app-navigation-button"
-              (click)="changePage(currentPage + 1)"
-              [ngClass]="{ disabled: currentPage === lastPage }"
-            >
-              <img
-                *ngIf="currentPage !== lastPage"
-                class="app-navigation-icon"
-                src="assets/icons/arrow-right-white.png"
-              />
-              <img
-                *ngIf="currentPage === lastPage"
-                class="app-navigation-icon"
-                src="assets/icons/arrow-right-grey.png"
-              />
+            <div class="app-navigation-button" (click)="changePage(currentPage + 1)" [ngClass]="{ disabled: currentPage === lastPage }">
+              <img *ngIf="currentPage !== lastPage" class="app-navigation-icon" src="assets/icons/arrow-right-white.png"/>
+              <img *ngIf="currentPage === lastPage" class="app-navigation-icon" src="assets/icons/arrow-right-grey.png"/>
             </div>
           </div>
         </div>

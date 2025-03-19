@@ -37,6 +37,8 @@ export class SearchComponent {
   displayedLastPages: any[] = [];
   currentPage: number;
   lastPage: number;
+  from: number;
+  to: number;
   count: number;
   searchVisible: boolean = true;
 
@@ -434,6 +436,12 @@ export class SearchComponent {
       this.searchService.results$.subscribe((data: any) => {
         this.sortedResults = data['response']['docs'];
         this.count = data['response']['numFound'];
+        this.from = (this.currentPage - 1) * 100 + 1;
+        if (this.count < 100 || this.currentPage === this.lastPage) {
+          this.to = this.count;
+        } else {
+          this.to = this.currentPage * 100;
+        }
         if (this.count > 100) {
           this.pages = Array.from({length: Math.ceil(this.count / 100)}, (_, i) => i + 1);
           this.lastPage = this.pages.length;
