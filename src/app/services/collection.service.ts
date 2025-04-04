@@ -121,10 +121,14 @@ export class CollectionService {
             mergeMap((children: any[]) => {
                 // Pro každé dítě zavolej getCollection(pid)
                 const detailedChildren$ = children.map(child =>
-                    this.getCollection(child.pid).pipe(
-                        map((collectionDetails: any) => ({
-                        ...child,
-                        collectionDetails: collectionDetails['response']['docs'][0] || {}
+                    forkJoin({
+                        collectionDetails: this.getCollection(child.pid).pipe(
+                            map((res: any) => res?.response?.docs?.[0] || {})
+                        )
+                    }).pipe(
+                        map(({ collectionDetails }) => ({
+                            ...child,
+                            collectionDetails                        
                         }))
                     )
                 );
@@ -160,24 +164,35 @@ export class CollectionService {
     }
     getCollectionChildren(pid: string): Observable<any[]> {
         return this.apiService.getCollectionChildren(pid).pipe(
-            tap((data: any) => {
-                if (data && data['response'] && data['response']['docs']) {
-                    // const siblings = data['response']['docs'];
-                    const siblings = data['response']['docs'].filter((item: any) => item['model'] !== 'manuscript');
-                    console.log('Siblings:', siblings);
-                    const sortedSiblings = siblings.sort((a: any, b: any) =>
-                        a['shelf_locators'][0].localeCompare(b['shelf_locators'][0])
-                    );
-                    // Nastavení siblings do BehaviorSubject
-                    this.setSiblings(sortedSiblings);
-                }
-            }),
             map((data: any) => {
-                // return data['response']['docs'] || [];
-                return data['response']['docs'].filter((item: any) => item['model'] !== 'manuscript') || [];
+                const docs = data?.response?.docs || [];
+                return docs.filter((item: any) => item['model'] !== 'manuscript');
+            }),
+            tap((siblings: any[]) => {
+                const sortedSiblings = siblings.sort((a: any, b: any) =>
+                    a['shelf_locators']?.[0]?.localeCompare(b['shelf_locators']?.[0]) ?? 0
+                );
+                this.setSiblings(sortedSiblings);
+            }),
+            mergeMap((children: any[]) => {
+                // Pro každé dítě zavolej getCollection(pid)
+                const detailedChildren$ = children.map(child =>
+                    this.getCollection(child.pid).pipe(
+                        map((collectionDetails: any) => ({
+                        ...child,
+                        collectionDetails: collectionDetails['response']['docs'][0] || {}
+                        }))
+                    )
+                );
+                // Sloučí všechny observables do jednoho
+                console.log('Detailed children:', detailedChildren$);
+                if (detailedChildren$.length === 0) {
+                    return of([]);
+                }
+                return forkJoin(detailedChildren$);
             })
         );
-    }
+    }    
     getCollectionStructure(pid: string): Observable<any> {
         const collectionIndex: { [key: string]: string } = {};
     
@@ -280,6 +295,10 @@ export class CollectionService {
           }
         }
         return '';
+    }
+
+    getElasticDetailsToMap(pid: string): Observable<any> {
+        return this.apiService.getElasticRecordByPid(pid);
     }
 
     // Uložení dat do souboru

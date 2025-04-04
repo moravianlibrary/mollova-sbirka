@@ -110,6 +110,11 @@ export class ContentComponent implements OnInit, OnDestroy {
               console.error('Invalid data format:', data);
             }
           });
+          this.collectionService.getElasticDetailsToMap(this.map['pid']).subscribe((data: any) => {
+            console.log('Elastic details:', data, this.map['pid']);
+            let elasticDetails = data['hits']['hits'][0]['_source'];
+            this.map.elasticDetails = elasticDetails;
+          });
         }
       } else {
         console.error('Invalid data format:', data);

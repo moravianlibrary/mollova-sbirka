@@ -9,6 +9,7 @@ export class ApiService {
     constructor(private http: HttpClient) { }
 
     apiUrl = 'https://api.kramerius.mzk.cz/search/api/client/v7.0/search?';
+    elasticUrl = 'elasticsearch/moll/_search?';
 
     doGet(url: string): Observable<Object> {
         return this.http.get(encodeURI(url)).pipe(catchError(this.handleError));
@@ -41,6 +42,21 @@ export class ApiService {
             `${this.apiUrl}${query}&fl=pid,model,authors,titles.search,title.search,root.title,coords.bbox.corner_ne,coords.bbox.center,coords.bbox.corner_sw,date.str,date_range_end.year,date_range_start.year&rows=100${sort}`
         );
     }
+    getElasticSearchResults(query: string): Observable<Object> {
+        return this.doGet(
+            `${this.elasticUrl}${query}`
+        );
+    }
+    getElasticRecordByPid(pid: string): Observable<Object> {
+        const body = {
+          query: {
+            match: {
+              _id: pid
+            }
+          }
+        };
+        return this.http.post('/elasticsearch/moll/_search', body);
+      }
 
     //https://api.kramerius.mzk.cz/search/api/client/v7.0/search?fl=pid,accessibility,model,title.search,licenses,contains_licenses,licenses_of_ancestors,page.type,page.number,page.placement,track.length&q=own_parent.pid:%22uuid:e1db8d4c-f39c-4599-b71a-5e8cd634a8af%22&sort=rels_ext_index.sort%20asc&rows=4000&start=0
     // q=*:*&fq=(in_collections.direct:"uuid:9b190c71-5a2c-44fa-bc8a-b6c5b056c01a")&fl=pid,model,authors,titles.search,title.search,root.title,date.str,title.search_*,collection.desc,%20collection.desc_*

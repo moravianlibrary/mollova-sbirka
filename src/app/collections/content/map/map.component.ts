@@ -56,7 +56,7 @@ export class MapComponent implements AfterViewInit {
       this.pages = data['response']['docs'];
       this.pagePid = data['response']['docs'][0]['pid'];
       this.manifestLink = 'https://api.kramerius.mzk.cz/search/iiif/' + this.pagePid + '/info.json';
-      console.log(this.manifestLink);
+      console.log("Manifest link",this.manifestLink);
       if (this.siblings.length > 1) {
         this.siblings.find((self, index) => { 
           if (self['pid'] === this.map['pid']) {
@@ -147,7 +147,10 @@ export class MapComponent implements AfterViewInit {
     return '';
   }
   getNewShelfLocator(): string {
-    return this.translate.instant('shelf-locator-new') + this.map['shelf_locators'] || '';
+    return this.translate.instant('new_signature') + ': ' + this.map['shelf_locators'] || '';
+  }
+  getOldShelfLocator(): string {
+    return this.translate.instant('old_signature') + ': ' + this.map['elasticDetails']['signatura_old'] || '';
   }
 
   // Chovani pri skrolovani

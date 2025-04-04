@@ -1,0 +1,10 @@
+{
+    "/elasticsearch": {
+      "target": "http://localhost:9200",
+      "secure": false,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/elasticsearch": ""
+      }
+    }
+  }

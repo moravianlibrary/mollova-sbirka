@@ -84,6 +84,7 @@
                       
                     .app-card-content {
                         display: flex;
+                        flex: 1;
                         flex-direction: column;
                         align-items: flex-start;
                         // width: 250px;
@@ -91,7 +92,7 @@
                         align-self: stretch;
                         .app-card-title-container {
                             display: flex;
-                            align-items: flex-start;
+                            align-items: center;
                             gap: var(--Spacing-x2, 8px);
                             align-self: stretch;
                             cursor: pointer;
@@ -115,6 +116,16 @@
                             .app-card-icon {
                                 display: flex;
                                 width: 24px;
+                                padding: 2px 0px;
+                                align-items: center;
+                                gap: 10px;
+                                &.hover-icon {
+                                    display: none;
+                                }
+                            }
+                            .app-card-ext-icon {
+                                display: flex;
+                                width: 16px;
                                 padding: 2px 0px;
                                 align-items: center;
                                 gap: 10px;
