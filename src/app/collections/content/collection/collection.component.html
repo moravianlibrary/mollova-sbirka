@@ -25,6 +25,7 @@
                             <div class="app-card-text">{{getChildrenDescription(item)}}</div>
                             <div class="app-card-sign" *ngIf="item.elasticDetails?.signatura_old">{{'old_signature' | translate}}: {{item.elasticDetails.signatura_old}}</div>
                             <div class="app-card-sign" *ngIf="item?.shelf_locators?.[0]">{{'new_signature' | translate}}: {{item.shelf_locators[0]}}</div>
+                            <div class="app-card-sign" *ngIf="item?.signature">{{'old_signature' | translate}}: {{item.signature}}</div>
                             <!-- <div class="app-card-catalog" *ngIf="item?.catalog_links?.length === 1">
                                 <a class="app-card-link" href="https://www.digitalniknihovna.cz/mzk/uuid/{{item.catalog_links[0]}}" target="_blank">
                                     <div class="app-card-link-text">{{'molls-catalog' | translate}}</div>

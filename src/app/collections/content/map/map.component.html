@@ -60,6 +60,9 @@
                 {{ "old_signature" | translate }}:
               </div> -->
               <div *ngIf="item?.shelf_locators?.[0]" class="app-card-sign">
+                {{ "old_signature" | translate }}: {{ item.elasticDetails.signatura_old }}
+              </div>
+              <div *ngIf="item?.shelf_locators?.[0]" class="app-card-sign">
                 {{ "new_signature" | translate }}: {{ item.shelf_locators[0] }}
               </div>
             </div>
