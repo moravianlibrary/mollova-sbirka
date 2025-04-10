@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
+import { environment } from '../../../../environments/environment';
 
 
 @Component({
@@ -15,11 +16,10 @@ export class CollectionComponent {
   subscription: Subscription = new Subscription();
 
 
-  apiThumbUrl = 'https://api.kramerius.mzk.cz/search/api/client/v7.0/items/';
+  apiThumbUrl = environment.krameriusBaseUrl + "/api/client/v7.0/items/";
   currentLang: string;
 
-  constructor(private router: Router,
-              private translate: TranslateService
+  constructor(private router: Router, private translate: TranslateService
   ) { this.currentLang = this.translate.currentLang; }
 
   ngOnInit(): void {

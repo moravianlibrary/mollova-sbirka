@@ -3,6 +3,7 @@ import { CollectionService } from '../../services/collection.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-content',
@@ -20,13 +21,13 @@ export class ContentComponent implements OnInit, OnDestroy {
   typeOfResource: string = '';
   currentLang: string = '';
 
-  apiThumbUrl = 'https://api.kramerius.mzk.cz/search/api/client/v7.0/items/';
+  apiThumbUrl = environment.krameriusBaseUrl + "/api/client/v7.0/items/";
 
   constructor(private collectionService: CollectionService,
-              private route: ActivatedRoute,
-              private router: Router,
-              private translate: TranslateService
-  ) {}
+    private route: ActivatedRoute,
+    private router: Router,
+    private translate: TranslateService
+  ) { }
 
   ngOnInit(): void {
     this.currentLang = this.translate.currentLang || 'cs';
@@ -43,7 +44,7 @@ export class ContentComponent implements OnInit, OnDestroy {
       this.loadCollection(context);
     });
     this.subscription.add(contextSub);
-    
+
     // Předplatné na siblings$
     const siblingsSub = this.collectionService.siblings$.subscribe((siblings) => {
       this.siblings = siblings;
@@ -182,10 +183,9 @@ export class ContentComponent implements OnInit, OnDestroy {
     }
   }
   getChildrenImage(item: any): string {
-      // https://api.kramerius.mzk.cz/search/api/client/v7.0/items/uuid:a70963b4-753d-401a-ac98-21040ee6508a/image/thumb
+    // https://api.kramerius.mzk.cz/search/api/client/v7.0/items/uuid:a70963b4-753d-401a-ac98-21040ee6508a/image/thumb
     return `${this.apiThumbUrl}${item.pid}/image/thumb`;
   }
 
-  
+
 }
- 

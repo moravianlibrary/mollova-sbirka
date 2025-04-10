@@ -5,6 +5,7 @@ import { GoogleMap } from '@angular/google-maps';
 import { Router, ActivatedRoute } from '@angular/router';
 import { first, Subject, Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 
 @Component({
@@ -44,7 +45,7 @@ export class SearchComponent {
 
   private subscriptions: Subscription = new Subscription();
 
-  apiThumbUrl = 'https://api.kramerius.mzk.cz/search/api/client/v7.0/items/';
+  apiThumbUrl = environment.krameriusBaseUrl + "/api/client/v7.0/items/";
 
   // SLIDER
   minValue: number;
@@ -413,7 +414,7 @@ export class SearchComponent {
   constructor(public searchService: SearchService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit() {
     console.log('lastPage', this.lastPage);
@@ -430,7 +431,7 @@ export class SearchComponent {
       this.actualInputValueMax = this.maxValue;
       this.itemType = params['itemType'] || 'map';
       this.currentPage = parseInt(params['page']) || 1;
-  
+
       // Načtení dat po aktualizaci parametrů
       this.searchService.search(this.buildQuery(), this.sortQuery);
       this.searchService.results$.subscribe((data: any) => {
@@ -443,7 +444,7 @@ export class SearchComponent {
           this.to = this.currentPage * 100;
         }
         if (this.count > 100) {
-          this.pages = Array.from({length: Math.ceil(this.count / 100)}, (_, i) => i + 1);
+          this.pages = Array.from({ length: Math.ceil(this.count / 100) }, (_, i) => i + 1);
           this.lastPage = this.pages.length;
           if (this.lastPage > 4) {
             if (this.currentPage === 1) {
@@ -460,7 +461,7 @@ export class SearchComponent {
             this.displayedFirstPages = this.pages;
           }
         } else {
-          this.pages = Array.from({length: Math.ceil(this.count / 100)}, (_, i) => i + 1);
+          this.pages = Array.from({ length: Math.ceil(this.count / 100) }, (_, i) => i + 1);
           this.currentPage = 1;
         }
         this.loading = false;
@@ -472,7 +473,7 @@ export class SearchComponent {
 
     this.mapIdleSubject.pipe(debounceTime(500)).subscribe(() => {
       this.search();
-  });
+    });
     this.subscriptions.add(paramSub);
 
     this.svgIcon = document.createElement('div');
@@ -534,7 +535,7 @@ export class SearchComponent {
     let query = 'q=';
     if (this.north && this.south && this.east && this.west) {
       query += `{!field f=coords.bbox score=overlapRatio}Intersects(ENVELOPE(${this.west},${this.east},${this.north},${this.south}))`;
-    } 
+    }
 
     // filter
     let filter = '&fq=in_collections:"uuid:9b190c71-5a2c-44fa-bc8a-b6c5b056c01a"';
@@ -566,7 +567,7 @@ export class SearchComponent {
       itemType: this.itemType,
       page: this.currentPage
     };
-  
+
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams,
@@ -592,7 +593,7 @@ export class SearchComponent {
     this.focusedItem.east = parseFloat(this.focusedItem['coords.bbox.corner_ne'].split(',')[1]);
     this.focusedItem.south = parseFloat(this.focusedItem['coords.bbox.corner_sw'].split(',')[0]);
     this.focusedItem.west = parseFloat(this.focusedItem['coords.bbox.corner_sw'].split(',')[1]);
-    
+
     let constant = (this.focusedItem.north - this.focusedItem.south) * zoom;
     console.log('focused', this.focusedItem.north - this.focusedItem.south, this.googleMap.getZoom(), constant);
 

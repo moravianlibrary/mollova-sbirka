@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { CollectionService } from '../../../services/collection.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { environment } from '../../../../environments/environment';
 
 
 @Component({
@@ -35,14 +36,14 @@ export class MapComponent implements AfterViewInit {
   showMoreInfo = false; // Stav tlačítka
 
   subscription: Subscription = new Subscription();
-  apiThumbUrl = 'https://api.kramerius.mzk.cz/search/api/client/v7.0/items/';
+  apiThumbUrl = environment.krameriusBaseUrl + "/api/client/v7.0/items/";
   currentLang: string;
 
   private observer!: IntersectionObserver;
 
   constructor(private translate: TranslateService,
-              private collectionService: CollectionService,
-              private router: Router) { }
+    private collectionService: CollectionService,
+    private router: Router) { }
 
   ngOnInit(): void {
     // Language change subscription
@@ -55,10 +56,10 @@ export class MapComponent implements AfterViewInit {
       console.log('Pages:', data['response']['docs']);
       this.pages = data['response']['docs'];
       this.pagePid = data['response']['docs'][0]['pid'];
-      this.manifestLink = 'https://api.kramerius.mzk.cz/search/iiif/' + this.pagePid + '/info.json';
-      console.log("Manifest link",this.manifestLink);
+      this.manifestLink = environment.krameriusBaseUrl + "/iiif/" + this.pagePid + '/info.json';
+      console.log("Manifest link", this.manifestLink);
       if (this.siblings.length > 1) {
-        this.siblings.find((self, index) => { 
+        this.siblings.find((self, index) => {
           if (self['pid'] === this.map['pid']) {
             this.acutalIndex = index;
             if (index > 0) {
@@ -227,9 +228,9 @@ export class MapComponent implements AfterViewInit {
   }
   getChildrenImage(item: any): string {
     // if (item.model === 'collection') {
-      return `${this.apiThumbUrl}${item.pid}/image/thumb`;
+    return `${this.apiThumbUrl}${item.pid}/image/thumb`;
     // } else {
-      // return item['thumbnail'];
+    // return item['thumbnail'];
     // }
   }
   getParentTitle(): string {
