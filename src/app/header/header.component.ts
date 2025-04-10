@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +14,7 @@ export class HeaderComponent {
   menuExpanded = false;
 
   constructor(private translate: TranslateService,
-              private router: Router
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -38,5 +39,12 @@ export class HeaderComponent {
     this.menuExpanded = !this.menuExpanded;
   }
 
+  isDevMode(): boolean {
+    return environment.devMode;
+  }
+
+  getDevInfo(): string {
+    return "devMode: " + environment.devMode + "; environmentName: " + environment.environmentName;
+  }
 
 }

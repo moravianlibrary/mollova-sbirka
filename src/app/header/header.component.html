@@ -24,6 +24,7 @@
             <app-button variant="outline" size="small" (click)="switchLanguage('en')" [class.app-icon-hide]="currentLang === 'en'" iconLeft="en.svg">
                 <span>English</span>
             </app-button>
+            <div *ngIf="isDevMode()"><p [title]="getDevInfo()">🛠️</p></div>
         </div>
         <div class="app-hamburger" (click)="toggleMenu()">
            <img class="app-icon" src="assets/icons/menu.png" alt="menu" />
