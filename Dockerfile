@@ -1,13 +1,14 @@
 FROM node:alpine as builder
 LABEL org.opencontainers.image.authors="Slavik Svyrydiuk <slavik@svyrydiuk.eu>"
 EXPOSE 80
+ARG ENVIRONMENT="production"
 
 WORKDIR /app
 
 COPY . /app
 RUN npm install -g @angular/cli && \
   npm install && \
-  ng build --configuration=development
+  ng build --configuration=${ENVIRONMENT}
 
 FROM nginx:alpine
 COPY --from=builder \
