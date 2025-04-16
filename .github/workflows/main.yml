@@ -35,17 +35,17 @@ jobs:
     - name: Log in to ghcr.io
       run: echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-   - name: Build the Docker image
-     run: >
-       docker build
-       --tag $TAG:latest
-       --tag $TAG:$(date +%Y%m%d%H%M)
-       --build-arg ENVIRONMENT=${ENVIRONMENT}
-       --file Dockerfile .
+    - name: Build the Docker image
+      run: >
+        docker build
+        --tag $TAG:latest
+        --tag $TAG:$(date +%Y%m%d%H%M)
+        --build-arg ENVIRONMENT=${ENVIRONMENT}
+        --file Dockerfile .
 
-   - name: Push image to GHCR
-     run: >
-       docker push $TAG:latest
+    - name: Push image to GHCR
+      run: >
+        docker push $TAG:latest
 
   destroy:
     name: destroy
