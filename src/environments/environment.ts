@@ -1,10 +1,11 @@
 export const environment = {
 
-    devMode: false,
-    environmentName: 'production',
+    //TODO: extract from environment variables (at Docker build)
+
+    devMode: true, //because branch is 'dev'
+    environmentName: 'deployed-from-branch-dev', //because branch is 'dev'
 
     krameriusBaseUrl: 'https://api.kramerius.mzk.cz/search',
     elasticBaseUrl: 'http://localhost:9200/moll',
     //TODO: ES login, password
-
 };
