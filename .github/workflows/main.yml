@@ -27,7 +27,9 @@ jobs:
         REF=$(echo $GITHUB_REF_NAME | grep -oE '([a-z0-9\-]*?)$')
         echo "REF=$REF"
         echo "REF=$REF" >> $GITHUB_ENV
-        echo "TAG=ghcr.io/${{ github.repository_owner }}/${{ github.repository }}-$REF" >> $GITHUB_ENV
+        echo "REF=$REF" >> variables.sh
+        echo "TAG=ghcr.io/${{ github.repository_owner }}/${{ github.repository }}-$REF" | tee --app
+end $GITHUB_ENV variables.sh
 
     - name: Debug env
       run: env
@@ -47,6 +49,13 @@ jobs:
       run: >
         docker push $TAG:latest
 
+    # Upload REF variables
+    - name: Upload REF artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: variables
+        path: variables.sh
+
   destroy:
     name: destroy
     needs: build
@@ -58,6 +67,21 @@ jobs:
         shell: bash
 
     steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: variables
+        path: variables
+
+    - name: Source artifact variables
+      shell: bash
+      run: |
+        ls -al variables
+        cat variables/variables.sh
+        source variables/variables.sh
+        echo "REF=$REF" >> $GITHUB_ENV
+        echo "TAG=$TAG" >> $GITHUB_ENV
+
     - name: Configure SSH
       run: |
         eval `ssh-agent -s`
@@ -68,6 +92,7 @@ jobs:
       shell: bash
       run: |
         ssh -o StrictHostKeyChecking=no "${{ secrets.DOCKER_HOST_URI }}" "docker rm -f moll_frontend_dev || true"
+        ssh -o StrictHostKeyChecking=no "${{ secrets.DOCKER_HOST_URI }}" "docker image rm --force ${TAG} || true"
 
   deploy:
     name: deploy
@@ -83,6 +108,20 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
+    # Download and source(set) REF variables get from the last part of GITHUB_REF_NAME
+    - name: Download REF artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: variables
+        path: variables
+
+    - name: Source artifact variables
+      shell: bash
+      run: |
+        source variables/variables.sh
+        echo "REF=$REF" >> $GITHUB_ENV
+        echo ref: $REF
 
     # Install the latest version of Terraform CLI
     - name: Setup Terraform
