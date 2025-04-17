@@ -28,8 +28,7 @@ jobs:
         echo "REF=$REF"
         echo "REF=$REF" >> $GITHUB_ENV
         echo "REF=$REF" >> variables.sh
-        echo "TAG=ghcr.io/${{ github.repository_owner }}/${{ github.repository }}-$REF" | tee --app
-end $GITHUB_ENV variables.sh
+        echo "TAG=ghcr.io/${{ github.repository_owner }}/${{ github.repository }}-$REF" | tee --append $GITHUB_ENV variables.sh
 
     - name: Debug env
       run: env
