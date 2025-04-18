@@ -44,7 +44,7 @@ export class HeaderComponent {
   }
 
   getDevInfo(): string {
-    return "devMode: " + environment.devMode + "; environmentName: " + environment.environmentName;
+    return "devMode: " + environment.devMode + "; environmentCode: " + environment.environmentCode + "; environmentName: " + environment.environmentName;
   }
 
 }
