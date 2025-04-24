@@ -10,7 +10,7 @@ export class ApiService {
     constructor(private http: HttpClient) { }
 
     k7SearchUrl = environment.krameriusBaseUrl + '/api/client/v7.0/search';
-    esSearchUrl = environment.elasticBaseUrl + '/_search';
+    esSearchUrl = '/elasticsearch/moll/_search';
 
     doGet(url: string): Observable<Object> {
         return this.http.get(encodeURI(url)).pipe(catchError(this.handleError));

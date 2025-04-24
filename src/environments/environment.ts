@@ -7,6 +7,6 @@ export const environment = {
     environmentCode: 'd_b-d',
 
     krameriusBaseUrl: 'https://api.kramerius.mzk.cz/search',
-    elasticBaseUrl: 'http://localhost:9200/moll',
+    // elasticBaseUrl: 'http://localhost:9200/moll',
     //TODO: ES login, password
 };
