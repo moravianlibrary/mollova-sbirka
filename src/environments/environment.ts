@@ -1,12 +1,15 @@
 export const environment = {
 
-    //TODO: extract from environment variables (at Docker build)
-
-    devMode: true, //because branch is 'dev'
-    environmentName: 'deployed (branch-dev)', //because branch is 'dev'
-    environmentCode: 'd_b-d',
+    devMode: false,
+    environmentName: 'production',
+    environmentCode: 'p',
+    ngApTest: import.meta.env["NG_APP_TEST"] || 'not-found-for-environment.ts',
 
     krameriusBaseUrl: 'https://api.kramerius.mzk.cz/search',
-    // elasticBaseUrl: 'http://localhost:9200/moll',
+    elasticBaseUrl: 'http://localhost:9200/moll',
     //TODO: ES login, password
+
+    //NG_APP_KRAMERIUS_BASE_URL
+
+
 };

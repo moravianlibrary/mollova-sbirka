@@ -8,11 +8,10 @@ Run
 
 ```shell
 
-    ng serve --configuration development
+    npm run start
 
 ```
-
-for a dev server. Navigate to `http://localhost:4200/`.
+for a local dev server. Navigate to `http://localhost:4200/`.
 The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
@@ -21,15 +20,25 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project.
-
-To build development version(dev branch) of the project run
+Run 
 
 ```shell
 
-    ng build --configuration development
+    npm run build
 
 ```
+to build the project. 
+
+You need to setup your environment variables for variables used in `environment.ts`. With prefix `APP_` instead of `NG_APP`.
+
+For example
+
+```shell
+
+export APP_KRAMERIUS_BASE_URL = "https://api.kramerius.mzk.cz/search"
+
+```
+
 The build artifacts will be stored in the `dist/` directory.
 
 ## Running unit tests

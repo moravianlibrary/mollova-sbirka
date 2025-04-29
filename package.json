@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "prestart": "node scripts/generate-env-from-system.js",
     "start": "ng serve",
+    "prebuild": "node scripts/generate-env-from-system.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -33,6 +35,7 @@
     "@angular-devkit/build-angular": "^17.0.1",
     "@angular/cli": "^17.0.1",
     "@angular/compiler-cli": "^17.0.0",
+    "@ngx-env/builder": "^19.0.4",
     "@types/google.maps": "^3.58.1",
     "@types/jasmine": "~5.1.0",
     "@types/openseadragon": "^3.0.10",

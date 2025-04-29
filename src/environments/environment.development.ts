@@ -3,6 +3,7 @@ export const environment = {
     devMode: true, //hardcoded for local development with ng-serve; change if you want to hide it in UI
     environmentName: 'local (ng-serve)',
     environmentCode: 'l_n-s',
+    ngApTest: import.meta.env['NG_APP_TEST'] || 'not-found-for-environment.development.ts',
 
     //TODO: extract from environment variables (build/runtime)
     krameriusBaseUrl: 'https://api.kramerius.mzk.cz/search',

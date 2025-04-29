@@ -8,7 +8,8 @@ WORKDIR /app
 COPY . /app
 RUN npm install -g @angular/cli && \
   npm install && \
-  ng build --configuration=${ENVIRONMENT}
+  npm run build
+  #  ng build --configuration=${ENVIRONMENT}
 
 FROM nginx:alpine
 COPY --from=builder \
