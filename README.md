@@ -6,11 +6,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run
 
-```shell
+`npm run start`
 
-    npm run start
-
-```
 for a local dev server. Navigate to `http://localhost:4200/`.
 The application will automatically reload if you change any of the source files.
 
@@ -22,11 +19,8 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run 
 
-```shell
+`npm run build`
 
-    npm run build
-
-```
 to build the project. 
 
 You need to setup your environment variables for variables used in `environment.ts`. With prefix `APP_` instead of `NG_APP`.
@@ -35,7 +29,10 @@ For example
 
 ```shell
 
-export APP_KRAMERIUS_BASE_URL = "https://api.kramerius.mzk.cz/search"
+export APP_KRAMERIUS_URL = "https://api.kramerius.mzk.cz/search"
+export APP_ELASTIC_URL = "http://localhost:9200/moll"
+export APP_ELASTIC_LOGIN = "elastic"
+export APP_ELASTIC_PASSWORD = "password"
 
 ```
 
