@@ -15,7 +15,14 @@ FROM nginx:alpine
 COPY --from=builder \
   /app/dist/moll-frontend/browser/ /usr/share/nginx/html
 COPY docker/etc/nginx/conf.d/default.conf /etc/nginx/conf.d/
+
+# ⬇️ nový entrypoint skript
+COPY docker/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
 # FIXME probably these 2 lines are not needed while building
 # on github CI/CD
 RUN find /usr/share/nginx/html -type d -exec chmod 0755 {} \; && \
     find /usr/share/nginx/html -type f -exec chmod 0644 {} \;
+
+ENTRYPOINT ["/entrypoint.sh"]

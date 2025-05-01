@@ -45,8 +45,15 @@ jobs:
           --tag $TAG:latest
           --tag $TAG:$(date +%Y%m%d%H%M)
           --build-arg ENVIRONMENT=${ENVIRONMENT}
+          -e APP_DEV_MODE=${{vars.APP_DEV_MODE}}
+          -e APP_ENV_CODE=${{vars.APP_ENV_CODE}}
+          -e APP_API_URL=${{vars.APP_API_URL}}
+          -e APP_KRAMERIUS_URL=${{vars.APP_KRAMERIUS_URL}}
+          -e APP_ELASTIC_URL=${{vars.APP_ELASTIC_URL}}
+          -e APP_ELASTIC_LOGIN=${{vars.APP_ELASTIC_LOGIN}}
+          -e APP_ELASTIC_PASSWORD=${{vars.APP_ELASTIC_PASSWORD}}
           --file Dockerfile .
-
+                  
       - name: Push image to GHCR
         run: >
           docker push $TAG:latest
