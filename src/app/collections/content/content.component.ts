@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { environment } from '../../../environments/environment';
+import { EnvironmentService } from '../../services/environment.service';
 
 @Component({
   selector: 'app-content',
@@ -21,9 +22,11 @@ export class ContentComponent implements OnInit, OnDestroy {
   typeOfResource: string = '';
   currentLang: string = '';
 
-  apiThumbUrl = environment.krameriusBaseUrl + "/api/client/v7.0/items/";
+  apiThumbUrl = this.envService.get('krameriusBaseUrl') + "/api/client/v7.0/items/";
 
-  constructor(private collectionService: CollectionService,
+  constructor(
+    private envService: EnvironmentService,
+    private collectionService: CollectionService,
     private route: ActivatedRoute,
     private router: Router,
     private translate: TranslateService

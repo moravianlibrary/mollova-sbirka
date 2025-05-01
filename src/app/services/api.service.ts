@@ -3,21 +3,22 @@ import { Observable, throwError } from 'rxjs';
 import { map, catchError, delay, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { EnvironmentService } from './environment.service';
 
 @Injectable()
 export class ApiService {
 
-    constructor(private http: HttpClient) { }
+    constructor(private envService: EnvironmentService, private http: HttpClient) { }
 
-    k7SearchUrl = environment.krameriusBaseUrl + '/api/client/v7.0/search';
-    esSearchUrl = environment.elasticBaseUrl + '/_search';
+    k7SearchUrl = this.envService.get('krameriusBaseUrl') + '/api/client/v7.0/search';
+    esSearchUrl = this.envService.get('elasticBaseUrl') + '/_search';
 
     doGet(url: string): Observable<Object> {
         return this.http.get(encodeURI(url)).pipe(catchError(this.handleError));
     }
 
     private buildElasticAuthHeaders(): HttpHeaders {
-        const token = btoa(`${environment.elasticLogin}:${environment.elasticPassword}`);
+        const token = btoa(`${this.envService.get('elasticLogin')}:${this.envService.get('elasticPassword')}`);
         return new HttpHeaders({
             'Authorization': `Basic ${token}`,
             'Content-Type': 'application/json'

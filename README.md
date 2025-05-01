@@ -17,26 +17,30 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run 
-
-`npm run build`
-
-to build the project. 
-
-You need to setup your environment variables for variables used in `environment.ts`. With prefix `APP_` instead of `NG_APP`.
-
-For example
+First define configuration in environment variables
 
 ```shell
 
-export APP_KRAMERIUS_URL = "https://api.kramerius.mzk.cz/search"
-export APP_ELASTIC_URL = "http://localhost:9200/moll"
-export APP_ELASTIC_LOGIN = "elastic"
-export APP_ELASTIC_PASSWORD = "password"
+export APP_KRAMERIUS_URL="https://api.kramerius.mzk.cz/search"
+export APP_ELASTIC_URL="http://localhost:9200/moll"
+export APP_ELASTIC_LOGIN="elastic"
+export APP_ELASTIC_PASSWORD="password"
 
 ```
 
+Now run `npm run build` to build the project. 
+
 The build artifacts will be stored in the `dist/` directory.
+
+The environment configuration will be stored from `APP_*` variables and stored into `dist/moll-frontend/browser/assets/env.json`
+
+To test the build app run 
+
+`npx serve dist/moll-frontend/browser -l 8080` 
+
+And open in browser 
+
+`http://localhost:8080`
 
 ## Running unit tests
 

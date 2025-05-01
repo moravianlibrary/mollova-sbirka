@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -9,7 +9,7 @@ import { ButtonComponent } from './shared/button/button.component';
 import { CollectionsComponent } from './collections/collections.component';
 import { MenuComponent } from './collections/menu/menu.component';
 
-
+import { EnvironmentService } from './services/environment.service';
 import { ApiService } from './services/api.service';
 import { CollectionService } from './services/collection.service';
 import { SearchService } from './services/search.service';
@@ -42,6 +42,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
+export function initApp(envService: EnvironmentService) {
+  return () => envService.load();
+}
 
 @NgModule({
   declarations: [
@@ -78,7 +81,13 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
       },
     }),
   ],
-  providers: [ApiService, CollectionService, SearchService],
+  providers: [{
+    provide: APP_INITIALIZER,
+    useFactory: initApp,
+    deps: [EnvironmentService],
+    multi: true
+  }, ApiService, CollectionService, SearchService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

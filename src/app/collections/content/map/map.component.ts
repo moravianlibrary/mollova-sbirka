@@ -4,6 +4,7 @@ import { CollectionService } from '../../../services/collection.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { environment } from '../../../../environments/environment';
+import { EnvironmentService } from '../../../services/environment.service';
 
 
 @Component({
@@ -36,12 +37,14 @@ export class MapComponent implements AfterViewInit {
   showMoreInfo = false; // Stav tlačítka
 
   subscription: Subscription = new Subscription();
-  apiThumbUrl = environment.krameriusBaseUrl + "/api/client/v7.0/items/";
+  apiThumbUrl = this.envService.get('krameriusBaseUrl') + "/api/client/v7.0/items/";
   currentLang: string;
 
   private observer!: IntersectionObserver;
 
-  constructor(private translate: TranslateService,
+  constructor(
+    private envService: EnvironmentService,
+    private translate: TranslateService,
     private collectionService: CollectionService,
     private router: Router) { }
 
@@ -56,7 +59,7 @@ export class MapComponent implements AfterViewInit {
       console.log('Pages:', data['response']['docs']);
       this.pages = data['response']['docs'];
       this.pagePid = data['response']['docs'][0]['pid'];
-      this.manifestLink = environment.krameriusBaseUrl + "/iiif/" + this.pagePid + '/info.json';
+      this.manifestLink = this.envService.get('krameriusBaseUrl') + "/iiif/" + this.pagePid + '/info.json';
       console.log("Manifest link", this.manifestLink);
       if (this.siblings.length > 1) {
         this.siblings.find((self, index) => {

@@ -44,3 +44,4 @@ Thumbs.db
 # Build
 .env
 /src/environments/environment.local.ts
+src/assets/env.json
