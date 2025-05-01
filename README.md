@@ -21,6 +21,7 @@ First define configuration in environment variables
 
 ```shell
 
+export APP_DEV_MODE=false
 export APP_KRAMERIUS_URL="https://api.kramerius.mzk.cz/search"
 export APP_ELASTIC_URL="http://localhost:9200/moll"
 export APP_ELASTIC_LOGIN="elastic"

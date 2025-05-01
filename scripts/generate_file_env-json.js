@@ -1,4 +1,7 @@
-// scripts/generate-env-json.js
+// This script generates a JSON file with environment variables for the application.
+// It reads the environment variables from process.env and writes them to a file src/assets/env.json.
+// The generated file can be used in the application to access environment-specific settings.
+
 const fs = require('fs');
 const path = require('path');
 

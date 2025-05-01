@@ -1,3 +1,7 @@
+// This script checks if the environment.local.ts file exists.
+// If it doesn't, it creates a new one by copying the content of environment.ts.
+// Use it for development with ng serve.
+
 const fs = require('fs');
 const path = require('path');
 
