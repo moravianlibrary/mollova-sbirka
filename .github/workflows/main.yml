@@ -45,15 +45,8 @@ jobs:
           --tag $TAG:latest
           --tag $TAG:$(date +%Y%m%d%H%M)
           --build-arg ENVIRONMENT=${ENVIRONMENT}
-          -e APP_DEV_MODE=${{vars.APP_DEV_MODE}}
-          -e APP_ENV_CODE=${{vars.APP_ENV_CODE}}
-          -e APP_API_URL=${{vars.APP_API_URL}}
-          -e APP_KRAMERIUS_URL=${{vars.APP_KRAMERIUS_URL}}
-          -e APP_ELASTIC_URL=${{vars.APP_ELASTIC_URL}}
-          -e APP_ELASTIC_LOGIN=${{vars.APP_ELASTIC_LOGIN}}
-          -e APP_ELASTIC_PASSWORD=${{vars.APP_ELASTIC_PASSWORD}}
           --file Dockerfile .
-                  
+
       - name: Push image to GHCR
         run: >
           docker push $TAG:latest
@@ -155,6 +148,13 @@ jobs:
           echo "TF_VAR_ghcr_username=${{ github.actor }}" >> $GITHUB_ENV
           echo "TF_VAR_deploy_domain=moll.dev.trinera.cloud" >> $GITHUB_ENV
           echo "TF_VAR_docker_container_name=moll_frontend_$REF" >> $GITHUB_ENV
+          echo "TF_VAR_APP_DEV_MODE=${{vars.APP_DEV_MODE}}" >> $GITHUB_ENV
+          echo "TF_VAR_APP_ENV_CODE=${{vars.APP_ENV_CODE}}" >> $GITHUB_ENV
+          echo "TF_VAR_APP_API_URL=${{vars.APP_API_URL}}" >> $GITHUB_ENV
+          echo "TF_VAR_APP_KRAMERIUS_URL=${{vars.APP_KRAMERIUS_URL}}" >> $GITHUB_ENV
+          echo "TF_VAR_APP_ELASTIC_URL=${{vars.APP_ELASTIC_URL}}" >> $GITHUB_ENV
+          echo "TF_VAR_APP_ELASTIC_LOGIN=${{vars.APP_ELASTIC_LOGIN}}" >> $GITHUB_ENV
+          echo "TF_VAR_APP_ELASTIC_PASSWORD=${{vars.APP_ELASTIC_PASSWORD}}" >> $GITHUB_ENV
 
       - name: Terraform Init
         run: terraform init
