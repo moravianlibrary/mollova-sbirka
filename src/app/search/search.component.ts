@@ -5,7 +5,7 @@ import { GoogleMap } from '@angular/google-maps';
 import { Router, ActivatedRoute } from '@angular/router';
 import { first, Subject, Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
-import { environment } from '../../environments/environment';
+import { EnvironmentService } from '../services/environment.service';
 
 
 @Component({
@@ -45,7 +45,7 @@ export class SearchComponent {
 
   private subscriptions: Subscription = new Subscription();
 
-  apiThumbUrl = environment.krameriusBaseUrl + "/api/client/v7.0/items/";
+  apiThumbUrl = this.envService.get('krameriusBaseUrl') + "/api/client/v7.0/items/";
 
   // SLIDER
   minValue: number;
@@ -411,7 +411,9 @@ export class SearchComponent {
 
   private mapIdleSubject = new Subject<void>();
 
-  constructor(public searchService: SearchService,
+  constructor(
+    private envService: EnvironmentService,
+    public searchService: SearchService,
     private router: Router,
     private route: ActivatedRoute
   ) { }

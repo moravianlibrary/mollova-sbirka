@@ -3,7 +3,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { CollectionService } from '../../../services/collection.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { environment } from '../../../../environments/environment';
 import { EnvironmentService } from '../../../services/environment.service';
 
 

@@ -8,7 +8,7 @@ function getEnv(key: string, fallback: string): string {
 export const environment = {
 
   // used by EnvironmentService
-  useRuntimeConfig: true, // DŮLEŽITÉ: pokud je true, konfigurace se načítá z env.json; Pro produkci vždy true
+  useRuntimeConfig: true, // DŮLEŽITÉ: pokud je true, konfigurace se načítá z env.json; Pro produkci vždy true, pro lokální vývoj (environment.local.ts) false
 
   // overriden with env.json if useRuntimeConfig is true
   devMode: false, // pro produkci ziskej z promenne APP_DEV_MODE (přes env.json)

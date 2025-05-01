@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
-import { environment } from '../../../../environments/environment';
 import { EnvironmentService } from '../../../services/environment.service';
 
 

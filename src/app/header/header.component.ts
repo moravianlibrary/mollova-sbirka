@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
-import { environment } from '../../environments/environment';
+import { EnvironmentService } from '../services/environment.service';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +13,7 @@ export class HeaderComponent {
   activeLink: string = '';
   menuExpanded = false;
 
-  constructor(private translate: TranslateService,
+  constructor(private translate: TranslateService, private envService: EnvironmentService,
     private router: Router
   ) { }
 
@@ -25,6 +25,20 @@ export class HeaderComponent {
         this.activeLink = this.router.url.split('/')[1];
       }
     });
+
+    this.printConfig();
+  }
+
+  printConfig(): void {
+    console.log('environment.useRuntimeConfig:', this.envService.get('useRuntimeConfig'));
+    console.log('environment.devMode:', this.envService.get('devMode'));
+    console.log('environment.environmentName:', this.envService.get('environmentName'));
+    console.log('environment.environmentCode:', this.envService.get('environmentCode'));
+
+    console.log('krameriusBaseUrl:', this.envService.get('krameriusBaseUrl'));
+    console.log('elasticBaseUrl:', this.envService.get('elasticBaseUrl'));
+    //console.log('elasticLogin:', this.envService.get('elasticLogin') );
+    //console.log('elasticPassword:', this.envService.get('elasticPassword') );
   }
 
   switchLanguage(lang: string): void {
@@ -40,11 +54,12 @@ export class HeaderComponent {
   }
 
   isDevMode(): boolean {
-    return environment.devMode;
+    return this.envService.get('devMode');
   }
 
   getDevInfo(): string {
-    return "devMode: " + environment.devMode + "; environmentCode: " + environment.environmentCode + "; environmentName: " + environment.environmentName;
+
+    return "devMode: " + this.envService.get('devMode') + "; environmentCode: " + this.envService.get('environmentCode') + "; environmentName: " + this.envService.get('environmentName');
   }
 
 }
