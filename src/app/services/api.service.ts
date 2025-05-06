@@ -1,20 +1,29 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { map, catchError, delay, tap } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { EnvironmentService } from './environment.service';
 
 @Injectable()
 export class ApiService {
 
-    constructor(private http: HttpClient) { }
+    constructor(private envService: EnvironmentService, private http: HttpClient) { }
 
-    k7SearchUrl = environment.krameriusBaseUrl + '/api/client/v7.0/search';
-    esSearchUrl = environment.elasticBaseUrl + '/_search';
+    k7SearchUrl = this.envService.get('krameriusBaseUrl') + '/api/client/v7.0/search';
+    esSearchUrl = this.envService.get('elasticBaseUrl') + '/_search';
 
     doGet(url: string): Observable<Object> {
         return this.http.get(encodeURI(url)).pipe(catchError(this.handleError));
     }
+
+    private buildElasticAuthHeaders(): HttpHeaders {
+        const token = btoa(`${this.envService.get('elasticLogin')}:${this.envService.get('elasticPassword')}`);
+        return new HttpHeaders({
+            'Authorization': `Basic ${token}`,
+            'Content-Type': 'application/json'
+        });
+    }
+
     private handleError(error: Response) {
         if (error.status === 404) {
             return throwError(() => 'Not found');
@@ -44,10 +53,11 @@ export class ApiService {
         );
     }
     getElasticSearchResults(query: string): Observable<Object> {
-        return this.doGet(
-            `${this.esSearchUrl}?${query}`
-        );
+        return this.http.get(encodeURI(`${this.esSearchUrl}?${query}`), {
+            headers: this.buildElasticAuthHeaders()
+        }).pipe(catchError(this.handleError));
     }
+
     getElasticRecordByPid(pid: string): Observable<Object> {
         const body = {
             query: {
@@ -56,7 +66,9 @@ export class ApiService {
                 }
             }
         };
-        return this.http.post(this.esSearchUrl, body);
+        return this.http.post(this.esSearchUrl, body, {
+            headers: this.buildElasticAuthHeaders()
+        }).pipe(catchError(this.handleError));
     }
 
     //https://api.kramerius.mzk.cz/search/api/client/v7.0/search?fl=pid,accessibility,model,title.search,licenses,contains_licenses,licenses_of_ancestors,page.type,page.number,page.placement,track.length&q=own_parent.pid:%22uuid:e1db8d4c-f39c-4599-b71a-5e8cd634a8af%22&sort=rels_ext_index.sort%20asc&rows=4000&start=0

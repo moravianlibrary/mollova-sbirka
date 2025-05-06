@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { _ } from '@ngx-translate/core';
 import OpenSeadragon from 'openseadragon';
 import { CollectionService } from '../../../../services/collection.service';
-import { environment } from '../../../../../environments/environment';
+import { EnvironmentService } from '../../../../services/environment.service';
 
 @Component({
   selector: 'app-iiif-image-viewer',
@@ -22,12 +22,12 @@ export class IiifImageViewerComponent implements OnInit {
 
   isFullScreen: boolean = false;
 
-  constructor(private collectionService: CollectionService) { }
+  constructor(private envService: EnvironmentService, private collectionService: CollectionService) { }
 
   ngOnInit(): void {
     this.pagePid = this.pages[0]['pid'];
     this.actualPage = 1;
-    this.manifestLink = environment.krameriusBaseUrl + "/iiif/" + this.pagePid + '/info.json';
+    this.manifestLink = this.envService.get('krameriusBaseUrl') + "/iiif/" + this.pagePid + '/info.json';
     // this.manifestLink = 'http://localhost:4200/assets/docs/info.json';
     console.log('URL:', this.manifestLink, 'PAGES:', this.pages);
     if (this.manifestLink) {
@@ -74,7 +74,7 @@ export class IiifImageViewerComponent implements OnInit {
       this.viewer.close();
       this.actualPage--;
       this.pagePid = this.pages[this.actualPage - 1]['pid'];
-      this.manifestLink = environment.krameriusBaseUrl + "/iiif/" + this.pagePid + '/info.json';
+      this.manifestLink = this.envService.get('krameriusBaseUrl') + "/iiif/" + this.pagePid + '/info.json';
       this.viewer.open(this.manifestLink);
       this.loadingImage = false;
     } else {
@@ -87,7 +87,7 @@ export class IiifImageViewerComponent implements OnInit {
       this.viewer.close();
       this.actualPage++;
       this.pagePid = this.pages[this.actualPage - 1]['pid'];
-      this.manifestLink = environment.krameriusBaseUrl + "/iiif/" + this.pagePid + '/info.json';
+      this.manifestLink = this.envService.get('krameriusBaseUrl') + "/iiif/" + this.pagePid + '/info.json';
       this.viewer.open(this.manifestLink);
       this.loadingImage = false;
     } else {
