@@ -5,7 +5,13 @@ ARG ENVIRONMENT="production"
 
 WORKDIR /app
 
+# přidej git do builderu kvůli collect-build-info.js
+RUN apk add --no-cache git
+
 COPY . /app
+# zkopíruj .git kvůli collect-build-info.js
+COPY .git /app/.git
+
 RUN npm install -g @angular/cli && \
   npm install && \
   npm run build

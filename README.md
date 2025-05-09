@@ -79,6 +79,7 @@ Run locally built Docker image
 ##### Run
 ```
 docker run -p 1234:80 \
+  -e APP_DEV_MODE=false \
   -e APP_KRAMERIUS_URL=https://api.kramerius.mzk.cz/search \
   -e APP_ELASTIC_URL=https://elastic.example.com \
   -e APP_ELASTIC_LOGIN=login \
