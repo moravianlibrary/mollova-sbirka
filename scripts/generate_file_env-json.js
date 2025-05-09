@@ -8,7 +8,9 @@ const path = require('path');
 const outputPath = path.join(__dirname, '../src/assets/env.json');
 
 const config = {
-  devMode: process.env.APP_DEV_MODE === 'true', 
+  useStaticRuntimeConfig: false,
+
+  devMode: process.env.APP_DEV_MODE === 'true',
   environmentName: process.env.APP_ENV_NAME || 'not defined',
   environmentCode: process.env.APP_ENV_CODE || 'n-d',
 

@@ -25,20 +25,6 @@ export class HeaderComponent {
         this.activeLink = this.router.url.split('/')[1];
       }
     });
-
-    this.printConfig();
-  }
-
-  printConfig(): void {
-    console.log('environment.useRuntimeConfig:', this.envService.get('useRuntimeConfig'));
-    console.log('environment.devMode:', this.envService.get('devMode'));
-    console.log('environment.environmentName:', this.envService.get('environmentName'));
-    console.log('environment.environmentCode:', this.envService.get('environmentCode'));
-
-    console.log('krameriusBaseUrl:', this.envService.get('krameriusBaseUrl'));
-    console.log('elasticBaseUrl:', this.envService.get('elasticBaseUrl'));
-    //console.log('elasticLogin:', this.envService.get('elasticLogin') );
-    //console.log('elasticPassword:', this.envService.get('elasticPassword') );
   }
 
   switchLanguage(lang: string): void {
@@ -60,6 +46,25 @@ export class HeaderComponent {
   getDevInfo(): string {
 
     return "devMode: " + this.envService.get('devMode') + "; environmentCode: " + this.envService.get('environmentCode') + "; environmentName: " + this.envService.get('environmentName');
+  }
+
+  logDevInfo(): void {
+    const devInfo = {
+      useStaticRuntimeConfig: this.envService.get('useStaticRuntimeConfig'),
+      devMode: this.envService.get('devMode'),
+      environmentCode: this.envService.get('environmentCode'),
+      environmentName: this.envService.get('environmentName'),
+      krameriusBaseUrl: this.envService.get('krameriusBaseUrl'),
+      elasticBaseUrl: this.envService.get('elasticBaseUrl'),
+
+      gitCommitHash: this.envService.get('git_commit_hash'),
+      gitTag: this.envService.get('git_tag'),
+      buildDate: this.envService.get('build_date'),
+    };
+    console.log('Dev Info:', devInfo);
+    if (devInfo.gitCommitHash) {
+      console.log('https://github.com/trineracz/moll-frontend/commit/' + devInfo.gitCommitHash);
+    }
   }
 
 }

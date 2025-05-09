@@ -3,7 +3,8 @@
 // This script is intended to be run in a Node.js environment and requires the 'child_process' and 'fs' modules.
 
 const { execSync } = require('child_process');
-const { writeFileSync } = require('fs');
+const fs = require('fs');
+const path = require('path');
 
 let commitHash;
 let commitTag;
@@ -45,17 +46,12 @@ const info = {
     git_dirty: isDirty,
     build_date: new Date().toISOString()
 };
-
 const versionInfoJson = JSON.stringify(info, null, 2);
 
-//console.log('versionInfoJson:', versionInfoJson);
-
-const fileName = 'build-info.json';
-console.log('[collect-build-info] ✅ Version info JSON genareted, saving to file ' + fileName);
-writeFileSync(fileName, versionInfoJson, 'utf8', (err) => {
+const fileName = path.join(__dirname, '../src/assets/build-info.json');
+console.log('[collect-build-info] ✅ Build info JSON genareted, saving to file ' + fileName);
+fs.writeFileSync(fileName, versionInfoJson, 'utf8', (err) => {
     if (err) {
         console.error('[env-bootstrap] ❌ Error writing file:', err);
-    } else {
-        console.log('[collect-build-info] ✅ Version info JSON saved to', fileName);
     }
 });
