@@ -140,49 +140,98 @@ export class CollectionService {
             })
         );
     }
+    // getCollectionChildren(pid: string): Observable<any[]> {
+    //     return this.apiService.getCollectionChildren(pid).pipe(
+    //         map((data: any) => {
+    //             const docs = data?.response?.docs || [];
+    //             return docs.filter((item: any) => item['model'] !== 'manuscript');
+    //         }),
+    //         // tap((children: any[]) => {
+    //         //     const sortedSiblings = children.sort((a: any, b: any) =>
+    //         //         a['shelf_locators']?.[0]?.localeCompare(b['shelf_locators']?.[0]) ?? 0
+    //         //     );
+    //         //     this.setSiblings(sortedSiblings);
+    //         // }),
+    //         mergeMap((children: any[]) => {
+    //             if (children.length === 0) {
+    //                 return of([]);
+    //             }
+    
+    //             const detailedChildren$ = children.map(child =>
+    //                 forkJoin({
+    //                     collectionDetails: this.getCollection(child.pid).pipe(
+    //                         map((collectionDetails: any) => collectionDetails['response']['docs'][0] || {})
+    //                     ),
+    //                     elasticDetails: this.apiService.getElasticRecordByPid(child.pid).pipe(
+    //                         map((elasticDetails: any) => elasticDetails?.hits?.hits?.[0]?._source || {})
+    //                     )
+    //                 }).pipe(
+    //                     map(({ collectionDetails, elasticDetails }) => ({
+    //                         ...child,
+    //                         collectionDetails,
+    //                         elasticDetails
+    //                     }))
+    //             ));
+
+    //             return forkJoin(detailedChildren$);
+    //         }),
+    //         tap((detailedChildren: any[]) => {
+    //             const sortedSiblings = detailedChildren.sort((a: any, b: any) =>
+    //                 a['shelf_locators']?.[0]?.localeCompare(b['shelf_locators']?.[0]) ?? 0
+    //             );
+    //             this.setSiblings(sortedSiblings);
+    //         }),
+    //     );
+    // }
+
     getCollectionChildren(pid: string): Observable<any[]> {
         return this.apiService.getCollectionChildren(pid).pipe(
             map((data: any) => {
                 const docs = data?.response?.docs || [];
                 return docs.filter((item: any) => item['model'] !== 'manuscript');
             }),
-            // tap((children: any[]) => {
-            //     const sortedSiblings = children.sort((a: any, b: any) =>
-            //         a['shelf_locators']?.[0]?.localeCompare(b['shelf_locators']?.[0]) ?? 0
-            //     );
-            //     this.setSiblings(sortedSiblings);
-            // }),
             mergeMap((children: any[]) => {
-                if (children.length === 0) {
-                    return of([]);
-                }
+                if (children.length === 0) return of([]);
     
-                const detailedChildren$ = children.map(child =>
-                    forkJoin({
-                        collectionDetails: this.getCollection(child.pid).pipe(
-                            map((collectionDetails: any) => collectionDetails['response']['docs'][0] || {})
-                        ),
-                        elasticDetails: this.apiService.getElasticRecordByPid(child.pid).pipe(
-                            map((elasticDetails: any) => elasticDetails?.hits?.hits?.[0]?._source || {})
+                const pids = children.map(child => child.pid);
+    
+                return forkJoin({
+                    collections: this.apiService.getCollectionsByPids(pids).pipe(
+                        map((res: any) =>
+                            (res?.response?.docs || []).reduce((acc: any, doc: any) => {
+                                acc[doc.pid] = doc;
+                                return acc;
+                            }, {})
                         )
-                    }).pipe(
-                        map(({ collectionDetails, elasticDetails }) => ({
+                    ),
+                    elasticRecords: this.apiService.getElasticRecordsByPids(pids).pipe(
+                        map((res: any) =>
+                            (res?.hits?.hits || []).reduce((acc: any, hit: any) => {
+                                const source = hit._source || {};
+                                acc[source.pid] = source;
+                                return acc;
+                            }, {})
+                        )
+                    )
+                }).pipe(
+                    map(({ collections, elasticRecords }) => {
+                        return children.map(child => ({
                             ...child,
-                            collectionDetails,
-                            elasticDetails
-                        }))
-                ));
-
-                return forkJoin(detailedChildren$);
+                            collectionDetails: collections[child.pid] || {},
+                            elasticDetails: elasticRecords[child.pid] || {}
+                        }));
+                    })
+                );
             }),
             tap((detailedChildren: any[]) => {
                 const sortedSiblings = detailedChildren.sort((a: any, b: any) =>
                     a['shelf_locators']?.[0]?.localeCompare(b['shelf_locators']?.[0]) ?? 0
                 );
                 this.setSiblings(sortedSiblings);
-            }),
+            })
         );
     }
+    
 
 
     getPagesByPid(pid: string): Observable<Object> {
