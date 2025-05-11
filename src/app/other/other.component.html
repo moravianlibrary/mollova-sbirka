@@ -7,9 +7,11 @@
                     <div class="app-text" *ngIf="currentLang === 'cs'">Mollova sbírka tvoří hlavní soubor starých map a vedut v MZK, není však zdaleka jediný. Mezi další důležité celky patří Schramova sbírka vedut a portrétů, Sbírka starých grafik, Sbírka starých map, Sbírka map 19. a 20. století a potom řada map vevázaných jako přílohy do knih.</div>
                     <div class="app-text" *ngIf="currentLang === 'en'">The Moll collection is the main set of antique maps and vedute in the MZK, but certainly not the only one. Other important ensembles include the Schram Collection of Vedute and Portraits, the Old Print Collection, the Collection of Old Maps, the Collection of Maps from the 19th and 20 Centuries, and apart from that, a number of maps bound as supplements to books.</div>
                     <div class="app-text" *ngIf="currentLang === 'de'">Die Sammlung Moll bildet den Grundstock der Altkarten und Veduten in der MZK (Mährischen Landesbibliothek), sie ist jedoch bei Weitem nicht die einzige.</div>
-                    <app-button variant="primary" size="large" iconRight="export-white.png" (click)="goToDigitalLibrary()">
-                        <span>{{'find-more' | translate}}</span>
-                    </app-button>
+                    <a href="https://www.digitalniknihovna.cz/mzk/" target="_blank">
+                        <app-button variant="primary" size="large" iconRight="export-white.png">
+                            <span>{{'find-more' | translate}}</span>
+                        </app-button>
+                    </a>
                 </div>
             </div>
             <div class="app-desc-right">
