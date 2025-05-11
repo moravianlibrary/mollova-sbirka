@@ -184,6 +184,55 @@ export class CollectionService {
     //     );
     // }
 
+    // getCollectionChildren(pid: string): Observable<any[]> {
+    //     return this.apiService.getCollectionChildren(pid).pipe(
+    //         map((data: any) => {
+    //             const docs = data?.response?.docs || [];
+    //             return docs.filter((item: any) => item['model'] !== 'manuscript');
+    //         }),
+    //         mergeMap((children: any[]) => {
+    //             if (children.length === 0) return of([]);
+    //             console.log('Children195:', children);
+    
+    //             const pids = children.map(child => child.pid);
+    
+    //             return forkJoin({
+    //                 collections: this.apiService.getCollectionsByPids(pids).pipe(
+    //                     map((res: any) =>
+    //                         (res?.response?.docs || []).reduce((acc: any, doc: any) => {
+    //                             acc[doc.pid] = doc;
+    //                             return acc;
+    //                         }, {})
+    //                     )
+    //                 ),
+    //                 elasticRecords: this.apiService.getElasticRecordsByPids(pids).pipe(
+    //                     map((res: any) =>
+    //                         (res?.hits?.hits || []).reduce((acc: any, hit: any) => {
+    //                             const source = hit._source || {};
+    //                             acc[source.pid] = source;
+    //                             return acc;
+    //                         }, {})
+    //                     )
+    //                 )
+    //             }).pipe(
+    //                 map(({ collections, elasticRecords }) => {
+    //                     return children.map(child => ({
+    //                         ...child,
+    //                         collectionDetails: collections[child.pid] || {},
+    //                         elasticDetails: elasticRecords[child.pid] || {}
+    //                     }));
+    //                 })
+    //             );
+    //         }),
+    //         tap((detailedChildren: any[]) => {
+    //             const sortedSiblings = detailedChildren.sort((a: any, b: any) =>
+    //                 a['shelf_locators']?.[0]?.localeCompare(b['shelf_locators']?.[0]) ?? 0
+    //             );
+    //             this.setSiblings(sortedSiblings);
+    //         })
+    //     );
+    // }
+
     getCollectionChildren(pid: string): Observable<any[]> {
         return this.apiService.getCollectionChildren(pid).pipe(
             map((data: any) => {
@@ -195,30 +244,18 @@ export class CollectionService {
     
                 const pids = children.map(child => child.pid);
     
-                return forkJoin({
-                    collections: this.apiService.getCollectionsByPids(pids).pipe(
-                        map((res: any) =>
-                            (res?.response?.docs || []).reduce((acc: any, doc: any) => {
-                                acc[doc.pid] = doc;
-                                return acc;
-                            }, {})
-                        )
-                    ),
-                    elasticRecords: this.apiService.getElasticRecordsByPids(pids).pipe(
-                        map((res: any) =>
-                            (res?.hits?.hits || []).reduce((acc: any, hit: any) => {
-                                const source = hit._source || {};
-                                acc[source.pid] = source;
-                                return acc;
-                            }, {})
-                        )
-                    )
-                }).pipe(
-                    map(({ collections, elasticRecords }) => {
+                return this.apiService.getElasticRecordsByPids(pids).pipe(
+                    map((res: any) => {
+                        const elasticMap = (res?.hits?.hits || []).reduce((acc: any, hit: any) => {
+                            const source = hit._source || {};
+                            acc[source.pid] = source;
+                            return acc;
+                        }, {});
+    
                         return children.map(child => ({
                             ...child,
-                            collectionDetails: collections[child.pid] || {},
-                            elasticDetails: elasticRecords[child.pid] || {}
+                            collectionDetails: child, // použijme data, která už máme
+                            elasticDetails: elasticMap[child.pid] || {}
                         }));
                     })
                 );
@@ -231,6 +268,7 @@ export class CollectionService {
             })
         );
     }
+    
     
 
 

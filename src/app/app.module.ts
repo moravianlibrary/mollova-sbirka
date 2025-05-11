@@ -2,6 +2,9 @@ import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CachingInterceptor } from './services/caching.interceptor';
+import { HttpRequestCache } from './services/http-request-cache.service';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -81,13 +84,20 @@ export function initApp(envService: EnvironmentService) {
       },
     }),
   ],
-  providers: [{
-    provide: APP_INITIALIZER,
-    useFactory: initApp,
-    deps: [EnvironmentService],
-    multi: true
-  }, ApiService, CollectionService, SearchService],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initApp,
+      deps: [EnvironmentService],
+      multi: true
+    }, 
+    ApiService, 
+    CollectionService, 
+    SearchService,
+    HttpRequestCache,
+    { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
+  ],
+  bootstrap: [AppComponent],
 })
 
 export class AppModule { }
