@@ -49,7 +49,7 @@ const info = {
 const versionInfoJson = JSON.stringify(info, null, 2);
 
 const fileName = path.join(__dirname, '../src/assets/build-info.json');
-console.log('[collect-build-info] ✅ Build info JSON genareted, saving to file ' + fileName);
+console.log('[collect-build-info] ✅ Build info JSON generated, saving to file ' + fileName);
 fs.writeFileSync(fileName, versionInfoJson, 'utf8', (err) => {
     if (err) {
         console.error('[env-bootstrap] ❌ Error writing file:', err);
