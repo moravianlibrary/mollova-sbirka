@@ -419,9 +419,7 @@ export class SearchComponent {
   ) { }
 
   ngOnInit() {
-    console.log('lastPage', this.lastPage);
     const paramSub = this.route.queryParams.subscribe(params => {
-      console.log('params', params);
       this.searchText = params['searchText'] || '';
       this.north = parseFloat(params['north']) || 65.8;
       this.south = parseFloat(params['south']) || 27.0;
@@ -553,7 +551,6 @@ export class SearchComponent {
     if (this.currentPage) {
       filter += `&start=${(this.currentPage - 1) * 100}`;
     }
-    console.log('query', query + filter);
     return query + filter;
   }
 
@@ -597,7 +594,7 @@ export class SearchComponent {
     this.focusedItem.west = parseFloat(this.focusedItem['coords.bbox.corner_sw'].split(',')[1]);
 
     let constant = (this.focusedItem.north - this.focusedItem.south) * zoom;
-    console.log('focused', this.focusedItem.north - this.focusedItem.south, this.googleMap.getZoom(), constant);
+    // console.log('focused', this.focusedItem.north - this.focusedItem.south, this.googleMap.getZoom(), constant);
 
     if (
       (this.focusedItem['coords.bbox.corner_ne'] === this.focusedItem['coords.bbox.corner_sw'])) {
@@ -605,7 +602,7 @@ export class SearchComponent {
       // BOD
       this.focusedItem.lat = parseFloat(this.focusedItem['coords.bbox.corner_ne'].split(',')[0]);
       this.focusedItem.lng = parseFloat(this.focusedItem['coords.bbox.corner_ne'].split(',')[1]);
-    } else if ((this.focusedItem.north - this.focusedItem.south) * zoom < 0.16) {
+    } else if ((this.focusedItem.north - this.focusedItem.south) * zoom < 0.5) {
       this.focusedItem.lat = (this.focusedItem.north + this.focusedItem.south) / 2;
       this.focusedItem.lng = (this.focusedItem.east + this.focusedItem.west) / 2;
       this.markerSize = true;
@@ -637,7 +634,7 @@ export class SearchComponent {
       this.south = bounds.getSouthWest().lat();
       this.east = bounds.getNorthEast().lng();
       this.west = bounds.getSouthWest().lng();
-      console.log('map idle zoom', this.googleMap.getZoom(), bounds);
+      // console.log('map idle zoom', this.googleMap.getZoom(), bounds);
     }
     this.mapIdleSubject.next();
   }
@@ -661,7 +658,7 @@ export class SearchComponent {
     this.searchVisible = !this.searchVisible;
   }
   sortBy(sort: string) {
-    console.log('sort', sort);
+    // console.log('sort', sort);
     this.selectedSort = sort;
     if (sort === 'relevance') {
       this.sortQuery = '';

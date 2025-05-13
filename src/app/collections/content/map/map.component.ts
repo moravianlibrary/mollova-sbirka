@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, Input, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, Input, AfterViewInit, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { CollectionService } from '../../../services/collection.service';
 import { Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { EnvironmentService } from '../../../services/environment.service';
   templateUrl: './map.component.html',
   styleUrl: './map.component.scss'
 })
-export class MapComponent implements AfterViewInit {
+export class MapComponent implements OnInit, AfterViewInit {
   @Input() map: any = {};
   @Input() parentCollection: any;
   @Input() siblings: any[];
@@ -53,13 +53,13 @@ export class MapComponent implements AfterViewInit {
       this.currentLang = event.lang;
     });
     this.subscription.add(langSub);
-    console.log('Map:', this.map, this.parentCollection, this.siblings);
+    // console.log('Map:', this.map, this.parentCollection, this.siblings);
     this.collectionService.getPagesByPid(this.map['pid']).subscribe((data: any) => {
-      console.log('Pages:', data['response']['docs']);
+      // console.log('Pages:', data['response']['docs']);
       this.pages = data['response']['docs'];
       this.pagePid = data['response']['docs'][0]['pid'];
       this.manifestLink = this.envService.get('krameriusBaseUrl') + "/iiif/" + this.pagePid + '/info.json';
-      console.log("Manifest link", this.manifestLink);
+      // console.log("Manifest link", this.manifestLink);
       if (this.siblings.length > 1) {
         this.siblings.find((self, index) => {
           if (self['pid'] === this.map['pid']) {

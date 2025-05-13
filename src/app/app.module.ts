@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { APP_INITIALIZER, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -37,8 +37,11 @@ import { FormsModule } from '@angular/forms';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { GoogleMapsModule } from "@angular/google-maps";
 
+import { registerLocaleData } from '@angular/common';
+import localeCs from '@angular/common/locales/cs';
 
 
+registerLocaleData(localeCs);
 
 // Funkce pro vytvoření překladového loaderu
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -95,7 +98,8 @@ export function initApp(envService: EnvironmentService) {
     CollectionService, 
     SearchService,
     HttpRequestCache,
-    { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true },
+    { provide: LOCALE_ID, useValue: 'cs' }
   ],
   bootstrap: [AppComponent],
 })

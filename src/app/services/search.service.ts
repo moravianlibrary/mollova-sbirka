@@ -12,11 +12,9 @@ export class SearchService {
 
     search(query: string, sort: string) {
         this.loading = true;
-        console.log('Hledám:', query, sort);
         this.apiService.getSearchResults(query, sort).subscribe({
             next: (data: any) => {
                 this.resultsSubject.next(data);
-                // console.log('Přijatá data z API:', data);
                 this.loading = false;
             },
             error: (error) => {

@@ -23,8 +23,6 @@ export class CollectionComponent {
   ) { this.currentLang = this.translate.currentLang; }
 
   ngOnInit(): void {
-    console.log('Collection:', this.collection);
-    console.log('Children:', this.children);
     // Language change subscription
     const langSub = this.translate.onLangChange.subscribe((event) => {
       this.currentLang = event.lang;
@@ -33,7 +31,6 @@ export class CollectionComponent {
   }
 
   onCardClick(item: any): void {
-    console.log('Card clicked:', item);
     this.router.navigate(['/mollova-sbirka', item.pid]);
   }
 
