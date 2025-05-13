@@ -1,10 +1,3 @@
-function getEnv(key: string, fallback: string): string {
-  return typeof import.meta.env !== 'undefined' &&
-    typeof import.meta.env[key] !== 'undefined'
-    ? import.meta.env[key]
-    : fallback;
-}
-
 export const environment = {
 
   // used by EnvironmentService

@@ -6,6 +6,12 @@ const fs = require('fs');
 const path = require('path');
 
 const outputPath = path.join(__dirname, '../src/assets/env.json');
+const outputDir = path.dirname(outputPath);
+
+if (!fs.existsSync(outputDir)) {
+  fs.mkdirSync(outputDir, { recursive: true });
+  console.log(`⚠️  Dir ${outputDir} not found. Creating it...`);
+}
 
 const config = {
   useStaticRuntimeConfig: false,
