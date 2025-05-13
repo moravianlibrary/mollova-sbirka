@@ -3,14 +3,14 @@
 .app-container {
     display: flex;
     flex-direction: column;
-    // height: 94.5vh;
     width: calc(100% - 96px);
-    // padding: var(--Spacing-x12, 48px);
     background-color: white;
     .app-content {
         height: 100%;
         width: 100%;
         overflow: auto;
+        // overflow-x: hidden;
+        // box-sizing: border-box;
         padding: var(--Spacing-x12, 48px);
         background: var(--BG-Main-Bright, #ffffff);
         display: flex;
@@ -382,6 +382,7 @@
         // bottom: 0;
         // width: 66%;
         display: flex;
+        gap: 16px;
         width: 100%;
         padding: 0px var(--Spacing-x12, 48px);
         justify-content: space-between;
@@ -398,6 +399,12 @@
             border: 1px solid var(--Boarder-Tertiary-Default, #38372E);
             cursor: pointer;
             .app-text {
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                line-clamp: 1;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
                 color: var(--Text-Secondary, #38372E);
                 /* Typesettings/lg/semibold */
                 font-family: "Source Sans Pro";
@@ -416,11 +423,10 @@
         }
         .app-right-nav {
             display: flex;
-            justify-content: flex-end;
             align-items: center;
             gap: 24px;
-            flex-shrink: 0;
             .app-text {
+                width: 100%;
                 color: var(--Text-Secondary, #38372E);
                 /* Typesettings/md/regular */
                 font-family: "Source Sans Pro";
@@ -430,7 +436,9 @@
                 line-height: 24px; /* 150% */            
             }
             .app-pagination {
+                // width: 100%;
                 display: flex;
+                justify-content: flex-end;
                 padding: 12px 0px;
                 align-items: center;
                 gap: 24px;

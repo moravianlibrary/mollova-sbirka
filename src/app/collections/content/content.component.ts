@@ -73,7 +73,7 @@ export class ContentComponent implements OnInit, OnDestroy {
         if (item.model === 'collection') {
           this.typeOfResource = 'collection';
           this.collection = data['response']['docs'][0];
-          console.log('COLLECTION:', this.collection);
+          // console.log('COLLECTION:', this.collection);
           this.collectionService.getChildrenByPidWithDetails(pid).subscribe((children) => {
             console.log('Children1:', children);
             // this.children = children.sort((a: any, b: any) => {

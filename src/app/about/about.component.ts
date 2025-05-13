@@ -25,12 +25,10 @@ export class AboutComponent {
   }
 
   ngOnInit() {
-    console.log('AboutComponent ngOnInit', this.activeMenu);
     this.translate.onLangChange.subscribe((event) => {
       this.currentLang = event.lang;
     });
     const urlSub = this.route.url.subscribe((url) => {
-      console.log('URL:', url);
       if (url.length === 0 || (url.length === 1 && url[0].path === 'o-sbirce')) {
         // this.router.navigate(['/o-sbirce', 'o-sbirce']);
         this.activeMenu = 'o-sbirce';
