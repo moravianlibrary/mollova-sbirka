@@ -1,4 +1,4 @@
-@import '../../styles.scss';
+// @import '../../styles.scss';
 
 .app-search-container {
     display: flex;
@@ -92,7 +92,7 @@
                     display: flex;
                     width: 100%;
                     // padding: var(--Spacing-x3, 12px) var(--Spacing-x4, 16px);
-                    padding: 12px 12px 12px 36px;
+                    padding: 12px 12px 12px 24px;
                     align-items: center;
                     gap: var(--Spacing-x3, 12px);
                     align-self: stretch;
@@ -115,7 +115,7 @@
                     font-weight: 400;
                     line-height: 24px; /* 150% */
                     &:focus {
-                        padding: 11px 11px 11px 35px;
+                        padding: 11px 11px 11px 23px;
                         border: 1px solid #A08700;
                     }
                 }
@@ -123,6 +123,7 @@
                     width: 16px;
                     height: 16px;
                     position: absolute;
+                    right: 0;
                     padding: 16px 16px 16px 12px;
                     cursor: pointer;
                 }
@@ -130,7 +131,7 @@
                     width: 16px;
                     height: 16px;
                     position: absolute;
-                    right: 0;
+                    right: 40px;
                     padding: 16px 16px 16px 12px;
                     cursor: pointer;
                 }
