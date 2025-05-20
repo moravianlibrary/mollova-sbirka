@@ -1,7 +1,6 @@
 FROM node:alpine as builder
 LABEL org.opencontainers.image.authors="Slavik Svyrydiuk <slavik@svyrydiuk.eu>"
 EXPOSE 80
-ARG ENVIRONMENT="production"
 
 WORKDIR /app
 
@@ -15,8 +14,7 @@ COPY .git /app/.git
 RUN npm install -g @angular/cli && \
   npm install && \
   npm run build
-  #  ng build --configuration=${ENVIRONMENT}
-
+  
 FROM nginx:alpine
 COPY --from=builder \
   /app/dist/moll-frontend/browser/ /usr/share/nginx/html
