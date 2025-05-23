@@ -59,7 +59,7 @@
         height: calc(100% - 48px);
         overflow: auto;
         .app-about-content {
-            display: inline-flex;
+            display: flex;
             flex-direction: column;
             gap: var(--Spacing-x4, 16px);
             padding: 48px 48px 64px 48px;
@@ -175,6 +175,20 @@
         }
     }    
 }
+@media screen and (max-width: 850px) {
+    .app-about-container {
+        .app-about-content-container {
+            .app-about-content {
+                .app-items {
+                    .app-text-logo-wrapper {
+                        flex-wrap: wrap;
+                        gap: 24px;
+                    }
+                }
+            }
+        }
+    }    
+}
 @media screen and (max-width: 700px) {
     .app-about-container {
         .app-about-menu {
@@ -202,10 +216,6 @@
                                 display: none;
                             }
                         }
-                    }
-                    .app-text-logo-wrapper {
-                        flex-direction: column;
-                        gap: 24px;
                     }
                 }
             }
