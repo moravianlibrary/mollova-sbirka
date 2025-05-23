@@ -150,7 +150,6 @@ jobs:
           echo "TF_VAR_docker_container_name=moll_frontend_$REF" >> $GITHUB_ENV
           echo "TF_VAR_APP_DEV_MODE=${{vars.APP_DEV_MODE}}" >> $GITHUB_ENV
           echo "TF_VAR_APP_ENV_CODE=${{vars.APP_ENV_CODE}}" >> $GITHUB_ENV
-          echo "TF_VAR_APP_API_URL=${{vars.APP_API_URL}}" >> $GITHUB_ENV
           echo "TF_VAR_APP_KRAMERIUS_URL=${{vars.APP_KRAMERIUS_URL}}" >> $GITHUB_ENV
           echo "TF_VAR_APP_ELASTIC_URL=${{vars.APP_ELASTIC_URL}}" >> $GITHUB_ENV
           echo "TF_VAR_APP_ELASTIC_LOGIN=${{vars.APP_ELASTIC_LOGIN}}" >> $GITHUB_ENV
