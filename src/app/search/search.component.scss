@@ -6,7 +6,7 @@
     height: 100%;
     background-color: #F3F3F1;
     .app-search-left {
-        width: 200px;
+        width: 220px;
         display: flex;
         padding: 24px;
         flex-direction: column;
@@ -92,7 +92,7 @@
                     display: flex;
                     width: 100%;
                     // padding: var(--Spacing-x3, 12px) var(--Spacing-x4, 16px);
-                    padding: 12px 12px 12px 24px;
+                    padding: 12px 64px 12px 12px;
                     align-items: center;
                     gap: var(--Spacing-x3, 12px);
                     align-self: stretch;
@@ -115,7 +115,7 @@
                     font-weight: 400;
                     line-height: 24px; /* 150% */
                     &:focus {
-                        padding: 11px 11px 11px 23px;
+                        padding: 11px 63px 11px 11px;
                         border: 1px solid #A08700;
                     }
                 }
@@ -132,7 +132,7 @@
                     height: 16px;
                     position: absolute;
                     right: 40px;
-                    padding: 16px 16px 16px 12px;
+                    padding: 16px 0px 16px 12px;
                     cursor: pointer;
                 }
             }
@@ -172,6 +172,9 @@
         .app-map {
             flex: 1;
             padding: 24px 24px 8px 24px;
+            &.app-search-middle-full {
+                display: none;
+            }
         }
         .app-footer {
             padding: 12px var(--Spacing-x6, 24px);
@@ -377,7 +380,7 @@
             }
         }
         &.app-search-right-full {
-            width: calc(100% - 300px);
+            width: calc(100% - 320px);
             // flex-direction: column-reverse;
             .app-results-wrapper {
                 flex: 1;
@@ -392,9 +395,12 @@
                     opacity: 1;
                 }
                 .app-results-footer {
-                    &.app-results-footer-full {
-                        padding: 0 0 12px 0;
-                    }   
+                    app-button {
+                        padding: 12px 0;
+                    }
+                    // &.app-results-footer-full {
+                    //     padding: 0 0 12px 0;
+                    // }   
                 }
                 &.app-results-loading {
                     flex: 1;
@@ -464,7 +470,7 @@ mat-menu {
 
     .app-paginator {
         display: flex;
-        padding: 16px 0;
+        padding: 12px 0;
         justify-content: space-between;
         align-items: center;
         align-self: stretch;

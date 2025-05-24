@@ -94,7 +94,7 @@
     </div>
   </div>
   <div class="app-search-right" [ngClass]="{ 'app-search-right-full': mapHidden }">
-    <div class="app-results-wrapper" [ngClass]="{ 'app-results-loading': loading}">
+    <div class="app-results-wrapper" [ngClass]="{ 'app-results-loading': searchLoading}">
       <div class="app-results-header">
         <app-button variant="primary" size="small" iconRight="arrow-down-small.png" [matMenuTriggerFor]="menu">{{ selectedSort | translate }}</app-button>
         <div class="app-results-count">{{from | number :'':'cs'}} - {{to | number :'':'cs'}} {{ 'of' | translate }} {{ count | number :'':'cs' }}</div>
@@ -190,7 +190,7 @@
           </div>
         </div>
       </div>
-      <div class="app-loader" *ngIf="loading">
+      <div class="app-loader" *ngIf="searchLoading">
         <mat-spinner></mat-spinner>
       </div>
     </div>

@@ -15,6 +15,7 @@ import { EnvironmentService } from '../services/environment.service';
 })
 export class SearchComponent implements OnInit {
   loading: boolean = false;
+  searchLoading: boolean = false;
   searchText: string;
   north: number;
   south: number;
@@ -187,6 +188,7 @@ export class SearchComponent implements OnInit {
 
   search() {
     // console.log('======= search() ========');
+    this.searchLoading = true;
     const sub = this.searchService.search(this.buildQuery(), this.sortQuery)
       .pipe(first())
       .subscribe({
@@ -194,6 +196,7 @@ export class SearchComponent implements OnInit {
           this.sortedResults = data?.response?.docs || [];
           this.count = data?.response?.numFound || 0;
           this.updatePagination();
+          this.searchLoading = false;
           this.loading = false;
   
           setTimeout(() => {
@@ -204,6 +207,7 @@ export class SearchComponent implements OnInit {
         error: (err) => {
           console.error('Chyba při načítání výsledků:', err);
           this.loading = false;
+          this.searchLoading = false;
         }
       });
     this.subscriptions.add(sub);
