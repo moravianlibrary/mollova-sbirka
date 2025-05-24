@@ -197,6 +197,15 @@
                 width: 100%;
             }
             display: none;
+            .app-menu-items {
+                .app-menu-item {
+                    &:hover, &.app-active {
+                        .app-menu-item-text {
+                            background: white;
+                        }
+                    }
+                }
+            }
         }
         .app-about-content-container {
             padding: 0;

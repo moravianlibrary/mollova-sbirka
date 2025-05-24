@@ -61,327 +61,8 @@ export class SearchComponent implements OnInit {
   };
 
   // GOOGLE MAPS
-  // stylesArray: google.maps.MapTypeStyle[] = [
-  //   {
-  //     "elementType": "geometry",
-  //     "stylers": [
-  //       {
-  //         "color": "#f5f5f5"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "elementType": "labels.icon",
-  //     "stylers": [
-  //       {
-  //         "visibility": "off"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "elementType": "labels.text",
-  //     "stylers": [
-  //       {
-  //         "weight": 2.5
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "elementType": "labels.text.fill",
-  //     "stylers": [
-  //       {
-  //         "color": "#616161"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "elementType": "labels.text.stroke",
-  //     "stylers": [
-  //       {
-  //         "color": "#f5f5f5"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "administrative",
-  //     "elementType": "labels",
-  //     "stylers": [
-  //       {
-  //         "visibility": "on"
-  //       },
-  //       {
-  //         "weight": 1
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "administrative.country",
-  //     "elementType": "geometry",
-  //     "stylers": [
-  //       {
-  //         "color": "#000000"
-  //       },
-  //       {
-  //         "weight": 0.5
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "administrative.land_parcel",
-  //     "elementType": "labels.text.fill",
-  //     "stylers": [
-  //       {
-  //         "color": "#bdbdbd"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "administrative.locality",
-  //     "elementType": "geometry.stroke",
-  //     "stylers": [
-  //       {
-  //         "color": "#000000"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "administrative.locality",
-  //     "elementType": "labels",
-  //     "stylers": [
-  //       {
-  //         "visibility": "simplified"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "administrative.province",
-  //     "elementType": "geometry.fill",
-  //     "stylers": [
-  //       {
-  //         "color": "#000000"
-  //       },
-  //       {
-  //         "weight": 1
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "administrative.province",
-  //     "elementType": "geometry.stroke",
-  //     "stylers": [
-  //       {
-  //         "color": "#000000"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "landscape",
-  //     "stylers": [
-  //       {
-  //         "visibility": "off"
-  //       },
-  //       {
-  //         "weight": 2
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "landscape",
-  //     "elementType": "geometry.fill",
-  //     "stylers": [
-  //       {
-  //         "visibility": "on"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "landscape.natural",
-  //     "stylers": [
-  //       {
-  //         "visibility": "simplified"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "landscape.natural",
-  //     "elementType": "labels",
-  //     "stylers": [
-  //       {
-  //         "visibility": "on"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "landscape.natural",
-  //     "elementType": "labels.text.fill",
-  //     "stylers": [
-  //       {
-  //         "visibility": "simplified"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "landscape.natural",
-  //     "elementType": "labels.text.stroke",
-  //     "stylers": [
-  //       {
-  //         "visibility": "on"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "landscape.natural.terrain",
-  //     "stylers": [
-  //       {
-  //         "color": "#d6d6d6"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "poi",
-  //     "stylers": [
-  //       {
-  //         "visibility": "off"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "poi",
-  //     "elementType": "geometry",
-  //     "stylers": [
-  //       {
-  //         "color": "#eeeeee"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "poi",
-  //     "elementType": "labels.text.fill",
-  //     "stylers": [
-  //       {
-  //         "color": "#757575"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "poi.park",
-  //     "elementType": "geometry",
-  //     "stylers": [
-  //       {
-  //         "color": "#e5e5e5"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "poi.park",
-  //     "elementType": "geometry.fill",
-  //     "stylers": [
-  //       {
-  //         "visibility": "off"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "poi.park",
-  //     "elementType": "labels.text.fill",
-  //     "stylers": [
-  //       {
-  //         "color": "#9e9e9e"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "road",
-  //     "stylers": [
-  //       {
-  //         "visibility": "off"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "road",
-  //     "elementType": "geometry",
-  //     "stylers": [
-  //       {
-  //         "color": "#ffffff"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "road.arterial",
-  //     "elementType": "labels.text.fill",
-  //     "stylers": [
-  //       {
-  //         "color": "#757575"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "road.highway",
-  //     "elementType": "geometry",
-  //     "stylers": [
-  //       {
-  //         "color": "#dadada"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "road.highway",
-  //     "elementType": "labels.text.fill",
-  //     "stylers": [
-  //       {
-  //         "color": "#616161"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "road.local",
-  //     "elementType": "labels.text.fill",
-  //     "stylers": [
-  //       {
-  //         "color": "#9e9e9e"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "transit.line",
-  //     "elementType": "geometry",
-  //     "stylers": [
-  //       {
-  //         "color": "#e5e5e5"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "transit.station",
-  //     "elementType": "geometry",
-  //     "stylers": [
-  //       {
-  //         "color": "#eeeeee"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "water",
-  //     "stylers": [
-  //       {
-  //         "color": "#c7cadc"
-  //       },
-  //       {
-  //         "weight": 1
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     "featureType": "water",
-  //     "elementType": "labels.text.fill",
-  //     "stylers": [
-  //       {
-  //         "color": "#9e9e9e"
-  //       }
-  //     ]
-  //   }
-  // ];
+  
+
   boxOptions: google.maps.RectangleOptions = {
     // fillColor: '#d8b600',
     fillOpacity: 0,
@@ -389,10 +70,7 @@ export class SearchComponent implements OnInit {
     strokeOpacity: 1
   };
   optionsMap: google.maps.MapOptions = {
-    // styles: this.stylesArray,
-    center: { lat: 50.195060, lng: 12.606837 },
     mapId: 'ddc5e4cd685923d9',
-    zoom: 4,
     zoomControl: true,
     scrollwheel: true,
     mapTypeControl: false,
@@ -406,37 +84,72 @@ export class SearchComponent implements OnInit {
 
   };
 
-
   @ViewChild('googleMap') googleMap: GoogleMap;
 
-  private mapIdleSubject = new Subject<void>();
+  // private mapIdleSubject = new Subject<void>();
+  waitForMapReadyInterval: any;
+  initialMapReady: boolean = false;
+  skipNextIdle: boolean = true;
+
 
   constructor(
     private envService: EnvironmentService,
     public searchService: SearchService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
     this.loading = true;
-    console.log('search component onInit');
+
+    // CEKAM AZ SE NACTE GOOGLE MAPA
+    this.waitForMapReadyInterval = setInterval(() => {
+      if (this.googleMap?.googleMap) {
+        clearInterval(this.waitForMapReadyInterval);
+        this.onMapReallyReady();
+      }
+    }, 200);
   
+    // NACTU PARAMETRY A PUSTIM SEARCH
     const paramSub = this.route.queryParams.subscribe(params => {
+      // console.log('paramsub from ngonInit', params);
       this.loadParams(params);
-      this.search(); // Volání hledání po načtení parametrů
-    });
-  
-    this.mapIdleSubject.pipe(debounceTime(500)).subscribe(() => {
       this.search();
     });
-  
     this.subscriptions.add(paramSub);
+
+    this.svgIcon = document.createElement('div');
+    this.svgIcon.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <path d="M24.0071 3C30.8016 3.00494 37.7235 7.3152 39.5524 16.0072C41.6736 26.0862 35.8259 34.4574 31.0331 39.4086L24.7394 46.2088C24.3442 46.6358 23.6693 46.6366 23.2731 46.2104L16.9512 39.4103L16.9495 39.4086C12.174 34.4579 6.32646 26.0664 8.44765 15.9874C10.2859 7.29546 17.2125 2.99506 24.0071 3Z" fill="#A08700"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M14 19C14 13.4772 18.4772 9 24 9C29.5228 9 34 13.4772 34 19C34 24.5228 29.5228 29 24 29C18.4772 29 14 24.5228 14 19Z" fill="white"/>
+      </svg>`;
   }
 
   ngOnDestroy() {
     this.subscriptions.unsubscribe();
+    if (this.waitForMapReadyInterval) {
+      clearInterval(this.waitForMapReadyInterval);
+    }
   }
+
+  onMapReallyReady() {
+    // console.log('Google Map is now ready');
+    this.initialMapReady = true;
+
+    if (this.north && this.south && this.east && this.west) {
+      const bounds = new google.maps.LatLngBounds(
+        new google.maps.LatLng(this.south, this.west),
+        new google.maps.LatLng(this.north, this.east)
+      );
+      this.googleMap?.googleMap?.fitBounds(bounds);
+    }
+
+    setTimeout(() => {
+      this.skipNextIdle = false;
+    }, 1000);
+  }
+
 
   loadParams(params: any) {
     this.searchText = params['searchText'] || '';
@@ -448,33 +161,32 @@ export class SearchComponent implements OnInit {
     this.maxValue = parseInt(params['maxYear']) || 1850;
     this.actualInputValueMin = this.minValue;
     this.actualInputValueMax = this.maxValue;
-    this.itemType = params['itemType'] || 'map';
+    // this.itemType = params['itemType'] || 'map';
     this.currentPage = parseInt(params['page']) || 1;
   }
-  
 
-  sliderValueChanged() {
-    this.search();
-  }
-  synchronizeYears() {
-    this.actualInputValueMin = this.minValue;
-    this.actualInputValueMax = this.maxValue;
-  }
-  onInputFocus() {
-    this.actualInputValueMin = this.minValue;
-    this.actualInputValueMax = this.maxValue;
-  }
-  onInputDateSearch() {
-    this.minValue = this.actualInputValueMin;
-    this.maxValue = this.actualInputValueMax;
-    this.search();
-  }
+  updateUrlParams() {
+    const queryParams: any = {
+      searchText: this.searchText,
+      north: this.north,
+      south: this.south,
+      east: this.east,
+      west: this.west,
+      minYear: this.minValue,
+      maxYear: this.maxValue,
+      // itemType: this.itemType,
+      page: this.currentPage
+    };
 
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams,
+      queryParamsHandling: 'merge', // zachová existující parametry
+    });
+  }
 
   search() {
-    this.loading = true;
-    this.updateUrlParams();
-  
+    // console.log('======= search() ========');
     const sub = this.searchService.search(this.buildQuery(), this.sortQuery)
       .pipe(first())
       .subscribe({
@@ -494,9 +206,47 @@ export class SearchComponent implements OnInit {
           this.loading = false;
         }
       });
-  
     this.subscriptions.add(sub);
   }
+
+  onMapIdle() {
+    if (this.skipNextIdle) {
+      // console.log('Skipping first idle event');
+      return;
+    }
+    // console.log('map idle event');
+    this.currentPage = 1;
+    const bounds = this.googleMap.getBounds();
+    // console.log('onMapIdle bounds', bounds);
+    if (bounds) {
+      this.north = bounds.getNorthEast().lat();
+      this.south = bounds.getSouthWest().lat();
+      this.east = bounds.getNorthEast().lng();
+      this.west = bounds.getSouthWest().lng();
+      // console.log('map idle zoom', this.googleMap.getZoom(), bounds);
+    }
+    // this.mapIdleSubject.next();
+    this.updateUrlParams();
+  }
+
+  sliderValueChanged() {
+    // this.search();
+    this.updateUrlParams();
+  }
+  synchronizeYears() {
+    this.actualInputValueMin = this.minValue;
+    this.actualInputValueMax = this.maxValue;
+  }
+  onInputFocus() {
+    this.actualInputValueMin = this.minValue;
+    this.actualInputValueMax = this.maxValue;
+  }
+  onInputDateSearch() {
+    this.minValue = this.actualInputValueMin;
+    this.maxValue = this.actualInputValueMax;
+    this.updateUrlParams
+  }
+
   updatePagination() {
     this.from = (this.currentPage - 1) * 100 + 1;
     this.to = this.count < 100 || this.currentPage === this.lastPage
@@ -523,7 +273,7 @@ export class SearchComponent implements OnInit {
   }
 
   buildQuery() {
-    // query
+    // console.log('buildQuery', this.north, this.south, this.east, this.west);
     let query = 'q=';
     if (this.north && this.south && this.east && this.west) {
       query += `{!field f=coords.bbox score=overlapRatio}Intersects(ENVELOPE(${this.west},${this.east},${this.north},${this.south}))`;
@@ -546,34 +296,18 @@ export class SearchComponent implements OnInit {
     return query + filter;
   }
 
-  updateUrlParams() {
-    const queryParams: any = {
-      searchText: this.searchText,
-      north: this.north,
-      south: this.south,
-      east: this.east,
-      west: this.west,
-      minYear: this.minValue,
-      maxYear: this.maxValue,
-      itemType: this.itemType,
-      page: this.currentPage
-    };
-
-    this.router.navigate([], {
-      relativeTo: this.route,
-      queryParams,
-      queryParamsHandling: 'merge', // zachová existující parametry
-    });
-  }
-
   clearSearch() {
     this.searchText = '';
-    this.search();
+    this.updateUrlParams();
   }
   getImageUrl(pid: string) {
     return `${this.apiThumbUrl}${pid}/image/thumb`;
   }
   highlightMap(item: any) {
+    if (!this.googleMap || !this.googleMap.googleMap) {
+      console.warn('Google Map is not initialized yet.');
+      return;
+    }
     this.focusedItem = item;
     let zoom = this.googleMap.getZoom() || 4;
     // BOD
@@ -618,26 +352,13 @@ export class SearchComponent implements OnInit {
     return new google.maps.LatLng(this.focusedItem.lat, this.focusedItem.lng);
   }
 
-  onMapIdle() {
-    this.currentPage = 1;
-    const bounds = this.googleMap.getBounds();
-    if (bounds) {
-      this.north = bounds.getNorthEast().lat();
-      this.south = bounds.getSouthWest().lat();
-      this.east = bounds.getNorthEast().lng();
-      this.west = bounds.getSouthWest().lng();
-      // console.log('map idle zoom', this.googleMap.getZoom(), bounds);
-    }
-    this.mapIdleSubject.next();
-  }
-
   // paginator
   changePage(page: number) {
     if (page < 1 || page > this.lastPage) {
       return;
     }
     this.currentPage = page;
-    this.search();
+    this.updateUrlParams();
   }
 
   hideMap() {
@@ -661,7 +382,7 @@ export class SearchComponent implements OnInit {
     } else if (sort === 'oldest') {
       this.sortQuery = '&sort=date.min asc, date.max asc';
     }
-    this.search();
+    this.updateUrlParams();
   }
 
 }
