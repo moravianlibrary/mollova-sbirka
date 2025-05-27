@@ -4,8 +4,8 @@ import { SearchService } from '../services/search.service';
 import { GoogleMap } from '@angular/google-maps';
 import { Router, ActivatedRoute } from '@angular/router';
 import { first, Subject, Subscription } from 'rxjs';
-import { debounceTime } from 'rxjs/operators';
 import { EnvironmentService } from '../services/environment.service';
+import { HttpRequestCache } from '../services/http-request-cache.service';
 
 
 @Component({
@@ -17,10 +17,10 @@ export class SearchComponent implements OnInit {
   loading: boolean = false;
   searchLoading: boolean = false;
   searchText: string;
-  north: number;
-  south: number;
-  east: number;
-  west: number
+  north: number | null;
+  south: number | null;
+  east: number | null;
+  west: number | null;
   maps: any;
   focusedItem: any;
   itemType: string = 'map';
@@ -62,7 +62,6 @@ export class SearchComponent implements OnInit {
   };
 
   // GOOGLE MAPS
-  
 
   boxOptions: google.maps.RectangleOptions = {
     // fillColor: '#d8b600',
@@ -98,9 +97,12 @@ export class SearchComponent implements OnInit {
     public searchService: SearchService,
     private router: Router,
     private route: ActivatedRoute,
+    private httpRequestCache: HttpRequestCache
   ) { }
 
   ngOnInit() {
+    this.httpRequestCache.clear(); // Vyčistím cache při každém načtení search
+
     this.loading = true;
 
     // CEKAM AZ SE NACTE GOOGLE MAPA
@@ -113,7 +115,7 @@ export class SearchComponent implements OnInit {
   
     // NACTU PARAMETRY A PUSTIM SEARCH
     const paramSub = this.route.queryParams.subscribe(params => {
-      // console.log('paramsub from ngonInit', params);
+      console.log('paramsub from ngonInit', params);
       this.loadParams(params);
       this.search();
     });
@@ -135,14 +137,15 @@ export class SearchComponent implements OnInit {
   }
 
   onMapReallyReady() {
-    // console.log('Google Map is now ready');
+    console.log('Google Map is now ready');
     this.initialMapReady = true;
-
+    console.log('initialMapReady', this.initialMapReady, this.north, this.south, this.east, this.west);
     if (this.north && this.south && this.east && this.west) {
       const bounds = new google.maps.LatLngBounds(
         new google.maps.LatLng(this.south, this.west),
         new google.maps.LatLng(this.north, this.east)
       );
+      console.log('onMapReallyReady bounds', bounds);
       this.googleMap?.googleMap?.fitBounds(bounds);
     }
 
@@ -215,10 +218,10 @@ export class SearchComponent implements OnInit {
 
   onMapIdle() {
     if (this.skipNextIdle) {
-      // console.log('Skipping first idle event');
+      console.log('Skipping first idle event');
       return;
     }
-    // console.log('map idle event');
+    console.log('map idle event - not skipping');
     this.currentPage = 1;
     const bounds = this.googleMap.getBounds();
     // console.log('onMapIdle bounds', bounds);
@@ -367,9 +370,29 @@ export class SearchComponent implements OnInit {
 
   hideMap() {
     this.mapHidden = true;
+    this.north = null;
+    this.south = null;
+    this.east = null;
+    this.west = null;
+    this.updateUrlParams();
   }
   showMap() {
+    console.log('showMap');
     this.mapHidden = false;
+    if (this.initialMapReady) {
+      console.log('showMap - initialMapReady', this.north, this.south, this.east, this.west);
+      this.north = 65.8;
+      this.south = 27.0;
+      this.east = 30.6;
+      this.west = -5.4;
+      // this.updateUrlParams();
+      const bounds = new google.maps.LatLngBounds(
+        new google.maps.LatLng(this.south, this.west),
+        new google.maps.LatLng(this.north, this.east)
+      );
+      console.log('showMap bounds', bounds);
+      this.googleMap?.fitBounds(bounds);
+    }
   }
   toggleSearchVisibility() {
     this.searchVisible = !this.searchVisible;
