@@ -378,6 +378,7 @@ export class SearchComponent implements OnInit {
   }
   showMap() {
     console.log('showMap');
+    this.httpRequestCache.clear(); // Vyčistím cache při znovuotevření mapy
     this.mapHidden = false;
     if (this.initialMapReady) {
       console.log('showMap - initialMapReady', this.north, this.south, this.east, this.west);
@@ -409,7 +410,8 @@ export class SearchComponent implements OnInit {
     } else if (sort === 'oldest') {
       this.sortQuery = '&sort=date.min asc, date.max asc';
     }
-    this.updateUrlParams();
+    // this.updateUrlParams();
+    this.search();
   }
 
 }
