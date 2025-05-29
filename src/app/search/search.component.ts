@@ -71,6 +71,8 @@ export class SearchComponent implements OnInit {
   };
   optionsMap: google.maps.MapOptions = {
     mapId: 'ddc5e4cd685923d9',
+    center: { lat: 50.0, lng: 20.0 }, // Default center
+    zoom: 4,
     zoomControl: true,
     scrollwheel: true,
     mapTypeControl: false,
