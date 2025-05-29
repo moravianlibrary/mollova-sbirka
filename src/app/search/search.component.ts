@@ -79,6 +79,7 @@ export class SearchComponent implements OnInit {
     streetViewControl: false,
     disableDoubleClickZoom: false,
     fullscreenControl: false,
+    clickableIcons: false,
     maxZoom: 15,
     minZoom: 2
   };

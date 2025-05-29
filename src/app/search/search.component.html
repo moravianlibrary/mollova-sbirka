@@ -97,7 +97,7 @@
     <div class="app-results-wrapper" [ngClass]="{ 'app-results-loading': searchLoading}">
       <div class="app-results-header">
         <app-button variant="primary" size="small" iconRight="arrow-down-small.png" [matMenuTriggerFor]="menu">{{ selectedSort | translate }}</app-button>
-        <div class="app-results-count">{{from | number :'':'cs'}} - {{to | number :'':'cs'}} {{ 'of' | translate }} {{ count | number :'':'cs' }}</div>
+        <div class="app-results-count" *ngIf="sortedResults.length > 0">{{from | number :'':'cs'}} - {{to | number :'':'cs'}} {{ 'of' | translate }} {{ count | number :'':'cs' }}</div>
       </div>
       <div class="app-results">
         <div class="app-result-cards" [ngClass]="{ 'app-hidden-map': mapHidden }" *ngIf="!loading">

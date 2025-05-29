@@ -34,6 +34,9 @@
                 gap: var(--Spacing-x8, 32px);
                 justify-content: start;
                 align-self: stretch;
+                .app-card {
+                    display: flex;
+                }
                 .app-card-item {
                     display: flex;
                     flex-direction: column;
@@ -42,6 +45,43 @@
                     flex: 1 0 0;
                     min-width: 250px;
                     max-width: 350px;
+                    &.app-card-manuscript {
+                        display: flex;
+                        padding: var(--Spacing-x4, 8px);
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: var(--Spacing-x1, 4px);
+                        flex: 1 0 0;
+                        background: var(--BG-Main-Light, #F8F8F7);
+                        border: 8px solid transparent; /* Transparentní border pro výchozí stav */
+                        &:hover {
+                            border-radius: var(--spacing-x-05, 2px);
+                            border: 8px solid var(--Boarder-Primary-Hover, #D8B600);
+                            background: var(--BG-Main-Light, #F8F8F7);
+                            cursor: pointer;
+                        }
+                        .app-card-content {
+                            display: flex;
+                            justify-content: space-between;
+                            .app-card-top {
+                                .app-card-title-container {
+                                    display: flex;
+                                    align-items: center;
+                                    .app-card-title {
+                                        display: -webkit-box;
+                                        flex: 1 0 0;
+                                        -webkit-box-orient: vertical;
+                                        box-orient: vertical;
+                                        -webkit-line-clamp: 1;
+                                        line-clamp: 1;
+                                        align-self: stretch;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                    }
+                                }
+                            }
+                        }
+                    }
                     .app-card-image {
                         display: flex;
                         justify-content: center;
