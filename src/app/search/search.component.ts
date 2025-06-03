@@ -149,7 +149,7 @@ export class SearchComponent implements OnInit {
         new google.maps.LatLng(this.north, this.east)
       );
       console.log('onMapReallyReady bounds', bounds);
-      this.googleMap?.googleMap?.fitBounds(bounds);
+      this.googleMap?.googleMap?.fitBounds(bounds, 0);
     }
 
     setTimeout(() => {
@@ -396,7 +396,7 @@ export class SearchComponent implements OnInit {
         new google.maps.LatLng(this.north, this.east)
       );
       console.log('showMap bounds', bounds);
-      this.googleMap?.fitBounds(bounds);
+      this.googleMap?.fitBounds(bounds, 0);
     }
   }
   toggleSearchVisibility() {
