@@ -75,6 +75,7 @@ resource "docker_container" "moll_frontend" {
   publish_all_ports = true
   env = [
     "APP_DEV_MODE=${var.APP_DEV_MODE}",
+    "APP_ENV_NAME=${var.APP_ENV_NAME}",
     "APP_ENV_CODE=${var.APP_ENV_CODE}",
     "APP_KRAMERIUS_URL=${var.APP_KRAMERIUS_URL}",
     "APP_ELASTIC_URL=${var.APP_ELASTIC_URL}",
