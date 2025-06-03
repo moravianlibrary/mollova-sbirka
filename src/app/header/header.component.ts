@@ -25,6 +25,7 @@ export class HeaderComponent {
         this.activeLink = this.router.url.split('/')[1];
       }
     });
+    this.logDevInfo();
   }
 
   switchLanguage(lang: string): void {
@@ -44,7 +45,6 @@ export class HeaderComponent {
   }
 
   getDevInfo(): string {
-
     return "devMode: " + this.envService.get('devMode') + "; environmentCode: " + this.envService.get('environmentCode') + "; environmentName: " + this.envService.get('environmentName');
   }
 
