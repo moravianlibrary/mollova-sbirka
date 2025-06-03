@@ -2,7 +2,7 @@ import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { CollectionService } from '../../services/collection.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { forkJoin, Subscription } from 'rxjs';
 import { EnvironmentService } from '../../services/environment.service';
 
 @Component({
@@ -23,6 +23,9 @@ export class ContentComponent implements OnInit, OnDestroy {
 
   apiThumbUrl = this.envService.get('krameriusBaseUrl') + "/api/client/v7.0/items/";
 
+  collectionStructure: any[] = [];
+  collectionIndex: any = {};
+
   constructor(
     private envService: EnvironmentService,
     private collectionService: CollectionService,
@@ -40,6 +43,19 @@ export class ContentComponent implements OnInit, OnDestroy {
     this.loading = true;
     this.children = [];
 
+    // Předplatné na collectionStructure$
+    const collectionStructureSub = this.collectionService.collectionStructure$.subscribe((collectionStructure) => {
+      this.collectionStructure = collectionStructure;
+    });
+    this.subscription.add(collectionStructureSub);
+
+    // Předplatné na collectionIndex$
+    // const collectionIndexSub = this.collectionService.collectionIndex$.subscribe((collectionIndex) => {
+    const collectionIndexSub = this.collectionService.getCollectionIndexFromJSON().subscribe((collectionIndex) => {
+      this.collectionIndex = collectionIndex;
+    });
+    this.subscription.add(collectionIndexSub);
+
     // Předplatné na context$
     const contextSub = this.collectionService.context$.subscribe(context => {
       this.pid = context;
@@ -52,6 +68,8 @@ export class ContentComponent implements OnInit, OnDestroy {
       this.siblings = siblings;
     });
     this.subscription.add(siblingsSub);
+
+
   }
 
   ngOnDestroy(): void {
@@ -69,23 +87,22 @@ export class ContentComponent implements OnInit, OnDestroy {
     this.collectionService.getCollection(pid).subscribe((data: any) => {
       if (data && data['response'] && data['response']['docs'] && data['response']['docs'][0]) {
         let item = data['response']['docs'][0];
-        // KOLEKCE NEBO MAPA?
+
+        // KOLEKCE NEBO MAPA
+
+        // KOLEKCE
+
         if (item.model === 'collection') {
           this.typeOfResource = 'collection';
           this.collection = data['response']['docs'][0];
-          console.log('COLLECTION:', this.collection);
           this.collectionService.getChildrenByPidWithDetails(pid).subscribe((children) => {
-            console.log('Children1:', children);
-            // this.children = children.sort((a: any, b: any) => {
-            //   return a['title'].localeCompare(b['title']);
-            // });
+            // POTOMCI JSOU KOLEKCE
             this.children = children;
             if (children.length === 0) {
-              // console.error('No children found for PID:', pid);
+              // POTOMCI JSOU MAPY
               this.collectionService.getCollectionChildren(pid).subscribe((data: any) => {
                 if (data) {
                   const children = data;
-                  console.log('Children2:', children);
                   this.children = children.sort((a: any, b: any) => {
                     return a['shelf_locators'][0].localeCompare(b['shelf_locators'][0]);
                   });
@@ -99,25 +116,54 @@ export class ContentComponent implements OnInit, OnDestroy {
             }
           });
         } else {
+
+          // MAPA
+
           this.typeOfResource = 'map';
           this.map = data['response']['docs'][0];
           console.log('MAP:', this.map);
-          let directCollectionPid = this.collectionService.getProperPid(this.map['in_collections.direct']);
-          this.collectionService.getCollectionChildren(directCollectionPid).subscribe(() => {
-            this.loading = false;
-          });
-          this.collectionService.getCollection(directCollectionPid).subscribe((data: any) => {
-            if (data && data['response'] && data['response']['docs'] && data['response']['docs'][0]) {
-              this.collection = data['response']['docs'][0];
-            } else {
-              console.error('Invalid data format:', data);
-            }
-          });
-          this.collectionService.getElasticDetailsToMap(this.map['pid']).subscribe((data: any) => {
-            console.log('Elastic details:', data, this.map['pid']);
-            let elasticDetails = data['hits']['hits'][0]['_source'];
-            this.map.elasticDetails = elasticDetails;
-          });
+
+          let directCollectionPid = this.getProperPid(this.map['in_collections.direct']);
+          
+          if (directCollectionPid) {
+            this.collectionService.getCollectionChildren(directCollectionPid).subscribe((data) => {
+              // console.log('Children3:', data);
+              this.loading = false;
+            });
+            this.collectionService.getCollection(directCollectionPid).subscribe((data: any) => {
+              if (data && data['response'] && data['response']['docs'] && data['response']['docs'][0]) {
+                this.collection = data['response']['docs'][0];
+              } else {
+              }
+            });
+            this.collectionService.getElasticDetailsToMap(this.map['pid']).subscribe((data: any) => {
+              // console.log('Elastic details:', data, this.map['pid']);
+              let elasticDetails = data['hits']['hits'][0]['_source'];
+              this.map.elasticDetails = elasticDetails;
+            });
+          } else {
+            // console.error('No direct collection PID found for map:', this.map['pid']);
+            setTimeout(() => {
+              this.collectionService.getCollectionChildren(directCollectionPid).subscribe((data) => {
+                // console.log('Children3:', data);
+                this.children = data;
+                this.loading = false; // možná přesunout níž podle situace
+              });      
+              this.collectionService.getCollection(directCollectionPid).subscribe((data: any) => {
+                if (data && data['response'] && data['response']['docs'] && data['response']['docs'][0]) {
+                  this.collection = data['response']['docs'][0];
+                } else {
+                  console.error('Invalid data format:', data);
+                }
+              });
+          
+              this.collectionService.getElasticDetailsToMap(this.map['pid']).subscribe((data: any) => {
+                // console.log('Elastic details:', data, this.map['pid']);
+                let elasticDetails = data['hits']['hits'][0]['_source'];
+                this.map.elasticDetails = elasticDetails;
+              });
+            }, 100); // čas v milisekundách, např. 100–300ms
+          }
         }
       } else {
         console.error('Invalid data format:', data);
@@ -130,7 +176,7 @@ export class ContentComponent implements OnInit, OnDestroy {
   }
 
   onCardClick(item: any): void {
-    console.log('Card clicked:', item);
+    // console.log('Card clicked:', item);
     this.router.navigate(['/mollova-sbirka', item.pid]);
   }
 
@@ -188,6 +234,17 @@ export class ContentComponent implements OnInit, OnDestroy {
     // https://api.kramerius.mzk.cz/search/api/client/v7.0/items/uuid:a70963b4-753d-401a-ac98-21040ee6508a/image/thumb
     return `${this.apiThumbUrl}${item.pid}/image/thumb`;
   }
-
+  getProperPid(pids: string[]): string {
+    if (pids && pids.length === 1) {
+      return pids[0];
+    } else if (pids && pids.length > 1) {
+      for (let pid of pids) {
+        if (this.collectionIndex[pid]) {
+          return pid;
+        }
+      }
+    }
+    return '';
+}
 
 }

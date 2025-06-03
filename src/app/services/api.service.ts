@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { map, catchError, delay, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EnvironmentService } from './environment.service';
@@ -37,6 +37,16 @@ export class ApiService {
             `${this.k7SearchUrl}?q=pid:"${pid}"`
         );
     }
+    getCollectionsByPids(pids: string[]): Observable<Object> {
+        if (!pids || pids.length === 0) {
+            return of({ response: { docs: [] } });
+        }
+    
+        const query = pids.map(pid => `"${pid}"`).join(" OR ");
+        const url = `${this.k7SearchUrl}?q=pid:(${query})`;
+    
+        return this.doGet(url).pipe(catchError(this.handleError));
+    }
     getCollectionChildren(pid: string): Observable<Object> {
         return this.doGet(
             `${this.k7SearchUrl}?q=*:*&fq=(in_collections.direct:"${pid}")&fl=pid,model,authors,titles.search,title.search,root.title,date.str,title.search_*,collection.desc,collection.desc_*,shelf_locators&rows=1000`
@@ -70,6 +80,25 @@ export class ApiService {
             headers: this.buildElasticAuthHeaders()
         }).pipe(catchError(this.handleError));
     }
+    getElasticRecordsByPids(pids: string[]): Observable<Object> {
+        if (!pids || pids.length === 0) {
+            return of({ hits: { hits: [] } });
+        }
+    
+        const body = {
+            query: {
+                terms: {
+                    _id: pids
+                }
+            },
+            size: pids.length // explicitně nastav velikost výsledků
+        };
+    
+        return this.http.post(this.esSearchUrl, body, {
+            headers: this.buildElasticAuthHeaders()
+        }).pipe(catchError(this.handleError));
+    }
+    
 
     //https://api.kramerius.mzk.cz/search/api/client/v7.0/search?fl=pid,accessibility,model,title.search,licenses,contains_licenses,licenses_of_ancestors,page.type,page.number,page.placement,track.length&q=own_parent.pid:%22uuid:e1db8d4c-f39c-4599-b71a-5e8cd634a8af%22&sort=rels_ext_index.sort%20asc&rows=4000&start=0
     // q=*:*&fq=(in_collections.direct:"uuid:9b190c71-5a2c-44fa-bc8a-b6c5b056c01a")&fl=pid,model,authors,titles.search,title.search,root.title,date.str,title.search_*,collection.desc,%20collection.desc_*

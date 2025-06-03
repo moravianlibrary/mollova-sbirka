@@ -59,7 +59,7 @@
         height: calc(100% - 48px);
         overflow: auto;
         .app-about-content {
-            display: inline-flex;
+            display: flex;
             flex-direction: column;
             gap: var(--Spacing-x4, 16px);
             padding: 48px 48px 64px 48px;
@@ -147,8 +147,8 @@
             display: flex;
             margin: 0 0 0 8px;
             img {
-                width: 124px;
-                height: 38px;
+                // width: 124px;
+                height: 33px;
             }
         }
         .app-logo-trinera {
@@ -175,6 +175,20 @@
         }
     }    
 }
+@media screen and (max-width: 850px) {
+    .app-about-container {
+        .app-about-content-container {
+            .app-about-content {
+                .app-items {
+                    .app-text-logo-wrapper {
+                        flex-wrap: wrap;
+                        gap: 24px;
+                    }
+                }
+            }
+        }
+    }    
+}
 @media screen and (max-width: 700px) {
     .app-about-container {
         .app-about-menu {
@@ -183,6 +197,15 @@
                 width: 100%;
             }
             display: none;
+            .app-menu-items {
+                .app-menu-item {
+                    &:hover, &.app-active {
+                        .app-menu-item-text {
+                            background: white;
+                        }
+                    }
+                }
+            }
         }
         .app-about-content-container {
             padding: 0;
@@ -202,10 +225,6 @@
                                 display: none;
                             }
                         }
-                    }
-                    .app-text-logo-wrapper {
-                        flex-direction: column;
-                        gap: 24px;
                     }
                 }
             }

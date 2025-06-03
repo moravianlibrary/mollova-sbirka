@@ -13,8 +13,8 @@
         <input type="text" class="app-search-input"
           [(ngModel)]="searchText"
           placeholder="{{ 'search-placeholder' | translate }}"
-          (keyup.enter)="search()"/>
-        <img class="app-search-icon" src="assets/icons/search-normal.png" (click)="search()"/>
+          (keyup.enter)="updateUrlParams()"/>
+        <img class="app-search-icon" src="assets/icons/search-normal.png" (click)="updateUrlParams()"/>
         <img *ngIf="searchText && searchText.length > 0" class="app-close-icon" src="assets/icons/close-circle.png" (click)="clearSearch()"/>
       </div>
     </div>
@@ -94,13 +94,13 @@
     </div>
   </div>
   <div class="app-search-right" [ngClass]="{ 'app-search-right-full': mapHidden }">
-    <div class="app-results-wrapper" [ngClass]="{ 'app-results-loading': searchService.loading}">
+    <div class="app-results-wrapper" [ngClass]="{ 'app-results-loading': searchLoading}">
       <div class="app-results-header">
         <app-button variant="primary" size="small" iconRight="arrow-down-small.png" [matMenuTriggerFor]="menu">{{ selectedSort | translate }}</app-button>
-        <div class="app-results-count">{{from}} - {{to}} {{ 'of' | translate }} {{ count }}</div>
+        <div class="app-results-count" *ngIf="sortedResults.length > 0">{{from | number :'':'cs'}} - {{to | number :'':'cs'}} {{ 'of' | translate }} {{ count | number :'':'cs' }}</div>
       </div>
       <div class="app-results">
-        <div class="app-result-cards" [ngClass]="{ 'app-hidden-map': mapHidden }" *ngIf="!searchService.loading">
+        <div class="app-result-cards" [ngClass]="{ 'app-hidden-map': mapHidden }" *ngIf="!loading">
           <a class="app-result-card" *ngFor="let map of sortedResults" [routerLink]="['/mollova-sbirka', map.pid]"
             (mouseenter)="highlightMap(map)"
             (mouseleave)="unhighlightMap(map)">
@@ -117,7 +117,7 @@
             <div class="app-card-overlay"></div>
           </a>
         </div>
-        <div class="app-paginator" *ngIf="pages.length > 1 && sortedResults.length > 0 && !mapHidden" [ngClass]="{ 'app-loading-results': searchService.loading }">
+        <div class="app-paginator" *ngIf="pages.length > 1 && sortedResults.length > 0 && !mapHidden" [ngClass]="{ 'app-loading-results': loading }">
           <div class="app-pages">
             <div class="app-page-items">
               <div class="app-page" *ngFor="let page of displayedFirstPages" [ngClass]="{ 'app-active': page === currentPage }" (click)="changePage(page)">
@@ -190,7 +190,7 @@
           </div>
         </div>
       </div>
-      <div class="app-loader" *ngIf="searchService.loading">
+      <div class="app-loader" *ngIf="searchLoading">
         <mat-spinner></mat-spinner>
       </div>
     </div>

@@ -2,14 +2,14 @@
   <div class="app-content" #scrollContainer>
     <div class="app-part-title">
       <h2 class="app-title">{{ map["title.search"].split(":")[0] }}</h2>
-      <div class="app-authors">{{ map["authors"] }}</div>
+      <div class="app-authors" *ngIf="map['authors']">{{ getAuthors() }}</div>
     </div>
     <div class="app-part-map" #mapDiv>
       <div class="app-map">
         <app-iiif-image-viewer [pages]="pages"></app-iiif-image-viewer>
       </div>
     </div>
-    <div class="app-part-info" #infoDiv>
+    <div class="app-part-info" #infoDiv *ngIf="map">
       <div class="app-metadata-container">
         <div class="app-metadata">
           <div class="app-metadata-item" *ngIf="map['authors']">
@@ -26,7 +26,7 @@
           {{ title }}
         </div>
         <div class="app-line"></div>
-        <div class="app-links">
+        <div class="app-links" *ngIf="map.elasticDetails">
           <a class="app-link" href="{{map.elasticDetails.vufind_url}}" target="_blank">
                         <div class="app-link-text">{{'bibl-rec' | translate}}</div>
                         <img src="assets/icons/export-gold.png" alt="export" />

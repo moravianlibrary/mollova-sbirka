@@ -50,17 +50,6 @@ export class CollectionService {
     }
 
     loadCollectionStructure() {
-        // KOD PRO NACTENI STRUKTURY KOLEKCE PRES API
-        // this.getCollectionStructure(this.mainCollectionUUID).subscribe((data: any) => {
-        //     this.collectionStructureSubject.next(data.collectionStructure); // Update the subject with new data
-        //     this.collectionIndexSubject.next(data.collectionIndex); // Update the subject with new data
-        //     this.collectionStructure = data.collectionStructure; // Update the local variable
-        //     this.collectionIndex = data.collectionIndex;
-        //     // console.log('Collection structure:', this.collectionStructure, this.collectionIndex);
-        //     // this.saveDataAsFile(data.collectionStructure);
-        // });
-
-        // KOD PRO NACTENI STRUKTURY KOLEKCE Z JSON
         this.getCollectionStructureFromJSON().subscribe((data: any) => {
             if (data) {
                 this.collectionStructureSubject.next(data);
@@ -72,27 +61,7 @@ export class CollectionService {
             }
         });
     }
-    getChildrenByPid(pid: string): Observable<any[]> {
-        return this.getCollectionStructureFromJSON().pipe(
-            map((data: any[]) => {
-                const findChildren = (items: any[], pid: string): any[] | null => {
-                for (const item of items) {
-                    if (item.pid === pid) {
-                    return item.children || [];
-                    }
-                    if (item.children && item.children.length > 0) {
-                    const found = findChildren(item.children, pid);
-                    if (found) {
-                        return found;
-                    }
-                    }
-                }
-                return null;
-                };
-                return findChildren(data, pid) || [];
-            })
-        );
-    }
+
     getChildrenByPidWithDetails(pid: string): Observable<any[]> {
         return this.getCollectionStructureFromJSON().pipe(
             map((data: any[]) => {
@@ -140,58 +109,46 @@ export class CollectionService {
             })
         );
     }
+
     getCollectionChildren(pid: string): Observable<any[]> {
         return this.apiService.getCollectionChildren(pid).pipe(
             map((data: any) => {
                 const docs = data?.response?.docs || [];
                 return docs.filter((item: any) => item['model'] !== 'manuscript');
             }),
-            // tap((children: any[]) => {
-            //     const sortedSiblings = children.sort((a: any, b: any) =>
-            //         a['shelf_locators']?.[0]?.localeCompare(b['shelf_locators']?.[0]) ?? 0
-            //     );
-            //     this.setSiblings(sortedSiblings);
-            // }),
             mergeMap((children: any[]) => {
-                if (children.length === 0) {
-                    return of([]);
-                }
+                if (children.length === 0) return of([]);
     
-                const detailedChildren$ = children.map(child =>
-                    forkJoin({
-                        collectionDetails: this.getCollection(child.pid).pipe(
-                            map((collectionDetails: any) => collectionDetails['response']['docs'][0] || {})
-                        ),
-                        elasticDetails: this.apiService.getElasticRecordByPid(child.pid).pipe(
-                            map((elasticDetails: any) => elasticDetails?.hits?.hits?.[0]?._source || {})
-                        )
-                    }).pipe(
-                        map(({ collectionDetails, elasticDetails }) => ({
+                const pids = children.map(child => child.pid);
+    
+                return this.apiService.getElasticRecordsByPids(pids).pipe(
+                    map((res: any) => {
+                        const elasticMap = (res?.hits?.hits || []).reduce((acc: any, hit: any) => {
+                            const source = hit._source || {};
+                            acc[source.pid] = source;
+                            return acc;
+                        }, {});
+    
+                        return children.map(child => ({
                             ...child,
-                            collectionDetails,
-                            elasticDetails
-                        }))
-                ));
-
-                return forkJoin(detailedChildren$);
+                            collectionDetails: child, // použijme data, která už máme
+                            elasticDetails: elasticMap[child.pid] || {}
+                        }));
+                    })
+                );
             }),
             tap((detailedChildren: any[]) => {
                 const sortedSiblings = detailedChildren.sort((a: any, b: any) =>
                     a['shelf_locators']?.[0]?.localeCompare(b['shelf_locators']?.[0]) ?? 0
                 );
                 this.setSiblings(sortedSiblings);
-            }),
+            })
         );
     }
-
-
+    
+    
     getPagesByPid(pid: string): Observable<Object> {
         return this.apiService.getPages(pid);
-    }
-
-    
-    reload(params: any) {
-        // reload collection
     }
 
     setContext(context: any) {
@@ -206,38 +163,6 @@ export class CollectionService {
     getCollection(pid: string): Observable<Object> {
         return this.apiService.getCollection(pid);
     }
-    // getCollectionChildren(pid: string): Observable<any[]> {
-    //     return this.apiService.getCollectionChildren(pid).pipe(
-    //         map((data: any) => {
-    //             const docs = data?.response?.docs || [];
-    //             return docs.filter((item: any) => item['model'] !== 'manuscript');
-    //         }),
-    //         tap((siblings: any[]) => {
-    //             const sortedSiblings = siblings.sort((a: any, b: any) =>
-    //                 a['shelf_locators']?.[0]?.localeCompare(b['shelf_locators']?.[0]) ?? 0
-    //             );
-    //             this.setSiblings(sortedSiblings);
-    //         }),
-    //         mergeMap((children: any[]) => {
-    //             // Pro každé dítě zavolej getCollection(pid)
-    //             const detailedChildren$ = children.map(child =>
-    //                 this.getCollection(child.pid).pipe(
-    //                     map((collectionDetails: any) => ({
-    //                     ...child,
-    //                     collectionDetails: collectionDetails['response']['docs'][0] || {}
-    //                     }))
-    //                 )
-    //             );
-    //             // Sloučí všechny observables do jednoho
-    //             console.log('Detailed children:', detailedChildren$);
-    //             if (detailedChildren$.length === 0) {
-    //                 return of([]);
-    //             }
-    //             return forkJoin(detailedChildren$);
-    //         })
-    //     );
-    // } 
-
        
     getCollectionStructure(pid: string): Observable<any> {
         const collectionIndex: { [key: string]: string } = {};

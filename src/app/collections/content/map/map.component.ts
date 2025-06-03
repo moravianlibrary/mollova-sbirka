@@ -1,9 +1,10 @@
-import { Component, ElementRef, ViewChild, Input, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, Input, AfterViewInit, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { CollectionService } from '../../../services/collection.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { EnvironmentService } from '../../../services/environment.service';
+import { HttpRequestCache } from '../../../services/http-request-cache.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { EnvironmentService } from '../../../services/environment.service';
   templateUrl: './map.component.html',
   styleUrl: './map.component.scss'
 })
-export class MapComponent implements AfterViewInit {
+export class MapComponent implements OnInit, AfterViewInit {
   @Input() map: any = {};
   @Input() parentCollection: any;
   @Input() siblings: any[];
@@ -45,7 +46,8 @@ export class MapComponent implements AfterViewInit {
     private envService: EnvironmentService,
     private translate: TranslateService,
     private collectionService: CollectionService,
-    private router: Router) { }
+    private router: Router,
+    private httpRequestCache: HttpRequestCache) { }
 
   ngOnInit(): void {
     // Language change subscription
@@ -53,13 +55,13 @@ export class MapComponent implements AfterViewInit {
       this.currentLang = event.lang;
     });
     this.subscription.add(langSub);
-    console.log('Map:', this.map, this.parentCollection, this.siblings);
+    // console.log('Map:', this.map, this.parentCollection, this.siblings);
     this.collectionService.getPagesByPid(this.map['pid']).subscribe((data: any) => {
-      console.log('Pages:', data['response']['docs']);
+      // console.log('Pages:', data['response']['docs']);
       this.pages = data['response']['docs'];
       this.pagePid = data['response']['docs'][0]['pid'];
       this.manifestLink = this.envService.get('krameriusBaseUrl') + "/iiif/" + this.pagePid + '/info.json';
-      console.log("Manifest link", this.manifestLink);
+      // console.log("Manifest link", this.manifestLink);
       if (this.siblings.length > 1) {
         this.siblings.find((self, index) => {
           if (self['pid'] === this.map['pid']) {
@@ -109,12 +111,14 @@ export class MapComponent implements AfterViewInit {
   // Dalsi / predchozi mapa
   onNextMap() {
     console.log('Next map', this.nextMap);
+    this.httpRequestCache.clear();
     if (this.nextMap['pid']) {
       this.router.navigate(['/mollova-sbirka', this.nextMap['pid']]);
     }
   }
   onPrevMap() {
     console.log('Previous map');
+    this.httpRequestCache.clear();
     if (this.prevMap['pid']) {
       this.router.navigate(['/mollova-sbirka', this.prevMap['pid']]);
     }
@@ -153,7 +157,12 @@ export class MapComponent implements AfterViewInit {
     return this.translate.instant('new_signature') + ': ' + this.map['shelf_locators'] || '';
   }
   getOldShelfLocator(): string {
-    return this.translate.instant('old_signature') + ': ' + this.map['elasticDetails']['signatura_old'] || '';
+    if (this.map['elasticDetails'] && this.map['elasticDetails']['signatura_old']) {
+      return this.translate.instant('old_signature') + ': ' + this.map['elasticDetails']['signatura_old'];
+    } else {
+      return this.translate.instant('old_signature') + ': ' + this.map['signatura_old'] || '';
+    }
+
   }
 
   // Chovani pri skrolovani

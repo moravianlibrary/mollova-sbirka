@@ -31,7 +31,6 @@ export class CollectionsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     const urlSub = this.route.url.subscribe((url) => {
-      console.log('URL:', url);
       if (url.length === 0 || (url.length === 1 && url[0].path === 'mollova-sbirka')) {
         this.router.navigate(['/mollova-sbirka']);
         this.menuVisible = true;
@@ -63,7 +62,6 @@ export class CollectionsComponent implements OnInit, OnDestroy {
           }
         }
       }
-      console.log('Map areas:', this.mapAreas2);
     });
     this.subscriptions.add(collectionStructureSub);
   }
@@ -77,9 +75,8 @@ export class CollectionsComponent implements OnInit, OnDestroy {
 
   navigate(title: string): void {
     if (title) {
-      console.log('Navigate to:', this.collectionService.collectionIndex);
+      // console.log('Navigate to:', this.collectionService.collectionIndex);
       let url = Object.keys(this.collectionService.collectionIndex).find(pid => this.collectionService.collectionIndex[pid] === title);
-      console.log('url:', url);
       this.menuVisible = false;
       this.router.navigate(['/mollova-sbirka', url]);
     }

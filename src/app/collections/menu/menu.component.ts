@@ -42,6 +42,9 @@ export class MenuComponent implements OnInit, OnDestroy {
     // Load collection structure
     if (this.collectionStructure.length === 0) {
       this.collectionService.loadCollectionStructure();
+      this.collectionService.getCollectionStructureFromJSON().subscribe((data) => {
+        this.collectionStructure = data;
+      }); 
     }
 
     // Redirect to default page if no URL is provided
@@ -54,28 +57,13 @@ export class MenuComponent implements OnInit, OnDestroy {
           console.error('Invalid URL path:', url);
           return;
         }
-        // const collectionIndexSub = this.collectionService.collectionIndex$.subscribe((collectionIndex) => {
-        //   if (collectionIndex) {
-        //     const childItemName = collectionIndex[pid];
-        //     if (childItemName) {
-        //       this.onOpenChild(childItemName);
-        //     } else {
-        //       console.warn('Child item not found for pid:', pid);
-        //     }
-        //   } else {
-        //     console.warn('Collection index is not available.');
-        //   }
-        // });
-        // this.subscription.add(collectionIndexSub);
-        console.log('PID:', pid);
-        const collectionStructureSub = this.collectionService.collectionStructure$.subscribe((collectionStructure) => {
+        const collectionStructureSub = this.collectionService.getCollectionStructureFromJSON().subscribe((collectionStructure) => {  
           if (collectionStructure) {
             let found = false;
 
             for (const item of collectionStructure) {
               for (const child of item.children) {
                 if (child.pid === pid) {
-                  console.log('Open child:', child.title);
                   this.onOpenChild(child.title);
                   this.activeChild = child.title;
                   found = true;
@@ -84,7 +72,6 @@ export class MenuComponent implements OnInit, OnDestroy {
                 if (child.children) {
                   for (const subChild of child.children) {
                     if (subChild.pid === pid) {
-                      console.log('Open subchild:', subChild.title);
                       this.onOpenChild(child.title);
                       this.activeChild = subChild.title;
                       found = true;
@@ -103,7 +90,6 @@ export class MenuComponent implements OnInit, OnDestroy {
 
             if (!found) {
               this.collectionService.getParentPid(pid).subscribe((parentPid) => {
-                console.log('Parent PID:', parentPid);
                 for (const item of collectionStructure) {
                   for (const child of item.children) {
                     if (child.pid === parentPid) {
@@ -146,7 +132,6 @@ export class MenuComponent implements OnInit, OnDestroy {
   }
 
   handleClick(item: any): void {
-    console.log('handleClick', item);
     if (this.openedChild === item.title) {
       this.openedChild = '';
     } else {
@@ -157,7 +142,6 @@ export class MenuComponent implements OnInit, OnDestroy {
   }
 
   handleSubClick(openItem: any, child: any): void {
-    console.log('handleSubClick', openItem, child);
     this.openedChild = openItem;
     this.navigate(child.pid);
   }
@@ -193,7 +177,6 @@ export class MenuComponent implements OnInit, OnDestroy {
   }
 
   extendChildren() {
-    console.log('extendChildren', this.childrenExtended);
     this.childrenExtended = !this.childrenExtended;
   }
 

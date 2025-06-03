@@ -1,16 +1,20 @@
 FROM node:alpine as builder
 LABEL org.opencontainers.image.authors="Slavik Svyrydiuk <slavik@svyrydiuk.eu>"
 EXPOSE 80
-ARG ENVIRONMENT="production"
 
 WORKDIR /app
 
+# přidej git do builderu kvůli collect-build-info.js
+RUN apk add --no-cache git
+
 COPY . /app
+# zkopíruj .git kvůli collect-build-info.js
+COPY .git /app/.git
+
 RUN npm install -g @angular/cli && \
   npm install && \
   npm run build
-  #  ng build --configuration=${ENVIRONMENT}
-
+  
 FROM nginx:alpine
 COPY --from=builder \
   /app/dist/moll-frontend/browser/ /usr/share/nginx/html

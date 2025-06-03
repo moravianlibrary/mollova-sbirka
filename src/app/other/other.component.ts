@@ -24,8 +24,5 @@ export class OtherComponent {
     });
     this.subscription.add(langSub);
   }
-  goToDigitalLibrary(): void {
-    window.open('https://www.digitalniknihovna.cz/mzk', '_blank');
-  }
 
 }

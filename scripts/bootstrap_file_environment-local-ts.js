@@ -39,7 +39,6 @@ if (!fs.existsSync(devEnvPath)) {
   console.log('[env-bootstrap] ✅ environment.local.ts already exists.');
 
   if (baseTime && devTime && baseTime > devTime) {
-    console.warn('[env-bootstrap] ⚠️ Warning: environment.ts is newer than environment.local.ts.');
-    console.warn('               Consider syncing or updating your local dev file if needed.');
+    console.warn('[env-bootstrap] ⚠️ Warning: environment.ts is newer than environment.local.ts. Consider syncing or updating your local dev file if needed.');
   }
 }
