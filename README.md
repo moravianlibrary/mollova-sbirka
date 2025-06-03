@@ -52,12 +52,12 @@ docker build -t moll-frontend .
 
 possibly including version tag  
 ```
-docker build -t trinera/moll-frontend:1.0.0 .
+docker build -t trinera/moll-frontend:1.0.1 .
 ```
 
 or including version tag and tag `latest`
 ```
-docker build -t trinera/moll-frontend:latest -t trinera/moll-frontend:1.0.0 .
+docker build -t trinera/moll-frontend:latest -t trinera/moll-frontend:1.0.1 .
 ```
 
 ### Push to Dockerhub
@@ -66,7 +66,7 @@ Only if you have write access to Dockerhub repository trinera/moll-frontend.
 You don't need this to run localy built Docker image.
 
 ```
-docker push trinera/moll-frontend:1.0.0
+docker push trinera/moll-frontend:1.0.1
 docker push trinera/moll-frontend:latest
 ```
 
@@ -103,7 +103,7 @@ docker run -p 1234:80 \
   -e APP_ELASTIC_URL=https://elastic.example.com \
   -e APP_ELASTIC_LOGIN=login \
   -e APP_ELASTIC_PASSWORD=password \
-trinera/moll-frontend:1.0.0
+trinera/moll-frontend:1.0.1
 ```
 
 #### Image pulled from Docker Hub
