@@ -14,6 +14,9 @@ variable "APP_DEV_MODE" {
 variable "APP_ENV_CODE" {
   type = string
 }
+variable "APP_ENV_NAME" {
+  type = string
+}
 variable "APP_KRAMERIUS_URL" {
   type = string
 }
