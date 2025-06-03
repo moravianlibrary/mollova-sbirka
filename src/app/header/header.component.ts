@@ -24,6 +24,11 @@ export class HeaderComponent {
       // console.log('Router:', this.router.url.split('/')[1]);
       if (this.router.url.split('/')[1] !== 'mollova-sbirka') {
         this.activeLink = this.router.url.split('/')[1];
+        if (this.activeLink.includes('?')) {
+          this.activeLink = this.activeLink.split('?')[0];
+        }
+      } else {
+        this.activeLink = '';
       }
     });
     this.logDevInfo();
