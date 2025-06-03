@@ -254,7 +254,7 @@ export class SearchComponent implements OnInit {
   onInputDateSearch() {
     this.minValue = this.actualInputValueMin;
     this.maxValue = this.actualInputValueMax;
-    this.updateUrlParams
+    this.updateUrlParams();
   }
 
   updatePagination() {
@@ -298,7 +298,8 @@ export class SearchComponent implements OnInit {
       filter += `&fq=((date_range_start.year:[* TO ${this.maxValue}] AND date_range_end.year:[${this.minValue} TO *]))`;
     }
     if (this.searchText) {
-      filter += `&fq=_query_:"{!edismax qf='titles.search^10 authors.search^2 keywords.search geographic_names.search id_isbn shelf_locators' bq='(level:0)^200' bq='(model:page)^0.1' v=${this.searchText}}"`
+      const phrase = this.searchText.trim();
+      filter += `&fq=_query_:"{!edismax qf='titles.search^10 authors.search^2 keywords.search geographic_names.search id_isbn shelf_locators' bq='(level:0)^200' bq='(model:page)^0.1' v='${phrase}'};"`
     }
     if (this.currentPage) {
       filter += `&start=${(this.currentPage - 1) * 100}`;
