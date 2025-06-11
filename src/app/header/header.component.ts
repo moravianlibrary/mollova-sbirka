@@ -18,17 +18,24 @@ export class HeaderComponent {
   ) { }
 
   ngOnInit(): void {
-    this.currentLang = this.translate.currentLang;
+    this.currentLang = localStorage.getItem('app-language') || 'cs';
+    console.log('Current language:', this.currentLang);
     this.router.events.subscribe((val) => {
       // console.log('Router:', this.router.url.split('/')[1]);
       if (this.router.url.split('/')[1] !== 'mollova-sbirka') {
         this.activeLink = this.router.url.split('/')[1];
+        if (this.activeLink.includes('?')) {
+          this.activeLink = this.activeLink.split('?')[0];
+        }
+      } else {
+        this.activeLink = '';
       }
     });
     this.logDevInfo();
   }
 
   switchLanguage(lang: string): void {
+    localStorage.setItem('app-language', lang);
     this.translate.use(lang);
     this.currentLang = lang;
   }
