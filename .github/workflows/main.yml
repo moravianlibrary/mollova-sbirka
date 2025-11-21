@@ -119,7 +119,7 @@ jobs:
           '{"include": [
             {
               "name": "moll_frontend_${{ steps.set_vars.outputs.ref_name }}",
-              "domain": "moll.app.trinera.cloud"
+              "domain": "new.mapy.mzk.cz"
             }
           ]}'
       if:
