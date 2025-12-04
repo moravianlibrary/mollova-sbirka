@@ -71,6 +71,7 @@ resource "docker_image" "moll_frontend" {
 
 # Create Docker Container using the moll_frontend image.
 resource "docker_container" "moll_frontend" {
+  memory            = 256
   count             = 1
   image             = docker_image.moll_frontend.image_id
   name              = var.docker_container_name
