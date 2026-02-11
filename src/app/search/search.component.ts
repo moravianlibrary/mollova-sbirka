@@ -7,15 +7,16 @@ import { first, Subject, Subscription } from 'rxjs';
 import { EnvironmentService } from '../services/environment.service';
 import { HttpRequestCache } from '../services/http-request-cache.service';
 
-
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrl: './search.component.scss'
+  styleUrl: './search.component.scss',
 })
 export class SearchComponent implements OnInit {
   loading: boolean = false;
   searchLoading: boolean = false;
+  endedWithError: boolean = false;
+
   searchText: string;
   north: number | null;
   south: number | null;
@@ -46,7 +47,8 @@ export class SearchComponent implements OnInit {
 
   private subscriptions: Subscription = new Subscription();
 
-  apiThumbUrl = this.envService.get('krameriusBaseUrl') + "/api/client/v7.0/items/";
+  apiThumbUrl =
+    this.envService.get('krameriusBaseUrl') + '/api/client/v7.0/items/';
 
   // SLIDER
   minValue: number;
@@ -67,7 +69,7 @@ export class SearchComponent implements OnInit {
     // fillColor: '#d8b600',
     fillOpacity: 0,
     strokeColor: '#d8b600',
-    strokeOpacity: 1
+    strokeOpacity: 1,
   };
   optionsMap: google.maps.MapOptions = {
     mapId: 'ddc5e4cd685923d9',
@@ -81,11 +83,9 @@ export class SearchComponent implements OnInit {
     fullscreenControl: false,
     clickableIcons: false,
     maxZoom: 15,
-    minZoom: 2
+    minZoom: 2,
   };
-  markerOptions: google.maps.marker.AdvancedMarkerElementOptions = {
-
-  };
+  markerOptions: google.maps.marker.AdvancedMarkerElementOptions = {};
 
   @ViewChild('googleMap') googleMap: GoogleMap;
 
@@ -94,14 +94,13 @@ export class SearchComponent implements OnInit {
   initialMapReady: boolean = false;
   skipNextIdle: boolean = true;
 
-
   constructor(
     private envService: EnvironmentService,
     public searchService: SearchService,
     private router: Router,
     private route: ActivatedRoute,
-    private httpRequestCache: HttpRequestCache
-  ) { }
+    private httpRequestCache: HttpRequestCache,
+  ) {}
 
   ngOnInit() {
     this.httpRequestCache.clear(); // Vyčistím cache při každém načtení search
@@ -115,9 +114,9 @@ export class SearchComponent implements OnInit {
         this.onMapReallyReady();
       }
     }, 200);
-  
+
     // NACTU PARAMETRY A PUSTIM SEARCH
-    const paramSub = this.route.queryParams.subscribe(params => {
+    const paramSub = this.route.queryParams.subscribe((params) => {
       console.log('paramsub from ngonInit', params);
       this.loadParams(params);
       this.search();
@@ -142,11 +141,18 @@ export class SearchComponent implements OnInit {
   onMapReallyReady() {
     console.log('Google Map is now ready');
     this.initialMapReady = true;
-    console.log('initialMapReady', this.initialMapReady, this.north, this.south, this.east, this.west);
+    console.log(
+      'initialMapReady',
+      this.initialMapReady,
+      this.north,
+      this.south,
+      this.east,
+      this.west,
+    );
     if (this.north && this.south && this.east && this.west) {
       const bounds = new google.maps.LatLngBounds(
         new google.maps.LatLng(this.south, this.west),
-        new google.maps.LatLng(this.north, this.east)
+        new google.maps.LatLng(this.north, this.east),
       );
       console.log('onMapReallyReady bounds', bounds);
       this.googleMap?.googleMap?.fitBounds(bounds, 0);
@@ -156,7 +162,6 @@ export class SearchComponent implements OnInit {
       this.skipNextIdle = false;
     }, 1000);
   }
-
 
   loadParams(params: any) {
     this.searchText = params['searchText'] || '';
@@ -182,7 +187,7 @@ export class SearchComponent implements OnInit {
       minYear: this.minValue,
       maxYear: this.maxValue,
       // itemType: this.itemType,
-      page: this.currentPage
+      page: this.currentPage,
     };
 
     this.router.navigate([], {
@@ -193,9 +198,10 @@ export class SearchComponent implements OnInit {
   }
 
   search() {
-    // console.log('======= search() ========');
+    console.log('======= search() ========', this.buildQuery(), this.sortQuery);
     this.searchLoading = true;
-    const sub = this.searchService.search(this.buildQuery(), this.sortQuery)
+    const sub = this.searchService
+      .search(this.buildQuery(), this.sortQuery)
       .pipe(first())
       .subscribe({
         next: (data: any) => {
@@ -204,7 +210,7 @@ export class SearchComponent implements OnInit {
           this.updatePagination();
           this.searchLoading = false;
           this.loading = false;
-  
+
           setTimeout(() => {
             document.querySelector('.app-results')?.scrollTo({ top: 0 });
             document.querySelector('.app-results')?.classList.add('loaded');
@@ -212,9 +218,11 @@ export class SearchComponent implements OnInit {
         },
         error: (err) => {
           console.error('Chyba při načítání výsledků:', err);
+          this.sortedResults = [];
+          this.endedWithError = true;
           this.loading = false;
           this.searchLoading = false;
-        }
+        },
       });
     this.subscriptions.add(sub);
   }
@@ -259,19 +267,26 @@ export class SearchComponent implements OnInit {
 
   updatePagination() {
     this.from = (this.currentPage - 1) * 100 + 1;
-    this.to = this.count < 100 || this.currentPage === this.lastPage
-      ? this.count
-      : this.currentPage * 100;
-  
-    this.pages = Array.from({ length: Math.ceil(this.count / 100) }, (_, i) => i + 1);
+    this.to =
+      this.count < 100 || this.currentPage === this.lastPage
+        ? this.count
+        : this.currentPage * 100;
+
+    this.pages = Array.from(
+      { length: Math.ceil(this.count / 100) },
+      (_, i) => i + 1,
+    );
     this.lastPage = this.pages.length;
-  
+
     if (this.lastPage > 4) {
       if (this.currentPage === 1) {
         this.displayedFirstPages = this.pages.slice(0, 3);
         this.displayedLastPages = [this.lastPage];
       } else if (this.currentPage < this.lastPage - 3) {
-        this.displayedFirstPages = this.pages.slice(this.currentPage - 2, this.currentPage + 1);
+        this.displayedFirstPages = this.pages.slice(
+          this.currentPage - 2,
+          this.currentPage + 1,
+        );
         this.displayedLastPages = [this.lastPage];
       } else {
         this.displayedFirstPages = [1];
@@ -290,7 +305,8 @@ export class SearchComponent implements OnInit {
     }
 
     // filter
-    let filter = '&fq=in_collections:"uuid:9b190c71-5a2c-44fa-bc8a-b6c5b056c01a"';
+    let filter =
+      '&fq=in_collections:"uuid:9b190c71-5a2c-44fa-bc8a-b6c5b056c01a"';
     // if (this.itemType) {
     //   filter += `&fq=(model:${this.itemType}) `;
     // }
@@ -299,7 +315,7 @@ export class SearchComponent implements OnInit {
     }
     if (this.searchText) {
       const phrase = this.searchText.trim();
-      filter += `&fq=_query_:"{!edismax qf='titles.search^10 authors.search^2 keywords.search geographic_names.search id_isbn shelf_locators' bq='(level:0)^200' bq='(model:page)^0.1' v='${phrase}'};"`
+      filter += `&fq=_query_:"{!edismax qf='titles.search^10 authors.search^2 keywords.search geographic_names.search id_isbn shelf_locators' bq='(level:0)^200' bq='(model:page)^0.1' v='${phrase}'};"`;
     }
     if (this.currentPage) {
       filter += `&start=${(this.currentPage - 1) * 100}`;
@@ -322,26 +338,46 @@ export class SearchComponent implements OnInit {
     this.focusedItem = item;
     let zoom = this.googleMap.getZoom() || 4;
     // BOD
-    this.focusedItem.lat = parseFloat(this.focusedItem['coords.bbox.corner_ne'].split(',')[0]);
-    this.focusedItem.lng = parseFloat(this.focusedItem['coords.bbox.corner_ne'].split(',')[1]);
+    this.focusedItem.lat = parseFloat(
+      this.focusedItem['coords.bbox.corner_ne'].split(',')[0],
+    );
+    this.focusedItem.lng = parseFloat(
+      this.focusedItem['coords.bbox.corner_ne'].split(',')[1],
+    );
     // POLYGON
-    this.focusedItem.north = parseFloat(this.focusedItem['coords.bbox.corner_ne'].split(',')[0]);
-    this.focusedItem.east = parseFloat(this.focusedItem['coords.bbox.corner_ne'].split(',')[1]);
-    this.focusedItem.south = parseFloat(this.focusedItem['coords.bbox.corner_sw'].split(',')[0]);
-    this.focusedItem.west = parseFloat(this.focusedItem['coords.bbox.corner_sw'].split(',')[1]);
+    this.focusedItem.north = parseFloat(
+      this.focusedItem['coords.bbox.corner_ne'].split(',')[0],
+    );
+    this.focusedItem.east = parseFloat(
+      this.focusedItem['coords.bbox.corner_ne'].split(',')[1],
+    );
+    this.focusedItem.south = parseFloat(
+      this.focusedItem['coords.bbox.corner_sw'].split(',')[0],
+    );
+    this.focusedItem.west = parseFloat(
+      this.focusedItem['coords.bbox.corner_sw'].split(',')[1],
+    );
 
     let constant = (this.focusedItem.north - this.focusedItem.south) * zoom;
     // console.log('focused', this.focusedItem.north - this.focusedItem.south, this.googleMap.getZoom(), constant);
 
     if (
-      (this.focusedItem['coords.bbox.corner_ne'] === this.focusedItem['coords.bbox.corner_sw'])) {
+      this.focusedItem['coords.bbox.corner_ne'] ===
+      this.focusedItem['coords.bbox.corner_sw']
+    ) {
       this.markerSize = true;
       // BOD
-      this.focusedItem.lat = parseFloat(this.focusedItem['coords.bbox.corner_ne'].split(',')[0]);
-      this.focusedItem.lng = parseFloat(this.focusedItem['coords.bbox.corner_ne'].split(',')[1]);
+      this.focusedItem.lat = parseFloat(
+        this.focusedItem['coords.bbox.corner_ne'].split(',')[0],
+      );
+      this.focusedItem.lng = parseFloat(
+        this.focusedItem['coords.bbox.corner_ne'].split(',')[1],
+      );
     } else if ((this.focusedItem.north - this.focusedItem.south) * zoom < 0.5) {
-      this.focusedItem.lat = (this.focusedItem.north + this.focusedItem.south) / 2;
-      this.focusedItem.lng = (this.focusedItem.east + this.focusedItem.west) / 2;
+      this.focusedItem.lat =
+        (this.focusedItem.north + this.focusedItem.south) / 2;
+      this.focusedItem.lng =
+        (this.focusedItem.east + this.focusedItem.west) / 2;
       this.markerSize = true;
     } else {
       this.markerSize = false;
@@ -356,7 +392,7 @@ export class SearchComponent implements OnInit {
     this.markerSize = false;
     return new google.maps.LatLngBounds(
       new google.maps.LatLng(this.focusedItem.north, this.focusedItem.west),
-      new google.maps.LatLng(this.focusedItem.south, this.focusedItem.east)
+      new google.maps.LatLng(this.focusedItem.south, this.focusedItem.east),
     );
   }
   getItemPosition() {
@@ -385,7 +421,13 @@ export class SearchComponent implements OnInit {
     this.httpRequestCache.clear(); // Vyčistím cache při znovuotevření mapy
     this.mapHidden = false;
     if (this.initialMapReady) {
-      console.log('showMap - initialMapReady', this.north, this.south, this.east, this.west);
+      console.log(
+        'showMap - initialMapReady',
+        this.north,
+        this.south,
+        this.east,
+        this.west,
+      );
       this.north = 65.8;
       this.south = 27.0;
       this.east = 30.6;
@@ -393,7 +435,7 @@ export class SearchComponent implements OnInit {
       // this.updateUrlParams();
       const bounds = new google.maps.LatLngBounds(
         new google.maps.LatLng(this.south, this.west),
-        new google.maps.LatLng(this.north, this.east)
+        new google.maps.LatLng(this.north, this.east),
       );
       console.log('showMap bounds', bounds);
       this.googleMap?.fitBounds(bounds, 0);
@@ -417,5 +459,4 @@ export class SearchComponent implements OnInit {
     // this.updateUrlParams();
     this.search();
   }
-
 }

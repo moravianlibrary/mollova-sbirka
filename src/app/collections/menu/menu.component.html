@@ -9,30 +9,29 @@
             <div class="app-nav-2" *ngFor="let item of col['children']">
                 <div class="app-nav-2-item" [class.highlight]="item.title === hoveredArea" [class.app-active]="item.title === openedChild"
                     (mouseover)="onMenuMouseEnter(item.title); onIconHover(item.title)"
-                    (mouseout)="onMenuMouseLeave(); onIconLeave()"
-                    (click)="handleClick(item)">
-                    <div class="app-nav-2-icon">
-                        <img [src]="openedChild === item.title ? './assets/icons/minus-circle.png' : (hoveredIcon === item.title ? './assets/icons/add-gold-circle.png' : './assets/icons/add-circle.png')" 
+                    (mouseout)="onMenuMouseLeave(); onIconLeave()">
+                    <div class="app-nav-2-icon" (click)="handleClickOnIcon(item); $event.stopPropagation()">
+                        <img [src]="openedChild === item.title ? './assets/icons/minus-circle.png' : (hoveredIcon === item.title ? './assets/icons/add-gold-circle.png' : './assets/icons/add-circle.png')"
                             alt="Icon" />
-                        <!-- <img [src]="hoveredIcon === item.title ? './assets/icons/add-circle.png' : (openedChild === item['title'] ? './assets/icons/minus-circle.png' : './assets/icons/add-circle.png')" 
+                        <!-- <img [src]="hoveredIcon === item.title ? './assets/icons/add-circle.png' : (openedChild === item['title'] ? './assets/icons/minus-circle.png' : './assets/icons/add-circle.png')"
                         alt="Icon" /> -->
                     </div>
-                    <div class="app-nav-2-text" *ngIf="currentLang === 'cs'" [class.app-active]="item['title'] === activeChild">{{item['title']}}</div>
-                    <div class="app-nav-2-text" *ngIf="currentLang === 'en'" [class.app-active]="item['title'] === activeChild">{{item['title_en']}}</div>
-                    <div class="app-nav-2-text" *ngIf="currentLang === 'de'" [class.app-active]="item['title'] === activeChild">{{item['title_de']}}</div>
+                    <div class="app-nav-2-text" *ngIf="currentLang === 'cs'" [class.app-active]="item['title'] === activeChild" (click)="handleClick(item); $event.stopPropagation()">{{item['title']}}</div>
+                    <div class="app-nav-2-text" *ngIf="currentLang === 'en'" [class.app-active]="item['title'] === activeChild" (click)="handleClick(item); $event.stopPropagation()">{{item['title_en']}}</div>
+                    <div class="app-nav-2-text" *ngIf="currentLang === 'de'" [class.app-active]="item['title'] === activeChild" (click)="handleClick(item); $event.stopPropagation()">{{item['title_de']}}</div>
                 </div>
                 <!-- TRETI UROVEN -->
-                <div class="app-nav-3" *ngIf="openedChild === item['title'] && item['children'] && item['children'].length > 0">    
+                <div class="app-nav-3" *ngIf="openedChild === item['title'] && item['children'] && item['children'].length > 0">
                     <div class="app-nav-3-item" *ngFor="let child of childrenExtended ? item['children'] : item['children'].slice(0, 5)" (click)="handleClick(child); $event.stopPropagation()">
                         <div class="app-nav-3-text" *ngIf="currentLang === 'cs'" [class.app-active]="child['title'] === activeChild">{{child['title']}}</div>
                         <div class="app-nav-3-text" *ngIf="currentLang === 'de'" [class.app-active]="child['title'] === activeChild">{{child['title_de']}}</div>
                         <div class="app-nav-3-text" *ngIf="currentLang === 'en'" [class.app-active]="child['title'] === activeChild">{{child['title_en']}}</div>
                     </div>
-                    <div class="app-nav-3-item app-extend" *ngIf="item.children.length > 5 && !childrenExtended" (click)="extendChildren()">    
-                        <div class="app-nav-3-icon" 
-                        (mouseover)="onIconHover(item.title)" 
-                        (mouseout)="onIconLeave()" 
-                        (click)="extendChildren()">
+                    <div class="app-nav-3-item app-extend" *ngIf="item.children.length > 5 && !childrenExtended" (click)="extendChildren()">
+                        <div class="app-nav-3-icon"
+                        (mouseover)="onIconHover(item.title)"
+                        (mouseout)="onIconLeave()"
+                        (click)="extendChildren(); $event.stopPropagation()">
                             <img [src]="'assets/icons/arrow-down-small-black.png'" alt="Icon" />
                         </div>
                         <div class="app-nav-3-text app-extend-text">{{'other' | translate}} ({{item.children.length - 5}})</div>

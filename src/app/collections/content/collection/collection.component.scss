@@ -93,7 +93,7 @@
                         overflow: hidden;
                         border-radius: 2px;
                         box-sizing: border-box; /* Zahrne všechny okraje a padding do výpočtu velikosti */
-                      
+
                         img {
                           width: 100%; /* Obrázek pokryje celý rodičovský prvek */
                           height: 100%;
@@ -101,7 +101,7 @@
                           object-position: center;
                         //   transition: transform 0.3s ease; /* Plynulá animace pro zvětšení obrázku */
                         }
-                      
+
                         .app-card-overlay {
                           position: absolute;
                           box-sizing: border-box;
@@ -114,14 +114,14 @@
                           pointer-events: none; /* Zabrání interakci s překryvem */
                         //   transition: border-color 0.3s ease; /* Plynulá změna barvy borderu */
                         }
-                      
-                        &:hover {                      
+
+                        &:hover {
                           .app-card-overlay {
                             border-color: #d8b600; /* Změna barvy rámečku při hoveru */
                           }
                         }
                       }
-                      
+
                     .app-card-content {
                         display: flex;
                         flex: 1;
@@ -192,7 +192,7 @@
                             overflow: hidden;
                             color: var(--Text-Secondary, #38372E);
                             text-overflow: ellipsis;
-                        
+
                             /* Typesettings/sm/regular */
                             font-family: "Source Sans Pro";
                             font-size: 14px;
@@ -249,14 +249,14 @@
                                         align-items: center;
                                         gap: 10px;
                                         border-radius: 11px;
-                                        border: 1px solid var(--Boarder-Tertiary-Hover, #BA9D00);  
+                                        border: 1px solid var(--Boarder-Tertiary-Hover, #BA9D00);
                                         &:hover {
                                             text-decoration: none;
                                             color: #BA9D00;
                                             .app-link-text {
                                                 color: #BA9D00;
                                             }
-                                        }                                      
+                                        }
                                         .app-link-text {
                                             color: var(--Text-Light, #706E5C);
                                             text-align: center;
@@ -309,7 +309,7 @@
                                 &.hover-icon {
                                     display: none;
                                 }
-                            }                          
+                            }
                         }
                         .app-card-link:hover .app-card-link-text {
                             color: var(--Text-Link, #7A6600);
@@ -345,7 +345,7 @@
                             // height: auto; /* Zachování poměru stran */
                             object-fit: contain;
                         }
-                        &:hover {                      
+                        &:hover {
                             .app-card-overlay {
                               display: none;
                             }

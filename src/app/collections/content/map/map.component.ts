@@ -111,14 +111,12 @@ export class MapComponent implements OnInit, AfterViewInit {
   // Dalsi / predchozi mapa
   onNextMap() {
     console.log('Next map', this.nextMap);
-    this.httpRequestCache.clear();
     if (this.nextMap['pid']) {
       this.router.navigate(['/mollova-sbirka', this.nextMap['pid']]);
     }
   }
   onPrevMap() {
     console.log('Previous map');
-    this.httpRequestCache.clear();
     if (this.prevMap['pid']) {
       this.router.navigate(['/mollova-sbirka', this.prevMap['pid']]);
     }

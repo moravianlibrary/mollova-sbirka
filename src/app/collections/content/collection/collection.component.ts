@@ -44,11 +44,19 @@ export class CollectionComponent {
   }
   getDescription(): string {
     if (this.currentLang === 'en') {
-      return this.collection['collection.desc_eng'];
+        let decs_eng = this.collection['collection.desc_eng']?.length ? this.collection['collection.desc_eng'][this.collection['collection.desc_eng'].length - 1] : '';
+        return decs_eng;
     } else if (this.currentLang === 'de') {
-      return this.collection['collection.desc_ger'];
+        let decs_ger = this.collection['collection.desc_ger']?.length ? this.collection['collection.desc_ger'][this.collection['collection.desc_ger'].length - 1] : '';
+        return decs_ger;
     }
-    return this.collection['collection.desc_cze'];
+     else if (this.currentLang === 'cs') {
+      let desc_cze = this.collection['collection.desc_cze']?.length ? this.collection['collection.desc_cze'][this.collection['collection.desc_cze'].length - 1] : '';
+      return desc_cze;
+    }
+    let desc_cze = this.collection['collection.desc_cze']?.length ? this.collection['collection.desc_cze'][this.collection['collection.desc_cze'].length - 1] : '';
+
+    return desc_cze;
   }
   getChildrenTitle(item: any): any {
     if (item.model === 'collection') {
@@ -65,11 +73,14 @@ export class CollectionComponent {
   getChildrenDescription(item: any): any {
     if (item.model === 'collection') {
       if (this.currentLang === 'en') {
-        return item.collectionDetails['collection.desc_eng'];
+        let desc_eng = item.collectionDetails['collection.desc_eng']?.length ? item.collectionDetails['collection.desc_eng'][item.collectionDetails['collection.desc_eng'].length - 1] : '';
+        return desc_eng;
       } else if (this.currentLang === 'de') {
-        return item.collectionDetails['collection.desc_ger'];
+        let desc_ger = item.collectionDetails['collection.desc_ger']?.length ? item.collectionDetails['collection.desc_ger'][item.collectionDetails['collection.desc_ger'].length - 1] : '';
+        return desc_ger;
       }
-      return item.collectionDetails['collection.desc_cze'];
+      let desc_cze = item.collectionDetails['collection.desc_cze']?.length ? item.collectionDetails['collection.desc_cze'][item.collectionDetails['collection.desc_cze'].length - 1] : '';
+      return desc_cze;
     } else {
       if (item.authors && item.authors.length > 0) {
         return item['authors'].join(', ');
