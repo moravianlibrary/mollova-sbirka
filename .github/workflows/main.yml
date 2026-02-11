@@ -70,6 +70,7 @@ jobs:
       ref_name: ${{ steps.set_vars.outputs.ref_name }}
       docker_container_suffix: ${{ steps.set_vars.outputs.docker_container_suffix }}
       docker_image: ${{ steps.set_vars.outputs.docker_image }}
+      docker_tag: ${{ steps.set_vars.outputs.docker_tag }}
       # JSON list of docker containers' names and domains
       # where they should be deployed in `deploy` job
       docker_names: ${{ steps.set_docker_names.outputs.docker_names }}
@@ -95,6 +96,7 @@ jobs:
           echo "ref_name=$REF_NAME"
           echo "docker_container_suffix=${REF_NAME//\./_}"
           echo "docker_image=ghcr.io/${GITHUB_REPOSITORY,,}-$REF_NAME"
+          echo "docker_tag=$(date +%Y%m%d%H%M)"
         ) | tee --append "$GITHUB_OUTPUT" > "GITHUB_ENV"
 
     - name: Set docker names for dev branch
@@ -159,6 +161,7 @@ jobs:
     environment: ${{ needs.set_environment.outputs.environment }}
     env:
       DOCKER_IMAGE: ${{ needs.set_variables.outputs.docker_image }}
+      DOCKER_TAG: ${{ needs.set_variables.outputs.docker_tag }}
     steps:
     - uses: actions/checkout@v4
 
@@ -169,12 +172,12 @@ jobs:
       run: |
         docker build \
           --tag "${DOCKER_IMAGE}:latest" \
-          --tag "${DOCKER_IMAGE}:$(date +%Y%m%d%H%M)" \
+          --tag "${DOCKER_IMAGE}:${DOCKER_TAG}" \
           --file Dockerfile .
 
     - name: Push image to GHCR
       run: >
-        docker push "${DOCKER_IMAGE}:latest"
+        docker push --all-tags "${DOCKER_IMAGE}"
 
   deploy:
     name: deploy
@@ -186,6 +189,7 @@ jobs:
     environment: ${{ needs.set_environment.outputs.environment }}
     env:
       DOCKER_IMAGE: ${{ needs.set_variables.outputs.docker_image }}
+      DOCKER_TAG: ${{ needs.set_variables.outputs.docker_tag }}
 
     # Use the Bash shell regardless whether the GitHub Actions runner is
     # ubuntu-latest, macos-latest, or windows-latest
@@ -215,7 +219,7 @@ jobs:
 
       - name: 'Deploy with Terraform'
         id: deploy_with_terraform
-        uses: trineracz/deploy-docker-with-terraform@v1.0.0
+        uses: trineracz/deploy-docker-with-terraform@v1.1.0
         env:
           TF_VAR_APP_DEV_MODE: ${{ vars.APP_DEV_MODE }}
           TF_VAR_APP_ENV_NAME: ${{ vars.APP_ENV_NAME }}
@@ -226,6 +230,7 @@ jobs:
           TF_VAR_APP_KRAMERIUS_URL: ${{ vars.APP_KRAMERIUS_URL }}
         with:
           TERRAFORM_DOCKER_IMAGE: ${DOCKER_IMAGE}
+          TERRAFORM_DOCKER_TAG: ${DOCKER_TAG}
           TERRAFORM_DOCKER_CONTAINER_NAME: ${{ matrix.name }}
           TERRAFORM_DEPLOY_DOMAIN: ${{ matrix.domain }}
           TERRAFORM_DOCKER_HOST_URI: ${{ secrets.DOCKER_HOST_URI }}

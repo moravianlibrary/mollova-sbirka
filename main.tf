@@ -38,6 +38,11 @@ variable "docker_image" {
   type = string
 }
 
+variable "docker_tag" {
+  type    = string
+  default = "latest"
+}
+
 variable "deploy_domain" {
   type = string
 }
@@ -64,9 +69,15 @@ provider "docker" {
   }
 }
 
+# Creating Docker Image data source
+data "docker_registry_image" "moll_frontend" {
+  name = "${var.docker_image}:${var.docker_tag}"
+}
+
 # Creating moll_frontend Docker Image with the `latest` as the Tag.
 resource "docker_image" "moll_frontend" {
-  name = var.docker_image
+  name          = data.docker_registry_image.moll_frontend.name
+  pull_triggers = [data.docker_registry_image.moll_frontend.sha256_digest]
 }
 
 # Create Docker Container using the moll_frontend image.
