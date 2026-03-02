@@ -55,6 +55,7 @@ export class MapComponent implements OnInit, AfterViewInit {
       this.currentLang = event.lang;
     });
     this.subscription.add(langSub);
+
     // console.log('Map:', this.map, this.parentCollection, this.siblings);
     this.collectionService.getPagesByPid(this.map['pid']).subscribe((data: any) => {
       // console.log('Pages:', data['response']['docs']);
@@ -116,7 +117,7 @@ export class MapComponent implements OnInit, AfterViewInit {
     }
   }
   onPrevMap() {
-    console.log('Previous map');
+    console.log('Previous map', this.prevMap);
     if (this.prevMap['pid']) {
       this.router.navigate(['/mollova-sbirka', this.prevMap['pid']]);
     }
@@ -156,7 +157,10 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
   getOldShelfLocator(): string {
     if (this.map['elasticDetails'] && this.map['elasticDetails']['signatura_old']) {
-      return this.translate.instant('old_signature') + ': ' + this.map['elasticDetails']['signatura_old'];
+        let oldSignatures = this.map['elasticDetails']['signatura_old']?.split('|')?.map((s: any) => s.trim());
+        let uniqueOldSignatures = Array.from(new Set(oldSignatures));
+        console.log('Old signatures:', oldSignatures);
+      return this.translate.instant('old_signature') + ': ' + uniqueOldSignatures;
     } else {
       return this.translate.instant('old_signature') + ': ' + this.map['signatura_old'] || '';
     }

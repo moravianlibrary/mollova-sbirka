@@ -67,6 +67,9 @@ export class CollectionComponent {
       }
       return item.collectionDetails['title.search_cze'];
     } else {
+        if (item['part.name']) {
+          return item['part.name'];
+        }
       return item['title.search'] || item['title'];
     }
   }
