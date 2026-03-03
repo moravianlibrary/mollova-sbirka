@@ -1,5 +1,16 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, forkJoin, map, mergeMap, Observable, of, Subject, switchMap, tap, throwError } from 'rxjs';
+import {
+    BehaviorSubject,
+    forkJoin,
+    map,
+    mergeMap,
+    Observable,
+    of,
+    Subject,
+    switchMap,
+    tap,
+    throwError,
+} from 'rxjs';
 import { ApiService } from './api.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -23,9 +34,10 @@ export class CollectionService {
     private contextSource = new BehaviorSubject<any>(null);
     context$ = this.contextSource.asObservable();
 
-    constructor(private apiService: ApiService,
-                private http: HttpClient
-    ) { }
+    constructor(
+        private apiService: ApiService,
+        private http: HttpClient,
+    ) {}
 
     // Observable pro hover události z mapy do menu
     private hoverFromMapSubject = new Subject<string | null>();
@@ -65,11 +77,17 @@ export class CollectionService {
     getChildrenByPidWithDetails(pid: string): Observable<any[]> {
         return this.getCollectionStructureFromJSON().pipe(
             map((data: any[]) => {
-                const findChildren = (items: any[], pid: string): any[] | null => {
+                const findChildren = (
+                    items: any[],
+                    pid: string,
+                ): any[] | null => {
                     for (const item of items) {
                         if (item.pid === pid) {
                             if (item.children) {
-                                return item.children.filter((child: any) => child.model !== 'manuscript');
+                                return item.children.filter(
+                                    (child: any) =>
+                                        child.model !== 'manuscript',
+                                );
                             }
                             if (item.children_catalogs) {
                                 return item.children_catalogs || [];
@@ -88,71 +106,99 @@ export class CollectionService {
                 return findChildren(data, pid) || [];
             }),
             mergeMap((children: any[]) => {
-                // Pro každé dítě zavolej getCollection(pid)
-                const detailedChildren$ = children.map(child =>
-                    forkJoin({
-                        collectionDetails: this.getCollection(child.pid).pipe(
-                            map((res: any) => res?.response?.docs?.[0] || {})
-                        )
-                    }).pipe(
-                        map(({ collectionDetails }) => ({
+                console.log(children);
+                if (!children?.length) return of([]);
+
+                const pids = children.map((c) => c.pid);
+                return this.apiService.getCollectionsByPids(pids).pipe(
+                    map((res: any) => res?.response?.docs || []),
+                    map((docs: any[]) => {
+                        // rychlá mapa pid -> doc
+                        const byPid = docs.reduce((acc: any, d: any) => {
+                            acc[d.pid] = d;
+                            return acc;
+                        }, {});
+
+                        // doplnění detailů zpět k původním children
+                        return children.map((child) => ({
                             ...child,
-                            collectionDetails
-                        }))
-                    )
+                            collectionDetails: byPid[child.pid] || {},
+                        }));
+                    }),
                 );
-                // Sloučí všechny observables do jednoho
-                if (detailedChildren$.length === 0) {
-                    return of([]);
-                }
-                return forkJoin(detailedChildren$);
-            })
+
+                // Pro každé dítě zavolej getCollection(pid)
+                // const detailedChildren$ = children.map((child) =>
+                //     forkJoin({
+                //         collectionDetails: this.getCollection(child.pid).pipe(
+                //             map((res: any) => res?.response?.docs?.[0] || {}),
+                //         ),
+                //     }).pipe(
+                //         map(({ collectionDetails }) => ({
+                //             ...child,
+                //             collectionDetails,
+                //         })),
+                //     ),
+                // );
+                // // Sloučí všechny observables do jednoho
+                // if (detailedChildren$.length === 0) {
+                //     return of([]);
+                // }
+                // return forkJoin(detailedChildren$);
+            }),
         );
     }
 
     getCollectionChildren(pid: string): Observable<any[]> {
         return this.apiService.getCollectionChildren(pid).pipe(
             map((data: any) => {
+                console.log(data);
                 const docs = data?.response?.docs || [];
-                return docs.filter((item: any) => item['model'] !== 'manuscript');
+                return docs.filter(
+                    (item: any) => item['model'] !== 'manuscript',
+                );
             }),
             mergeMap((children: any[]) => {
                 if (children.length === 0) return of([]);
 
-                const pids = children.map(child => child.pid);
+                const pids = children.map((child) => child.pid);
 
                 return this.apiService.getElasticRecordsByPids(pids).pipe(
                     map((res: any) => {
-                        const elasticMap = (res?.hits?.hits || []).reduce((acc: any, hit: any) => {
-                            const source = hit._source || {};
-                            acc[source.pid] = source;
-                            return acc;
-                        }, {});
+                        const elasticMap = (res?.hits?.hits || []).reduce(
+                            (acc: any, hit: any) => {
+                                const source = hit._source || {};
+                                acc[source.pid] = source;
+                                return acc;
+                            },
+                            {},
+                        );
 
-                        return children.map(child => ({
+                        return children.map((child) => ({
                             ...child,
                             collectionDetails: child, // použijme data, která už máme
-                            elasticDetails: elasticMap[child.pid] || {}
+                            elasticDetails: elasticMap[child.pid] || {},
                         }));
-                    })
+                    }),
                 );
             }),
             tap((detailedChildren: any[]) => {
-                const sortedSiblings = detailedChildren.sort((a: any, b: any) =>
-                    a['shelf_locators']?.[0]?.localeCompare(b['shelf_locators']?.[0]) ?? 0
+                const sortedSiblings = detailedChildren.sort(
+                    (a: any, b: any) =>
+                        a['shelf_locators']?.[0]?.localeCompare(
+                            b['shelf_locators']?.[0],
+                        ) ?? 0,
                 );
                 this.setSiblings(sortedSiblings);
-            })
+            }),
         );
     }
-
 
     getPagesByPid(pid: string): Observable<Object> {
         return this.apiService.getPages(pid);
     }
 
     setContext(context: any) {
-        console.log('setting context', context);
         this.contextSource.next(context);
     }
     getCollectionStructureFromJSON(): Observable<any> {
@@ -164,6 +210,9 @@ export class CollectionService {
     getCollection(pid: string): Observable<Object> {
         return this.apiService.getCollection(pid);
     }
+    getCollectionsByPids(pids: string[]): Observable<Object> {
+        return this.apiService.getCollectionsByPids(pids);
+    }
 
     getCollectionStructure(pid: string): Observable<any> {
         const collectionIndex: { [key: string]: string } = {};
@@ -172,70 +221,122 @@ export class CollectionService {
             switchMap((data: any) => {
                 let collectionData = data['response']['docs'];
 
-                let collectionStructure$: Observable<any>[] = collectionData.map((item: any) => {
-                    console.log('Item:', item);
-                    let collectionItem = {
-                        pid: item['pid'],
-                        title: item['title.search'] ? item['title.search'] : '',
-                        title_en: item['title.search_eng'] ? item['title.search_eng'][0] : '',
-                        title_de: item['title.search_ger'] ? item['title.search_ger'][0] : '',
-                        model: item['model'] || '',
-                        children: [] as any[]
-                    };
+                let collectionStructure$: Observable<any>[] =
+                    collectionData.map((item: any) => {
+                        console.log('Item:', item);
+                        let collectionItem = {
+                            pid: item['pid'],
+                            title: item['title.search']
+                                ? item['title.search']
+                                : '',
+                            title_en: item['title.search_eng']
+                                ? item['title.search_eng'][0]
+                                : '',
+                            title_de: item['title.search_ger']
+                                ? item['title.search_ger'][0]
+                                : '',
+                            model: item['model'] || '',
+                            children: [] as any[],
+                        };
 
-                    // Použití tap pro přidání do indexu
-                    return this.getCollectionChildren(item['pid']).pipe(
-                        tap(() => {
-                            collectionIndex[collectionItem.pid] = collectionItem.title;
-                        }),
-                        switchMap((childrenData: any) => {
-                            let children: Observable<any>[] = childrenData['response']['docs'].map((child: any) => {
-                                let childItem = {
-                                    pid: child['pid'],
-                                    title: child['title.search'] ? child['title.search'] : '',
-                                    title_en: child['title.search_eng'] ? child['title.search_eng'][0] : '',
-                                    title_de: child['title.search_ger'] ? child['title.search_ger'][0] : '',
-                                    model: child['model'] || '',
-                                    children: [] as any[]
-                                };
+                        // Použití tap pro přidání do indexu
+                        return this.getCollectionChildren(item['pid']).pipe(
+                            tap(() => {
+                                collectionIndex[collectionItem.pid] =
+                                    collectionItem.title;
+                            }),
+                            switchMap((childrenData: any) => {
+                                let children: Observable<any>[] = childrenData[
+                                    'response'
+                                ]['docs'].map((child: any) => {
+                                    let childItem = {
+                                        pid: child['pid'],
+                                        title: child['title.search']
+                                            ? child['title.search']
+                                            : '',
+                                        title_en: child['title.search_eng']
+                                            ? child['title.search_eng'][0]
+                                            : '',
+                                        title_de: child['title.search_ger']
+                                            ? child['title.search_ger'][0]
+                                            : '',
+                                        model: child['model'] || '',
+                                        children: [] as any[],
+                                    };
 
-                                return this.getCollectionChildren(child['pid']).pipe(
-                                    tap(() => {
-                                        collectionIndex[childItem.pid] = childItem.title;
+                                    return this.getCollectionChildren(
+                                        child['pid'],
+                                    ).pipe(
+                                        tap(() => {
+                                            collectionIndex[childItem.pid] =
+                                                childItem.title;
+                                        }),
+                                        map((grandChildrenData: any) => {
+                                            childItem.children =
+                                                grandChildrenData['response'][
+                                                    'docs'
+                                                ].map((grandChild: any) => {
+                                                    collectionIndex[
+                                                        grandChild['pid']
+                                                    ] = grandChild[
+                                                        'title.search'
+                                                    ]
+                                                        ? grandChild[
+                                                              'title.search'
+                                                          ]
+                                                        : '';
+                                                    return {
+                                                        pid: grandChild['pid'],
+                                                        title: grandChild[
+                                                            'title.search'
+                                                        ]
+                                                            ? grandChild[
+                                                                  'title.search'
+                                                              ]
+                                                            : '',
+                                                        title_en: grandChild[
+                                                            'title.search_eng'
+                                                        ]
+                                                            ? grandChild[
+                                                                  'title.search_eng'
+                                                              ][0]
+                                                            : '',
+                                                        title_de: grandChild[
+                                                            'title.search_ger'
+                                                        ]
+                                                            ? grandChild[
+                                                                  'title.search_ger'
+                                                              ][0]
+                                                            : '',
+                                                        model:
+                                                            grandChild[
+                                                                'model'
+                                                            ] || '',
+                                                    };
+                                                });
+                                            return childItem;
+                                        }),
+                                    );
+                                });
+
+                                return forkJoin(children).pipe(
+                                    map((resolvedChildren) => {
+                                        collectionItem.children =
+                                            resolvedChildren;
+                                        return collectionItem;
                                     }),
-                                    map((grandChildrenData: any) => {
-                                        childItem.children = grandChildrenData['response']['docs'].map((grandChild: any) => {
-                                            collectionIndex[grandChild['pid']] = grandChild['title.search'] ? grandChild['title.search'] : '';
-                                            return {
-                                                pid: grandChild['pid'],
-                                                title: grandChild['title.search'] ? grandChild['title.search'] : '',
-                                                title_en: grandChild['title.search_eng'] ? grandChild['title.search_eng'][0] : '',
-                                                title_de: grandChild['title.search_ger'] ? grandChild['title.search_ger'][0] : '',
-                                                model: grandChild['model'] || ''
-                                            };
-                                        });
-                                        return childItem;
-                                    })
                                 );
-                            });
-
-                            return forkJoin(children).pipe(
-                                map((resolvedChildren) => {
-                                    collectionItem.children = resolvedChildren;
-                                    return collectionItem;
-                                })
-                            );
-                        })
-                    );
-                });
+                            }),
+                        );
+                    });
 
                 return forkJoin(collectionStructure$).pipe(
                     map((collectionStructure) => ({
                         collectionStructure,
-                        collectionIndex
-                    }))
+                        collectionIndex,
+                    })),
                 );
-            })
+            }),
         );
     }
 
@@ -248,7 +349,7 @@ export class CollectionService {
             map((data: any) => {
                 let pids = data['response']['docs'][0]['in_collections.direct'];
                 return this.getProperPid(pids);
-            })
+            }),
         );
     }
 
@@ -258,13 +359,13 @@ export class CollectionService {
 
     getProperPid(pids: string[]): string {
         if (pids && pids.length === 1) {
-          return pids[0];
+            return pids[0];
         } else if (pids && pids.length > 1) {
-          for (let pid of pids) {
-            if (this.collectionIndex[pid]) {
-              return pid;
+            for (let pid of pids) {
+                if (this.collectionIndex[pid]) {
+                    return pid;
+                }
             }
-          }
         }
         return '';
     }
@@ -285,5 +386,4 @@ export class CollectionService {
         a.click();
         window.URL.revokeObjectURL(url);
     }
-
 }

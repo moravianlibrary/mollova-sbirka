@@ -42,7 +42,7 @@ export class ApiService {
         }
 
         const query = pids.map((pid) => `"${pid}"`).join(' OR ');
-        const url = `${this.k7SearchUrl}?q=pid:(${query})`;
+        const url = `${this.k7SearchUrl}?q=pid:(${query})&rows=1000`;
 
         return this.doGet(url).pipe(catchError(this.handleError));
     }
