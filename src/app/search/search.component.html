@@ -80,7 +80,7 @@
           [options]="boxOptions"
         >
         </map-rectangle>
-        <map-advanced-marker 
+        <map-advanced-marker
           *ngIf="focusedItem && markerSize"
           [position]="getItemPosition()"
           [options]="markerOptions"
@@ -201,7 +201,7 @@
 </div>
 
 <mat-menu #menu="matMenu">
-  <button mat-menu-item *ngIf="selectedSort !== 'relevance'" (click)="sortBy('relevance')">{{'relevance' | translate}}</button>
+  <!-- <button mat-menu-item *ngIf="selectedSort !== 'relevance'" (click)="sortBy('relevance')">{{'relevance' | translate}}</button> -->
   <button mat-menu-item *ngIf="selectedSort !== 'alphabet'" (click)="sortBy('alphabet')">{{'alphabet' | translate}}</button>
   <button mat-menu-item *ngIf="selectedSort !== 'oldest'" (click)="sortBy('oldest')">{{'oldest' | translate}}</button>
   <button mat-menu-item *ngIf="selectedSort !== 'newest'" (click)="sortBy('newest')">{{'newest' | translate}}</button>
