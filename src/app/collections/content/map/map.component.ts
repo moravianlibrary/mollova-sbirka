@@ -4,7 +4,6 @@ import { CollectionService } from '../../../services/collection.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { EnvironmentService } from '../../../services/environment.service';
-import { HttpRequestCache } from '../../../services/http-request-cache.service';
 
 
 @Component({
@@ -46,8 +45,7 @@ export class MapComponent implements OnInit, AfterViewInit {
     private envService: EnvironmentService,
     private translate: TranslateService,
     private collectionService: CollectionService,
-    private router: Router,
-    private httpRequestCache: HttpRequestCache) { }
+    private router: Router) { }
 
   ngOnInit(): void {
     // Language change subscription
@@ -159,7 +157,6 @@ export class MapComponent implements OnInit, AfterViewInit {
     if (this.map['elasticDetails'] && this.map['elasticDetails']['signatura_old']) {
         let oldSignatures = this.map['elasticDetails']['signatura_old']?.split('|')?.map((s: any) => s.trim());
         let uniqueOldSignatures = Array.from(new Set(oldSignatures));
-        console.log('Old signatures:', oldSignatures);
       return this.translate.instant('old_signature') + ': ' + uniqueOldSignatures;
     } else {
       return this.translate.instant('old_signature') + ': ' + this.map['signatura_old'] || '';

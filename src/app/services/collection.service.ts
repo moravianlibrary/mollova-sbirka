@@ -97,7 +97,7 @@ export class CollectionService {
                     }).pipe(
                         map(({ collectionDetails }) => ({
                             ...child,
-                            collectionDetails                      
+                            collectionDetails
                         }))
                     )
                 );
@@ -118,9 +118,9 @@ export class CollectionService {
             }),
             mergeMap((children: any[]) => {
                 if (children.length === 0) return of([]);
-    
+
                 const pids = children.map(child => child.pid);
-    
+
                 return this.apiService.getElasticRecordsByPids(pids).pipe(
                     map((res: any) => {
                         const elasticMap = (res?.hits?.hits || []).reduce((acc: any, hit: any) => {
@@ -128,7 +128,7 @@ export class CollectionService {
                             acc[source.pid] = source;
                             return acc;
                         }, {});
-    
+
                         return children.map(child => ({
                             ...child,
                             collectionDetails: child, // použijme data, která už máme
@@ -145,13 +145,14 @@ export class CollectionService {
             })
         );
     }
-    
-    
+
+
     getPagesByPid(pid: string): Observable<Object> {
         return this.apiService.getPages(pid);
     }
 
     setContext(context: any) {
+        console.log('setting context', context);
         this.contextSource.next(context);
     }
     getCollectionStructureFromJSON(): Observable<any> {
@@ -163,14 +164,14 @@ export class CollectionService {
     getCollection(pid: string): Observable<Object> {
         return this.apiService.getCollection(pid);
     }
-       
+
     getCollectionStructure(pid: string): Observable<any> {
         const collectionIndex: { [key: string]: string } = {};
-    
+
         return this.getCollectionChildren(pid).pipe(
             switchMap((data: any) => {
                 let collectionData = data['response']['docs'];
-    
+
                 let collectionStructure$: Observable<any>[] = collectionData.map((item: any) => {
                     console.log('Item:', item);
                     let collectionItem = {
@@ -181,7 +182,7 @@ export class CollectionService {
                         model: item['model'] || '',
                         children: [] as any[]
                     };
-    
+
                     // Použití tap pro přidání do indexu
                     return this.getCollectionChildren(item['pid']).pipe(
                         tap(() => {
@@ -197,7 +198,7 @@ export class CollectionService {
                                     model: child['model'] || '',
                                     children: [] as any[]
                                 };
-    
+
                                 return this.getCollectionChildren(child['pid']).pipe(
                                     tap(() => {
                                         collectionIndex[childItem.pid] = childItem.title;
@@ -217,7 +218,7 @@ export class CollectionService {
                                     })
                                 );
                             });
-    
+
                             return forkJoin(children).pipe(
                                 map((resolvedChildren) => {
                                     collectionItem.children = resolvedChildren;
@@ -227,7 +228,7 @@ export class CollectionService {
                         })
                     );
                 });
-    
+
                 return forkJoin(collectionStructure$).pipe(
                     map((collectionStructure) => ({
                         collectionStructure,
@@ -250,7 +251,7 @@ export class CollectionService {
             })
         );
     }
-    
+
     clearSiblings(): void {
         this.siblingsSubject.next([]);
     }
@@ -277,12 +278,12 @@ export class CollectionService {
         const jsonString = JSON.stringify(data, null, 2);
         const blob = new Blob([jsonString], { type: 'application/json' });
         const url = window.URL.createObjectURL(blob);
-    
+
         const a = document.createElement('a');
         a.href = url;
         a.download = 'data.json';
         a.click();
         window.URL.revokeObjectURL(url);
     }
-       
+
 }
