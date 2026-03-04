@@ -113,6 +113,7 @@ export class ContentComponent implements OnInit, OnDestroy {
                         .getChildrenByPidWithDetails(pid)
                         .subscribe((children) => {
                             // POTOMCI JSOU KOLEKCE
+                            console.log('children:', children);
                             this.children = children;
                             if (children.length === 0) {
                                 // POTOMCI JSOU MAPY

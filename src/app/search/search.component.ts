@@ -27,7 +27,7 @@ export class SearchComponent implements OnInit {
   itemType: string = 'map';
   results: any;
   mapHidden: boolean = false;
-  selectedSort: string = 'relevance';
+  selectedSort: string = 'alphabet';
   sortedResults: any;
   sortQuery: string = '';
   svgIcon: any;
@@ -175,6 +175,7 @@ export class SearchComponent implements OnInit {
     this.actualInputValueMax = this.maxValue;
     // this.itemType = params['itemType'] || 'map';
     this.currentPage = parseInt(params['page']) || 1;
+    this.selectedSort = params['sort'] || 'alphabet';
   }
 
   updateUrlParams() {
@@ -188,6 +189,7 @@ export class SearchComponent implements OnInit {
       maxYear: this.maxValue,
       // itemType: this.itemType,
       page: this.currentPage,
+      sort: this.selectedSort,
     };
 
     this.router.navigate([], {
@@ -200,6 +202,14 @@ export class SearchComponent implements OnInit {
   search() {
     console.log('======= search() ========', this.buildQuery(), this.sortQuery);
     this.searchLoading = true;
+    this.sortQuery = '';
+    if (this.selectedSort === 'alphabet') {
+      this.sortQuery = '&sort=title.sort asc';
+    } else if (this.selectedSort === 'newest') {
+      this.sortQuery = '&sort=date.max desc, date.min desc';
+    } else if (this.selectedSort === 'oldest') {
+      this.sortQuery = '&sort=date.min asc, date.max asc';
+    }
     const sub = this.searchService
       .search(this.buildQuery(), this.sortQuery)
       .pipe(first())
@@ -445,18 +455,19 @@ export class SearchComponent implements OnInit {
     this.searchVisible = !this.searchVisible;
   }
   sortBy(sort: string) {
-    // console.log('sort', sort);
     this.selectedSort = sort;
-    if (sort === 'relevance') {
-      this.sortQuery = '';
-    } else if (sort === 'alphabet') {
-      this.sortQuery = '&sort=title.sort asc';
-    } else if (sort === 'newest') {
-      this.sortQuery = '&sort=date.max desc, date.min desc';
-    } else if (sort === 'oldest') {
-      this.sortQuery = '&sort=date.min asc, date.max asc';
-    }
-    // this.updateUrlParams();
-    this.search();
+    // console.log('sort', sort);
+    // this.selectedSort = sort;
+    // if (sort === 'relevance') {
+    //   this.sortQuery = '';
+    // } else if (sort === 'alphabet') {
+    //   this.sortQuery = '&sort=title.sort asc';
+    // } else if (sort === 'newest') {
+    //   this.sortQuery = '&sort=date.max desc, date.min desc';
+    // } else if (sort === 'oldest') {
+    //   this.sortQuery = '&sort=date.min asc, date.max asc';
+    // }
+    this.updateUrlParams();
+    // this.search();
   }
 }
