@@ -21,7 +21,7 @@
           <div class="app-metadata-item">{{ getPublishersData() }}</div>
           <div class="app-metadata-item">{{ getGeographicNames() }}</div>
           <div class="app-metadata-item">{{ getNewShelfLocator() }}</div>
-          <div class="app-metadata-item">{{ getOldShelfLocator() }}</div>
+          <div class="app-metadata-item">{{'old_signature' | translate}}: {{ getOldShelfLocator(this.map['elasticDetails']['signatura_old']) }}</div>
         </div>
       </div>
       <div class="app-other-info">
@@ -63,8 +63,7 @@
                 {{ "old_signature" | translate }}:
               </div> -->
               <div *ngIf="item?.shelf_locators?.[0]" class="app-card-sign">
-                {{ "old_signature" | translate }}: {{ item.elasticDetails.signatura_old }}
-                xxx
+                {{ "old_signature" | translate }}: {{ getOldShelfLocator(item.elasticDetails.signatura_old) }}
               </div>
               <div *ngIf="item?.shelf_locators?.[0]" class="app-card-sign">
                 {{ "new_signature" | translate }}: {{ item.shelf_locators[0] }}

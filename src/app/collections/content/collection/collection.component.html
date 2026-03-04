@@ -23,7 +23,7 @@
                             </a>
                             <div class="app-card-text" [innerHTML]="getChildrenDescription(item)"></div>
                             <div class="app-card-signs">
-                                <div class="app-card-sign" *ngIf="item.elasticDetails?.signatura_old">{{'old_signature' | translate}}: {{item.elasticDetails.signatura_old}}</div>
+                                <div class="app-card-sign" *ngIf="item.elasticDetails?.signatura_old">{{'old_signature' | translate}}: {{getOldShelfLocator(item.elasticDetails.signatura_old)}}</div>
                                 <div class="app-card-sign" *ngIf="item?.shelf_locators?.[0]">{{'new_signature' | translate}}: {{item.shelf_locators[0]}}</div>
                                 <div class="app-card-sign" *ngIf="item?.signature">{{'old_signature' | translate}}: {{item.signature}}</div>
                             </div>
