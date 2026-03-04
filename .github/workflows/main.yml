@@ -121,7 +121,7 @@ jobs:
           '{"include": [
             {
               "name": "moll_frontend_${{ steps.set_vars.outputs.ref_name }}",
-              "domain": "new.mapy.mzk.cz"
+              "domain": "mapy.mzk.cz"
             }
           ]}'
       if:
