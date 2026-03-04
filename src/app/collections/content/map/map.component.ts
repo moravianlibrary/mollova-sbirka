@@ -153,15 +153,10 @@ export class MapComponent implements OnInit, AfterViewInit {
   getNewShelfLocator(): string {
     return this.translate.instant('new_signature') + ': ' + this.map['shelf_locators'] || '';
   }
-  getOldShelfLocator(): string {
-    if (this.map['elasticDetails'] && this.map['elasticDetails']['signatura_old']) {
-        let oldSignatures = this.map['elasticDetails']['signatura_old']?.split('|')?.map((s: any) => s.trim());
-        let uniqueOldSignatures = Array.from(new Set(oldSignatures));
-      return this.translate.instant('old_signature') + ': ' + uniqueOldSignatures;
-    } else {
-      return this.translate.instant('old_signature') + ': ' + this.map['signatura_old'] || '';
-    }
-
+  getOldShelfLocator(signatures: string): string[] {
+    let oldSignatures = signatures?.split('|')?.map((s: any) => s.trim());
+    let uniqueOldSignatures = Array.from(new Set(oldSignatures));
+    return uniqueOldSignatures;
   }
 
   // Chovani pri skrolovani
