@@ -12,7 +12,7 @@ export class CachingInterceptor implements HttpInterceptor {
   constructor(private cache: HttpRequestCache) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (req.method !== 'GET' && req.method !== 'POST') {
+    if (req.method !== 'GET') {
       return next.handle(req);
     }
 

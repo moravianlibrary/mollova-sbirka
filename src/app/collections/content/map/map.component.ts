@@ -4,7 +4,6 @@ import { CollectionService } from '../../../services/collection.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { EnvironmentService } from '../../../services/environment.service';
-import { HttpRequestCache } from '../../../services/http-request-cache.service';
 
 
 @Component({
@@ -46,8 +45,7 @@ export class MapComponent implements OnInit, AfterViewInit {
     private envService: EnvironmentService,
     private translate: TranslateService,
     private collectionService: CollectionService,
-    private router: Router,
-    private httpRequestCache: HttpRequestCache) { }
+    private router: Router) { }
 
   ngOnInit(): void {
     // Language change subscription
@@ -55,6 +53,7 @@ export class MapComponent implements OnInit, AfterViewInit {
       this.currentLang = event.lang;
     });
     this.subscription.add(langSub);
+
     // console.log('Map:', this.map, this.parentCollection, this.siblings);
     this.collectionService.getPagesByPid(this.map['pid']).subscribe((data: any) => {
       // console.log('Pages:', data['response']['docs']);
@@ -111,14 +110,12 @@ export class MapComponent implements OnInit, AfterViewInit {
   // Dalsi / predchozi mapa
   onNextMap() {
     console.log('Next map', this.nextMap);
-    this.httpRequestCache.clear();
     if (this.nextMap['pid']) {
       this.router.navigate(['/mollova-sbirka', this.nextMap['pid']]);
     }
   }
   onPrevMap() {
-    console.log('Previous map');
-    this.httpRequestCache.clear();
+    console.log('Previous map', this.prevMap);
     if (this.prevMap['pid']) {
       this.router.navigate(['/mollova-sbirka', this.prevMap['pid']]);
     }
@@ -156,13 +153,10 @@ export class MapComponent implements OnInit, AfterViewInit {
   getNewShelfLocator(): string {
     return this.translate.instant('new_signature') + ': ' + this.map['shelf_locators'] || '';
   }
-  getOldShelfLocator(): string {
-    if (this.map['elasticDetails'] && this.map['elasticDetails']['signatura_old']) {
-      return this.translate.instant('old_signature') + ': ' + this.map['elasticDetails']['signatura_old'];
-    } else {
-      return this.translate.instant('old_signature') + ': ' + this.map['signatura_old'] || '';
-    }
-
+  getOldShelfLocator(signatures: string): string[] {
+    let oldSignatures = signatures?.split('|')?.map((s: any) => s.trim());
+    let uniqueOldSignatures = Array.from(new Set(oldSignatures));
+    return uniqueOldSignatures;
   }
 
   // Chovani pri skrolovani

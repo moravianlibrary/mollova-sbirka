@@ -2,7 +2,7 @@
     <div class="app-content">
         <div class="app-title">
             <h1>{{getTitle()}}</h1>
-            <div class="text-base">{{getDescription()}}</div>
+            <div class="text-base" [innerHTML]="getDescription()"></div>
         </div>
         <div class="app-cards">
             <div class="app-cards-row" *ngIf="children && children.length > 0">
@@ -21,9 +21,9 @@
                                 <img class="app-card-icon default-icon" src="assets/icons/arrow.png">
                                 <img class="app-card-icon hover-icon" src="assets/icons/arrow-gold.png">
                             </a>
-                            <div class="app-card-text">{{getChildrenDescription(item)}}</div>
+                            <div class="app-card-text" [innerHTML]="getChildrenDescription(item)"></div>
                             <div class="app-card-signs">
-                                <div class="app-card-sign" *ngIf="item.elasticDetails?.signatura_old">{{'old_signature' | translate}}: {{item.elasticDetails.signatura_old}}</div>
+                                <div class="app-card-sign" *ngIf="item.elasticDetails?.signatura_old">{{'old_signature' | translate}}: {{getOldShelfLocator(item.elasticDetails.signatura_old)}}</div>
                                 <div class="app-card-sign" *ngIf="item?.shelf_locators?.[0]">{{'new_signature' | translate}}: {{item.shelf_locators[0]}}</div>
                                 <div class="app-card-sign" *ngIf="item?.signature">{{'old_signature' | translate}}: {{item.signature}}</div>
                             </div>
@@ -52,7 +52,7 @@
                         </a> -->
                         <div class="app-card-content">
                             <div class="app-card-top">
-                                <a class="app-card-title-container" 
+                                <a class="app-card-title-container"
                                     [href]="'https://digitalniknihovna.cz/mzk/uuid/' + item.pid"
                                     target="_blank">
                                     <h5 class="app-card-title" >
@@ -68,7 +68,7 @@
                                         <a  class="app-card-link" [href]="'https://digitalniknihovna.cz/mzk/uuid/' + part.pid" target="_blank">{{part.name}}</a>
                                         <span *ngIf="i+1 < item.parts.length">, </span>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                             <div class="app-card-signs">

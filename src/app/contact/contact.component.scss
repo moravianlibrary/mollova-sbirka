@@ -55,7 +55,7 @@
                             width: 16px;
                             height: 16px;
                             justify-content: center;
-                            align-items: center;                            
+                            align-items: center;
                         }
                     }
                     .app-a {
@@ -72,10 +72,10 @@
                         font-size: 16px;
                         font-style: normal;
                         font-weight: 400;
-                        line-height: 24px; /* 150% */                      
+                        line-height: 24px; /* 150% */
                     }
                 }
-            }            
+            }
         }
         .app-part-contact {
             display: flex;
@@ -139,7 +139,12 @@
                     }
                 }
             }
-            .app-logo {
+            .app-logos {
+                display: flex;
+                height: 103px;
+                gap: 40px;
+            }
+            .app-logo-mzk {
                 display: flex;
                 align-items: center;
                 gap: 16px;
@@ -149,7 +154,7 @@
                     height: 38px;
                 }
             }
-        } 
+        }
     }
     .app-footer {
         display: flex;
@@ -207,7 +212,7 @@
             img {
                 height: 48px;
             }
-        }     
+        }
     }
 }
 
@@ -226,7 +231,7 @@
         .app-footer {
             padding: 0px 0 48px 0;
         }
-    }    
+    }
 }
 
 @media screen and (max-width: 700px) {
@@ -242,5 +247,5 @@
             padding: 28px;
             justify-content: center;
         }
-    }    
+    }
 }

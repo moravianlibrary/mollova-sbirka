@@ -27,6 +27,8 @@
         width: calc(100% - 300px);
         margin: 20px;
         padding: 20px;
+        max-width: 1200px;
+        max-height: 1032px;
     }
     .app-content {
         display: flex;
@@ -107,5 +109,4 @@
         }
     }
 }
-  
-  
+

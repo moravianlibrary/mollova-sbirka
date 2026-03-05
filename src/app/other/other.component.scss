@@ -34,7 +34,7 @@
                         font-style: normal;
                         font-weight: 400;
                         line-height: 24px; /* 150% */
-                    }                    
+                    }
                 }
             }
             .app-desc-right {
@@ -95,8 +95,8 @@
                         gap: 24px;
                         p {
                             margin: 0;
-                        }                    
-                    }                   
+                        }
+                    }
                 }
             }
         }
@@ -118,7 +118,7 @@
         .app-other-content {
             width: 80%
         }
-    }    
+    }
 }
 
 @media screen and (max-width: 800px) {
@@ -136,12 +136,12 @@
             .app-collections {
                 gap: 24px;
                 .app-collection {
-                    flex-direction: column;
+                    flex-direction: column-reverse;
                     gap: 12px;
                     .app-col-img {
-                        display: none;
+                        // display: none;
                         width: 100%;
-                        height: 80px;
+                        // height: 80px;
                         overflow: hidden;
                         justify-content: center;
                         align-items: center;
@@ -160,7 +160,7 @@
                 }
             }
         }
-    }    
+    }
 }
 
 @media screen and (max-width: 600px) {

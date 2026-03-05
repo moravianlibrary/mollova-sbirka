@@ -92,6 +92,7 @@
                     font-style: normal;
                     font-weight: 400;
                     line-height: 24px; /* 150% */
+                    max-width: 1200px;
                     .app-text {
                         display: flex;
                         flex-direction: column;
@@ -156,7 +157,7 @@
             img {
                 height: 48px;
             }
-        }     
+        }
     }
 }
 
@@ -166,30 +167,19 @@
             .app-about-content {
                 .app-items {
                     .app-text-image {
-                        .app-image {
-                            display: none;
+                        .app-ti-item {
+                            flex-direction: column;
+                            .app-image {
+                                order: -1;
+                            }
                         }
                     }
                 }
             }
         }
-    }    
+    }
 }
 @media screen and (max-width: 850px) {
-    .app-about-container {
-        .app-about-content-container {
-            .app-about-content {
-                .app-items {
-                    .app-text-logo-wrapper {
-                        flex-wrap: wrap;
-                        gap: 24px;
-                    }
-                }
-            }
-        }
-    }    
-}
-@media screen and (max-width: 700px) {
     .app-about-container {
         .app-about-menu {
             &.app-visible {
@@ -208,6 +198,20 @@
             }
         }
         .app-about-content-container {
+            .app-about-content {
+                .app-items {
+                    .app-text-logo-wrapper {
+                        flex-wrap: wrap;
+                        gap: 24px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 700px) {
+    .app-about-container {
+        .app-about-content-container {
             padding: 0;
             height: 100%;
             &.app-visible {
@@ -218,16 +222,16 @@
                 .app-icon-back {
                     display: flex;
                 }
-                .app-items {
-                    .app-item {
-                        .app-text-image {
-                            .app-image {
-                                display: none;
-                            }
-                        }
-                    }
-                }
+                // .app-items {
+                //     .app-item {
+                //         .app-text-image {
+                //             .app-image {
+                //                 // display: none;
+                //             }
+                //         }
+                //     }
+                // }
             }
         }
-    }    
+    }
 }

@@ -100,6 +100,13 @@ h5 {
     line-height: 24px; /* 155.556% */
     margin: 0;
 }
+a {
+    color: var(--Text-Link, #7A6600);
+    text-decoration: underline;
+}
+p {
+    margin: 0 0 12px 0;
+}
 
 /* Proměnné */
 $columns: 12;
@@ -198,7 +205,7 @@ body {
         .#{$breakpoint}-col-12 { grid-column: span 12; }
     }
 }
-  
+
 /* Specifické layout třídy */
 .layout-three-column {
     display: grid;
@@ -211,7 +218,7 @@ body {
     grid-template-columns: 2fr 10fr;
     gap: $gutter;
 }
-  
+
 @media (max-width: 576px) {
     .layout-three-column,
     .layout-two-column {
@@ -224,7 +231,7 @@ body {
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 24px; /* 150% */ 
+    line-height: 24px; /* 150% */
 }
 .text-secondary {
     /* Typesettings/sm/semibold */

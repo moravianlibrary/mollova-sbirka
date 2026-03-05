@@ -6,10 +6,13 @@ import { EnvironmentService } from './environment.service';
 
 @Injectable()
 export class ApiService {
+    constructor(
+        private envService: EnvironmentService,
+        private http: HttpClient,
+    ) {}
 
-    constructor(private envService: EnvironmentService, private http: HttpClient) { }
-
-    k7SearchUrl = this.envService.get('krameriusBaseUrl') + '/api/client/v7.0/search';
+    k7SearchUrl =
+        this.envService.get('krameriusBaseUrl') + '/api/client/v7.0/search';
     esSearchUrl = this.envService.get('elasticBaseUrl') + '/_search';
 
     doGet(url: string): Observable<Object> {
@@ -17,98 +20,96 @@ export class ApiService {
     }
 
     private buildElasticAuthHeaders(): HttpHeaders {
-        const token = btoa(`${this.envService.get('elasticLogin')}:${this.envService.get('elasticPassword')}`);
+        const token = btoa(
+            `${this.envService.get('elasticLogin')}:${this.envService.get('elasticPassword')}`,
+        );
         return new HttpHeaders({
-            'Authorization': `Basic ${token}`,
-            'Content-Type': 'application/json'
+            Authorization: `Basic ${token}`,
+            'Content-Type': 'application/json',
         });
     }
 
     private handleError(error: Response) {
-        if (error.status === 404) {
-            return throwError(() => 'Not found');
-        } else if (error.status === 401 || error.status === 403) {
-            return throwError(() => 'Unauthorized');
-        }
-        return throwError(() => 'Server error');
+        console.error('API error:', error);
+        return throwError(() => error || 'Server error');
     }
     getCollection(pid: string): Observable<Object> {
-        return this.doGet(
-            `${this.k7SearchUrl}?q=pid:"${pid}"`
-        );
+        return this.doGet(`${this.k7SearchUrl}?q=pid:"${pid}"`);
     }
     getCollectionsByPids(pids: string[]): Observable<Object> {
         if (!pids || pids.length === 0) {
             return of({ response: { docs: [] } });
         }
-    
-        const query = pids.map(pid => `"${pid}"`).join(" OR ");
-        const url = `${this.k7SearchUrl}?q=pid:(${query})`;
-    
+
+        const query = pids.map((pid) => `"${pid}"`).join(' OR ');
+        const url = `${this.k7SearchUrl}?q=pid:(${query})&rows=1000`;
+
         return this.doGet(url).pipe(catchError(this.handleError));
     }
     getCollectionChildren(pid: string): Observable<Object> {
         return this.doGet(
-            `${this.k7SearchUrl}?q=*:*&fq=(in_collections.direct:"${pid}")&fl=pid,model,authors,titles.search,title.search,root.title,date.str,title.search_*,collection.desc,collection.desc_*,shelf_locators&rows=1000`
+            `${this.k7SearchUrl}?q=*:*&fq=(in_collections.direct:"${pid}")&fl=pid,model,authors,titles.search,title.search,root.title,date.str,part.name,title.search_*,collection.desc,collection.desc_*,shelf_locators&rows=1000`,
         );
     }
     getPages(pid: string): Observable<Object> {
         return this.doGet(
-            `${this.k7SearchUrl}?q=own_parent.pid:"${pid}"&fl=pid,model,page.type,page.number&sort=rels_ext_index.sort asc&rows=4000&start=0`
+            `${this.k7SearchUrl}?q=own_parent.pid:"${pid}"&fl=pid,model,page.type,page.number&sort=rels_ext_index.sort asc&rows=4000&start=0`,
         );
     }
     getSearchResults(query: string, sort: string): Observable<Object> {
         return this.doGet(
-            `${this.k7SearchUrl}?${query}&fl=pid,model,authors,titles.search,title.search,root.title,coords.bbox.corner_ne,coords.bbox.center,coords.bbox.corner_sw,date.str,date_range_end.year,date_range_start.year&rows=100${sort}`
+            `${this.k7SearchUrl}?${query}&fl=pid,model,authors,titles.search,title.search,root.title,coords.bbox.corner_ne,coords.bbox.center,coords.bbox.corner_sw,date.str,date_range_end.year,date_range_start.year&rows=100${sort}`,
         );
     }
     getElasticSearchResults(query: string): Observable<Object> {
-        return this.http.get(encodeURI(`${this.esSearchUrl}?${query}`), {
-            headers: this.buildElasticAuthHeaders()
-        }).pipe(catchError(this.handleError));
+        return this.http
+            .get(encodeURI(`${this.esSearchUrl}?${query}`), {
+                headers: this.buildElasticAuthHeaders(),
+            })
+            .pipe(catchError(this.handleError));
     }
 
     getElasticRecordByPid(pid: string): Observable<Object> {
         const body = {
             query: {
                 match: {
-                    _id: pid
-                }
-            }
+                    _id: pid,
+                },
+            },
         };
-        return this.http.post(this.esSearchUrl, body, {
-            headers: this.buildElasticAuthHeaders()
-        }).pipe(catchError(this.handleError));
+        return this.http
+            .post(this.esSearchUrl, body, {
+                headers: this.buildElasticAuthHeaders(),
+            })
+            .pipe(catchError(this.handleError));
     }
     getElasticRecordsByPids(pids: string[]): Observable<Object> {
         if (!pids || pids.length === 0) {
             return of({ hits: { hits: [] } });
         }
-    
+
         const body = {
             query: {
                 terms: {
-                    _id: pids
-                }
+                    _id: pids,
+                },
             },
-            size: pids.length // explicitně nastav velikost výsledků
+            size: pids.length, // explicitně nastav velikost výsledků
         };
-    
-        return this.http.post(this.esSearchUrl, body, {
-            headers: this.buildElasticAuthHeaders()
-        }).pipe(catchError(this.handleError));
+
+        return this.http
+            .post(this.esSearchUrl, body, {
+                headers: this.buildElasticAuthHeaders(),
+            })
+            .pipe(catchError(this.handleError));
     }
-    
 
     //https://api.kramerius.mzk.cz/search/api/client/v7.0/search?fl=pid,accessibility,model,title.search,licenses,contains_licenses,licenses_of_ancestors,page.type,page.number,page.placement,track.length&q=own_parent.pid:%22uuid:e1db8d4c-f39c-4599-b71a-5e8cd634a8af%22&sort=rels_ext_index.sort%20asc&rows=4000&start=0
     // q=*:*&fq=(in_collections.direct:"uuid:9b190c71-5a2c-44fa-bc8a-b6c5b056c01a")&fl=pid,model,authors,titles.search,title.search,root.title,date.str,title.search_*,collection.desc,%20collection.desc_*
-
 
     // MOLLOVA MAPOVA SBIRKA
     // https://www.digitalniknihovna.cz/mzk/collection/uuid:9b190c71-5a2c-44fa-bc8a-b6c5b056c01a
 
     // IN COLLECTIONS a MODEL MAPA NEBO GRAFIKA
     // https://api.kramerius.mzk.cz/search/api/client/v7.0/search?q=*:*&fq=(in_collections:%22uuid:9b190c71-5a2c-44fa-bc8a-b6c5b056c01a%22)%20AND%20(model:graphic OR model:map)&fl=pid,model,authors,titles.search,title.search,root.title,coords.bbox.corner_ne,coords.bbox.center,coords.bbox.corner_sw,date.str&sort=created%20desc&rows=100&start=0
-
-
 }
