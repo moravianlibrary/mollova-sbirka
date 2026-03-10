@@ -70,6 +70,15 @@ docker push trinera/moll-frontend:1.0.0
 docker push trinera/moll-frontend:latest
 ```
 
+### Build & push to Dockerhub (multiplatform)
+```
+docker buildx build \
+  --platform linux/amd64,linux/arm64 \
+  -t trinera/moll-frontend:1.2.0 \
+  -t trinera/moll-frontend:latest \
+  --push .
+```
+
 ### Run Docker image
 
 #### Local image
