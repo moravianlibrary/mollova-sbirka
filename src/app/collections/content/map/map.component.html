@@ -4,7 +4,7 @@
 <div class="app-container" *ngIf="!loading">
   <div class="app-content" #scrollContainer>
     <div class="app-part-title">
-      <h2 class="app-title">{{ map["title.search"].split(":")[0] }}</h2>
+      <h2 class="app-title">{{ map['part.name'] ? map['part.name'] : map["title.search"].split(":")[0] }}</h2>
       <div class="app-authors" *ngIf="map['authors']">{{ getAuthors() }}</div>
     </div>
     <div class="app-part-map" #mapDiv>
