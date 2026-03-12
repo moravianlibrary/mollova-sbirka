@@ -11,7 +11,7 @@
                     <div class="app-card-item" *ngIf="item['model'] !== 'manuscript'">
                         <a class="app-card-image" [routerLink]="['/mollova-sbirka', item.pid]">
                             <div class="app-card-overlay"></div>
-                            <img [src]="getChildrenImage(item)" alt="Image" />
+                            <img [src]="getChildrenImage(item)" loading="lazy" alt="Image" />
                         </a>
                         <div class="app-card-content">
                             <a class="app-card-title-container" [routerLink]="['/mollova-sbirka', item.pid]">

@@ -64,14 +64,14 @@
                 .app-col-img {
                     display: flex;
                     width: 300px;
-                    height: 300px;
+                    max-height: 500px;
                     padding-top: 8px;
                     justify-content: flex-end;
                     align-items: flex-start;
                     gap: 10px;
                     img {
                         width: 300px;
-                        height: 211px;
+                        // height: 211px;
                         // flex-shrink: 0;
                     }
                 }
