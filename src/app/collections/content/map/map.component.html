@@ -29,6 +29,14 @@
           {{ title }}
         </div>
         <div class="app-line"></div>
+        <div class="app-moll-catalog">
+            <div class="app-title">{{'molls-catalog' | translate}}</div>
+            <div class="app-catalog-links">
+                <a class="app-link" *ngFor="let item of map?.elasticDetails?.combined_vyrez; let i = index" href="{{item}}" target="_blank">
+                    <div class="app-link-text">{{i+1}}</div>
+                </a>
+            </div>
+        </div>
         <div class="app-links" *ngIf="map.elasticDetails">
           <a class="app-link" href="{{map.elasticDetails.vufind_url}}" target="_blank">
                         <div class="app-link-text">{{'bibl-rec' | translate}}</div>
