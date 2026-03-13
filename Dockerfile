@@ -1,4 +1,4 @@
-FROM node:alpine as builder
+FROM node:alpine AS builder
 LABEL org.opencontainers.image.authors="Slavik Svyrydiuk <slavik@svyrydiuk.eu>"
 EXPOSE 80
 
@@ -19,6 +19,7 @@ FROM nginx:alpine
 COPY --from=builder \
   /app/dist/moll-frontend/browser/ /usr/share/nginx/html
 COPY docker/etc/nginx/conf.d/default.conf /etc/nginx/conf.d/
+COPY docker/etc/nginx/conf.d/redirects.map /etc/nginx/conf.d/
 
 # ⬇️ nový entrypoint skript
 COPY docker/entrypoint.sh /entrypoint.sh

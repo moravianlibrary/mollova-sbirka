@@ -93,7 +93,7 @@ docker run -p 1234:80 \
   -e APP_ELASTIC_URL=https://elastic.example.com \
   -e APP_ELASTIC_LOGIN=login \
   -e APP_ELASTIC_PASSWORD=password \
-trinera/moll-frontend
+trinera/moll-frontend:latest
 ```
 
 ##### Run exact version:
