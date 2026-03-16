@@ -17,6 +17,8 @@ if (!inputFile || !outputFile) {
   usage();
 }
 
+const FALLBACK_TARGET = '/mollova-sbirka';
+
 function extractPath(urlString, lineNumber, fieldName) {
   const trimmed = (urlString || '').trim();
 
@@ -50,7 +52,7 @@ const raw = fs.readFileSync(inputFile, 'utf8');
 const lines = raw.split(/\r?\n/);
 
 const outputLines = [];
-let skippedEmptyTarget = 0;
+let fallbackTargetCount = 0;
 let skippedInvalid = 0;
 let duplicateCount = 0;
 
@@ -90,22 +92,24 @@ for (let i = 0; i < lines.length; i++) {
     continue;
   }
 
+  let targetPath;
+
   if (!rightRaw.trim()) {
     console.error(
-      `[WARN] Line ${lineNumber}: target URL is empty for source ${sourcePath}`
+      `[WARN] Line ${lineNumber}: target URL is empty for source ${sourcePath}, using fallback ${FALLBACK_TARGET}`
     );
-    skippedEmptyTarget++;
-    continue;
-  }
+    targetPath = FALLBACK_TARGET;
+    fallbackTargetCount++;
+  } else {
+    targetPath = normalizePath(extractPath(rightRaw, lineNumber, 'target'));
 
-  const targetPath = normalizePath(extractPath(rightRaw, lineNumber, 'target'));
-
-  if (targetPath == null || !targetPath) {
-    console.error(
-      `[WARN] Line ${lineNumber}: target path is empty or invalid for source ${sourcePath}`
-    );
-    skippedInvalid++;
-    continue;
+    if (targetPath == null || !targetPath) {
+      console.error(
+        `[WARN] Line ${lineNumber}: target path is empty or invalid for source ${sourcePath}, using fallback ${FALLBACK_TARGET}`
+      );
+      targetPath = FALLBACK_TARGET;
+      fallbackTargetCount++;
+    }
   }
 
   if (seenSources.has(sourcePath)) {
@@ -137,6 +141,6 @@ fs.writeFileSync(outputFile, outputLines.join('\n') + '\n', 'utf8');
 console.error(
   `[DONE] Generated ${outputLines.length} redirects into ${outputFile}`
 );
-console.error(`[DONE] Skipped empty targets: ${skippedEmptyTarget}`);
+console.error(`[DONE] Redirects using fallback target: ${fallbackTargetCount}`);
 console.error(`[DONE] Skipped invalid rows: ${skippedInvalid}`);
 console.error(`[DONE] Duplicate sources: ${duplicateCount}`);
