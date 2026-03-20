@@ -60,5 +60,7 @@
     "newest": "Nejnovější",
     "oldest": "Nejstarší",
     "search-placeholder": "Autor, název, místo...",
-    "of": "z"
+    "of": "z",
+    "collection-not-found": "Dokument nenalezen",
+    "close": "Zavřít"
 }

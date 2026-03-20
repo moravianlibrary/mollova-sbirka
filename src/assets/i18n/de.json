@@ -60,6 +60,8 @@
     "newest": "Neueste",
     "oldest": "Älteste",
     "search-placeholder": "Autor, Titel, Ort...",
-    "of": "von"
+    "of": "von",
+    "collection-not-found": "Dokument nicht gefunden",
+    "close": "Schließen"
 
 }
