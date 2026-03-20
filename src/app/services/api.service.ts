@@ -58,7 +58,7 @@ export class ApiService {
     }
     getSearchResults(query: string, sort: string): Observable<Object> {
         return this.doGet(
-            `${this.k7SearchUrl}?${query}&fl=pid,model,authors,titles.search,title.search,root.title,coords.bbox.corner_ne,coords.bbox.center,coords.bbox.corner_sw,date.str,date_range_end.year,date_range_start.year&rows=100${sort}`,
+            `${this.k7SearchUrl}?${query}&fl=pid,model,authors,titles.search,part.name,title.search,root.title,coords.bbox.corner_ne,coords.bbox.center,coords.bbox.corner_sw,date.str,date_range_end.year,date_range_start.year&rows=100${sort}`,
         );
     }
     getElasticSearchResults(query: string): Observable<Object> {

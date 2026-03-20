@@ -34,9 +34,9 @@
             }
             .app-authors {
                 align-self: stretch;
-                color: var(--Text-Secondary, #38372E);
+                color: var(--Text-Secondary, #38372e);
                 /* Typesettings/lg/regular */
-                font-family: "Source Sans Pro";
+                font-family: 'Source Sans Pro';
                 font-size: 18px;
                 font-style: normal;
                 font-weight: 400;
@@ -49,7 +49,7 @@
             align-items: center;
             gap: 10px;
             align-self: stretch;
-            background: #F8F8F7;
+            background: #f8f8f7;
             position: relative;
             .app-map {
                 flex: 1 0 0;
@@ -65,7 +65,7 @@
                 align-items: center;
                 gap: 32px;
                 border-radius: var(--spacing-x-05, 2px);
-                background: rgba(255, 255, 255, 0.80);
+                background: rgba(255, 255, 255, 0.8);
                 z-index: 100;
                 .app-buttons {
                     display: flex;
@@ -78,13 +78,13 @@
                     align-items: center;
                     gap: var(--Spacing-x2, 8px);
                     border-radius: var(--spacing-x-05, 2px);
-                    background: var(--BG-Main-Primary-Default, #38372E);
+                    background: var(--BG-Main-Primary-Default, #38372e);
                     cursor: pointer;
                     &:hover {
-                        background: var(--BG-Main-Primary-Hover, #D8B600);
+                        background: var(--BG-Main-Primary-Hover, #d8b600);
                     }
                     &:active {
-                        background: var(--BG-Main-Primary-Active, #BA9D00);
+                        background: var(--BG-Main-Primary-Active, #ba9d00);
                     }
                     img {
                         display: flex;
@@ -109,8 +109,8 @@
                 justify-content: center;
                 align-items: center;
                 gap: 10px;
-                border: 1px solid var(--Boarder-Light, #F3F3F1);
-                background: var(--BG-Main-Base, #FFF);
+                border: 1px solid var(--Boarder-Light, #f3f3f1);
+                background: var(--BG-Main-Base, #fff);
                 .app-metadata {
                     display: flex;
                     flex-direction: column;
@@ -119,13 +119,13 @@
                     // align-items: center;
                     gap: 10px;
                     align-self: stretch;
-                    background: var(--BG-Main-Light, #F8F8F7);
+                    background: var(--BG-Main-Light, #f8f8f7);
                     .app-metadata-item {
                         display: flex;
                         flex: 1 0 0;
-                        color: var(--Text-Secondary, #38372E);
+                        color: var(--Text-Secondary, #38372e);
                         /* Typesettings/sm/regular */
-                        font-family: "Source Sans Pro";
+                        font-family: 'Source Sans Pro';
                         font-size: 14px;
                         font-style: normal;
                         font-weight: 400;
@@ -141,10 +141,10 @@
                 flex: 1 0 0;
                 .app-text {
                     align-self: stretch;
-                    color: var(--Text-Secondary, #38372E);
+                    color: var(--Text-Secondary, #38372e);
 
                     /* Typesettings/sm/italic-regular */
-                    font-family: "Source Sans Pro";
+                    font-family: 'Source Sans Pro';
                     font-size: 14px;
                     font-style: italic;
                     font-weight: 400;
@@ -153,7 +153,7 @@
                 .app-line {
                     width: 342px;
                     height: 1px;
-                    background: var(--Boarder-Light, #F3F3F1);
+                    background: var(--Boarder-Light, #f3f3f1);
                 }
                 .app-links {
                     display: flex;
@@ -173,9 +173,9 @@
                             }
                         }
                         .app-link-text {
-                            color: var(--Text-Link, #7A6600);
+                            color: var(--Text-Link, #7a6600);
                             /* Typesettings/sm/semibold2 */
-                            font-family: "Source Sans Pro";
+                            font-family: 'Source Sans Pro';
                             font-size: 14px;
                             font-style: normal;
                             font-weight: 600;
@@ -190,7 +190,54 @@
                         }
                     }
                 }
-
+                .app-moll-catalog {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    .app-title {
+                        color: var(--Text-Btn-Tertiary-Default, #706e5c);
+                        font-family: 'Source Sans Pro';
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 20px;
+                        text-decoration-style: solid;
+                        text-decoration-skip-ink: none;
+                        text-decoration-thickness: auto;
+                        text-underline-offset: auto;
+                        text-underline-position: from-font;
+                    }
+                    .app-catalog-links {
+                        display: flex;
+                        align-items: center;
+                        gap: 4px;
+                        .app-link {
+                            display: flex;
+                            padding: 0px 7px;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 10px;
+                            border-radius: 11px;
+                            border: 1px solid var(--Boarder-Tertiary-Hover, #ba9d00);
+                            text-decoration: none;
+                            cursor: pointer;
+                            .app-link-text {
+                                color: var(--Text-Light, #706e5c);
+                                text-align: center;
+                                font-family: 'Source Sans Pro';
+                                font-size: 14px;
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: 20px;
+                                text-decoration: none;
+                                &:hover {
+                                    color: var(--Text-Link-Hover, #d8b600);
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
         .app-part-siblings {
@@ -224,15 +271,15 @@
                         overflow: hidden;
                         border-radius: 2px;
                         box-sizing: border-box; /* Zahrne všechny okraje a padding do výpočtu velikosti */
-                        
+
                         img {
                             width: 100%; /* Obrázek pokryje celý rodičovský prvek */
                             height: 100%;
                             object-fit: cover;
                             object-position: center;
-                        //   transition: transform 0.3s ease; /* Plynulá animace pro zvětšení obrázku */
+                            //   transition: transform 0.3s ease; /* Plynulá animace pro zvětšení obrázku */
                         }
-                        
+
                         .app-card-overlay {
                             position: absolute;
                             box-sizing: border-box;
@@ -243,16 +290,16 @@
                             border: 8px solid transparent; /* Transparentní border pro výchozí stav */
                             border-radius: 2px;
                             pointer-events: none; /* Zabrání interakci s překryvem */
-                        //   transition: border-color 0.3s ease; /* Plynulá změna barvy borderu */
+                            //   transition: border-color 0.3s ease; /* Plynulá změna barvy borderu */
                         }
-                        
-                        &:hover {                      
+
+                        &:hover {
                             .app-card-overlay {
-                            border-color: #d8b600; /* Změna barvy rámečku při hoveru */
+                                border-color: #d8b600; /* Změna barvy rámečku při hoveru */
                             }
                         }
-                        }
-                        
+                    }
+
                     .app-card-content {
                         display: flex;
                         flex-direction: column;
@@ -310,20 +357,20 @@
                             line-clamp: 3; /* Přidáno pro kompatibilitu */
                             align-self: stretch;
                             overflow: hidden;
-                            color: var(--Text-Secondary, #38372E);
+                            color: var(--Text-Secondary, #38372e);
                             text-overflow: ellipsis;
-                        
+
                             /* Typesettings/sm/regular */
-                            font-family: "Source Sans Pro";
+                            font-family: 'Source Sans Pro';
                             font-size: 14px;
                             font-style: normal;
                             font-weight: 400;
                             line-height: 20px; /* 142.857% */
                         }
                         .app-card-sign {
-                            color: var(--Text-Light, #706E5C);
+                            color: var(--Text-Light, #706e5c);
                             /* Typesettings/sm/regular */
-                            font-family: "Source Sans Pro";
+                            font-family: 'Source Sans Pro';
                             font-size: 14px;
                             font-style: normal;
                             font-weight: 400;
@@ -335,10 +382,10 @@
                             gap: var(--Spacing-x2, 8px);
                             cursor: pointer;
                             .app-card-link-text {
-                                color: var(--Text-Btn-Tertiary-Default, #706E5C);
+                                color: var(--Text-Btn-Tertiary-Default, #706e5c);
 
                                 /* Typesettings/sm/regular */
-                                font-family: "Source Sans Pro";
+                                font-family: 'Source Sans Pro';
                                 font-size: 14px;
                                 font-style: normal;
                                 font-weight: 400;
@@ -359,10 +406,10 @@
                                 &.hover-icon {
                                     display: none;
                                 }
-                            }                          
+                            }
                         }
                         .app-card-link:hover .app-card-link-text {
-                            color: var(--Text-Link, #7A6600);
+                            color: var(--Text-Link, #7a6600);
                             text-decoration: underline;
                         }
                         .app-card-link:hover .default-icon {
@@ -388,7 +435,7 @@
         justify-content: space-between;
         align-items: center;
         border-radius: var(--Spacing-x1, 4px) var(--Spacing-x1, 4px) 0px 0px;
-        background: #FFF;
+        background: #fff;
         box-shadow: 0px 2px 16px 2px rgba(0, 0, 0, 0.12);
         .app-nav-button {
             display: flex;
@@ -396,7 +443,7 @@
             align-items: center;
             gap: var(--Spacing-x3, 12px);
             border-radius: var(--spacing-x-05, 2px);
-            border: 1px solid var(--Boarder-Tertiary-Default, #38372E);
+            border: 1px solid var(--Boarder-Tertiary-Default, #38372e);
             cursor: pointer;
             .app-text {
                 display: -webkit-box;
@@ -405,9 +452,9 @@
                 -webkit-box-orient: vertical;
                 overflow: hidden;
                 text-overflow: ellipsis;
-                color: var(--Text-Secondary, #38372E);
+                color: var(--Text-Secondary, #38372e);
                 /* Typesettings/lg/semibold */
-                font-family: "Source Sans Pro";
+                font-family: 'Source Sans Pro';
                 font-size: 18px;
                 font-style: normal;
                 font-weight: 600;
@@ -427,13 +474,13 @@
             gap: 24px;
             .app-text {
                 width: 100%;
-                color: var(--Text-Secondary, #38372E);
+                color: var(--Text-Secondary, #38372e);
                 /* Typesettings/md/regular */
-                font-family: "Source Sans Pro";
+                font-family: 'Source Sans Pro';
                 font-size: 16px;
                 font-style: normal;
                 font-weight: 400;
-                line-height: 24px; /* 150% */            
+                line-height: 24px; /* 150% */
             }
             .app-pagination {
                 // width: 100%;
@@ -450,23 +497,23 @@
                         display: flex;
                         padding: var(--Spacing-x3, 12px);
                         align-items: center;
-                        gap: var(--Spacing-x3, 12px); 
+                        gap: var(--Spacing-x3, 12px);
                         border-radius: var(--spacing-x-05, 2px);
-                        border: 1px solid var(--Boarder-Tertiary-Disable, #D1D0C7); 
+                        border: 1px solid var(--Boarder-Tertiary-Disable, #d1d0c7);
                         cursor: pointer;
                         img {
                             width: 20px;
                             height: 20px;
                             flex-shrink: 0;
-                        }   
+                        }
                         &.active-button {
-                            border: 1px solid var(--Boarder-Tertiary-Default, #38372E);
+                            border: 1px solid var(--Boarder-Tertiary-Default, #38372e);
                             &:hover {
-                                border: 1px solid var(--Boarder-Tertiary-Default, #A08700);
+                                border: 1px solid var(--Boarder-Tertiary-Default, #a08700);
                             }
-                        }               
+                        }
                     }
-                }          
+                }
             }
         }
     }
@@ -524,7 +571,7 @@
             .app-right-nav {
                 .app-text {
                     display: none;
-                }            
+                }
             }
         }
     }

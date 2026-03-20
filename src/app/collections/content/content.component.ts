@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { forkJoin, Subscription } from 'rxjs';
 import { EnvironmentService } from '../../services/environment.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
     selector: 'app-content',
@@ -33,6 +34,7 @@ export class ContentComponent implements OnInit, OnDestroy {
         private route: ActivatedRoute,
         private router: Router,
         private translate: TranslateService,
+        private snackBar: MatSnackBar
     ) {}
 
     ngOnInit(): void {
@@ -227,6 +229,13 @@ export class ContentComponent implements OnInit, OnDestroy {
                 }
             } else {
                 console.error('Invalid data format:', data);
+                this.loading = false;
+                this.snackBar.open(
+                    this.translate.instant('collection-not-found'),
+                    this.translate.instant('close'),
+                    { duration: 3000 },
+                );
+                this.router.navigate(['/mollova-sbirka']); // přesměrování na hlavní stránku kolekce
             }
         });
     }

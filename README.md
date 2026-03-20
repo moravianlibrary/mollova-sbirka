@@ -70,6 +70,15 @@ docker push trinera/moll-frontend:1.2.0
 docker push trinera/moll-frontend:latest
 ```
 
+### Build & push to Dockerhub (multiplatform)
+```
+docker buildx build \
+  --platform linux/amd64,linux/arm64 \
+  -t trinera/moll-frontend:1.2.0 \
+  -t trinera/moll-frontend:latest \
+  --push .
+```
+
 ### Run Docker image
 
 #### Local image
@@ -84,7 +93,7 @@ docker run -p 1234:80 \
   -e APP_ELASTIC_URL=https://elastic.example.com \
   -e APP_ELASTIC_LOGIN=login \
   -e APP_ELASTIC_PASSWORD=password \
-trinera/moll-frontend
+trinera/moll-frontend:latest
 ```
 
 ##### Run exact version:

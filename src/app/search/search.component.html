@@ -106,7 +106,7 @@
             (mouseleave)="unhighlightMap(map)">
             <div class="app-result-text">
               <div class="app-title">
-                {{ map["title.search"] }}
+                {{ map['part.name'] ? map['part.name'] : map["title.search"].split(":")[0] }}
               </div>
               <div class="app-year">{{ map["date.str"] }}</div>
               <div class="app-author">{{ map["authors"] }}</div>
