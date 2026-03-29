@@ -3,13 +3,11 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.1.
 
 ## Development
-
-### Run
-
-`npm run start`
-
-for a local dev server. Navigate to `http://localhost:4200/`.
+Run `npm run start` for a local dev server. Navigate to http://localhost:4200/.
 The application will automatically reload if you change any of the source files.
+
+Don't forget to setup your configuration in file `environment.local.ts`.
+If missing, this file will be generated after first `npm run start`.
 
 ## Build & Run
 
@@ -18,27 +16,27 @@ The application will automatically reload if you change any of the source files.
 First define configuration in environment variables
 
 ```shell
-
 export APP_DEV_MODE=false
 export APP_KRAMERIUS_URL="https://api.kramerius.mzk.cz/search"
 export APP_ELASTIC_URL="http://localhost:9200/moll"
 export APP_ELASTIC_LOGIN="elastic"
 export APP_ELASTIC_PASSWORD="password"
 export APP_GOOGLE_MAPS_API_KEY="google-maps-key"
-
 ```
 
 Now run `npm run build` to build the project. 
 
 The build artifacts will be stored in the `dist/` directory.
 
-The environment configuration from `APP_*` variables will be stored into `dist/moll-frontend/browser/assets/env.json`
+The environment configuration from `APP_*` variables will be stored into `dist/moll-frontend/browser/assets/env.json` (except for `APP_GOOGLE_MAPS_API_KEY`).
 
 ### Run
 
-To test the the app you've just built run: 
+To test the the app, that you've just built, run: 
 
-`sh scripts/inject_google_maps_key_into_dist.sh; npx serve dist/moll-frontend/browser -l 8080` 
+```shell
+sh scripts/inject_google_maps_key_into_dist.sh; npx serve dist/moll-frontend/browser -l 8080
+``` 
 
 And open in browser
 
@@ -52,11 +50,6 @@ docker build -t moll-frontend .
 ```
 
 possibly including version tag  
-```
-docker build -t trinera/moll-frontend:1.0.0 .
-```
-
-or including version tag
 ```
 docker build -t trinera/moll-frontend:1.0.0 .
 ```
@@ -82,7 +75,7 @@ docker buildx build --platform linux/amd64,linux/arm64 -t trinera/moll-frontend:
 Run locally built Docker image
 
 ##### Run
-```
+```shell
 docker run -p 1234:80 \
   -e APP_DEV_MODE=false \
   -e APP_KRAMERIUS_URL=https://api.kramerius.mzk.cz/search \
@@ -94,7 +87,7 @@ trinera/moll-frontend
 ```
 
 ##### Run exact version:
-```
+```shell
 docker run -p 1234:80 \
   -e APP_KRAMERIUS_URL=https://api.kramerius.mzk.cz/search \
   -e APP_ELASTIC_URL=https://elastic.example.com \
@@ -110,7 +103,7 @@ Run image that someone built and pushed to Dockerhub.
 
 ##### Run
 
-```
+```shell
 docker pull trinera/moll-frontend
 docker run -p 1234:80 \
   -e APP_KRAMERIUS_URL=https://api.kramerius.mzk.cz/search \
@@ -123,7 +116,7 @@ trinera/moll-frontend
 
 And open in browser
 
-`http://localhost:1234`
+http://localhost:1234
 
 ## Running unit tests
 
