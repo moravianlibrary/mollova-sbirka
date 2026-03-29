@@ -24,6 +24,7 @@ export APP_KRAMERIUS_URL="https://api.kramerius.mzk.cz/search"
 export APP_ELASTIC_URL="http://localhost:9200/moll"
 export APP_ELASTIC_LOGIN="elastic"
 export APP_ELASTIC_PASSWORD="password"
+export APP_GOOGLE_MAPS_API_KEY="google-maps-key"
 
 ```
 
@@ -35,13 +36,13 @@ The environment configuration from `APP_*` variables will be stored into `dist/m
 
 ### Run
 
-To test the the app you've just built 
+To test the the app you've just built run: 
 
-`npx serve dist/moll-frontend/browser -l 8080` 
+`sh scripts/inject_google_maps_key_into_dist.sh; npx serve dist/moll-frontend/browser -l 8080` 
 
 And open in browser
 
-`http://localhost:8080`
+http://localhost:8080
 
 ## Docker Build & Run
 
@@ -55,9 +56,9 @@ possibly including version tag
 docker build -t trinera/moll-frontend:1.0.0 .
 ```
 
-or including version tag and tag `latest`
+or including version tag
 ```
-docker build -t trinera/moll-frontend:latest -t trinera/moll-frontend:1.0.0 .
+docker build -t trinera/moll-frontend:1.0.0 .
 ```
 
 ### Push to Dockerhub
@@ -67,16 +68,11 @@ You don't need this to run localy built Docker image.
 
 ```
 docker push trinera/moll-frontend:1.0.0
-docker push trinera/moll-frontend:latest
 ```
 
 ### Build & push to Dockerhub (multiplatform)
 ```
-docker buildx build \
-  --platform linux/amd64,linux/arm64 \
-  -t trinera/moll-frontend:1.0.0 \
-  -t trinera/moll-frontend:latest \
-  --push .
+docker buildx build --platform linux/amd64,linux/arm64 -t trinera/moll-frontend:1.0.0 --push .
 ```
 
 ### Run Docker image
@@ -93,7 +89,8 @@ docker run -p 1234:80 \
   -e APP_ELASTIC_URL=https://elastic.example.com \
   -e APP_ELASTIC_LOGIN=login \
   -e APP_ELASTIC_PASSWORD=password \
-trinera/moll-frontend:latest
+  -e APP_GOOGLE_MAPS_API_KEY=google-maps-key \
+trinera/moll-frontend
 ```
 
 ##### Run exact version:
@@ -103,16 +100,7 @@ docker run -p 1234:80 \
   -e APP_ELASTIC_URL=https://elastic.example.com \
   -e APP_ELASTIC_LOGIN=login \
   -e APP_ELASTIC_PASSWORD=password \
-trinera/moll-frontend:latest
-```
-or
-
-```
-docker run -p 1234:80 \
-  -e APP_KRAMERIUS_URL=https://api.kramerius.mzk.cz/search \
-  -e APP_ELASTIC_URL=https://elastic.example.com \
-  -e APP_ELASTIC_LOGIN=login \
-  -e APP_ELASTIC_PASSWORD=password \
+  -e APP_GOOGLE_MAPS_API_KEY=google-maps-key \
 trinera/moll-frontend:1.0.0
 ```
 
@@ -123,12 +111,13 @@ Run image that someone built and pushed to Dockerhub.
 ##### Run
 
 ```
-docker pull trinera/moll-frontend:latest
+docker pull trinera/moll-frontend
 docker run -p 1234:80 \
   -e APP_KRAMERIUS_URL=https://api.kramerius.mzk.cz/search \
   -e APP_ELASTIC_URL=https://elastic.example.com \
   -e APP_ELASTIC_LOGIN=login \
   -e APP_ELASTIC_PASSWORD=password \
+  -e APP_GOOGLE_MAPS_API_KEY=google-maps-key \
 trinera/moll-frontend
 ```
 

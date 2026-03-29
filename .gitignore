@@ -45,4 +45,5 @@ Thumbs.db
 .env
 /src/environments/environment.local.ts
 src/assets/env.json
-build-info.json
+src/assets/build-info.json
+src/assets/early-bootstrap-config.js
