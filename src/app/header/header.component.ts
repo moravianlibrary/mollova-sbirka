@@ -63,6 +63,7 @@ export class HeaderComponent {
       environmentName: this.envService.get('environmentName'),
       krameriusBaseUrl: this.envService.get('krameriusBaseUrl'),
       elasticBaseUrl: this.envService.get('elasticBaseUrl'),
+      googleMapsApiKey: this.envService.get('googleMapsApiKey'),
 
       gitCommitHash: this.envService.get('git_commit_hash'),
       gitTag: this.envService.get('git_tag'),

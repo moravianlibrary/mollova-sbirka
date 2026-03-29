@@ -11,7 +11,8 @@ cat <<EOF > /usr/share/nginx/html/assets/env.json
   "krameriusBaseUrl": "${APP_KRAMERIUS_URL}",
   "elasticBaseUrl": "${APP_ELASTIC_URL}",
   "elasticLogin": "${APP_ELASTIC_LOGIN}",
-  "elasticPassword": "${APP_ELASTIC_PASSWORD}"
+  "elasticPassword": "${APP_ELASTIC_PASSWORD}",
+  "googleMapsApiKey": "${APP_GOOGLE_MAPS_API_KEY}"
 }
 EOF
 
