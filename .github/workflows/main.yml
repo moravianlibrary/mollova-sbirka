@@ -15,6 +15,7 @@ name: Main workflow
 # - APP_ELASTIC_URL
 # - APP_ELASTIC_LOGIN
 # - APP_KRAMERIUS_URL
+# - APP_GOOGLE_MAPS_API_KEY
 
 # this workflow uses actions:
 # https://github.com/marketplace/actions/create-json
@@ -228,6 +229,7 @@ jobs:
           TF_VAR_APP_ELASTIC_URL: ${{ vars.APP_ELASTIC_URL }}
           TF_VAR_APP_ELASTIC_LOGIN: ${{ vars.APP_ELASTIC_LOGIN }}
           TF_VAR_APP_KRAMERIUS_URL: ${{ vars.APP_KRAMERIUS_URL }}
+          TF_VAR_APP_GOOGLE_MAPS_API_KEY: ${{ vars.APP_GOOGLE_MAPS_API_KEY }}
         with:
           TERRAFORM_DOCKER_IMAGE: ${DOCKER_IMAGE}
           TERRAFORM_DOCKER_TAG: ${DOCKER_TAG}

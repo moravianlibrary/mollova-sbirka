@@ -3,9 +3,9 @@
     "version": "1.2.2",
     "scripts": {
         "ng": "ng",
-        "prestart": "node scripts/bootstrap_file_environment-local-ts.js && node scripts/collect-build-info.js",
+        "prestart": "node scripts/bootstrap_file_environment-local-ts.js && node scripts/collect-build-info.js && node scripts/generate_file_early-bootstrap-config-js.js",
         "start": "ng serve",
-        "prebuild": "node scripts/generate_file_env-json.js && node scripts/collect-build-info.js",
+        "prebuild": "node scripts/generate_file_env-json.js && node scripts/collect-build-info.js && node scripts/prepare_file_early-bootstrap-config-for-build.js",
         "build": "ng build",
         "watch": "ng build --watch --configuration development",
         "test": "ng test"
@@ -38,6 +38,7 @@
         "@types/google.maps": "^3.58.1",
         "@types/jasmine": "~5.1.0",
         "@types/openseadragon": "^3.0.10",
+        "esbuild-register": "^3.6.0",
         "jasmine-core": "~5.1.0",
         "karma": "~6.4.0",
         "karma-chrome-launcher": "~3.2.0",

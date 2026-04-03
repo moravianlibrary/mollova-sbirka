@@ -29,6 +29,9 @@ variable "APP_ELASTIC_LOGIN" {
 variable "APP_ELASTIC_PASSWORD" {
   type = string
 }
+variable "APP_GOOGLE_MAPS_API_KEY" {
+  type = string
+}
 
 variable "docker_host_uri" {
   type = string
@@ -95,7 +98,8 @@ resource "docker_container" "moll_frontend" {
     "APP_KRAMERIUS_URL=${var.APP_KRAMERIUS_URL}",
     "APP_ELASTIC_URL=${var.APP_ELASTIC_URL}",
     "APP_ELASTIC_LOGIN=${var.APP_ELASTIC_LOGIN}",
-    "APP_ELASTIC_PASSWORD=${var.APP_ELASTIC_PASSWORD}"
+    "APP_ELASTIC_PASSWORD=${var.APP_ELASTIC_PASSWORD}",
+    "APP_GOOGLE_MAPS_API_KEY=${var.APP_GOOGLE_MAPS_API_KEY}"
   ]
 
   labels {

@@ -12,4 +12,6 @@ export const environment = {
   elasticBaseUrl: '', // pro produkci ziskej z promenne APP_ELASTIC_URL (přes env.json)
   elasticLogin: '', // pro produkci ziskej z promenne APP_ELASTIC_LOGIN (přes env.json)
   elasticPassword: '', // pro produkci ziskej z promenne APP_ELASTIC_PASSWORD (přes env.json)
+  googleMapsApiKey: '', // pro produkci ziskej z promenne APP_GOOGLE_MAPS_API_KEY
+
 };

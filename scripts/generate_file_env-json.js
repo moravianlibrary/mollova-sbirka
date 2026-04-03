@@ -23,7 +23,8 @@ const config = {
   krameriusBaseUrl: process.env.APP_KRAMERIUS_URL || '',
   elasticBaseUrl: process.env.APP_ELASTIC_URL || '',
   elasticLogin: process.env.APP_ELASTIC_LOGIN || '',
-  elasticPassword: process.env.APP_ELASTIC_PASSWORD || ''
+  elasticPassword: process.env.APP_ELASTIC_PASSWORD || '',
+  googleMapsApiKey: process.env.APP_GOOGLE_MAPS_API_KEY || ''
 };
 
 fs.writeFileSync(outputPath, JSON.stringify(config, null, 2));
