@@ -1,6 +1,6 @@
 {
     "name": "moll-frontend",
-    "version": "1.2.2",
+    "version": "1.3.0",
     "scripts": {
         "ng": "ng",
         "prestart": "node scripts/bootstrap_file_environment-local-ts.js && node scripts/collect-build-info.js && node scripts/generate_file_early-bootstrap-config-js.js",
