@@ -51,7 +51,7 @@ docker build -t moll-frontend .
 
 possibly including version tag  
 ```
-docker build -t trinera/moll-frontend:1.3.0 .
+docker build -t trinera/moll-frontend:1.3.1 .
 ```
 
 ### Push to Dockerhub
@@ -60,12 +60,12 @@ Only if you have write access to Dockerhub repository trinera/moll-frontend.
 You don't need this to run localy built Docker image.
 
 ```
-docker push trinera/moll-frontend:1.3.0
+docker push trinera/moll-frontend:1.3.1
 ```
 
 ### Build & push to Dockerhub (multiplatform)
 ```
-docker buildx build --platform linux/amd64,linux/arm64 -t trinera/moll-frontend:1.3.0 --push .
+docker buildx build --platform linux/amd64,linux/arm64 -t trinera/moll-frontend:1.3.1 --push .
 ```
 
 ### Run Docker image
@@ -94,7 +94,7 @@ docker run -p 1234:80 \
   -e APP_ELASTIC_LOGIN=login \
   -e APP_ELASTIC_PASSWORD=password \
   -e APP_GOOGLE_MAPS_API_KEY=google-maps-key \
-trinera/moll-frontend:1.3.0
+trinera/moll-frontend:1.3.1
 ```
 
 #### Image pulled from Docker Hub
